@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /ngadmin/
+Disallow: /images/
+Disallow: /assets/
+Disallow: /compfiles/
+Disallow: /swf/
+Disallow: /comps/
+Disallow: /comp/
+
+Sitemap: http://www.optic-noise.com/sitemap.xml

@@ -1,0 +1,90 @@
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="DropboxesForm" id="DropboxesForm" method="post">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-light-blue">
+					<div class="panel-heading">
+						<span class="badge badge-white pull-right margin-top-4">{{allDropboxesTotal}}</span>
+						<h4 class="panel-title"><i class="fab fa-dropbox fa-fw aria-hidden="true""></i> Dropboxes</h4>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12" ng-show="!dropboxes.length">
+								<div class="panel panel-lighter-blue">
+									<div class="panel-heading">
+										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw aria-hidden="true""></i>No dropboxes!</h4>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-lg-12">
+												<a href="#/add-dropbox" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> New Dropbox</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-sm-6 col-xs-12" ng-repeat="dropbox in dropboxes">
+								<div class="panel panel-lighter-blue">
+									<div class="panel-heading">
+										<div class="pull-right tools btn-group">
+											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog aria-hidden="true""></i> &nbsp;&nbsp;<span class="caret"></span></button>
+											<ul class="dropdown-menu pull-right" role="menu">
+												<li><a href="#/edit-dropbox/{{dropbox.dropbox_id}}"><i class="fas fa-edit" aria-hidden="true"></i> edit</a></li>
+												<li class="divider"></li>
+												<li ng-show="dropbox.active=='y'"><a href="javascript:;" ng-click="setInActive(dropbox)"><i class="fa fa-ban" aria-hidden="true"></i> set <span class="label label-warning">inactive</span></a></li>
+												<li ng-show="dropbox.active=='n'"><a href="javascript:;" ng-click="setActive(dropbox)"><i class="fa fa-check" aria-hidden="true"></i> set <span class="label label-success">active</span></a></li>
+												<li class="divider"></li>
+												<li><a href="javascript:;" ng-click="delete(dropbox)"><i class="fa fa-trash" aria-hidden="true"></i> delete</a></li>
+											</ul>
+										</div>
+										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> <a href="#/edit-dropbox/{{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></h4>
+									</div>
+									<div class="panel-body">
+										<div class="row padded-grid">
+											<div class="col-lg-12">
+												<ul class="list-group">
+													<li class="list-group-item">
+														<div class="input-group">
+															<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}" ng-model="dropbox.copy2" />
+															<span class="input-group-btn">
+																<button class="btn btn-blue clip_button" clip-copy="dropbox.copy2" clip-click="copyDone(dropbox.copy2)" type="button" data-clipboard-text="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}"><i class="fa fa-copy" aria-hidden="true"></i></button>
+															</span>
+														</div>
+													</li>
+													<li class="list-group-item"><i class="fas fa-cloud-download-alt" aria-hidden="true"></i> <strong>link</strong> <span class="pull-right"><a href="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></span></li>
+													<li class="list-group-item"><i class="fas fa-plus-circle" aria-hidden="true"></i> <strong>added</strong> <span class="pull-right">{{dropbox.date_added | timestampDateFormat}}</span></li>
+													<li class="list-group-item"><i class="fas fa-file-download" aria-hidden="true"></i> <strong>downloads</strong> <span class="pull-right pad-left-5"><a class="btn btn-default btn-xs" href="" ng-click="resetCount(dropbox)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span><span class="badge bg-blue margin-top-3">{{dropbox.count}}</span></li>
+													<li class="list-group-item"><i class="fas fa-calendar-check" aria-hidden="true"></i> <strong>last download</strong> <span class="pull-right">{{dropbox.last_download | timestampDateTimeFormat}}</span></li>
+													<li class="list-group-item"><i class="fas fa-thermometer-three-quarters" aria-hidden="true"></i> <strong>status</strong> <span class="label pull-right" ng-class="{'label-warning': dropbox.active=='n','label-success': dropbox.active=='y'}">{{dropbox.activeTxt}}</span></li>
+													<li class="list-group-item"><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> <strong>sort order</strong> <input type="text" name="sort" class="form-control pull-right sortorder" ng-model="dropbox.sort"></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="panel-footer">
+										<span class="tools btn-group">
+											<a href="#/edit-dropbox/{{dropbox.dropbox_id}}" class="btn white btn-sm"><i class="fas fa-edit" aria-hidden="true"></i></a>
+										</span>
+										<span class="tools btn-group pull-right">
+											<a href="javascript:;" ng-click="delete(dropbox)" class="btn white btn-sm"><i class="fas fa-trash" aria-hidden="true"></i></a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<div class="panel panel-onl">
+					<div class="panel-body">
+						<div class="pull-left">
+							<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-blue"><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Update sort order</button>
+							<a href="#/" class="btn btn-cancel">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

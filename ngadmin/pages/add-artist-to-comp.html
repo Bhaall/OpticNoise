@@ -1,0 +1,81 @@
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="AddArtistForm" id="AddArtistForm" method="post" enctype="multiple/form-data">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-purple">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fa fa-plus" aria-hidden="true"></i> {{comp.comp_name}} | add artist
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group has-feedback" ng-class="{'has-success': AddArtistForm.INartistName.$valid && AddArtistForm.INartistName.$dirty, 'has-invalid': AddArtistForm.INartistName.$invalid && AddArtistForm.INartistName.$dirty, 'has-error': AddArtistForm.INartistName.$invalid && AddArtistForm.submitted}">
+							<label for="INartistName">name:</label>
+							<div class="row">
+								<div class="col-xs-2">
+									<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
+										<option value="the">the</option>
+									</select>
+								</div>
+								<div class="col-xs-10">
+									<div class="input-icon">
+										<i class="fa fa-id-badge fa-fw" aria-hidden="true"></i>
+										<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" required autofocus />
+									</div>
+									<div ng-show="AddArtistForm.INartistName.$valid">
+										<span ng-show="AddArtistForm.INartistName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="AddArtistForm.INartistName.$invalid && AddArtistForm.INartistName.$dirty">
+										<span ng-show="AddArtistForm.INartistName.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="INroster_desc">description:</label>
+							<div class="input-icon">
+								<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
+								<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-6">
+								<label for="INlabel">label:</label>
+									<div class="input-icon">
+										<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
+										<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<label>active:</label>
+									<div class="mt-radio-inline">
+										<label class="mt-radio">
+											<input type="radio" name="optionsActive" ng-model="artist.active" value="y" checked>yes
+											<span></span>
+										</label>
+										<label class="mt-radio">
+											<input type="radio" name="optionsActive" ng-model="artist.active" value="n">no
+											<span></span>
+										</label>
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<label for="INsync">sync:</label>
+									<select class="form-control" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
+										<option value="Master">Master</option>
+										<option value="Sync">Sync</option>
+										<option value="Master/Sync">Master/Sync</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-info" ng-disabled="AddArtistForm.$invalid || isUnchanged(artist)" id="add-new-btn" ng-click="add_new(artist)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+						<a href="#/edit-comp/{{comp_id}}" class="btn btn-cancel">Cancel</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+</div>

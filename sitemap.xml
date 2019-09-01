@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+<url>
+  <loc>http://optic-noise.com/</loc>
+  <priority>1.0</priority>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/index.php</loc>
+  <priority>1.0</priority>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/contact.php</loc>
+  <priority>.90</priority>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/roster.php</loc>
+  <priority>0.75</priority>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/licenses.php</loc>
+  <priority>0.75</priority>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/about.php</loc>
+  <priority>0.75</priority>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/licenses.php?page=1</loc>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/licenses.php?page=2</loc>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/licenses.php?page=3</loc>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+<url>
+  <loc>http://optic-noise.com/licenses.php?page=4</loc>
+  <changefreq>weekly</changefreq>
+  <image:image>
+    <image:loc>
+      http://www.optic-noise.com/images/opticnoise.png
+    </image:loc>
+  </image:image>
+</url>
+</urlset>

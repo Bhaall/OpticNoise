@@ -1,0 +1,50 @@
+<div class="container-fluid">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<a id="refreshUserList" class="pull-right refresh-me margin-top-4" data-target="#userListPanel" href="javascript:;"><span class="fas fa-redo" aria-hidden="true"></span></a>
+			<h4 class="panel-title">
+				<i class="fas fa-street-view" aria-hidden="true"></i> users
+			</h4>
+		</div>
+    <div class="panel-body panel-refresh" id="userListPanel">
+			<div class="table-responsive">
+				<table id="user-signups" class="table table-striped table-bordered pull-down">
+					<thead>
+						<tr>
+							<!-- <th class="hidden-xs"></th> -->
+							<th class="hidden-xs">username</th>
+							<th>first</th>
+							<th>last</th>
+							<th>recent login</th>
+						</tr>
+					</thead>
+					<tbody class="refresh-container">
+						<tr ng-repeat="user in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+							<!-- <td class="hidden-xs"><a href="#/user-profile/{{user.AdminID}}"><img style="width:30px;" ng-src="img/people/{{user.portrait}}" class="img-circle" /></a></td> -->
+							<td class="hidden-xs"><a href="#/user-profile/{{user.AdminID}}"><img style="width:30px;" ng-src="img/people/{{user.portrait}}" class="img-circle" /> {{user.username}}</a></td>
+							<td><a href="#/user-profile/{{user.AdminID}}">{{user.firstname}}</a></td>
+							<td><a href="#/user-profile/{{user.AdminID}}">{{user.lastname}}</a></td>
+							<td>{{user.last_login}}</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="6">
+								<div class="text-center">
+									<ul class="pagination">
+										<li ng-class="{disabled: currentPage == 0}">
+											<a class="btn btn-default btn-sm" href="javascript:;" ng-click="prevPage()"><i class="fa fa-angle-left" aria-hidden="true"></i> Prev</a>
+										</li>
+										<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+											<a class="btn btn-default btn-sm" href="javascript:;" ng-click="nextPage()">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+										</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

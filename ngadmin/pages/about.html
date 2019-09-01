@@ -1,0 +1,41 @@
+<div class="container-fluid">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<i class="fas fa-smile" aria-hidden="true"></i> About page
+			</h4>
+		</div>
+    <div class="panel-body panel-refresh" id="aboutListPanel">
+			<div class="table-responsive">
+				<table id="about" class="table table-striped table-bordered pull-down">
+					<thead>
+						<tr>
+							<th class="hidden-xs">About Page</th>
+						</tr>
+					</thead>
+					<tbody class="refresh-container">
+						<tr ng-repeat="about in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+							<td class="hidden-xs"><a href="#/edit-about/{{about.about_id}}">{{about.about_desc}}</a></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="6">
+								<div class="text-center">
+									<ul class="pagination">
+										<li ng-class="{disabled: currentPage == 0}">
+											<a class="btn btn-default btn-sm" href="javascript:;" ng-click="prevPage()"><i class=" fa fa-angle-left"></i> Prev</a>
+										</li>
+										<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+											<a class="btn btn-default btn-sm" href="javascript:;" ng-click="nextPage()">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+										</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+    </div>
+	</div>
+</div>

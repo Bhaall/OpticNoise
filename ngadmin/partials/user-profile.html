@@ -1,0 +1,214 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-1">
+			<a href="#/users"><img title="Profile image" class="img-rounded img-responsive" ng-src="{{path+profile.portrait}}" ng-show="profile.portraitExists==true" /></a>
+		</div>
+		<div class="col-sm-6"><h1>{{profile.firstname}}</h1></div>
+		<div class="col-sm-5">
+		</div>
+	</div>
+  <hr />
+  <div class="row">
+		<div class="col-md-3">
+			<ul class="list-group pull-down">
+				<li class="list-group-item list-group-item-default"><i class="fas fa-id-badge" aria-hidden="true"></i> PROFILE</li>
+				<li class="list-group-item text-right"><span class="pull-left"><i class="fas fa-sign-in-alt"></i> <strong>recent login</strong></span> {{profile.last_login}}</li>
+				<li class="list-group-item text-right"><span class="pull-left"><i class="fas fa-signature"></i> <strong>name</strong></span> {{profile.firstname}} {{profile.lastname}}</li>
+				<li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-link" aria-hidden="true"></i> <strong>website</strong></span> <a href="{{profile.site}}" target="_blank" rel="noopener">{{profile.sitename}}</a></li>
+				<li class="list-group-item text-right"><span class="pull-left"><i class="fas fa-database"></i> <strong>current db</strong></span> {{profile.db_alias}}</li>
+			</ul>
+		</div>
+		<div class="col-md-9">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<i class="fa fa-list-alt" aria-hidden="true"></i> settings
+					</h4>
+				</div>
+				<div class="panel-body">
+					<form novalidate class="form pull-down" method="post" id="registrationForm" name="registrationForm" enctype="multiple/form-data">
+						<div class="form-group has-feedback" ng-class="{'has-success': registrationForm.username.$valid, 'has-invalid': registrationForm.username.$invalid && registrationForm.username.$dirty, 'has-error': registrationForm.username.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="username">username</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.username.$invalid]">
+                  <i class="fas fa-street-view" aria-hidden="true"></i>
+                  <input type="text" class="form-control" name="username" id="username" placeholder="username" title="enter your username." ng-model="profile.username" required />
+								</div>
+								<div ng-show="registrationForm.username.$valid">
+									<span ng-show="registrationForm.username.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.username.$invalid && registrationForm.username.$dirty">
+									<span ng-show="form1.username.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.email.$valid, 'has-invalid': registrationForm.email.$invalid && registrationForm.email.$dirty, 'has-error': registrationForm.email.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="email">email</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.email.$invalid]">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<input type="text" class="form-control" name="email" id="email" placeholder="email address" title="enter your email address." ng-model="profile.email" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" />
+								</div>
+								<div ng-show="registrationForm.email.$valid">
+									<span ng-show="registrationForm.email.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.email.$invalid && registrationForm.email.$dirty">
+									<span ng-show="registrationForm.email.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group has-feedback" ng-class="{'has-success': registrationForm.firstname.$valid, 'has-invalid': registrationForm.firstname.$invalid && registrationForm.firstname.$dirty, 'has-error': registrationForm.firstname.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="firstname">first name</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.firstname.$invalid]">
+									<i class="fa fa-address-card" aria-hidden="true"></i>
+									<input type="text" class="form-control" name="firstname" id="firstname" placeholder="first name" title="enter your first name." ng-model="profile.firstname" required />
+								</div>
+								<div ng-show="registrationForm.firstname.$valid">
+									<span ng-show="registrationForm.firstname.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.firstname.$invalid && registrationForm.firstname.$dirty">
+									<span ng-show="registrationForm.firstname.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.lastname.$valid, 'has-invalid': registrationForm.lastname.$invalid && registrationForm.lastname.$dirty, 'has-error': registrationForm.lastname.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="lastname">last name</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.lastname.$invalid]">
+									<i class="fa fa-address-card" aria-hidden="true"></i>
+									<input type="text" class="form-control" name="lastname" id="lastname" placeholder="last name" title="enter your last name." ng-model="profile.lastname" required />
+								</div>
+								<div ng-show="registrationForm.lastname.$valid">
+									<span ng-show="registrationForm.lastname.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.lastname.$invalid && registrationForm.lastname.$dirty">
+									<span ng-show="registrationForm.lastname.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group has-feedback" ng-class="{'has-success': registrationForm.sitename.$valid, 'has-invalid': registrationForm.sitename.$invalid && registrationForm.sitename.$dirty, 'has-error': registrationForm.sitename.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="sitename">site</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.firstname.$invalid]">
+									<i class="fa fa-desktop" aria-hidden="true"></i>
+									<input type="text" class="form-control" name="sitename" id="sitename" placeholder="site name" title="enter your site's name." ng-model="profile.sitename" required />
+								</div>
+								<div ng-show="registrationForm.firstname.$valid">
+									<span ng-show="registrationForm.sitename.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.sitename.$invalid && registrationForm.sitename.$dirty">
+									<span ng-show="registrationForm.sitename.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.site.$valid, 'has-invalid': registrationForm.site.$invalid && registrationForm.site.$dirty, 'has-error': registrationForm.site.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="site">URL</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.lastname.$invalid]">
+									<i class="fa fa-link" aria-hidden="true"></i>
+									<input type="url" class="form-control" name="site" id="site" placeholder="site" title="enter your site's URL." ng-model="profile.site" required ng-pattern="/^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$/" />
+								</div>
+								<div ng-show="registrationForm.site.$valid">
+									<span ng-show="registrationForm.site.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.site.$invalid && registrationForm.site.$dirty">
+									<span ng-show="registrationForm.site.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group has-feedback" ng-class="{'has-success': registrationForm.password.$valid, 'has-invalid': registrationForm.password.$invalid && registrationForm.password.$dirty, 'has-error': registrationForm.password.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="password">password</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.password.$invalid]">
+									<i class="fa fa-key" aria-hidden="true"></i>
+									<input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password." ng-model="profile.password" equals="{{profile.password2}}" ng-required="equals='{{profile.password2}}'" />
+								</div>
+								<div ng-show="registrationForm.password.$valid">
+									<span ng-show="registrationForm.password.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.password.$invalid && registrationForm.password.$dirty">
+									<span ng-show="registrationForm.password.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.password2.$valid, 'has-invalid': registrationForm.password2.$invalid && registrationForm.password2.$dirty, 'has-error': registrationForm.password2.$invalid && registrationForm.submitted}">
+							<div class="col-xs-6">
+								<label for="password2">verify</label>
+								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.password2.$invalid]">
+									<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+									<input type="password" class="form-control" name="password2" id="password2" placeholder="verify password" title="verify your password." ng-model="profile.password2" equals="{{profile.password}}" ng-required="equals='{{profile.password}}'" />
+								</div>
+								<div ng-show="registrationForm.password2.$valid">
+									<span ng-show="registrationForm.password2.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+								</div>
+								<div ng-show="registrationForm.password2.$invalid && registrationForm.password2.$dirty">
+									<span ng-show="registrationForm.password2.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group clearfix" id="exFileImageUpload">
+							<div class="col-xs-6">
+								<label>how often are you pooty?</label>
+								<div class="mt-checkbox-inline">
+									<label class="mt-checkbox">
+										<input type="checkbox" id="pooty1" value="y" ng-true-value="y" ng-false-value="n" ng-model="profile.pootymorning"> in the morning
+										<span></span>
+									</label>
+									<label class="mt-checkbox">
+										<input type="checkbox" id="pooty2" value="y" ng-true-value="y" ng-false-value="n" ng-model="profile.pootyafternoon"> in the afternoon
+										<span></span>
+									</label>
+									<label class="mt-checkbox">
+										<input type="checkbox" id="pooty3" value="y" ng-true-value="y" ng-false-value="n" ng-model="profile.pootyevening"> in the evening
+										<span></span>
+									</label>
+									<label class="mt-checkbox">
+										<input type="checkbox" id="pooty4" value="y" ng-true-value="y" ng-false-value="n" ng-model="profile.pootynight"> at night
+										<span></span>
+									</label>
+									<h6 class="help-block">check all that apply</h6>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="fileinput fileinput-{{portraitClass}}" data-provides="fileinput">
+									<label>portrait</label>
+									<div class="fileinput-new thumbnail">
+										<img src="img/512-no-image.gif" class="img-responsive">
+									</div>
+									<div class="fileinput-preview fileinput-exists thumbnail">
+										<img ng-src="{{path+profile.portrait}}" />
+									</div>
+									<div>
+										<span class="btn btn-info btn-file"><span class="fileinput-new"><i class="fas fa-image" aria-hidden="true"></i> Select image...</span><span class="fileinput-exists"><i class="fas fa-edit" aria-hidden="true"></i> Change</span><input type="file" name="portrait" portrait-input="portraits"></span>
+										<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
+									</div>
+
+									<div id="progress_info">
+										<div id="progress"></div>
+										<div id="progress_percent">&nbsp;</div>
+										<div class="clear_both"></div>
+										<div>
+											<div id="remaining">&nbsp;</div>
+											<div id="b_transfered">&nbsp;</div>
+											<div class="clearfix"></div>
+										</div>
+										<div id="upload_response"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<div class="col-xs-12">
+								<button class="btn btn-info" type="button" ng-disabled="registrationForm.$invalid || isUnchanged(profile)" ng-click="update(profile)"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

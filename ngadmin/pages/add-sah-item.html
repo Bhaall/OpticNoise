@@ -1,0 +1,74 @@
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="AddSAHItemForm" id="AddSAHItemForm" method="post">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-green">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fa fa-plus" aria-hidden="true"></i> new item
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group has-feedback" ng-class="{'has-success': AddSAHItemForm.itemHeader.$valid && AddSAHItemForm.itemHeader.$dirty, 'has-invalid': AddSAHItemForm.itemHeader.$invalid && AddSAHItemForm.itemHeader.$dirty, 'has-error': AddSAHItemForm.itemHeader.$invalid && AddSAHItemForm.submitted}">
+							<label for="itemHeader">name:</label>
+							<div class="input-icon">
+								<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
+								<input class="form-control" name="itemHeader" id="itemHeader" type="text" ng-model="item.itemHeader" placeholder="name (required)" required autofocus focus-me />
+							</div>
+							<div ng-show="AddSAHItemForm.itemHeader.$valid">
+								<span ng-show="AddSAHItemForm.itemHeader.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+							</div>
+							<div ng-show="AddSAHItemForm.itemHeader.$invalid && AddSAHItemForm.itemHeader.$dirty">
+								<span ng-show="AddSAHItemForm.itemHeader.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+
+						<div class="form-group has-feedback" ng-class="{'has-success': AddSAHItemForm.itemMedia.$valid && AddSAHItemForm.itemMedia.$dirty, 'has-invalid': AddSAHItemForm.itemMedia.$invalid && AddSAHItemForm.itemMedia.$dirty, 'has-error': AddSAHItemForm.itemMedia.$invalid && AddSAHItemForm.submitted}">
+							<div class="row">
+								<div class="col-xs-8">
+									<label for="itemMedia">media:</label>
+									<select class="form-control" name="itemMedia" ng-model="item.itemMedia" selectpicker data-style="white" title="Select item media" data-width="100%" ng-required="true">
+										<option value=""></option>
+										<option value="TV">TV</option>
+										<option value="MOVIE">MOVIE</option>
+										<option value="AUDIO">AUDIO</option>
+										<option value="GAME">GAME</option>
+										<option value="PROMO">PROMO</option>
+									</select>
+								</div>
+								<div class="col-xs-4">
+									<label for="itemOrder">sort:</label>
+									<div class="input-icon">
+										<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
+										<input type="number" name="itemOrder" id="itemOrder" class="form-control" ng-model="item.itemOrder" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-info" ng-disabled="AddSAHItemForm.$invalid || isUnchanged(item)" id="add-new-btn" ng-click="add_new(item)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+						<a href="#/sah-items/{{id}}" class="btn btn-cancel">Cancel</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-lg-6">
+				<div class="panel panel-green-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fas fa-comment-dots" aria-hidden="true"></i> item text
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group has-feedback text-angular" ng-class="{'has-success': AddSAHItemForm.itemText.$valid, 'has-invalid': AddSAHItemForm.itemText.$invalid && AddSAHItemForm.itemText.$dirty, 'has-error': AddSAHItemForm.itemText.$invalid && AddSAHItemForm.submitted}">
+							<div class="input-icon" ng-class="{true: 'error'}[AddSAHItemForm.submitted && AddSAHItemForm.itemText.$invalid]">
+								<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+								<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

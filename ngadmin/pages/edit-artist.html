@@ -1,0 +1,260 @@
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="EditArtistForm" id="EditArtistForm" method="post" enctype="multiple/form-data">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-aqua">
+					<div class="panel-heading">
+						<div class="nav-btns pull-right">
+							<a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-4"><i class="fas fa-chevron-left" aria-hidden="true"></i> </a>&nbsp;
+							<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-4"> <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+						</div>
+						<h4 class="panel-title">
+							<i class="fas fa-edit" aria-hidden="true"></i> {{showname}}
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group has-feedback" ng-class="{'has-success': EditArtistForm.INartistName.$valid, 'has-invalid': EditArtistForm.INartistName.$invalid && EditArtistForm.INartistName.$dirty, 'has-error': EditArtistForm.INartistName.$invalid && EditArtistForm.submitted}">
+							<label for="INartistName">name:</label>
+							<div class="row">
+								<div class="col-xs-2">
+									<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
+										<option value="the">the</option>
+									</select>
+								</div>
+								<div class="col-xs-10">
+									<div class="input-icon">
+										<i class="fa fa-id-badge fa-fw" aria-hidden="true"></i>
+										<input class="form-control" name="INartistName" type="text" ng-model="artist.INartistName" ng-required="true" />
+									</div>
+									<div ng-show="EditArtistForm.INartistName.$valid">
+										<span ng-show="EditArtistForm.INartistName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="EditArtistForm.INartistName.$invalid && EditArtistForm.INartistName.$dirty">
+										<span ng-show="EditArtistForm.INartistName.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-success': EditArtistForm.INroster_desc.$valid, 'has-invalid': EditArtistForm.INroster_desc.$invalid && EditArtistForm.INroster_desc.$dirty, 'has-error': EditArtistForm.INroster_desc.$invalid && EditArtistForm.submitted}">
+							<label for="INroster_desc">description:</label>
+							<div class="input-icon" ng-class="{true: 'error'}[EditArtistForm.submitted && EditArtistForm.INroster_desc.$invalid]">
+								<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
+								<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
+								<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Used in Roster</em></h6>
+							</div>
+						</div>
+						<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.INlabel.$invalid && EditArtistForm.INlabel.$dirty, 'has-error': EditArtistForm.INlabel.$invalid && EditArtistForm.submitted}">
+							<div class="row">
+								<div class="col-xs-6">
+								<label for="INlabel">label:</label>
+									<div class="input-icon">
+										<i class="fas fa-tag fa-fw"></i>
+										<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<label>active:</label>
+									<div class="mt-radio-inline">
+										<label class="mt-radio">
+											<input type="radio" name="optionsActive" ng-model="artist.active" value="y" >yes
+											<span></span>
+										</label>
+										<label class="mt-radio">
+											<input type="radio" name="optionsActive" ng-model="artist.active" value="n">no
+											<span></span>
+										</label>
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<label for="INsync">sync:</label>
+									<select class="form-control" data-width="100%" title="" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
+										<option value="Master">Master</option>
+										<option value="Sync">Sync</option>
+										<option value="Master/Sync">Master/Sync</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-info" id="edit-btn" ng-click="update(artist)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+						<button class="btn btn-danger" ng-click="delete(artist)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+						<a href="#/artists" class="btn btn-cancel">Cancel</a>
+						<div class="pull-right">added: {{artist.dateAdded}}</div>
+					</div>
+				</div>
+				<div class="panel panel-aqua-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fa fa-book"></i> New ON Signings section (Fresh Optic Noises)
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.home_order.$invalid && EditArtistForm.home_order.$dirty, 'has-error': EditArtistForm.home_order.$invalid && EditArtistForm.submitted}">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="fileinput fileinput-{{albumClass}}" data-provides="fileinput">
+										<div class="fileinput-new thumbnail">
+											<img ng-src="img/125-no-image.gif" class="img-responsive">
+										</div>
+										<div class="fileinput-preview fileinput-exists thumbnail">
+											<img ng-src="{{artist.albumImage}}" />
+										</div>
+										<div>
+											<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image" aria-hidden="true"></i> Select image...</span><span class="fileinput-exists"><i class="fas fa-edit"></i> Change</span><input type="file" id="album_pic" name="album_pic" class="btn btn-success" portrait-input="album_pics"></span>
+											<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
+											<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Image must be 125x125 (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+										</div>
+									</div>
+									<ul class="list-group file-info" ng-repeat="album_pic in album_pics">
+										 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{album_pic.name}}</li>
+										 <li class="list-group-item"><i class="far fa-file-image" aria-hidden="true"></i> <strong>type:</strong> {{album_pic.type}}</li>
+										 <li class="list-group-item"><i class="fas fa-file-image" aria-hidden="true"></i> <strong>size:</strong> {{album_pic.size}}kb</li>
+									</ul>
+								</div>
+								<div class="col-xs-3">
+									<label>display in signings</label>
+									<div class="mt-radio-inline">
+										<label class="mt-radio">
+											<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="y" >yes
+											<span></span>
+										</label>
+										<label class="mt-radio">
+											<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="n">no
+											<span></span>
+										</label>
+										<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Enabled if image exists.</em></h6>
+										<h6 class="help-block">Note: there can be only three artists displayed in Signings section on home page.</h6>
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<label for="home_order">sort order</label>
+									<div class="input-icon">
+										<i class="fas fa-sort-numeric-down fa-fw"></i>
+										<input type="text" name="home_order" id="home_order" class="form-control"  ng-model="artist.home_order" />
+									</div>
+									<span class="help-block">highest: {{max}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-aqua-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fas fa-image"></i> Home page carousel
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-lg-9 col-sm-8">
+									<div class="fileinput fileinput-{{sliderClass}}" data-provides="fileinput">
+										<div class="fileinput-new thumbnail">
+											<img ng-src="img/carousel-no-image.gif" alt="" />
+										</div>
+										<div class="fileinput-preview fileinput-exists thumbnail">
+											<img ng-src="{{artist.sliderImage}}" />
+										</div>
+										<div>
+											<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image"></i> Select image...</span>
+											<span class="fileinput-exists"><i class="fas fa-edit"></i> Change</span><input type="file" id="slider_pic" name="slider_pic" portrait-input="slider_pics"></span>
+											<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+											<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Image must be 573x282 (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+										</div>
+									</div>
+									<ul class="list-group file-info" ng-repeat="slider_pic in slider_pics">
+										 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{slider_pic.name}}</li>
+										 <li class="list-group-item"><i class="far fa-file-image" aria-hidden="true"></i> <strong>type:</strong> {{slider_pic.type}}</li>
+										 <li class="list-group-item"><i class="fas fa-file-image" aria-hidden="true"></i> <strong>size:</strong> {{slider_pic.size}}kb</li>
+									</ul>
+								</div>
+								<div class="col-lg-3 col-sm-4">
+									<label>display in carousel</label>
+									<div class="mt-radio-inline">
+										<label class="mt-radio">
+											<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="y">yes
+											<span></span>
+										</label>
+										<label class="mt-radio">
+											<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="n">no
+											<span></span>
+										</label>
+										<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Enabled if image exists.</em></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="panel panel-aqua-light">
+					<div class="panel-heading">
+						<span class="badge badge-white pull-right margin-top-3">{{songCount}}</span>
+						<h4 class="panel-title">
+							<i class="fa fa-music" aria-hidden="true"></i> songs
+						</h4>
+					</div>
+					<div class="panel-body">
+						<table class="table table-condensed table-striped table-hover pull-down">
+							<thead>
+								<tr>
+									<th><i class="fas fa-tag fa-fw" aria-hidden="true"></i> name</th>
+									<th><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> mp3</th>
+									<th class="center"><i class="far fa-play-circle" aria-hidden="true"></i> plays</th>
+									<th class="center"><i class="fas fa-desktop" aria-hidden="true"></i> displayed</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="song in songs">
+									<td class="col-xs-3"><a href="#/edit-song/{{song.song_id}}">{{song.song_title | lowercase}}</a></td>
+									<td class="col-xs-3">{{song.song_file}}</td>
+									<td class="center col-xs-2">{{song.song_count}}</td>
+									<td class="center col-xs-2"><span class="label {{song.rosterClass}}">{{song.rosterTxt}}</span></td>
+									<td class="center col-xs-2">
+										<div class="btn-group" ng-show="song.song_file">
+											<a href="#/edit-song/{{song.song_id}}" class="btn btn-default btn-xs margin-right-5"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
+											<a ng-show="song.song_file" class="btn btn-default btn-xs play-mp3" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i></a>
+										</div>
+										<a ng-show="!song.song_file" href="#/edit-song/{{song.song_id}}" class="btn btn-default btn-xs"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
+									</td>
+								</tr>
+								<tr data-ng-show="songCount==0"><td colspan=5><div>There are no songs for {{showname}}.</div></td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="panel-footer">
+						<a href="#/add-song-to-artist/{{artist.INartistID}}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> add song</a>
+					</div>
+				</div>
+				<div class="panel panel-aqua-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fa fa-gift" aria-hidden="true"></i> comps
+						</h4>
+					</div>
+					<div class="panel-body">
+						<h5 ng-show="emptyCompInfo" class="pull-down"><strong>{{showname}}</strong> is currently in zero comps.</h5>
+						<div class="comp-list pull-down" ng-repeat="(key,value) in compinfo">
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[0].comp_name}}</strong></a></h5>
+							<ol>
+								<li ng-show="value[0].song_id"><a href="edit-song/{{value[0].song_id}}"><strong>{{value[0].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[0].song_comments)"></span></li>
+								<li ng-show="value[1].song_id"><a href="edit-song/{{value[1].song_id}}"><strong>{{value[1].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[1].song_comments)"></span></li>
+								<li ng-show="value[2].song_id"><a href="edit-song/{{value[2].song_id}}"><strong>{{value[2].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[2].song_comments)"></span></li>
+								<li ng-show="value[3].song_id"><a href="edit-song/{{value[3].song_id}}"><strong>{{value[3].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[3].song_comments)"></span></li>
+								<li ng-show="value[4].song_id"><a href="edit-song/{{value[4].song_id}}"><strong>{{value[4].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[4].song_comments)"></span></li>
+								<li ng-show="value[5].song_id"><a href="edit-song/{{value[5].song_id}}"><strong>{{value[5].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[5].song_comments)"></span></li>
+								<li ng-show="value[6].song_id"><a href="edit-song/{{value[6].song_id}}"><strong>{{value[6].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[6].song_comments)"></span></li>
+								<li ng-show="value[7].song_id"><a href="edit-song/{{value[7].song_id}}"><strong>{{value[7].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[7].song_comments)"></span></li>
+								<li ng-show="value[8].song_id"><a href="edit-song/{{value[8].song_id}}"><strong>{{value[8].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[8].song_comments)"></span></li>
+								<li ng-show="value[9].song_id"><a href="edit-song/{{value[9].song_id}}"><strong>{{value[9].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[9].song_comments)"></span></li>
+								<li ng-show="value[10].song_id"><a href="edit-song/{{value[10].song_id}}"><strong>{{value[10].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[10].song_comments)"></span></li>
+							</ol>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+</div>

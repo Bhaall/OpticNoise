@@ -1,0 +1,163 @@
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="EditSongForm" id="EditSongForm" method="post" enctype="multiple/form-data">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-orange">
+					<div class="panel-heading">
+						<div class="nav-btns pull-right">
+	 						<a ng-show="links.prevValue!=null" href="#/edit-song/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-4"><i class="fas fa-chevron-left" aria-hidden="true"></i> </a>&nbsp;
+	 						<a ng-show="links.nextValue!=null" href="#/edit-song/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-4"> <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+	 					</div>
+						<h4 class="panel-title">
+							<i class="fas fa-edit" aria-hidden="true"></i> {{song.song_title}} | <a href="#/edit-artist/{{song.INartistID}}" class="">{{song.marker}} {{song.INartistName}}</a>
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group has-feedback" ng-class="{'has-success': EditSongForm.song_title.$valid, 'has-invalid': EditSongForm.song_title.$invalid && EditSongForm.song_title.$dirty, 'has-error': EditSongForm.song_title.$invalid && EditSongForm.submitted}">
+							<div class="row">
+								<div class="col-xs-9">
+									<label for="song_title">name</label>
+									<div class="input-icon">
+										<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
+										<input class="form-control" name="song_title" type="text" ng-model="song.song_title" required />
+									</div>
+									<div ng-show="EditSongForm.song_title.$valid">
+										<span ng-show="EditSongForm.song_title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="EditSongForm.song_title.$invalid && EditSongForm.song_title.$dirty">
+										<span ng-show="EditSongForm.song_title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+								</div>
+								<div class="col-xs-3 center">
+									<label>display in roster</label>
+									<div class="mt-radio-inline">
+										<label class="mt-radio">
+											<input type="radio" name="roster_flag" ng-model="song.roster_flag" value="y">yes
+											<span></span>
+										</label>
+										<label class="mt-radio">
+											<input type="radio" name="roster_flag" ng-model="song.roster_flag" value="n">no
+											<span></span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-info" ng-disabled="EditSongForm.$invalid || isUnchanged(artist)" id="add-new-btn" ng-click="update(song)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+						<button class="btn btn-danger" ng-click="delete(song)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+						<a href="#/songs" class="btn btn-cancel">Cancel</a>
+						<div class="pull-right">added: {{song.dateAdded}}</div>
+					</div>
+				</div>
+				<div class="panel panel-orange-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fas fa-file-audio" aria-hidden="true"></i> MP3 file
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group" ng-show="song.song_file">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<i class="fas fa-file-signature" aria-hidden="true"></i> <strong>file name:</strong> <a ng-click="deleteFile(song)" href="" class="btn btn-default btn-xs pull-right"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a> <a ng-show="song.song_file" class="btn btn-default btn-xs play-mp3 pull-right margin-right-5" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i></a> <span class="pull-right margin-right-5"><strong>{{song.song_file}}</strong></span>
+								</li>
+								<li class="list-group-item">
+									<i class="fa fa-play-circle" aria-hidden="true"></i> <strong>plays:</strong> <span class="pull-right pad-left-5"><a ng-click="resetCount(song)" href="" class="btn btn-default btn-xs"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_count}}</span>
+								</li>
+								<li class="list-group-item">
+									<i class="fas fa-clock" aria-hidden="true"></i> <strong>last played:</strong> <span class="pull-right">{{song.lastPlayed}}</span>
+								</li>
+								<li class="list-group-item">
+									<i class="fas fa-file-download" aria-hidden="true"></i> <strong>downloads:</strong> <span class="pull-right pad-left-5"><a ng-click="resetDownloads(song)" href="" class="btn btn-default btn-xs"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_downloads}}</span>
+								</li>
+								<li class="list-group-item">
+									<i class="fas fa-calendar-check" aria-hidden="true"></i> <strong>last download:</strong> <span class="pull-right">{{song.lastDownload}}</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="form-group" ng-hide="song.song_file">
+							<label>select a new mp3 file</label>
+							<div id="song-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
+								<div class="form-control" data-trigger="fileinput">
+									<i class="glyphicon glyphicon-file fileinput-exists"></i>
+									<span class="fileinput-filename"></span>
+								</div>
+								<span class="input-group-addon btn btn-success btn-file">
+									<span class="fileinput-new"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> Select MP3...</span>
+									<span class="fileinput-exists"><i class="fas fa-edit" aria-hidden="true"></i> Change</span>
+									<input type="file" name="song_file" id="song_file" accept="audio/*" portrait-input="song_files" />
+								</span>
+								<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
+							</div>
+							<h6 class="help-block"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes; </strong>end in '.mp3'</em></h6>
+							<ul class="list-group file-info" ng-repeat="song_file in song_files">
+								 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{song_file.name}}</li>
+								 <li class="list-group-item"><i class="far fa-file-audio" aria-hidden="true"></i> <strong>type:</strong> {{song_file.type}}</li>
+								 <li class="list-group-item"><i class="fas fa-file-audio" aria-hidden="true"></i> <strong>size:</strong> {{song_file.size}}kb</li>
+							</ul>
+							<input type="hidden" name="old_song1" ng-model="song.song_file" />
+
+							<div id="progress_info">
+								<div class="progress">
+									<div id="progress" class="progress-bar progress-bar-info bar">
+										<span id="progress_percent" class="percent"></span>
+									</div>
+								</div>
+								<div class="clear_both"></div>
+								<div>
+									<div id="remaining">&nbsp;</div>
+									<div id="b_transfered">&nbsp;</div>
+									<div class="clearfix"></div>
+								</div>
+								<div id="upload_response"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="panel panel-orange-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fas fa-comment-dots" aria-hidden="true"></i> description
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditSongForm.song_comments.$valid, 'has-invalid': EditSongForm.song_comments.$invalid && EditSongForm.song_comments.$dirty, 'has-error': EditSongForm.song_comments.$invalid && EditSongForm.submitted}">
+							<div class="input-icon" ng-class="{true: 'error'}[EditSongForm.submitted && EditSongForm.song_comments.$invalid]">
+								<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+								<text-angular ng-model="song.song_comments" name="song_comments" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-orange-light">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fa fa-gift" aria-hidden="true"></i> comps
+						</h4>
+					</div>
+					<div class="panel-body">
+						<h5 ng-show="emptyCompInfo" class="pull-down"><strong>{{song.song_title}}</strong> is currently in zero comps.</h5>
+						<div class="comp-list pull-down" ng-repeat="(key,value) in compinfo">
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[0].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[1].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[2].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[3].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[4].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[5].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[6].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[7].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[8].comp_name}}</strong></a></h5>
+							<h5><a href="edit-comp/{{key}}"><strong>{{value[9].comp_name}}</strong></a></h5>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+</div>

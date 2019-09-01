@@ -1,0 +1,49 @@
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="AddDropboxForm" id="AddDropboxForm" method="post">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-light-blue">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<i class="fa fa-plus" aria-hidden="true"></i> new dropbox
+						</h4>
+					</div>
+					<div class="panel-body">
+						<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_name.$valid, 'has-invalid': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.dropbox_name.$dirty, 'has-error': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.submitted}">
+							<label for="dropbox_name">name:</label>
+							<div class="input-icon">
+								<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
+								<input class="form-control" name="dropbox_name" type="text" ng-model="dropbox.dropbox_name" placeholder="name (required)" required autofocus focus-me />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_file.$valid, 'has-invalid': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty, 'has-error': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.submitted}">
+										<label for="dropbox_file">zip file:</label>
+										<div class="input-icon">
+											<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+											<input class="form-control" name="dropbox_file" type="text" ng-model="dropbox.dropbox_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
+										</div>
+										<h6 class="help-block"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
+									</div>
+								</div>
+								<div class="col-xs-4">
+									<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.sort.$valid, 'has-invalid': AddDropboxForm.sort.$invalid && EditDropboxForm.sort.$dirty, 'has-error': AddDropboxForm.sort.$invalid && AddDropboxForm.submitted}">
+										<label for="itemOrder">sort:</label>
+										<div class="input-icon">
+											<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
+											<input type="number" name="sort" id="sort" class="form-control" ng-model="dropbox.sort" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-info" ng-disabled="AddDropboxForm.$invalid || isUnchanged(dropbox)" id="add-new-btn" ng-click="add_new(dropbox)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+						<a href="#/dropboxes" class="btn btn-cancel">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

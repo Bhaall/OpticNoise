@@ -1,0 +1,27 @@
+        <script>
+        $('.sidebar-toggle').click(function(){
+			$('#wrapper').addClass("active");
+			$('#wrapper').toggleClass("collapsed");
+			$('#sidebar-wrapper').toggleClass("stretch-right");
+			$(this).find('.toggle-icon').toggleClass('fa-caret-left');
+		});
+
+		$(window).resize(function(e){
+			if ($(this).width()>768 && !$('#wrapper').hasClass("collapsed")) {
+				$('#wrapper').removeClass("active");
+			}
+		});
+        </script>
+
+        <!--sidebar toggle arrow-->
+        <ul class="nav">
+      	  <li>
+      	    <a href="javascript:;" data-target="#sidebar-wrapper" class="sidebar-toggle" title="Toggle sidebar">
+      	      <i class="fa fa-fw fa-bars" aria-hidden="true"></i>
+      	      <i class="fa fa-caret-left toggle-icon hidden-xs" aria-hidden="true"></i>
+      	    </a>
+      	  </li>
+        </ul>
+
+        <!--sidebar items (menu-items-sm)-->
+        <ul menu-items class="nav" id="menuSm"></ul>

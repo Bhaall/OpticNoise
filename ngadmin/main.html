@@ -1,0 +1,28 @@
+
+	<div header></div>
+	<div id="wrapper">
+		<div id="sidebar-wrapper" class="pull-left stretch-right">
+			<div id="sidebar" sidebar></div>
+		</div>
+		<div id="main-wrapper" class="col-sm-12">
+			<span breadcrumb></span>
+			<div id="main">
+				<div class="fade-in" ui-view></div>
+			</div>
+			<div footer></div>
+		</div>
+	</div>
+
+	<div data-ng-include=" 'partials/playerpanel.html' " class="playerpanel panel panel-default" ng-show="showPlayer"></div>
+
+	<div id="preloader" class="fade-in" ng-show="isLoading">
+		<div id="preloader-logo">
+			<img src="../images/on_mark_spinner.png" alt="Logo">
+		</div>
+	</div>
+
+	<div id="goup">
+		<a href="" scroll-to-top>
+			<img src="img/backtop.png">
+		</a>
+	</div>

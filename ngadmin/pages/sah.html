@@ -1,0 +1,76 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-green" id="sahPanel">
+				<div class="panel-heading">
+					<span class="badge badge-white pull-right margin-top-4">{{sahTotal}}</span>
+					<ul class="list-inline pull-right margin-top-5 margin-right-5">
+						<li class="dropdown">
+							<a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown"><span class="glyphicon glyphicon-plus"></span></a>
+							<div class="dropdown-menu dropdown-menu-right spacer5" style="min-width:240px;">
+								<form novalidate role="form" class="form-horizontal" name="AddSAHForm" id="AddSAHForm" method="post">
+									<small>Add SAH Holder</small>
+									<input class="form-control input-sm margin-bottom-5" name="sceneName" id="sceneName" placeholder="Name" type="text" ng-model="sahholder.sceneName" required />
+									<input class="form-control input-sm margin-bottom-5" name="scene_order" id="scene_order" placeholder="Sort order" ng-model="sahholder.scene_order" type="text"  />
+									<button type="button" class="btn btn-info btn-block" data-toggle="dropdown" ng-disabled="AddSAHForm.$invalid || isUnchanged(sah)" id="add-new-btn" ng-click="add_new(sahholder)">Add</button>
+								</form>
+							</div>
+						</li>
+					</ul>
+					<h4 class="panel-title">
+						<i class="fas fa-video" aria-hidden="true"></i> scene &amp; heard
+					</h4>
+				</div>
+				<div class="panel-body">
+					<div class="elevation">
+						<table class="table table-condensed table-striped table-hover pull-down" show-filter="true" ng-table="tableParams">
+							<tbody>
+								<tr ng-repeat="sah in $data">
+									<td class="col-xs-3" data-title="'name'" sortable="'sceneName'" filter="{ 'sceneName': 'text' }">
+										<a href="#/sah-items/{{sah.sceneID}}"><span ng-if="!sah.$edit">{{sah.sceneName | lowercase}}</span></a>
+										<div ng-if="sah.$edit"><input class="form-control" type="text" ng-model="sah.sceneName" /></div>
+									</td>
+									<td class="center col-xs-2">
+										<form name="rowform" method="post" class="form-buttons form-inline">
+											<div class="btn-group">
+												<!-- edit/delete -->
+												<a ng-if="!sah.$edit" href="" class="btn btn-default btn-xs margin-right-5" ng-click="sah.$edit = true"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a>
+												<a ng-if="!sah.$edit" href="" ng-click="delete(sah)" class="btn btn-default btn-xs"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
+
+												<!-- save/cancel -->
+												<button ng-if="sah.$edit" type="button" data-ng-click="saveSah(sah.sceneID, sah.sceneName); sah.$edit = false" class="btn btn-info btn-xs margin-right-5"><i class="fa fa-save fa-fw" aria-hidden="true"></i></button>
+												<a ng-if="sah.$edit" href="" class="btn white btn-xs" ng-click="sah.$edit = false"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a>
+											</div>
+										</form>
+									</td>
+									<td data-title="'added'" sortable="'sceneDate'" class="center col-xs-2">{{sah.sceneDate | timestampDateFormat}}</td>
+									<td data-title="'sort'" sortable="'scene_order'" class="center col-xs-2"><input type="number" name="itemOrderTbl" id="itemOrderTbl" class="form-control center" ng-model="sah.scene_order" /></td>
+									<td data-title="'items'" class="center col-xs-2"><a class="btn btn-default btn-xs" href="#/sah-items/{{sah.sceneID}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+									<td data-title="'active'" class="center col-xs-1">
+										<div class="mt-radio-inline">
+											<label class="mt-radio">
+												<input type="radio" name="DelItem" ng-model="sah.sceneActive" value="{{sah.sceneID}}" ng-checked={{sah.checked}} />
+												<span></span>
+											</label>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12">
+			<div class="panel panel-onl">
+				<div class="panel-body">
+					<div>
+						<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Update sort order</button>
+						<button type="submit" name="setActive" ng-click="setActive()" class="btn btn-info"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Set Active</button>
+						<a href="#/" class="btn btn-cancel">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
