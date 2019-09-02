@@ -322,6 +322,9 @@ hr {
 .img-rounded {
   border-radius:4px;
 }
+.align-right {
+  text-align: right;
+}
 .pad-15 {
   padding:15px;
 }
@@ -369,8 +372,8 @@ hr {
     padding-right: 0 !important;
   }
 }
-.align-right {
-  text-align: right;
+.pad-bot-10 {
+  padding-bottom: 10px;
 }
 .pad-bot-20 {
   padding-bottom: 20px;
@@ -2824,9 +2827,16 @@ input[type=file]:hover,
 	font-size: 10px;
 	margin-top: -5px;
 }
+.bootstrap-select.btn-group .btn .filter-option {
+  color: #363636;
+}
 .bootstrap-select .btn:focus,
 .bootstrap-select .btn:hover,
-.bootstrap-select .btn:active {
+.bootstrap-select .btn:active,
+.bootstrap-select .btn:focus .filter-option,
+.bootstrap-select .btn:hover .filter-option,
+.bootstrap-select .btn:active .filter-option {
+  color: #fff !important;
   outline: 0 !important;
   outline: none !important;
   outline-offset: 0;
