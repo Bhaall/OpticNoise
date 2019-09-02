@@ -62,6 +62,9 @@ factory('getTopDropboxesList', ['$http', function($http) {
 factory('artistsRepo', ['$http', function($http) {
 	return new artistsRepository($http);
 }]).
+factory('artistsActiveCount', ['$http', function($http) {
+	return new getActiveArtistsCount($http);
+}]).
 factory('artistsCount', ['$http', function($http) {
 	return new getArtistsCount($http);
 }]).
@@ -271,6 +274,9 @@ factory('compsCount', ['$http', function($http) {
 }]).
 factory('compsRepo', ['$http', function($http) {
 	return new compsRepository($http);
+}]).
+factory('compsRecent', ['$http', function($http) {
+	return new compsMostRecent($http);
 }]).
 factory('updateCompsSortOrder', ['$http', function($http) {
   return new updateCompsSort($http);
@@ -653,10 +659,30 @@ window.artistsRepository = function($http) {
 		});
 	};
 };
+window.artistsActiveRepository = function($http) {
+	this.$http = $http;
+	this.fetchActiveArtists = function() {
+		var url = 'api/artists';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
 window.getArtistsCount = function($http) {
 	this.$http = $http;
 	this.fetchArtistsCount = function() {
 		var url = 'api/artists_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.getActiveArtistsCount = function($http) {
+	this.$http = $http;
+	this.fetchActiveArtistsCount = function() {
+		var url = 'api/active_artists_count';
 		return this.$http.get(url)
 		.success(function(data) {
 			return data;
@@ -1220,6 +1246,16 @@ window.compsRepository = function($http) {
 	this.$http = $http;
 	this.fetchComps = function() {
 		var url = 'api/comps';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.compsMostRecent = function($http) {
+	this.$http = $http;
+	this.fetchMostRecentComps = function() {
+		var url = 'api/recent_comps';
 		return this.$http.get(url)
 		.success(function(data) {
 			return data;

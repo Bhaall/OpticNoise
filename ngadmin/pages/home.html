@@ -22,92 +22,325 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
-			<div class="panel panel-pink">
+		<div class="col-lg-6">
+			<div class="panel tablet-margin-bottom-40">
 				<div class="row">
-					<div class="col-md-12">
-						<ul id="tabsJustified" class="nav nav-tabs nav-justified">
-							<li class="active"><a href="javascript:;" data-target="#top-songs" data-toggle="tab"><i class="fa fa-headphones fa-fw" aria-hidden="true"></i> Top Played Songs</a></li>
-							<li><a href="javascript:;" data-target="#top-song-download" data-toggle="tab"><i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i> Top Downloaded Songs</a></li>
-							<li><a href="javascript:;" data-target="#top-comps" data-toggle="tab"><i class="fa fa-gift fa-fw" aria-hidden="true"></i> Top Downloaded Comps</a></li>
-							<li><a href="javascript:;" data-target="#top-dropboxes" data-toggle="tab"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> Top Downloaded Dropboxes</a></li>
-						</ul><!--/tabs-->
-						<br>
-						<div id="tabsJustifiedContent" class="tab-content">
-							<div class="col-xs-12 tab-pane fade-in active in" id="top-songs">
-								<ul class="list-group">
-									<li ng-repeat="songs in topSongs" class="list-group-item">
-										<span class="badge badge-pink">{{songs.song_count}}</span>
-										<p><i class="fa fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
-										<p><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}"> {{songs.INartistName}}</a></p>
-										<p class="no-margin"><i class="fas fa-clock fa-fw text-pink" aria-hidden="true"></i><em>Last played:</em> {{songs.last_played | timestampDateTimeFormat}}</p>
-									</li>
-								</ul>
-							</div>
-							<div class="col-xs-12 tab-pane fade-in in" id="top-song-download">
-								<ul class="list-group">
-									<li ng-repeat="songs in topSongsDownload" class="list-group-item">
-										<span class="badge badge-pink">{{songs.song_downloads}}</span>
-										<p><i class="fa fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
-										<p><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}"> {{songs.INartistName}}</a></p>
-										<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{songs.last_download | timestampDateTimeFormat}}</p>
-									</li>
-								</ul>
-							</div>
-							<div class="col-xs-12 tab-pane fade-in" id="top-comps">
-								<ul class="list-group">
-									<li ng-repeat="comps in topComps" class="list-group-item">
-										<span class="badge badge-pink">{{comps.count}}</span>
-										<p><i class="fa fa-gift fa-fw text-purple" aria-hidden="true"></i> <strong><a href="#/edit-comp/{{comps.comp_id}}">{{comps.comp_name}}</a></strong></p>
-										<p class="no-margin pull-right" ng-show="comps.active=='n'"><span class="label label-warning">inactive</span></p>
-										<p class="no-margin pull-right" ng-show="comps.active=='y'"><span class="label label-success">active</span></p>
-										<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{comps.last_download | timestampDateTimeFormat}}</p>
-									</li>
-								</ul>
-							</div>
-							<div class="col-xs-12 tab-pane fade-in" id="top-dropboxes">
-								<ul class="list-group">
-									<li ng-repeat="dropboxes in topDropboxes" class="list-group-item">
-										<span class="badge badge-pink">{{dropboxes.count}}</span>
-										<p><i class="fab fa-dropbox fa-fw text-light-blue" aria-hidden="true"></i> <strong><a href="#/edit-dropbox/{{dropboxes.dropbox_id}}">{{dropboxes.dropbox_name}}</a></strong></p>
-										<p class="no-margin pull-right" ng-show="dropboxes.active=='n'"><span class="label label-warning">inactive</span></p>
-										<p class="no-margin pull-right" ng-show="dropboxes.active=='y'"><span class="label label-success">active</span></p>
-										<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{dropboxes.last_download | timestampDateTimeFormat}}</p>
-									</li>
-								</ul>
-							</div>
-						</div><!--/tabs content-->
-					</div><!--/col-12-->
-				</div><!--/row-->
-			</div><!--/tabs justified-->
+					<div class="col-lg-12">
+						<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg">
+							<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+								<div class="ona-portlet__head-label">
+									<h3 class="ona-portlet__head-title">Inventory</h3>
+								</div>
+							</div> <!-- end ona-portlet__head -->
+							<div class="ona-portlet__body ona-portlet__body--fit">
+								<div class="ona-widget">
+									<div class="ona-widget__visual">
+									</div>
+									<div class="ona-widget__stats">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--brand">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<polygon points="0 0 24 0 24 24 0 24"/>
+															<path d="M12,18 L7.91561963,20.1472858 C7.42677504,20.4042866 6.82214789,20.2163401 6.56514708,19.7274955 C6.46280801,19.5328351 6.42749334,19.309867 6.46467018,19.0931094 L7.24471742,14.545085 L3.94038429,11.3241562 C3.54490071,10.938655 3.5368084,10.3055417 3.92230962,9.91005817 C4.07581822,9.75257453 4.27696063,9.65008735 4.49459766,9.61846284 L9.06107374,8.95491503 L11.1032639,4.81698575 C11.3476862,4.32173209 11.9473121,4.11839309 12.4425657,4.36281539 C12.6397783,4.46014562 12.7994058,4.61977315 12.8967361,4.81698575 L14.9389263,8.95491503 L19.5054023,9.61846284 C20.0519472,9.69788046 20.4306287,10.2053233 20.351211,10.7518682 C20.3195865,10.9695052 20.2170993,11.1706476 20.0596157,11.3241562 L16.7552826,14.545085 L17.5353298,19.0931094 C17.6286908,19.6374458 17.263103,20.1544017 16.7187666,20.2477627 C16.5020089,20.2849396 16.2790408,20.2496249 16.0843804,20.1472858 L12,18 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span> <!-- ona-widget__icon -->
+												<span class="ona-widget__subtitle">
+													Artists
+												</span>
+												<span class="ona-widget__desc">
+													Total: {{allArtistsTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													Active: {{allActiveArtistsTotal}}
+												</span>
+											</div> <!-- ona-widget__item -->
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M11.9785206,18.8007059 C11.8002933,20.0396328 10.5347301,21 9,21 C7.34314575,21 6,19.8807119 6,18.5 C6,17.1192881 7.34314575,16 9,16 C9.35063542,16 9.68722107,16.0501285 10,16.1422548 L10,5.93171093 C10,5.41893942 10.319781,4.96566617 10.7894406,4.81271925 L16.5394406,3.05418311 C17.2638626,2.81827161 18,3.38225531 18,4.1731748 C18,4.95474642 18,5.54092513 18,5.93171093 C18,6.51788965 17.4511634,6.89225606 17,7 C16.3508668,7.15502181 14.6842001,7.48835515 12,8 L12,18.5512168 C12,18.6409956 11.9927193,18.7241187 11.9785206,18.8007059 Z" fill="#000000" fill-rule="nonzero"/>
+												    </g>
+													</svg>
+												</span> <!-- ona-widget__icon -->
+												<span class="ona-widget__subtitle">
+													Songs
+												</span>
+												<span class="ona-widget__desc">
+													Total: {{allSongsTotal}}
+												</span>
+											</div> <!-- ona-widget__item -->
+										</div> <!-- ona-widget__items -->
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z" fill="#000000"/>
+															<path d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Comps
+												</span>
+												<span class="ona-widget__desc">
+													Total: {{allCompsTotal}}
+												</span>
+											</div> <!-- ona-widget__item -->
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--light-blue">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" fill="#000000"/>
+															<path d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Dropboxes
+												</span>
+												<span class="ona-widget__desc">
+													Total: {{allDropboxesTotal}}
+												</span>
+											</div> <!-- ona-widget__item -->
+										</div> <!-- ona-widget__items -->
+									</div> <!-- ona-widget__stats -->
+								</div> <!-- ona-widget -->
+							</div> <!-- end ona-portlet__body -->
+						</div> <!-- end ona-portlet -->
+					</div> <!-- end col-lg-12 -->
+				</div> <!-- end row -->
+			</div> <!-- end panel -->
+		</div> <!-- end col-lg-6 -->
+
+		<div class="col-lg-6">
+			<div class="panel tablet-margin-bottom-40">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg">
+							<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+								<div class="ona-portlet__head-label">
+									<h3 class="ona-portlet__head-title">Favorites</h3>
+								</div>
+							</div> <!-- end ona-portlet__head -->
+							<div class="ona-portlet__body ona-portlet__body--fit">
+								<div class="ona-widget">
+									<div class="ona-widget__visual">
+									</div>
+									<div class="ona-widget__stats">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <rect fill="#000000" x="2" y="6" width="13" height="12" rx="2"/>
+											        <path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span> <!-- ona-widget__icon -->
+												<span class="ona-widget__subtitle">
+													Scene &amp; Heard
+												</span>
+												<span class="ona-widget__desc">
+													Total Items: {{sahItemTotal}}
+												</span>
+											</div> <!-- ona-widget__item -->
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--yellow">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M13.6855025,18.7082217 C15.9113859,17.8189707 18.682885,17.2495635 22,17 C22,16.9325178 22,13.1012863 22,5.50630526 L21.9999762,5.50630526 C21.9999762,5.23017604 21.7761292,5.00632908 21.5,5.00632908 C21.4957817,5.00632908 21.4915635,5.00638247 21.4873465,5.00648922 C18.658231,5.07811173 15.8291155,5.74261533 13,7 C13,7.04449645 13,10.79246 13,18.2438906 L12.9999854,18.2438906 C12.9999854,18.520041 13.2238496,18.7439052 13.5,18.7439052 C13.5635398,18.7439052 13.6264972,18.7317946 13.6855025,18.7082217 Z" fill="#000000"/>
+											        <path d="M10.3144829,18.7082217 C8.08859955,17.8189707 5.31710038,17.2495635 1.99998542,17 C1.99998542,16.9325178 1.99998542,13.1012863 1.99998542,5.50630526 L2.00000925,5.50630526 C2.00000925,5.23017604 2.22385621,5.00632908 2.49998542,5.00632908 C2.50420375,5.00632908 2.5084219,5.00638247 2.51263888,5.00648922 C5.34175439,5.07811173 8.17086991,5.74261533 10.9999854,7 C10.9999854,7.04449645 10.9999854,10.79246 10.9999854,18.2438906 L11,18.2438906 C11,18.520041 10.7761358,18.7439052 10.4999854,18.7439052 C10.4364457,18.7439052 10.3734882,18.7317946 10.3144829,18.7082217 Z" fill="#000000" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span> <!-- ona-widget__icon -->
+												<span class="ona-widget__subtitle">
+													Current New Signings
+												</span>
+												<span ng-repeat="artist in signing_artists" class="ona-widget__desc">
+													<a href="edit-artist/{{artist.INartistID}}"><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
+												</span>
+											</div> <!-- ona-widget__item -->
+										</div> <!-- ona-widget__items -->
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--danger">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <polygon points="0 0 24 0 24 24 0 24"/>
+											        <path d="M16.5,4.5 C14.8905,4.5 13.00825,6.32463215 12,7.5 C10.99175,6.32463215 9.1095,4.5 7.5,4.5 C4.651,4.5 3,6.72217984 3,9.55040872 C3,12.6834696 6,16 12,19.5 C18,16 21,12.75 21,9.75 C21,6.92177112 19.349,4.5 16.5,4.5 Z" fill="#000000" fill-rule="nonzero"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Featured Artists
+												</span>
+												<span ng-repeat="artist in fon" class="ona-widget__desc">
+													<a href="edit-artist/{{artist.INartistID}}"><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
+												</span>
+											</div> <!-- ona-widget__item -->
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--light-blue">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" fill="#000000"/>
+															<path d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Most Recent Comp
+												</span>
+												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
+													<a href="edit-comp/{{comp.comp_id}}"><i class="fa fa-gift fa-fw text-purple" aria-hidden="true"></i> {{comp.comp_name}}</a>
+												</span>
+												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
+													<i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> added {{comp.date_added | timestampDateFormat}}
+												</span>
+											</div> <!-- ona-widget__item -->
+										</div> <!-- ona-widget__items -->
+									</div> <!-- ona-widget__stats -->
+								</div> <!-- ona-widget -->
+							</div> <!-- end ona-portlet__body -->
+						</div> <!-- end ona-portlet -->
+					</div> <!-- end col-lg-12 -->
+				</div> <!-- end row -->
+			</div> <!-- end panel -->
+		</div> <!-- end col-lg-6 -->
+
+		<div class="col-lg-6">
+			<div class="panel panel-pink tablet-margin-bottom-40">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg">
+							<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+								<div class="ona-portlet__head-label">
+									<h3 class="ona-portlet__head-title">Activity</h3>
+								</div>
+							</div> <!-- end ona-portlet__head -->
+							<div class="ona-portlet__body ona-portlet__body--fit">
+								<div class="ona-widget">
+									<div class="ona-widget__visual">
+									</div>
+									<div class="ona-widget__stats">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<ul id="tabsJustified" class="nav nav-tabs nav-justified">
+													<li class="active"><a href="javascript:;" data-target="#top-songs" data-toggle="tab"><i class="fa fa-headphones fa-fw" aria-hidden="true"></i> Top  Songs</a></li>
+													<li><a href="javascript:;" data-target="#top-song-download" data-toggle="tab"><i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i> Top DL Songs</a></li>
+													<li><a href="javascript:;" data-target="#top-comps" data-toggle="tab"><i class="fa fa-gift fa-fw" aria-hidden="true"></i> Top DL Comps</a></li>
+													<li><a href="javascript:;" data-target="#top-dropboxes" data-toggle="tab"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> Top DL Dropboxes</a></li>
+												</ul><!--/tabs-->
+												<br>
+												<div id="tabsJustifiedContent" class="tab-content margin-top-minus-20">
+													<div class="tab-pane fade-in active in" id="top-songs">
+														<ul class="list-group">
+															<li ng-repeat="songs in topSongs" class="list-group-item">
+																<span class="badge badge-pink">{{songs.song_count}}</span>
+																<p><i class="fa fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}"> {{songs.INartistName}}</a></p>
+																<p class="no-margin"><i class="fas fa-clock fa-fw text-pink" aria-hidden="true"></i><em>Last played:</em> {{songs.last_played | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+													<div class="tab-pane fade-in in" id="top-song-download">
+														<ul class="list-group">
+															<li ng-repeat="songs in topSongsDownload" class="list-group-item">
+																<span class="badge badge-pink">{{songs.song_downloads}}</span>
+																<p><i class="fa fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}"> {{songs.INartistName}}</a></p>
+																<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{songs.last_download | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+													<div class="tab-pane fade-in" id="top-comps">
+														<ul class="list-group">
+															<li ng-repeat="comps in topComps" class="list-group-item">
+																<span class="badge badge-pink">{{comps.count}}</span>
+																<p><i class="fa fa-gift fa-fw text-purple" aria-hidden="true"></i> <strong><a href="#/edit-comp/{{comps.comp_id}}">{{comps.comp_name}}</a></strong></p>
+																<p class="no-margin pull-right" ng-show="comps.active=='n'"><span class="label label-warning">inactive</span></p>
+																<p class="no-margin pull-right" ng-show="comps.active=='y'"><span class="label label-success">active</span></p>
+																<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{comps.last_download | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+													<div class="tab-pane fade-in" id="top-dropboxes">
+														<ul class="list-group">
+															<li ng-repeat="dropboxes in topDropboxes" class="list-group-item">
+																<span class="badge badge-pink">{{dropboxes.count}}</span>
+																<p><i class="fab fa-dropbox fa-fw text-light-blue" aria-hidden="true"></i> <strong><a href="#/edit-dropbox/{{dropboxes.dropbox_id}}">{{dropboxes.dropbox_name}}</a></strong></p>
+																<p class="no-margin pull-right" ng-show="dropboxes.active=='n'"><span class="label label-warning">inactive</span></p>
+																<p class="no-margin pull-right" ng-show="dropboxes.active=='y'"><span class="label label-success">active</span></p>
+																<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{dropboxes.last_download | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+												</div><!--/tabs content-->
+											</div> <!-- end ona-widget__item -->
+										</div> <!-- end ona-widget__items -->
+									</div> <!-- end ona-widget__stats -->
+								</div> <!--/ona-widget-->
+							</div> <!--/ona-portlet__body-->
+						</div> <!--/ona-portlet-->
+					</div> <!--/col-12-->
+				</div> <!--/row-->
+			</div> <!--/tabs justified-->
 		</div>
 
-		<div class="col-md-6">
-			<div class="panel panel-pink">
+		<div class="col-lg-6">
+			<div class="panel panel-pink tablet-margin-bottom-40">
 				<div class="row">
-					<div class="col-md-12">
-						<ul id="tabsJustified" class="nav nav-tabs nav-justified">
-							<li class="active"><a href="javascript:;" data-target="#stats1" data-toggle="tab"><i class="fas fa-chart-area fa-fw" aria-hidden="true"></i> Pageviews</a></li>
-							<li><a href="javascript:;" data-target="#stats2" data-toggle="tab"><i class="fas fa-chart-area fa-fw" aria-hidden="true"></i> Unique visitors</a></li>
-							<li><a href="javascript:;" data-target="#stats3" data-toggle="tab"><i class="fas fa-chart-area fa-fw" aria-hidden="true"></i> Visits</a></li>
-						</ul><!--/tabs-->
-						<div id="tabsJustifiedContent" class="tab-content">
-							<div class="col-xs-12 tab-pane fade-in active in" id="stats1">
-								<div class=" center">
-									<iframe src="http://www.seethestats.com/stats/6440/Pageviews_62dd2a96d_ifr.html" style="width:660px;height:425px;border:none;" scrolling="no" frameborder="0" id="statframe1"></iframe>
+					<div class="col-lg-12">
+						<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg">
+							<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+								<div class="ona-portlet__head-label">
+									<h3 class="ona-portlet__head-title">ON Stats</h3>
 								</div>
-							</div>
-							<div class="col-xs-12 tab-pane fade-in" id="stats2">
-								<div class="center">
-									<iframe src="http://www.seethestats.com/stats/6440/Visitors_e27a21cc1_ifr.html" style="width:660px;height:425px;border:none;" scrolling="no" frameborder="0" id="statframe2"></iframe>
-								</div>
-							</div>
-							<div class="col-xs-12 tab-pane fade-in" id="stats3">
-								<div class="center">
-									<iframe src="http://www.seethestats.com/stats/6440/Visits_78a55ef64_ifr.html" style="width:660px;height:425px;border:none;" scrolling="no" frameborder="0" id="statframe3"></iframe>
-								</div>
-							</div>
-						</div><!--/tabs content-->
+							</div> <!-- end ona-portlet__head -->
+							<div class="ona-portlet__body ona-portlet__body--fit">
+								<div class="ona-widget">
+									<div class="ona-widget__visual">
+									</div>
+									<div class="ona-widget__stats">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<ul id="tabsJustified" class="nav nav-tabs nav-justified">
+													<li class="active"><a href="javascript:;" data-target="#stats1" data-toggle="tab"><i class="fas fa-chart-area fa-fw" aria-hidden="true"></i> Pageviews</a></li>
+													<li><a href="javascript:;" data-target="#stats2" data-toggle="tab"><i class="fas fa-chart-area fa-fw" aria-hidden="true"></i> Unique visitors</a></li>
+													<li><a href="javascript:;" data-target="#stats3" data-toggle="tab"><i class="fas fa-chart-area fa-fw" aria-hidden="true"></i> Visits</a></li>
+												</ul><!--/tabs-->
+												<div id="tabsJustifiedContent" class="tab-content">
+													<div class="tab-pane fade-in active in" id="stats1">
+														<div class=" center">
+															<iframe src="http://www.seethestats.com/stats/6440/Pageviews_62dd2a96d_ifr.html" style="width:660px;height:425px;border:none;" scrolling="no" frameborder="0" id="statframe1"></iframe>
+														</div>
+													</div>
+													<div class="tab-pane fade-in" id="stats2">
+														<div class="center">
+															<iframe src="http://www.seethestats.com/stats/6440/Visitors_e27a21cc1_ifr.html" style="width:660px;height:425px;border:none;" scrolling="no" frameborder="0" id="statframe2"></iframe>
+														</div>
+													</div>
+													<div class="tab-pane fade-in" id="stats3">
+														<div class="center">
+															<iframe src="http://www.seethestats.com/stats/6440/Visits_78a55ef64_ifr.html" style="width:660px;height:425px;border:none;" scrolling="no" frameborder="0" id="statframe3"></iframe>
+														</div>
+													</div>
+												</div><!--/tabs content-->
+											</div> <!-- end ona-widget__item -->
+										</div> <!-- end ona-widget__items -->
+									</div> <!-- end ona-widget__stats -->
+								</div> <!-- end ona-widget -->
+							</div> <!-- end ona-portlet__body -->
+						</div> <!-- end ona-portlet -->
 					</div><!--/col-12-->
 				</div><!--/row-->
 			</div><!--/tabs justified-->

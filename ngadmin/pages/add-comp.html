@@ -5,7 +5,7 @@
 				<div class="panel panel-purple">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<i class="fa fa-plus" aria-hidden="true"></i> new comp
+							<i class="fa fa-plus fa-fw" aria-hidden="true"></i> new comp
 						</h4>
 					</div>
 					<div class="panel-body">
@@ -68,7 +68,7 @@
 											<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 											<input class="form-control" name="comp_file" type="text" ng-model="comp.comp_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
 										</div>
-										<h6 class="help-block"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
+										<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
 									</div>
 								</div>
 								<div class="col-xs-4">
@@ -91,7 +91,7 @@
 				<div class="panel panel-purple-light">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<i class="fas fa-image" aria-hidden="true"></i> image
+							<i class="fas fa-image fa-fw" aria-hidden="true"></i> image
 						</h4>
 					</div>
 					<div class="panel-body">
@@ -102,10 +102,10 @@
 								</div>
 								<div class="fileinput-preview fileinput-exists thumbnail"></div>
 								<div>
-									<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image" aria-hidden="true"></i> Select image...</span>
-									<span class="fileinput-exists"><i class="fas fa-edit" aria-hidden="true"></i> Change</span><input type="file" id="comp_pic" name="comp_pic" portrait-input="comp_pics"></span>
-									<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
-									<h6 class="help-block"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <em>Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')</em></h6>
+									<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span>
+									<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" id="comp_pic" name="comp_pic" portrait-input="comp_pics"></span>
+									<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
+									<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')</em></h6>
 								</div>
 							</div>
 							<ul class="list-group file-info" ng-repeat="comp_pic in comp_pics">

@@ -4,11 +4,11 @@
 			<div class="panel panel-green">
 				<div class="panel-heading">
 					<div class="nav-btns pull-right margin-top-1">
-						<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-default"><i class="fas fa-chevron-left" aria-hidden="true"></i> </a>&nbsp;
-						<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-default"> <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+						<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-default"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+						<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-default"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
 					</div>
 					<span class="badge badge-white pull-right margin-right-5 margin-top-4">{{itemTotal}}</span>
-					<h4 class="panel-title"><i class="fas fa-video" aria-hidden="true"></i> scene &amp; heard items for {{sceneName}}</h4>
+					<h4 class="panel-title"><i class="fas fa-video fa-fw" aria-hidden="true"></i> scene &amp; heard items for {{sceneName}}</h4>
 				</div>
 				<div class="panel-body panel-refresh">
 					<table class="table table-condensed table-striped table-hover pull-down">
@@ -45,8 +45,8 @@
 			<div class="panel panel-onl">
 				<div class="panel-body">
 					<div>
-						<a href="#/add-sah-item/{{id}}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add item</a>
-						<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Update sort order</button>
+						<a href="#/add-sah-item/{{id}}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add item</a>
+						<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
 						<a href="#/sah" class="btn btn-cancel">Cancel</a>
 					</div>
 				</div>

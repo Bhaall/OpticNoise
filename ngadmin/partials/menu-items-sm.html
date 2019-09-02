@@ -1,25 +1,25 @@
-      <li data-ng-class="{active: isActive('/')}"><a href="#/"><i class="fas fa-home menu-icon" aria-hidden="true"></i> <span class="">Dashboard</span></a></li>
-      <li data-ng-class="{active: isActive('/users')}"><a href="#/users"><i class="fas fa-street-view menu-icon" aria-hidden="true"></i> <span class="">Users</span></a></li>
+      <li data-ng-class="{active: isActive('/')}"><a href="#/"><i class="fas fa-home menu-icon fa-fw" aria-hidden="true"></i> <span class="">Dashboard</span></a></li>
+      <li data-ng-class="{active: isActive('/users')}"><a href="#/users"><i class="fas fa-street-view menu-icon fa-fw" aria-hidden="true"></i> <span class="">Users</span></a></li>
       <li class="divider"></li>
-			<li data-ng-class="{active: isActive('/artists')}"><a href="#/artists"><i class="fa fa-star menu-icon" aria-hidden="true"></i> <span class="">Artists</span></a></li>
-			<li data-ng-class="{active: isActive('/songs')}"><a href="#/songs"><i class="fa fa-music menu-icon" aria-hidden="true"></i> <span class="">Songs</span></a></li>
+			<li data-ng-class="{active: isActive('/artists')}"><a href="#/artists"><i class="fa fa-star menu-icon fa-fw" aria-hidden="true"></i> <span class="">Artists</span></a></li>
+			<li data-ng-class="{active: isActive('/songs')}"><a href="#/songs"><i class="fa fa-music menu-icon fa-fw" aria-hidden="true"></i> <span class="">Songs</span></a></li>
       <li class="divider"></li>
-			<li data-ng-class="{active: isActive('/comps')}"><a href="#/comps"><i class="fa fa-gift menu-icon" aria-hidden="true"></i> <span class="">Comps</span></a></li>
-			<li data-ng-class="{active: isActive('/dropboxes')}"><a href="#/dropboxes"><i class="fab fa-dropbox menu-icon" aria-hidden="true"></i> <span class="">Dropboxes</span></a></li>
+			<li data-ng-class="{active: isActive('/comps')}"><a href="#/comps"><i class="fa fa-gift menu-icon fa-fw" aria-hidden="true"></i> <span class="">Comps</span></a></li>
+			<li data-ng-class="{active: isActive('/dropboxes')}"><a href="#/dropboxes"><i class="fab fa-dropbox menu-icon fa-fw" aria-hidden="true"></i> <span class="">Dropboxes</span></a></li>
       <li class="divider"></li>
-			<li data-ng-class="{active: isActive('/sah')}"><a href="#/sah"><i class="fas fa-video menu-icon" aria-hidden="true"></i> <span class="">Scene &amp; Heard</span></a></li>
-			<li data-ng-class="{active: isActive('/fon')}"><a href="#/fon"><i class="fa fa-book menu-icon" aria-hidden="true"></i> <span class="">New Signings</span></a></li>
-			<li data-ng-class="{active: isActive('/slider')}"><a href="#/slider"><i class="fa fa-heart menu-icon" aria-hidden="true"></i> <span class="">Featured Artists</span></a></li>
+			<li data-ng-class="{active: isActive('/sah')}"><a href="#/sah"><i class="fas fa-video menu-icon fa-fw" aria-hidden="true"></i> <span class="">Scene &amp; Heard</span></a></li>
+			<li data-ng-class="{active: isActive('/fon')}"><a href="#/fon"><i class="fa fa-book menu-icon fa-fw" aria-hidden="true"></i> <span class="">New Signings</span></a></li>
+			<li data-ng-class="{active: isActive('/slider')}"><a href="#/slider"><i class="fa fa-heart menu-icon fa-fw" aria-hidden="true"></i> <span class="">Featured Artists</span></a></li>
       <li class="divider"></li>
       <li ng-repeat="about in abouts" data-ng-class="{active: isActive('/edit-about/{{ about.about_id }}')}">
-    		<a href='#/edit-about/{{ about.about_id }}'><i class="fas fa-smile menu-icon" aria-hidden="true"></i> <span>About Page</span></a>
+    		<a href='#/edit-about/{{ about.about_id }}'><i class="fas fa-smile menu-icon fa-fw" aria-hidden="true"></i> <span>About Page</span></a>
     	</li>
       <li ng-repeat="contact in contacts" data-ng-class="{active: isActive('/edit-contact/{{ contact.contact_id }}')}">
-        <a href='#/edit-contact/{{ contact.contact_id }}'><i class="fas fa-at menu-icon" aria-hidden="true"></i> <span>Contact Page</span></a>
+        <a href='#/edit-contact/{{ contact.contact_id }}'><i class="fas fa-at menu-icon fa-fw" aria-hidden="true"></i> <span>Contact Page</span></a>
       </li>
       <li ng-repeat="setting in settings" data-ng-class="{active: isActive('/edit-settings/{{ setting.id }}')}">
-    		<a href='#/edit-settings/{{ setting.id }}'><i class="fa fa-sitemap menu-icon" aria-hidden="true"></i> <span>Site Settings</span></a>
+    		<a href='#/edit-settings/{{ setting.id }}'><i class="fa fa-sitemap menu-icon fa-fw" aria-hidden="true"></i> <span>Site Settings</span></a>
     	</li>
     	<li ng-repeat="supe in supes" data-ng-class="{active: isActive('/edit-supe-password/{{ supe.id }}')}">
-    		<a href='#/edit-supe-password/{{ supe.id }}'><i class="fa fa-key menu-icon" aria-hidden="true"></i> <span>Supervisor Password</span></a>
+    		<a href='#/edit-supe-password/{{ supe.id }}'><i class="fa fa-key menu-icon fa-fw" aria-hidden="true"></i> <span>Supervisor Password</span></a>
     	</li>

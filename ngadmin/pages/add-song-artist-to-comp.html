@@ -4,9 +4,9 @@
 			<div class="col-lg-6">
 				<div class="panel panel-purple"  id="newSongPanel">
 					<div class="panel-heading">
-						<a id="refresh1" ng-click="refreshCounters()" class="pull-right refresh-me margin-top-4" data-target="#newSongPanel" href="javascript:;"><span class="fas fa-redo" aria-hidden="true"></span></a>
+						<a id="refresh1" ng-click="refreshCounters()" class="pull-right refresh-me margin-top-4" data-target="#newSongPanel" href="javascript:;"><span class="fas fa-redo fa-fw" aria-hidden="true"></span></a>
 						<h4 class="panel-title">
-							<i class="fa fa-plus" aria-hidden="true"></i> {{comp.comp_name}} |  {{showname}} | new song
+							<i class="fa fa-plus fa-fw" aria-hidden="true"></i> {{comp.comp_name}} |  {{showname}} | new song
 						</h4>
 					</div>
 					<div class="panel-body panel-refresh refresh-container">
@@ -69,16 +69,16 @@
 								</div>
 								<span class="input-group-addon btn btn-info btn-file">
 									<span class="fileinput-new">Choose...</span>
-									<span class="fileinput-exists"><i class="fas fa-edit" aria-hidden="true"></i> Change</span>
+									<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span>
 									<input type="file" name="song_file" id="song_file" accept="audio/*" portrait-input="song_files" />
 								</span>
-								<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
+								<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
 							</div>
-							<h6 class="help-block"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes</strong>; end in '.mp3'</em></h6>
+							<h6 class="help-block"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes</strong>; end in '.mp3'</em></h6>
 							<ul class="list-group file-info" ng-repeat="song_file in song_files">
 								 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{song_file.name}}</li>
-								 <li class="list-group-item"><i class="far fa-file-audio" aria-hidden="true"></i> <strong>type:</strong> {{song_file.type}}</li>
-								 <li class="list-group-item"><i class="fas fa-file-audio" aria-hidden="true"></i> <strong>size:</strong> {{song_file.size}}kb</li>
+								 <li class="list-group-item"><i class="far fa-file-audio fa-fw" aria-hidden="true"></i> <strong>type:</strong> {{song_file.type}}</li>
+								 <li class="list-group-item"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{song_file.size}}kb</li>
 								 <li class="list-group-item"><strong>test:</strong> <a class="btn btn-default btn-xs play-mp3" new-mp3 data-songtitle="{{song_file.name}}" href=""><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i></a></li>
 							</ul>
 							<input type="hidden" name="old_song1" ng-model="song.song_file" />

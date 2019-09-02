@@ -18,7 +18,7 @@
 						</li>
 					</ul>
 					<h4 class="panel-title">
-						<i class="fas fa-video" aria-hidden="true"></i> scene &amp; heard
+						<i class="fas fa-video fa-fw" aria-hidden="true"></i> scene &amp; heard
 					</h4>
 				</div>
 				<div class="panel-body">
@@ -45,7 +45,7 @@
 									</td>
 									<td data-title="'added'" sortable="'sceneDate'" class="center col-xs-2">{{sah.sceneDate | timestampDateFormat}}</td>
 									<td data-title="'sort'" sortable="'scene_order'" class="center col-xs-2"><input type="number" name="itemOrderTbl" id="itemOrderTbl" class="form-control center" ng-model="sah.scene_order" /></td>
-									<td data-title="'items'" class="center col-xs-2"><a class="btn btn-default btn-xs" href="#/sah-items/{{sah.sceneID}}"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+									<td data-title="'items'" class="center col-xs-2"><a class="btn btn-default btn-xs" href="#/sah-items/{{sah.sceneID}}"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a></td>
 									<td data-title="'active'" class="center col-xs-1">
 										<div class="mt-radio-inline">
 											<label class="mt-radio">
@@ -65,8 +65,8 @@
 			<div class="panel panel-onl">
 				<div class="panel-body">
 					<div>
-						<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down" aria-hidden="true"></i> Update sort order</button>
-						<button type="submit" name="setActive" ng-click="setActive()" class="btn btn-info"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Set Active</button>
+						<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
+						<button type="submit" name="setActive" ng-click="setActive()" class="btn btn-info"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i> Set Active</button>
 						<a href="#/" class="btn btn-cancel">Cancel</a>
 					</div>
 				</div>

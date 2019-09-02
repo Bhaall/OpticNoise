@@ -1,5 +1,5 @@
 angular.module('onAdmin.controllers', [])
-.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'compsCount', 'dropboxesCount', 'artistsRepo', 'songsRepo', 'compsRepo', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, artistsCount, artistsNoSongsCount, songsCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, compsCount, dropboxesCount, artistsRepo, songsRepo, compsRepo, dropboxesRepo){
+.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'getNewSignings', 'artistsActiveCount', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'compsCount', 'dropboxesCount', 'artistsRepo', 'songsRepo', 'featuredRepo', 'compsRepo', 'compsRecent', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, getNewSignings, artistsActiveCount, artistsCount, artistsNoSongsCount, songsCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, compsCount, dropboxesCount, artistsRepo, songsRepo, featuredRepo, compsRepo, compsRecent, dropboxesRepo){
 
 	$scope.noty = noty;
 	$scope.date = Date.now();
@@ -27,6 +27,10 @@ angular.module('onAdmin.controllers', [])
 	});
 
 	$scope.refreshCounters = function() {
+
+		getNewSignings.fetchFon().success(function(data) {
+			$scope.signing_artists = data;
+		});
 
 		profileRepo.fetchProfile().success(function(data) {
 			for (var i = 0; i < data.length; i++) {
@@ -58,12 +62,20 @@ angular.module('onAdmin.controllers', [])
 			$scope.artists = data;
 		});
 
+		artistsActiveCount.fetchActiveArtistsCount().success(function(data) {
+			$scope.allActiveArtistsTotal = data;
+		});
+
 		songsRepo.fetchSongs().success(function(data) {
 			$scope.songs = data;
 		});
 
 		compsRepo.fetchComps().success(function(data) {
 			$scope.comps = data;
+		});
+
+		compsRecent.fetchMostRecentComps().success(function(data) {
+			$scope.recentComps = data;
 		});
 
 		dropboxesRepo.fetchDropboxes().success(function(data) {
@@ -112,6 +124,10 @@ angular.module('onAdmin.controllers', [])
 
 		sahItemCount.fetchSahItemCount().success(function(data) {
 			$scope.sahItemTotal = data;
+		});
+
+		featuredRepo.fetchFeatured().success(function(data) {
+			$scope.fon = data;
 		});
 
 		compsCount.fetchCompsCount().success(function(data) {
@@ -2372,8 +2388,6 @@ angular.module('onAdmin.controllers', [])
 		}
 	});
 
-
-
 	$scope.update = function(item){
 		updateSahItem.putSahItemByID(id, item).success(function(data) {
 			$scope.item = data;
@@ -2606,6 +2620,7 @@ angular.module('onAdmin.controllers', [])
 					}
 					$scope.comp.image = '../images/comps/'+$scope.comp.comp_pic;
 					$scope.comp.copy2 = "http://www.optic-noise.com/download_comp.php?id="+$scope.comp.comp_id;
+					$scope.comp.copy3 = "http://www.optic-noise.com/comp.php?id="+$scope.comp.comp_id;
 				}
 				getCompLinks.fetchCompNavLinks($scope.sorting).success(function(data) {
 					$scope.linksdata = data;

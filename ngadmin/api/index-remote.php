@@ -43,6 +43,7 @@ $app->put('/supe/:id', 'updateSupe');
 
 // ARTISTS
 $app->get('/artists', 'getArtists');
+$app->get('/active_artists_count', 'getActiveArtistsCount');
 $app->get('/artists_count', 'getArtistsCount');
 $app->get('/artists_nosongs', 'getArtistsNoSongs');
 $app->get('/artists_nosongs_count', 'getArtistsNoSongsCount');
@@ -123,6 +124,7 @@ $app->put('/update_featured/:id', 'updateFeatured');
 // COMPS
 $app->get('/comps_count', 'getCompsCount');
 $app->get('/comps', 'getComps');
+$app->get('/recent_comps', 'getMostRecentComp');
 $app->put('/update_comps_sort/:id', 'updateCompsSort');
 $app->put('/comp_count/:id', 'updateCompCount');
 $app->delete('/comps/:id', 'deleteComp');
@@ -537,6 +539,19 @@ function getArtists() {
 		$artists = $stmt->fetchAll(PDO::FETCH_OBJ);
 		$db = null;
 		echo json_encode($artists);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getActiveArtistsCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from indies where active = 'y'");
+		$sql->execute();
+		$num_artists = $sql->fetchColumn();
+		$db = null;
+		echo $num_artists;
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
@@ -1690,6 +1705,19 @@ function getCompsCount() {
 
 function getComps() {
 	$sql = "select * from comp_main order by sort desc";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$comps = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($comps);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getMostRecentComp() {
+  $sql = "select comp_id, comp_name, date_added from comp_main where comp_id in (select comp_id from comp_main where date_added = (select MAX(date_added) from comp_main)) order by comp_id desc limit 1";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
