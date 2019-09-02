@@ -164,6 +164,9 @@ factory('songsNoCompCount', ['$http', function($http) {
 factory('songsCount', ['$http', function($http) {
 	return new getSongsCount($http);
 }]).
+factory('songsActiveCount', ['$http', function($http) {
+	return new getActiveSongsCount($http);
+}]).
 factory('getSong', ['$http', function($http) {
 	return new getSongByID($http);
 }]).
@@ -855,6 +858,16 @@ window.getSongsCount = function($http) {
 	this.$http = $http;
 	this.fetchSongsCount = function() {
 		var url = 'api/songs_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.getActiveSongsCount = function($http) {
+	this.$http = $http;
+	this.fetchActiveSongsCount = function() {
+		var url = 'api/songs_active_count';
 		return this.$http.get(url)
 		.success(function(data) {
 			return data;

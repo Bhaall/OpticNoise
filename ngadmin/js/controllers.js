@@ -1,5 +1,5 @@
 angular.module('onAdmin.controllers', [])
-.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'getNewSignings', 'artistsActiveCount', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'compsCount', 'compsActiveCount', 'dropboxesCount', 'dropboxesActiveCount', 'artistsRepo', 'songsRepo', 'featuredRepo', 'compsRepo', 'compsRecent', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, getNewSignings, artistsActiveCount, artistsCount, artistsNoSongsCount, songsCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, compsCount, compsActiveCount, dropboxesCount, dropboxesActiveCount, artistsRepo, songsRepo, featuredRepo, compsRepo, compsRecent, dropboxesRepo){
+.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'getNewSignings', 'artistsActiveCount', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsActiveCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'compsCount', 'compsActiveCount', 'dropboxesCount', 'dropboxesActiveCount', 'artistsRepo', 'songsRepo', 'featuredRepo', 'compsRepo', 'compsRecent', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, getNewSignings, artistsActiveCount, artistsCount, artistsNoSongsCount, songsCount, songsActiveCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, compsCount, compsActiveCount, dropboxesCount, dropboxesActiveCount, artistsRepo, songsRepo, featuredRepo, compsRepo, compsRecent, dropboxesRepo){
 
 	$scope.noty = noty;
 	$scope.date = Date.now();
@@ -92,6 +92,10 @@ angular.module('onAdmin.controllers', [])
 
 		songsCount.fetchSongsCount().success(function(data) {
 			$scope.allSongsTotal = data;
+		});
+
+		songsActiveCount.fetchActiveSongsCount().success(function(data) {
+			$scope.allActiveSongsTotal = data;
 		});
 
 		songsNoFileCount.fetchSongsNoFileCount().success(function(data) {

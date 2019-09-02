@@ -70,6 +70,7 @@ $app->get('/songs_nofile_count', 'getSongsNoFileCount');
 $app->get('/songs_nocomp', 'getSongsNoComp');
 $app->get('/songs_nocomp_count', 'getSongsNoCompCount');
 $app->get('/songs_count', 'getSongsCount');
+$app->get('/songs_active_count', 'getActiveSongsCount');
 $app->get('/songs/:id', 'getSong');
 $app->post('/add_song', 'addSong');
 $app->put('/songs/:id', 'updateSong');
@@ -1011,6 +1012,19 @@ function getSongsCount() {
 		$num_songs = $sql->fetchColumn();
 		$db = null;
 		echo $num_songs;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getActiveSongsCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from songs where roster_flag='y'");
+		$sql->execute();
+		$num_active_songs = $sql->fetchColumn();
+		$db = null;
+		echo $num_active_songs;
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}

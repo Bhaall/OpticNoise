@@ -375,6 +375,9 @@ hr {
 .pad-bot-10 {
   padding-bottom: 10px;
 }
+.pad-bot-15 {
+  padding-bottom: 15px;
+}
 .pad-bot-20 {
   padding-bottom: 20px;
 }
@@ -838,7 +841,7 @@ hr {
 .form-control,
 .input-group-addon {
   border-radius: 3px;
-  box-shadow: 0;
+  box-shadow: none;
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -1337,6 +1340,13 @@ a.list-group-item.active:focus {
   background: #f0f3ff;
   color: #5d78ff;
 }
+
+.panel-purple .panel-heading .btn-default.dropdown-toggle,
+.panel-light-blue .panel-heading .btn-default.dropdown-toggle {
+  background-color: transparent;
+  color: #fff;
+}
+
 .btn-info,
 .btn-info:visited,
 .bg-info,
