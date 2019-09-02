@@ -272,6 +272,9 @@ factory('updateFeatured', ['$http', function($http) {
 factory('compsCount', ['$http', function($http) {
 	return new getCompsCount($http);
 }]).
+factory('compsActiveCount', ['$http', function($http) {
+	return new getCompsActiveCount($http);
+}]).
 factory('compsRepo', ['$http', function($http) {
 	return new compsRepository($http);
 }]).
@@ -340,6 +343,9 @@ factory('updatePlaylistSortOrder', ['$http', function($http) {
 }]).
 factory('dropboxesCount', ['$http', function($http) {
 	return new getDropboxesCount($http);
+}]).
+factory('dropboxesActiveCount', ['$http', function($http) {
+	return new getDropboxesActiveCount($http);
 }]).
 factory('dropboxesRepo', ['$http', function($http) {
 	return new dropboxesRepository($http);
@@ -1242,6 +1248,16 @@ window.getCompsCount = function($http) {
 		});
 	};
 };
+window.getCompsActiveCount = function($http) {
+	this.$http = $http;
+	this.fetchCompsActiveCount = function() {
+		var url = 'api/comps_active_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
 window.compsRepository = function($http) {
 	this.$http = $http;
 	this.fetchComps = function() {
@@ -1478,6 +1494,16 @@ window.getDropboxesCount = function($http) {
 	this.$http = $http;
 	this.fetchDropboxesCount = function() {
 		var url = 'api/dropboxes_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.getDropboxesActiveCount = function($http) {
+	this.$http = $http;
+	this.fetchDropboxesActiveCount = function() {
+		var url = 'api/dropboxes_active_count';
 		return this.$http.get(url)
 		.success(function(data) {
 			return data;

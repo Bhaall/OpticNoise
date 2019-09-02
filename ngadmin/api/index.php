@@ -123,6 +123,7 @@ $app->put('/update_featured/:id', 'updateFeatured');
 
 // COMPS
 $app->get('/comps_count', 'getCompsCount');
+$app->get('/comps_active_count', 'getCompsActiveCount');
 $app->get('/comps', 'getComps');
 $app->get('/recent_comps', 'getMostRecentComp');
 $app->put('/update_comps_sort/:id', 'updateCompsSort');
@@ -152,6 +153,7 @@ $app->get('/comp_links/:sort', function ($sort) {
 
 // DROPBOXES
 $app->get('/dropboxes_count', 'getDropboxesCount');
+$app->get('/dropboxes_active_count', 'getDropboxesActiveCount');
 $app->get('/dropboxes', 'getDropboxes');
 $app->put('/update_dropboxes_sort/:id', 'updateDropboxesSort');
 $app->delete('/dropboxes/:id', 'deleteDropbox');
@@ -1703,6 +1705,19 @@ function getCompsCount() {
 	}
 }
 
+function getCompsActiveCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from comp_main where active='y'");
+		$sql->execute();
+		$num_comps_active = $sql->fetchColumn();
+		$db = null;
+		echo $num_comps_active;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
 function getComps() {
 	$sql = "select * from comp_main order by sort desc";
 	try {
@@ -2184,12 +2199,24 @@ function getCompLinks($sort) {
 	}
 }
 
-
 // DROPBOXES FUNCTIONS"
 function getDropboxesCount() {
 	try {
 		$db = getConnection();
 		$sql = $db->prepare("select count(*) from dropbox");
+		$sql->execute();
+		$num_dropboxes = $sql->fetchColumn();
+		$db = null;
+		echo $num_dropboxes;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getDropboxesActiveCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from dropbox where active='y'");
 		$sql->execute();
 		$num_dropboxes = $sql->fetchColumn();
 		$db = null;

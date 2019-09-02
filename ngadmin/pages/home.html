@@ -51,10 +51,13 @@
 													Artists
 												</span>
 												<span class="ona-widget__desc">
-													Total: {{allArtistsTotal}}
+													<strong>Total:</strong> {{allArtistsTotal}}
 												</span>
 												<span class="ona-widget__desc">
-													Active: {{allActiveArtistsTotal}}
+													<strong>Active:</strong> {{allActiveArtistsTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													<strong>Total with no songs:</strong> {{artistNoSongsTotal}}
 												</span>
 											</div> <!-- ona-widget__item -->
 											<div class="ona-widget__item">
@@ -70,7 +73,13 @@
 													Songs
 												</span>
 												<span class="ona-widget__desc">
-													Total: {{allSongsTotal}}
+													<strong>Total:</strong> {{allSongsTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													<strong>Total w/o MP3:</strong> {{songsNoFileTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													<strong>Total not in any Comp:</strong> {{songsNoCompTotal}}
 												</span>
 											</div> <!-- ona-widget__item -->
 										</div> <!-- ona-widget__items -->
@@ -89,7 +98,10 @@
 													Comps
 												</span>
 												<span class="ona-widget__desc">
-													Total: {{allCompsTotal}}
+													<strong>Total:</strong> {{allCompsTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													<strong>Active:</strong> {{allCompsActiveTotal}}
 												</span>
 											</div> <!-- ona-widget__item -->
 											<div class="ona-widget__item">
@@ -106,7 +118,10 @@
 													Dropboxes
 												</span>
 												<span class="ona-widget__desc">
-													Total: {{allDropboxesTotal}}
+													<strong>Total:</strong> {{allDropboxesTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													<strong>Active:</strong> {{allDropboxesActiveTotal}}
 												</span>
 											</div> <!-- ona-widget__item -->
 										</div> <!-- ona-widget__items -->
@@ -149,7 +164,7 @@
 													Scene &amp; Heard
 												</span>
 												<span class="ona-widget__desc">
-													Total Items: {{sahItemTotal}}
+													<strong>Total Items:</strong> {{sahItemTotal}}
 												</span>
 											</div> <!-- ona-widget__item -->
 											<div class="ona-widget__item">
