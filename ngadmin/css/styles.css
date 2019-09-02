@@ -654,6 +654,10 @@ hr {
 .ona-portlet .ona-portlet__head.ona-portlet__head--noborder {
   border-bottom: 0;
 }
+.ona-portlet.ona--portlet__info {
+  /* placeholder if needed */
+}
+
 .ona-portlet .ona-portlet__head .ona-portlet__head-label {
   -ms-flex-line-pack: flex-first;
     align-content: flex-first;
@@ -665,11 +669,24 @@ hr {
       display: flex;
 }
 .ona-portlet .ona-portlet__head .ona-portlet__head-label .ona-portlet__head-title {
-  color: #fff;
   font-size: 16px;
   font-weight: 600;
   margin: 0;
   padding: 0;
+}
+.ona-portlet .ona-portlet__head .ona-portlet__head-label .ona-portlet__head-title .ona-widget__icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ona-portlet .ona-portlet__head .ona-portlet__head-label .ona-portlet__head-title .ona-widget__icon svg {
+  height: 20px;
+  width: 20px;
+}
+.ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title {
+  color: #fff;
+}
+.ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
+  fill: #fff !important;
 }
 .ona-portlet .ona-portlet__body {
   color: #fff;
