@@ -1368,13 +1368,21 @@ a.list-group-item.active:focus {
   background: #f0f3ff;
   color: #5d78ff;
 }
-
 .panel-purple .panel-heading .btn-default.dropdown-toggle,
 .panel-light-blue .panel-heading .btn-default.dropdown-toggle {
-  background-color: transparent;
+  background: transparent;
   color: #fff;
 }
-
+.panel-ona .panel-heading .btn-default.dropdown-toggle {
+  background: #fff;
+  color: #93a2dd;
+}
+.panel-ona .panel-heading .btn-default.dropdown-toggle:hover,
+.panel-ona .panel-heading .btn-default.dropdown-toggle:active,
+.panel-ona .panel-heading .btn-default.dropdown-toggle:focus {
+  background: #f0f3ff;
+  color: #5d78ff;
+}
 .btn-info,
 .btn-info:visited,
 .bg-info,
@@ -2879,6 +2887,16 @@ input[type=file]:hover,
   outline: none !important;
   outline-offset: 0;
 }
+.bootstrap-select>.btn.white,
+.bootstrap-select>.btn.white:active,
+.bootstrap-select>.btn.white:hover,
+.bootstrap-select>.btn.white:focus,
+.bootstrap-select.btn-group.open .btn.white,
+.bootstrap-select.btn-group.open .btn.white:active,
+.bootstrap-select.btn-group.open .btn.white:hover,
+.bootstrap-select.btn-group.open .btn.white:focus {
+  border: 1px solid #bbb;
+}
 .btn.white,
 .btn-group.open .btn.white {
 	background: #fff;
@@ -2891,10 +2909,12 @@ input[type=file]:hover,
 .btn.white:active,
 .btn.white:hover,
 .btn.white:focus,
+.btn-group.open .btn.white,
 .btn-group.open .btn.white:active,
 .btn-group.open .btn.white:hover,
 .btn-group.open .btn.white:focus,
-.btn-group.open .btn.white.visited {
+.btn-group.open .btn.white.visited,
+.bootstrap-select.btn-group.open .btn .filter-option {
   background: #039be5;
 	background-image: none;
 	box-shadow: none;
@@ -2905,7 +2925,11 @@ input[type=file]:hover,
   outline: none;
   -webkit-transition: all 0.3s;
     transition: all 0.3s;
-
+}
+.bootstrap-select .dropdown-menu>li:hover>a,
+.bootstrap-select .dropdown-menu>li:focus>a {
+  background: #039be5;
+  color: #fff;
 }
 .has-success .btn-group.bootstrap-select .btn.white {
 	border-color: #388e3c;
