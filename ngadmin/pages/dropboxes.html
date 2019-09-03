@@ -32,11 +32,11 @@
 												<li class="dropdown-header">review</li>
 												<li><a href="#/edit-dropbox/{{dropbox.dropbox_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit</a></li>
 												<li class="divider"></li>
-												<li><a href="javascript:;" ng-click="delete(dropbox)"><i class="pull-right fa fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+												<li><a href="javascript:;" ng-click="delete(dropbox)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
 												<li class="divider"></li>
 												<li class="dropdown-header pad-top-0">status</li>
-												<li ng-show="dropbox.active=='y'"><a href="javascript:;" ng-click="setInActive(dropbox)"><i class="pull-right fas fa-ban fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
-												<li ng-show="dropbox.active=='n'"><a href="javascript:;" ng-click="setActive(dropbox)"><i class="pull-right fas fa-check-circle fa-fw" aria-hidden="true"></i> Set Active</a></li>
+												<li ng-show="dropbox.active=='y'"><a href="javascript:;" ng-click="setInActive(dropbox)"><i class="pull-right fas fa-eye-slash fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
+												<li ng-show="dropbox.active=='n'"><a href="javascript:;" ng-click="setActive(dropbox)"><i class="pull-right fas fa-eye fa-fw" aria-hidden="true"></i> Set Active</a></li>
 											</ul>
 										</div>
 										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> <a href="#/edit-dropbox/{{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></h4>

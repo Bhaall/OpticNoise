@@ -29,13 +29,18 @@
 										<div class="pull-right tools btn-group">
 											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
 											<ul class="dropdown-menu pull-right" role="menu">
+												<li class="dropdown-header">review</li>
+												<li><a href="#/edit-comp/{{comp.comp_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit</a></li>
+												<li class="divider"></li>
+												<li><a href="javascript:;" ng-click="delete(comp)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+												<li class="divider"></li>
 												<li class="dropdown-header">carousel</li>
-												<li ng-show="comp.comp_flag=='y'"><a href="javascript:;" ng-click="setOutCarousel(comp)"><i class="pull-right fas fa-ban fa-fw" aria-hidden="true"></i> Set Not In Carousel</a></li>
-												<li ng-show="comp.comp_flag=='n'"><a href="javascript:;" ng-click="setInCarousel(comp)"><i class="pull-right fas fa-check-circle fa-fw" aria-hidden="true"></i> Set In Carousel</a></li>
+												<li ng-show="comp.comp_flag=='y'"><a href="javascript:;" ng-click="setOutCarousel(comp)"><i class="pull-right fas fa-minus-circle fa-fw" aria-hidden="true"></i> Remove</a></li>
+												<li ng-show="comp.comp_flag=='n'"><a href="javascript:;" ng-click="setInCarousel(comp)"><i class="pull-right fas fa-plus-circle fa-fw" aria-hidden="true"></i> Add</a></li>
 												<li class="divider"></li>
 												<li class="dropdown-header pad-top-0">status</li>
-												<li ng-show="comp.active=='y'"><a href="javascript:;" ng-click="setInActive(comp)"><i class="pull-right fas fa-ban fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
-												<li ng-show="comp.active=='n'"><a href="javascript:;" ng-click="setActive(comp)"><i class="pull-right fas fa-check-circle fa-fw" aria-hidden="true"></i> Set Active</a></li>
+												<li ng-show="comp.active=='y'"><a href="javascript:;" ng-click="setInActive(comp)"><i class="pull-right fas fa-eye-slash fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
+												<li ng-show="comp.active=='n'"><a href="javascript:;" ng-click="setActive(comp)"><i class="pull-right fas fa-eye fa-fw" aria-hidden="true"></i> Set Active</a></li>
 											</ul>
 										</div>
 										<h4 class="panel-title"><i class="fas fa-gift fa-fw" aria-hidden="true"></i> <a href="#/edit-comp/{{comp.comp_id}}">{{comp.comp_name}}</a></h4>
