@@ -4,7 +4,7 @@
 			<ul class="well well-sm nav nav-justified hidden-xs hidden-sm home">
 				<li><a class="text-center text-aqua" href="#/artists"><i class="fa fa-star fa-3x" aria-hidden="true"></i><br />Artists</a></li>
 				<li><a class="text-center text-orange" href="#/songs"><i class="fa fa-music fa-3x" aria-hidden="true"></i><br />Songs</a></li>
-				<li><a class="text-center text-purple" href="#/comps"><i class="fa fa-gift fa-3x" aria-hidden="true"></i><br />Comps</a></li>
+				<li><a class="text-center text-purple" href="#/comps"><i class="fas fa-gift fa-3x" aria-hidden="true"></i><br />Comps</a></li>
 				<li><a class="text-center text-light-blue" href="#/dropboxes"><i class="fab fa-dropbox fa-3x" aria-hidden="true"></i><br />Dropboxes</a></li>
 				<li><a class="text-center text-green" href="#/sah"><i class="fas fa-video fa-3x" aria-hidden="true"></i><br />Scene &amp; Heard</a></li>
 				<li><a class="text-center text-yellow" href="#/fon"><i class="fa fa-book fa-3x" aria-hidden="true"></i><br />New Signings</a></li>
@@ -13,7 +13,7 @@
 			<ul class="well well-sm nav nav-justified hidden-md hidden-lg home">
 				<li><a class="text-center text-aqua" href="#/artists"><i class="fa fa-star fa-2x" aria-hidden="true"></i><br />Artists</a></li>
 				<li><a class="text-center text-orange" href="#/songs"><i class="fa fa-music fa-2x" aria-hidden="true"></i><br />Songs</a></li>
-				<li><a class="text-center text-purple" href="#/comps"><i class="fa fa-gift fa-2x" aria-hidden="true"></i><br />Comps</a></li>
+				<li><a class="text-center text-purple" href="#/comps"><i class="fas fa-gift fa-2x" aria-hidden="true"></i><br />Comps</a></li>
 				<li><a class="text-center text-light-blue" href="#/dropboxes"><i class="fab fa-dropbox fa-2x" aria-hidden="true"></i><br />Dboxes</a></li>
 				<li><a class="text-center text-green" href="#/sah"><i class="fas fa-video fa-2x" aria-hidden="true"></i><br />S&amp;H</a></li>
 				<li><a class="text-center text-yellow" href="#/fon"><i class="fa fa-book fa-2x" aria-hidden="true"></i><br />Signings</a></li>
@@ -247,7 +247,7 @@
 													Most Recent Comp
 												</span>
 												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<a href="edit-comp/{{comp.comp_id}}"><i class="fa fa-gift fa-fw text-purple" aria-hidden="true"></i> {{comp.comp_name}}</a>
+													<a href="edit-comp/{{comp.comp_id}}"><i class="fas fa-gift fa-fw text-purple" aria-hidden="true"></i> {{comp.comp_name}}</a>
 												</span>
 												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
 													<i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> added {{comp.date_added | timestampDateFormat}}
@@ -294,7 +294,7 @@
 												<ul id="tabsJustified" class="nav nav-tabs nav-justified">
 													<li class="active"><a href="javascript:;" data-target="#top-songs" data-toggle="tab"><i class="fa fa-headphones fa-fw" aria-hidden="true"></i> Top  Songs</a></li>
 													<li><a href="javascript:;" data-target="#top-song-download" data-toggle="tab"><i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i> Top DL Songs</a></li>
-													<li><a href="javascript:;" data-target="#top-comps" data-toggle="tab"><i class="fa fa-gift fa-fw" aria-hidden="true"></i> Top DL Comps</a></li>
+													<li><a href="javascript:;" data-target="#top-comps" data-toggle="tab"><i class="fas fa-gift fa-fw" aria-hidden="true"></i> Top DL Comps</a></li>
 													<li><a href="javascript:;" data-target="#top-dropboxes" data-toggle="tab"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> Top DL Dropboxes</a></li>
 												</ul><!--/tabs-->
 												<br>
@@ -323,7 +323,7 @@
 														<ul class="list-group">
 															<li ng-repeat="comps in topComps" class="list-group-item">
 																<span class="badge badge-pink">{{comps.count}}</span>
-																<p><i class="fa fa-gift fa-fw text-purple" aria-hidden="true"></i> <strong><a href="#/edit-comp/{{comps.comp_id}}">{{comps.comp_name}}</a></strong></p>
+																<p><i class="fas fa-gift fa-fw text-purple" aria-hidden="true"></i> <strong><a href="#/edit-comp/{{comps.comp_id}}">{{comps.comp_name}}</a></strong></p>
 																<p class="no-margin pull-right" ng-show="comps.active=='n'"><span class="label label-warning">inactive</span></p>
 																<p class="no-margin pull-right" ng-show="comps.active=='y'"><span class="label label-success">active</span></p>
 																<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{comps.last_download | timestampDateTimeFormat}}</p>

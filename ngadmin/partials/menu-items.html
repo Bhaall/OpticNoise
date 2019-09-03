@@ -30,7 +30,7 @@
 		</ul>
 	</li>
 	<li data-ng-class="{active: isActive('/comps')}">
-		<a href="#/comps" ng-init="collapseComps=true" ng-click="collapseComps=!collapseComps"><i class="fa fa-gift menu-icon fa-fw" aria-hidden="true"></i> <span>Comps &nbsp;&nbsp;<span class="label label-info">{{allCompsTotal}}</span> <i class="text-muted pull-right fa fa-plus-square-o fa-fw" aria-hidden="true"></i></span></a>
+		<a href="#/comps" ng-init="collapseComps=true" ng-click="collapseComps=!collapseComps"><i class="fas fa-gift menu-icon fa-fw" aria-hidden="true"></i> <span>Comps &nbsp;&nbsp;<span class="label label-info">{{allCompsTotal}}</span> <i class="text-muted pull-right fa fa-plus-square-o fa-fw" aria-hidden="true"></i></span></a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseComps}" id="compsMenu">
 			<li data-ng-class="{active: isActive('/add-comp')}"><a href="#/add-comp">New Comp</a></li>
 			<li><a href="javascript:;" ng-init="collapseCompList=true" ng-click="collapseCompList=!collapseCompList">Comp List <i class="fa fa-caret-down fa-fw" aria-hidden="true"></i></a>

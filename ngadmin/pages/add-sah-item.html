@@ -40,7 +40,7 @@
 									<label for="itemOrder">sort:</label>
 									<div class="input-icon">
 										<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-										<input type="number" name="itemOrder" id="itemOrder" class="form-control" ng-model="item.itemOrder" />
+										<input type="number" name="itemOrder" id="itemOrder" class="form-control" required ng-model="item.itemOrder" />
 									</div>
 								</div>
 							</div>
@@ -63,7 +63,13 @@
 						<div class="form-group has-feedback text-angular" ng-class="{'has-success': AddSAHItemForm.itemText.$valid, 'has-invalid': AddSAHItemForm.itemText.$invalid && AddSAHItemForm.itemText.$dirty, 'has-error': AddSAHItemForm.itemText.$invalid && AddSAHItemForm.submitted}">
 							<div class="input-icon" ng-class="{true: 'error'}[AddSAHItemForm.submitted && AddSAHItemForm.itemText.$invalid]">
 								<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-								<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+								<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." data-ng-required="true" ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+							</div>
+							<div ng-show="AddSAHItemForm.itemText.$valid">
+								<span ng-show="AddSAHItemForm.itemText.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+							</div>
+							<div ng-show="AddSAHItemForm.itemText.$invalid && AddSAHItemForm.itemText.$dirty">
+								<span ng-show="AddSAHItemForm.itemText.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 						</div>
 					</div>

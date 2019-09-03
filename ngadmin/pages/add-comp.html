@@ -10,12 +10,13 @@
 					</div>
 					<div class="panel-body">
 						<div class="form-group has-feedback" ng-class="{'has-success': AddCompForm.comp_name.$valid, 'has-invalid': AddCompForm.comp_name.$invalid && AddCompForm.comp_name.$dirty, 'has-error': AddCompForm.comp_name.$invalid && AddCompForm.submitted}">
-							<label for="comp_name">name:</label>
+
 							<div class="row">
 								<div class="col-xs-6">
+									<label for="comp_name">name:</label>
 									<div class="input-icon">
 										<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
-										<input class="form-control" name="comp_name" placeholder="comp name (required)" type="text" ng-model="comp.comp_name" required autofocus focus-me />
+										<input class="form-control" name="comp_name" placeholder="comp name (required)" type="text" ng-model="comp.comp_name" required />
 									</div>
 									<div ng-show="AddCompForm.comp_name.$valid">
 										<span ng-show="AddCompForm.comp_name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -68,6 +69,12 @@
 											<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 											<input class="form-control" name="comp_file" type="text" ng-model="comp.comp_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
 										</div>
+										<div ng-show="AddCompForm.comp_file.$valid">
+											<span ng-show="AddCompForm.comp_file.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+										</div>
+										<div ng-show="AddCompForm.comp_file.$invalid && AddCompForm.comp_file.$dirty">
+											<span ng-show="AddCompForm.comp_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+										</div>
 										<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
 									</div>
 								</div>
@@ -76,7 +83,13 @@
 										<label for="sort">sort:</label>
 										<div class="input-icon">
 											<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-											<input type="number" name="sort" id="sort" class="form-control" ng-model="comp.sort" />
+											<input type="number" name="sort" id="sort" class="form-control" required ng-model="comp.sort" />
+										</div>
+										<div ng-show="AddCompForm.sort.$valid">
+											<span ng-show="AddCompForm.sort.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+										</div>
+										<div ng-show="AddCompForm.sort.$invalid && AddCompForm.sort.$dirty">
+											<span ng-show="AddCompForm.sort.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 										</div>
 									</div>
 								</div>

@@ -12,7 +12,7 @@
 							<div class="col-xs-12" ng-show="!dropboxes.length">
 								<div class="panel panel-ona">
 									<div class="panel-heading">
-										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw aria-hidden="true""></i>No dropboxes!</h4>
+										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i>No dropboxes!</h4>
 									</div>
 									<div class="panel-body">
 										<div class="row">
@@ -30,13 +30,13 @@
 											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
 											<ul class="dropdown-menu pull-right" role="menu">
 												<li class="dropdown-header">review</li>
-												<li><a href="#/edit-dropbox/{{dropbox.dropbox_id}}"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> edit</a></li>
+												<li><a href="#/edit-dropbox/{{dropbox.dropbox_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit</a></li>
 												<li class="divider"></li>
-												<li><a href="javascript:;" ng-click="delete(dropbox)"><i class="fa fa-trash fa-fw" aria-hidden="true"></i> delete</a></li>
+												<li><a href="javascript:;" ng-click="delete(dropbox)"><i class="pull-right fa fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
 												<li class="divider"></li>
 												<li class="dropdown-header pad-top-0">status</li>
-												<li ng-show="dropbox.active=='y'"><a href="javascript:;" ng-click="setInActive(dropbox)"><i class="fa fa-ban fa-fw" aria-hidden="true"></i> set <span class="label label-warning">inactive</span></a></li>
-												<li ng-show="dropbox.active=='n'"><a href="javascript:;" ng-click="setActive(dropbox)"><i class="fa fa-check fa-fw" aria-hidden="true"></i> set <span class="label label-success">active</span></a></li>
+												<li ng-show="dropbox.active=='y'"><a href="javascript:;" ng-click="setInActive(dropbox)"><i class="pull-right fas fa-ban fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
+												<li ng-show="dropbox.active=='n'"><a href="javascript:;" ng-click="setActive(dropbox)"><i class="pull-right fas fa-check-circle fa-fw" aria-hidden="true"></i> Set Active</a></li>
 											</ul>
 										</div>
 										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> <a href="#/edit-dropbox/{{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></h4>
