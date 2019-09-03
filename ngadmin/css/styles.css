@@ -682,10 +682,12 @@ hr {
   height: 20px;
   width: 20px;
 }
-.ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title {
+.ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title,
+.ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title {
   color: #fff;
 }
-.ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
+.ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
+.ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
   fill: #fff !important;
 }
 .ona-portlet .ona-portlet__body {
@@ -772,7 +774,8 @@ hr {
 .ona-svg-icon.ona-svg-icon--warning g [fill] {
   fill: #ef6c00 !important;
 }
-.ona-svg-icon.ona-svg-icon--danger g [fill] {
+.ona-svg-icon.ona-svg-icon--danger g [fill],
+.ona-svg-icon.ona-svg-icon--red g [fill] {
   fill: #d32f2f !important;
 }
 .ona-svg-icon.ona-svg-icon--orange g [fill] {

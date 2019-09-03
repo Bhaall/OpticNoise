@@ -20,18 +20,6 @@ angular.module('onAdmin.controllers', [])
 		}
 	};
 
-	// check if logged in before getting profile data
-	var connected=loginService.islogged();
-	connected.then(function(msg){
-		if(msg.data) {
-			profileRepo.fetchProfile().success(function(data) {
-				for (var i = 0; i < data.length; i++) {
-					$scope.current_user = data[i];
-				}
-			});
-		}
-	});
-
 	$scope.refreshCounters = function() {
 
 		getNewSignings.fetchFon().success(function(data) {
@@ -156,6 +144,19 @@ angular.module('onAdmin.controllers', [])
 			$scope.allDropboxesActiveTotal = data;
 		});
 	};
+
+	// check if logged in before getting profile data
+	var connected=loginService.islogged();
+	connected.then(function(msg){
+		if(msg.data) {
+			profileRepo.fetchProfile().success(function(data) {
+				for (var i = 0; i < data.length; i++) {
+					$scope.current_user = data[i];
+				}
+			});
+			$scope.refreshCounters();
+		}
+	});
 
 	$scope.timeAgo = utils.timeAgo;
 
