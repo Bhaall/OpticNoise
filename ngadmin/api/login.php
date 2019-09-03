@@ -34,6 +34,7 @@
 			where AdminID = '$_SESSION[AdminID]' ";
 			mysqli_query($connection, $sql);
 
+			date_default_timezone_set('America/Los_Angeles');
 			$today = date("F j, Y, g:i a T");
 			$q2 = "update admin set
 			current_login = '$today'

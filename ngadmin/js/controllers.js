@@ -20,9 +20,15 @@ angular.module('onAdmin.controllers', [])
 		}
 	};
 
-	profileRepo.fetchProfile().success(function(data) {
-		for (var i = 0; i < data.length; i++) {
-			$scope.current_user = data[i];
+	// check if logged in before getting profile data
+	var connected=loginService.islogged();
+	connected.then(function(msg){
+		if(msg.data) {
+			profileRepo.fetchProfile().success(function(data) {
+				for (var i = 0; i < data.length; i++) {
+					$scope.current_user = data[i];
+				}
+			});
 		}
 	});
 
@@ -150,8 +156,6 @@ angular.module('onAdmin.controllers', [])
 			$scope.allDropboxesActiveTotal = data;
 		});
 	};
-
-	$scope.refreshCounters();
 
 	$scope.timeAgo = utils.timeAgo;
 
