@@ -17,28 +17,20 @@
 										        <path d="M13.8,12 C13.1562,12 12.4033,12.7298529 12,13.2 C11.5967,12.7298529 10.8438,12 10.2,12 C9.0604,12 8.4,12.8888719 8.4,14.0201635 C8.4,15.2733878 9.6,16.6 12,18 C14.4,16.6 15.6,15.3 15.6,14.1 C15.6,12.9687084 14.9396,12 13.8,12 Z" fill="#000000" opacity="0.3"/>
 											    </g>
 												</svg>
-		                  </span> <!-- end ona-widget__icon -->
+		                  </span>
 		                  Home Page Carousel
-		                </h3> <!-- end ona-portlet__head-title -->
-		              </div> <!-- end ona-portlet__head-label -->
-		            </div> <!-- end ona-portlet__head -->
+		                </h3>
+		              </div>
+		            </div>
 		            <div class="ona-portlet__body ona-portlet__body--fit">
 		              <div class="ona-widget">
-		                <div class="ona-widget__visual ona-widget__red"> <!--class for background color -->
+		                <div class="ona-widget__visual ona-widget__red">
 		                </div>
 		                <div class="ona-widget__stats">
 											<div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="artist in featured">
 			                  <div class="ona-widget__items">
 													<div class="ona-widget__item">
 			                      <span class="ona-widget__icon">
-															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--red">
-														    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													        <polygon points="0 0 24 0 24 24 0 24"/>
-													        <path d="M16.5,4.5 C14.8905,4.5 13.00825,6.32463215 12,7.5 C10.99175,6.32463215 9.1095,4.5 7.5,4.5 C4.651,4.5 3,6.72217984 3,9.55040872 C3,12.6834696 6,16 12,19.5 C18,16 21,12.75 21,9.75 C21,6.92177112 19.349,4.5 16.5,4.5 Z" fill="#000000" fill-rule="nonzero"/>
-														    </g>
-															</svg>
-			                      </span> <!-- ona-widget__icon -->
-			                      <span class="ona-widget__subtitle">  <!-- dropdown tools go here? -->
 															<div class="pull-right btn-group">
 																<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
 																<ul class="dropdown-menu pull-right" role="menu">
@@ -47,29 +39,37 @@
 																	<li><a href="edit-artist/{{artist.INartistID}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit</a></li>
 																</ul>
 															</div>
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--red">
+														    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													        <polygon points="0 0 24 0 24 24 0 24"/>
+													        <path d="M16.5,4.5 C14.8905,4.5 13.00825,6.32463215 12,7.5 C10.99175,6.32463215 9.1095,4.5 7.5,4.5 C4.651,4.5 3,6.72217984 3,9.55040872 C3,12.6834696 6,16 12,19.5 C18,16 21,12.75 21,9.75 C21,6.92177112 19.349,4.5 16.5,4.5 Z" fill="#000000" fill-rule="nonzero"/>
+														    </g>
+															</svg>
+			                      </span>
+			                      <span class="ona-widget__subtitle">
 															<a href="edit-artist/{{artist.INartistID}}">{{artist.marker}} {{artist.INartistName}}</a>
 			                      </span>
 			                      <span class="ona-widget__desc">
 															<a href="edit-artist/{{artist.INartistID}}"><img ng-src="../images/artists/{{artist.slider_pic}}" class="img-responsive center margin-auto"></a>
 			                      </span>
-			                    </div> <!-- ona-widget__item -->
-			                  </div> <!-- ona-widget__items -->
-											</div> <!-- repeating col -->
-		                </div> <!-- ona-widget__stats -->
-		              </div> <!-- ona-widget -->
-		            </div> <!-- end ona-portlet__body -->
+			                    </div>
+			                  </div>
+											</div>
+		                </div>
+		              </div>
+		            </div>
 		            <div class="ona-portlet__foot">
 		              <div class="ona-form__actions">
 										<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addArtistModal" ng-disabled="isDisabled"><i class="fa fa-plus" aria-hidden="true"></i> Add artist</button>
 										<a href="#/" class="btn btn-cancel"> Cancel</a>
 		              </div>
-		            </div> <!-- end ona-portlet__foot -->
-		          </div> <!-- end ona-portlet -->
-		        </div> <!-- end col-lg-12 -->
-		      </div> <!-- end row -->
-		    </div> <!-- end panel -->
-		  </div> <!-- end col-lg-6 -->
-		</div> <!-- end row -->
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	</form>
 </div>
 

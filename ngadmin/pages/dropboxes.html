@@ -1,91 +1,110 @@
 <div class="container-fluid">
+
 	<form novalidate class="form" role="form" name="DropboxesForm" id="DropboxesForm" method="post">
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-light-blue">
-					<div class="panel-heading">
-						<span class="badge badge-white pull-right margin-top-4">{{allDropboxesTotal}}</span>
-						<h4 class="panel-title"><i class="fab fa-dropbox fa-fw aria-hidden="true""></i> Dropboxes</h4>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-xs-12" ng-show="!dropboxes.length">
-								<div class="panel panel-ona">
-									<div class="panel-heading">
-										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i>No dropboxes!</h4>
-									</div>
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-lg-12">
-												<a href="#/add-dropbox" class="btn btn-info"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> New Dropbox</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-6 col-xs-12" ng-repeat="dropbox in dropboxes">
-								<div class="panel panel-ona">
-									<div class="panel-heading">
-										<div class="pull-right tools btn-group">
-											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
-											<ul class="dropdown-menu pull-right" role="menu">
-												<li class="dropdown-header">review</li>
-												<li><a href="#/edit-dropbox/{{dropbox.dropbox_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit</a></li>
-												<li><a href="javascript:;" ng-click="delete(dropbox)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
-												<li class="divider"></li>
-												<li class="dropdown-header pad-top-0">status</li>
-												<li ng-show="dropbox.active=='y'"><a href="javascript:;" ng-click="setInActive(dropbox)"><i class="pull-right fas fa-eye-slash fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
-												<li ng-show="dropbox.active=='n'"><a href="javascript:;" ng-click="setActive(dropbox)"><i class="pull-right fas fa-eye fa-fw" aria-hidden="true"></i> Set Active</a></li>
-											</ul>
-										</div>
-										<h4 class="panel-title"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> <a href="#/edit-dropbox/{{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></h4>
-									</div>
-									<div class="panel-body">
-										<div class="row padded-grid">
-											<div class="col-lg-12">
-												<ul class="list-group">
-													<li class="list-group-item">
-														<div class="input-group">
-															<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}" ng-model="dropbox.copy2" />
-															<span class="input-group-btn">
-																<button class="btn btn-blue clip_button" clip-copy="dropbox.copy2" clip-click="copyDone(dropbox.copy2)" type="button" data-clipboard-text="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}"><i class="fa fa-copy fa-fw" aria-hidden="true"></i></button>
-															</span>
+		  <div class="col-lg-12">
+		    <div class="panel">
+		      <div class="row">
+		        <div class="col-lg-12">
+		          <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__light-blue">  <!--class for heading color -->
+		            <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+		              <div class="ona-portlet__head-label">
+		                <h3 class="ona-portlet__head-title">
+		                  <span class="ona-widget__icon">
+												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+											    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										        <rect x="0" y="0" width="24" height="24"/>
+										        <path d="M4,7 L20,7 L20,19.5 C20,20.3284271 19.3284271,21 18.5,21 L5.5,21 C4.67157288,21 4,20.3284271 4,19.5 L4,7 Z M10,10 C9.44771525,10 9,10.4477153 9,11 C9,11.5522847 9.44771525,12 10,12 L14,12 C14.5522847,12 15,11.5522847 15,11 C15,10.4477153 14.5522847,10 14,10 L10,10 Z" fill="#000000"/>
+										        <rect fill="#000000" opacity="0.3" x="2" y="3" width="20" height="4" rx="1"/>
+											    </g>
+												</svg>
+		                  </span>
+		                  Dropboxes
+		                </h3>
+		              </div>
+		            </div>
+		            <div class="ona-portlet__body ona-portlet__body--fit">
+									<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{allDropboxesTotal}}</span>
+		              <div class="ona-widget">
+		                <div class="ona-widget__visual ona-widget__light-blue">
+		                </div>
+		                <div class="ona-widget__stats">
+											<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" ng-repeat="dropbox in dropboxes">
+			                  <div class="ona-widget__items">
+			                    <div class="ona-widget__item">
+			                      <span class="ona-widget__icon">
+															<div class="pull-right tools btn-group">
+																<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
+																<ul class="dropdown-menu pull-right" role="menu">
+																	<li class="dropdown-header">review</li>
+																	<li><a href="#/edit-dropbox/{{dropbox.dropbox_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit</a></li>
+																	<li><a href="javascript:;" ng-click="delete(dropbox)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+																	<li class="divider"></li>
+																	<li class="dropdown-header pad-top-0">status</li>
+																	<li ng-show="dropbox.active=='y'"><a href="javascript:;" ng-click="setInActive(dropbox)"><i class="pull-right fas fa-eye-slash fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
+																	<li ng-show="dropbox.active=='n'"><a href="javascript:;" ng-click="setActive(dropbox)"><i class="pull-right fas fa-eye fa-fw" aria-hidden="true"></i> Set Active</a></li>
+																</ul>
+															</div>
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--light-blue">
+														    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													        <rect x="0" y="0" width="24" height="24"/>
+													        <path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" fill="#000000"/>
+													        <path d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z" fill="#000000" opacity="0.3"/>
+														    </g>
+															</svg>
+			                      </span>
+			                      <span class="ona-widget__subtitle">
+			                        <a href="#/edit-dropbox/{{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a>
+			                      </span>
+			                      <span class="ona-widget__desc">
+															<div class="row padded-grid">
+																<div class="col-lg-12">
+																	<ul class="list-group">
+																		<li class="list-group-item">
+																			<div class="input-group">
+																				<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}" ng-model="dropbox.copy2" />
+																				<span class="input-group-btn">
+																					<button class="btn btn-blue clip_button" clip-copy="dropbox.copy2" clip-click="copyDone(dropbox.copy2)" type="button" data-clipboard-text="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}"><i class="fa fa-copy fa-fw" aria-hidden="true"></i></button>
+																				</span>
+																			</div>
+																		</li>
+																		<li class="list-group-item"><i class="fas fa-cloud-download-alt fa-fw" aria-hidden="true"></i> <strong>link</strong> <span class="pull-right"><a href="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></span></li>
+																		<li class="list-group-item"><i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> <strong>added</strong> <span class="pull-right">{{dropbox.date_added | timestampDateFormat}}</span></li>
+																		<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> <strong>downloads</strong> <span class="pull-right pad-left-5"><a class="btn btn-default btn-xs" href="" ng-click="resetCount(dropbox)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span><span class="badge bg-blue margin-top-3">{{dropbox.count}}</span></li>
+																		<li class="list-group-item"><i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i> <strong>last download</strong> <span class="pull-right">{{dropbox.last_download | timestampDateTimeFormat}}</span></li>
+																		<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> <strong>status</strong> <span class="label pull-right" ng-class="{'label-warning': dropbox.active=='n','label-success': dropbox.active=='y'}">{{dropbox.activeTxt}}</span></li>
+																		<li class="list-group-item"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> <strong>sort order</strong> <input type="text" name="sort" class="form-control pull-right sortorder" ng-model="dropbox.sort"></li>
+																	</ul>
+																</div>
+															</div>
+			                      </span>
+														<div class="ona-widget__foot">
+															<div class="ona-form__actions">
+																<span class="tools btn-group">
+																	<a href="#/edit-dropbox/{{dropbox.dropbox_id}}" class="btn white btn-sm"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
+																</span>
+																<span class="tools btn-group pull-right">
+																	<a href="javascript:;" ng-click="delete(dropbox)" class="btn white btn-sm"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
+																</span>
+															</div>
 														</div>
-													</li>
-													<li class="list-group-item"><i class="fas fa-cloud-download-alt fa-fw" aria-hidden="true"></i> <strong>link</strong> <span class="pull-right"><a href="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></span></li>
-													<li class="list-group-item"><i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> <strong>added</strong> <span class="pull-right">{{dropbox.date_added | timestampDateFormat}}</span></li>
-													<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> <strong>downloads</strong> <span class="pull-right pad-left-5"><a class="btn btn-default btn-xs" href="" ng-click="resetCount(dropbox)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span><span class="badge bg-blue margin-top-3">{{dropbox.count}}</span></li>
-													<li class="list-group-item"><i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i> <strong>last download</strong> <span class="pull-right">{{dropbox.last_download | timestampDateTimeFormat}}</span></li>
-													<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> <strong>status</strong> <span class="label pull-right" ng-class="{'label-warning': dropbox.active=='n','label-success': dropbox.active=='y'}">{{dropbox.activeTxt}}</span></li>
-													<li class="list-group-item"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> <strong>sort order</strong> <input type="text" name="sort" class="form-control pull-right sortorder" ng-model="dropbox.sort"></li>
-												</ul>
+			                    </div>
+			                  </div>
 											</div>
-										</div>
-									</div>
-									<div class="panel-footer">
-										<span class="tools btn-group">
-											<a href="#/edit-dropbox/{{dropbox.dropbox_id}}" class="btn white btn-sm"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
-										</span>
-										<span class="tools btn-group pull-right">
-											<a href="javascript:;" ng-click="delete(dropbox)" class="btn white btn-sm"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
-										</span>
+		                </div>
+		              </div>
+		            </div>
+								<div class="ona-portlet__foot">
+									<div class="ona-form__actions">
+										<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-blue"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
+										<a href="#/" class="btn btn-cancel">Cancel</a>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-12">
-				<div class="panel panel-onl">
-					<div class="panel-body">
-						<div class="pull-left">
-							<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-blue"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
-							<a href="#/" class="btn btn-cancel">Cancel</a>
-						</div>
-					</div>
-				</div>
-			</div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</form>
 </div>
