@@ -707,7 +707,8 @@ hr {
 .ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title,
-.ona-portlet.ona--portlet__light-blue .ona-portlet__head .ona-portlet__head-title {
+.ona-portlet.ona--portlet__light-blue .ona-portlet__head .ona-portlet__head-title,
+.ona-portlet.ona--portlet__purple .ona-portlet__head .ona-portlet__head-title {
   color: #fff;
 }
 .ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
@@ -715,7 +716,8 @@ hr {
 .ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
-.ona-portlet.ona--portlet__light-blue .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
+.ona-portlet.ona--portlet__light-blue .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
+.ona-portlet.ona--portlet__purple .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
   fill: #fff !important;
 }
 .ona-portlet .ona-portlet__body {
