@@ -691,13 +691,15 @@ hr {
 .ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__aqua .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title,
-.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title {
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title,
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title {
   color: #fff;
 }
 .ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__aqua .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
-.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
   fill: #fff !important;
 }
 .ona-portlet .ona-portlet__body {
@@ -3198,7 +3200,9 @@ input[type=file]:hover,
 	background-color: #ffd54f;
 }
 .panel-green .ng-table thead th.sortable.sort-desc,
-.panel-green .ng-table thead th.sortable.sort-asc {
+.panel-green .ng-table thead th.sortable.sort-asc,
+.ona--portlet__green .ng-table thead th.sortable.sort-asc,
+.ona--portlet__green .ng-table thead th.sortable.sort-desc {
 	background-color: #81c784;
 }
 .table>tbody>tr td:first-child {
