@@ -2141,9 +2141,7 @@ angular.module('onAdmin.controllers', [])
 	};
 
 	$scope.remove = function(artist, FONForm) {
-		removeFon.putFonByID(artist.INartistID).success(function(data) {
-			var id = data.id;
-			$scope.artist = data;
+		removeFon.putFonByID(artist.INartistID).success(function() {
 			$scope.noty.add({title:'FON data',body:'Fon has been updated.'});
 			$scope.refresh();
 		}).
