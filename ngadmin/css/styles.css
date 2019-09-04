@@ -432,6 +432,9 @@ hr {
 .margin-top-15 {
   margin-top: 15px;
 }
+.margin-top-25 {
+  margin-top: 25px;
+}
 .margin-top-30 {
   margin-top: 30px;
 }
@@ -451,6 +454,9 @@ hr {
 }
 .margin-right-5 {
   margin-right: 5px;
+}
+.margin-right-25 {
+  margin-right: 25px;
 }
 .no-margin {
   margin: 0 !important;
@@ -683,11 +689,15 @@ hr {
   width: 20px;
 }
 .ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title,
-.ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title {
+.ona-portlet.ona--portlet__aqua .ona-portlet__head .ona-portlet__head-title,
+.ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title,
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title {
   color: #fff;
 }
 .ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
-.ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
+.ona-portlet.ona--portlet__aqua .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
+.ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
   fill: #fff !important;
 }
 .ona-portlet .ona-portlet__body {
@@ -749,7 +759,7 @@ hr {
     -ms-flex: 1;
       flex: 1;
   margin: 3px;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 20px;
   -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
@@ -3176,11 +3186,15 @@ input[type=file]:hover,
 	background-color: #b9c9e1;
 }
 .panel-aqua .ng-table thead th.sortable.sort-desc,
-.panel-aqua .ng-table thead th.sortable.sort-asc {
+.panel-aqua .ng-table thead th.sortable.sort-asc,
+.ona--portlet__aqua .ng-table thead th.sortable.sort-asc,
+.ona--portlet__aqua .ng-table thead th.sortable.sort-desc {
 	background-color: #b2ebf2;
 }
 .panel-orange .ng-table thead th.sortable.sort-desc,
-.panel-orange .ng-table thead th.sortable.sort-asc {
+.panel-orange .ng-table thead th.sortable.sort-asc,
+.ona--portlet__orange .ng-table thead th.sortable.sort-asc,
+.ona--portlet__orange .ng-table thead th.sortable.sort-desc {
 	background-color: #ffd54f;
 }
 .panel-green .ng-table thead th.sortable.sort-desc,
@@ -3204,11 +3218,4 @@ input[type=file]:hover,
 .fileinput-exists .fileinput-new + .help-block,
 .fileinput-new .fileinput-exists + .help-block {
   display: block;
-}
-/* hack */
-#user-signups {
-  margin-bottom: 0;
-}
-#user-signups tfoot {
-  display: none;
 }

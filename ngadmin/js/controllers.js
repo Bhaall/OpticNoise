@@ -741,88 +741,16 @@ angular.module('onAdmin.controllers', [])
 		$rootScope.isLoading = loading;
 	};
 	$rootScope.showPlayer=false;
-
-	$scope.sortingOrder = 'firstName';
-	$scope.pageSizes = [5,10,25,50];
-	$scope.reverse = false;
-	$scope.filteredItems = [];
-	$scope.groupedItems = [];
-	$scope.itemsPerPage = 5;
-	$scope.pagedItems = [];
-	$scope.currentPage = 0;
 	$rootScope.setLoading(true);
+
 	userRepo.fetchUsers().success(function(data) {
-		$scope.items = data;
-		$scope.search = function () {
-			$scope.filteredItems = $filter('filter')($scope.items, function (item) {
-				for(var attr in item) {
-					if (searchMatch(item[attr], $scope.query))
-						return true;
-				}
-				return false;
-			});
-			$scope.currentPage = 0;
-			$scope.groupToPages();
-		};
-		$scope.search();
+		$scope.users = data;
 		$scope.setLoading(false);
 	}).
 	error(function(data, status, headers, config) {
 		$rootScope.setLoading(false);
 		$scope.noty.add({type: 'Error', title:'Users data status: ' + status,body:'There was a problem.'});
 	});
-	var searchMatch = function (haystack, needle) {
-		if (!needle) {
-			return true;
-		}
-		return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
-	};
-
-	$scope.perPage = function () {
-		$scope.groupToPages();
-	};
-
-	$scope.groupToPages = function () {
-		$scope.pagedItems = [];
-
-		for (var i = 0; i < $scope.filteredItems.length; i++) {
-			if (i % $scope.itemsPerPage === 0) {
-				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
-			} else {
-				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
-			}
-		}
-	};
-
-	$scope.range = function (start, end) {
-		var ret = [];
-		if (!end) {
-			end = start;
-			start = 0;
-		}
-		for (var i = start; i < end; i++) {
-			ret.push(i);
-		}
-		return ret;
-	};
-
-	$scope.prevPage = function () {
-		if ($scope.currentPage > 0) {
-			$scope.currentPage--;
-		}
-		return false;
-	};
-
-	$scope.nextPage = function () {
-		if ($scope.currentPage < $scope.pagedItems.length - 1) {
-			$scope.currentPage++;
-		}
-		return false;
-	};
-
-	$scope.setPage = function () {
-		$scope.currentPage = this.n;
-	};
 
 }])
 .controller('userProfileCtrl', ['$scope', '$rootScope', '$stateParams', 'getProfile', 'saveProfile', 'asyncScript', function ($scope, $rootScope, $stateParams, getProfile, saveProfile, asyncScript) {
@@ -2130,8 +2058,9 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.setFon = function(artist, AddFONForm) {
 		updateFon.putFonByID(artist.INartistID).success(function(data) {
-			var id = data.id;
-			$scope.artist = data;
+			// var id = artist;
+			// $scope.artist = data;
+			// console.log(artist);
 			$scope.noty.add({title:'FON data',body:'Fon has been updated.'});
 			$scope.refresh();
 		}).
@@ -2141,7 +2070,10 @@ angular.module('onAdmin.controllers', [])
 	};
 
 	$scope.remove = function(artist, FONForm) {
-		removeFon.putFonByID(artist.INartistID).success(function() {
+		removeFon.putFonByID(artist.INartistID).success(function(data) {
+			// var id = data.id;
+			// $scope.artist = data;
+			$scope.artist = {};
 			$scope.noty.add({title:'FON data',body:'Fon has been updated.'});
 			$scope.refresh();
 		}).
@@ -2427,6 +2359,7 @@ angular.module('onAdmin.controllers', [])
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
+	$rootScope.setLoading(true);
 	$rootScope.showPlayer=false;
 
 	$scope.refresh = function() {
@@ -2462,8 +2395,9 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.remove = function(artist, SliderForm) {
 		removeFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
-			var id = data.id;
-			$scope.artist = data;
+			// var id = data.id;
+			// $scope.artist = data;
+			$scope.artist = {};
 			$scope.noty.add({title:'Featured data',body:'Artist was removed.'});
 			$scope.refresh();
 		}).
@@ -2474,8 +2408,8 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.setFeatured = function(artist, AddSliderForm) {
 		updateFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
-			var id = data.id;
-			$scope.artist = data;
+			// var id = data.id;
+			// $scope.artist = data;
 			$scope.noty.add({title:'Featured data',body:'Artist was added.'});
 			$scope.refresh();
 		}).
