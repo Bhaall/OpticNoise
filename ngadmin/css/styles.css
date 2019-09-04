@@ -3204,6 +3204,18 @@ input[type=file]:hover,
 .ona--portlet__green .ng-table thead th.sortable.sort-asc,
 .ona--portlet__green .ng-table thead th.sortable.sort-desc {
 	background-color: #81c784;
+  color: #fff;
+}
+.ona--portlet__green .ng-table th.sortable.sort-asc div:after,
+.ona--portlet__green .ng-table th.sortable.sort-asc div:before,
+.ona--portlet__green .ng-table th.sortable.sort-desc div:after,
+.ona--portlet__green .ng-table th.sortable.sort-desc div:before {
+  border-color: #fff transparent;
+  opacity: 1;
+}
+.ona--portlet__green .ng-table th.sortable.sort-asc div:after,
+.ona--portlet__green .ng-table th.sortable.sort-asc div:hover:after {
+  opacity: 1;
 }
 .table>tbody>tr td:first-child {
 	font-weight: bold;
