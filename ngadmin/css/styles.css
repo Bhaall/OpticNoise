@@ -860,8 +860,14 @@ hr {
   .ona-portlet.ona-portlet--head-lg .ona-portlet__head {
     min-height: 60px;
   }
+  .ona-widget .ona-widget__visual {
+    min-height: 100px;
+  }
   .ona-portlet .ona-portlet__body {
     padding: 15px;
+  }
+  .ona-portlet.ona-portlet--head-lg .ona-portlet__body {
+    margin-top: -60px;
   }
   .ona-portlet .ona-portlet__foot {
     padding: 15px;
@@ -1223,11 +1229,9 @@ td > .mt-checkbox.mt-checkbox-single {
   -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
-
 .dropdown-menu > li > a [class*=" fa-"]:not(.fa-stack) {
   line-height: 1.7;
 }
-
 .img-thumbnail {
   background-color: rgba(250, 250, 250, 0.9);
 }
