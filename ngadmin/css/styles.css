@@ -328,6 +328,9 @@ hr {
   }
 }
 /* global helper classes ------- */
+.capitalize {
+  text-transform: capitalize; 
+}
 .strong {
   font-weight:800;
 }
@@ -678,7 +681,6 @@ hr {
 .ona-portlet.ona--portlet__info {
   /* placeholder if needed */
 }
-
 .ona-portlet .ona-portlet__head .ona-portlet__head-label {
   -ms-flex-line-pack: flex-first;
     align-content: flex-first;
@@ -2383,9 +2385,20 @@ a.text-danger:visited {
   overflow: auto;
 }
 .ta-scroll-window > .ta-bind {
-	height: 100px !important;
-  max-height: 100px !important;
-	min-height: 100px !important;
+	height: 120px !important;
+  max-height: 120px !important;
+	min-height: 120px !important;
+}
+.ta-scroll-window > .ta-bind:focus,
+.ta-scroll-window > .ta-bind:active {
+  outline: none;
+}
+@media(max-width: 768px) {
+  .ta-scroll-window > .ta-bind {
+  	height: 140px !important;
+    max-height: 140px !important;
+  	min-height: 140px !important;
+  }
 }
 .breadcrumb,
 .pagination > li > a,
