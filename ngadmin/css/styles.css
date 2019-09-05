@@ -808,6 +808,9 @@ hr {
 .ona-svg-icon.ona-svg-icon--red g [fill] {
   fill: #d32f2f !important;
 }
+.ona-svg-icon.ona-svg-icon--info g [fill] {
+  fill: #1565c0 !important;
+}
 .ona-svg-icon.ona-svg-icon--orange g [fill] {
   fill: #ef6c00 !important;
 }
