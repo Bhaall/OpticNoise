@@ -2460,9 +2460,13 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.refresh();
 
-	$scope.copyDone = function (dwnLink) {
+	$scope.success = function (dwnLink) {
 		$scope.noty.add({title:'Comp link',body:'Copied to clipboard: ' + dwnLink});
-	}
+	};
+
+	$scope.fail = function (err) {
+		$scope.noty.add({type: 'Error', title:'Comp link: ' + err,body:'There was a problem.'});
+	};
 
 	$scope.updateSortOrder = function() {
 		for (var i = 0; i < $scope.comps.length; i++) {
@@ -2634,8 +2638,12 @@ angular.module('onAdmin.controllers', [])
 		return $sce.trustAsHtml(html);
 	};
 
-	$scope.copyDone = function (dwnLink) {
-		$scope.noty.add({title:'Download link',body:'Copied to clipboard: ' + dwnLink});
+	$scope.success = function (dwnLink) {
+		$scope.noty.add({title:'Comp link',body:'Copied to clipboard: ' + dwnLink});
+	};
+
+	$scope.fail = function (err) {
+		$scope.noty.add({type: 'Error', title:'Comp link: ' + err,body:'There was a problem.'});
 	};
 
 	$scope.addSelected = function(SongID, addSongToPlaylistForm) {
@@ -3285,8 +3293,12 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.refresh();
 
-	$scope.copyDone = function (dwnLink) {
-		$scope.noty.add({title:'Download link',body:'Copied to clipboard: ' + dwnLink});
+	$scope.success = function (dwnLink) {
+		$scope.noty.add({title:'Dropbox link',body:'Copied to clipboard: ' + dwnLink});
+	};
+
+	$scope.fail = function (err) {
+		$scope.noty.add({type: 'Error', title:'Dropbox link: ' + err,body:'There was a problem.'});
 	};
 
 	$scope.updateSortOrder = function() {
@@ -3425,9 +3437,13 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.refresh();
 
-	$scope.copyDone = function (dwnLink) {
-		$scope.noty.add({title:'Download link',body:'Copied to clipboard: ' + dwnLink});
-	}
+	$scope.success = function (dwnLink) {
+		$scope.noty.add({title:'Dropbox link',body:'Copied to clipboard: ' + dwnLink});
+	};
+
+	$scope.fail = function (err) {
+		$scope.noty.add({type: 'Error', title:'Dropbox link: ' + err,body:'There was a problem.'});
+	};
 
 	$scope.update = function(dropbox){
 		updateDropbox.putDropboxByID(id, dropbox).success(function(data) {

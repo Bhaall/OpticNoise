@@ -79,7 +79,7 @@
 									<div class="input-group">
 										<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}" ng-model="comp.copy2" />
 										<span class="input-group-btn">
-											<button class="btn btn-blue clip_button" clip-copy="comp.copy2" clip-click="copyDone(comp.copy2)" type="button" data-clipboard-text="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}"><i class="fa fa-copy fa-fw" aria-hidden="true"></i></button>
+											<button clipboard text="comp.copy2" on-copied="success(comp.copy2)" on-error="fail(err)" class="btn btn-blue clip_button"><i class="fas fa-copy fa-fw" aria-hidden="true"></i></button>
 										</span>
 									</div>
 								</div>
@@ -92,7 +92,7 @@
 									<div class="input-group">
 										<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" ng-model="comp.copy3" />
 										<span class="input-group-btn">
-											<button class="btn btn-blue clip_button" clip-copy="comp.copy3" clip-click="copyDone(comp.copy3)" type="button" data-clipboard-text="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}"><i class="fa fa-copy fa-fw" aria-hidden="true"></i></button>
+											<button clipboard text="comp.copy3" on-copied="success(comp.copy3)" on-error="fail(err)" class="btn btn-blue clip_button"><i class="fas fa-copy fa-fw" aria-hidden="true"></i></button>
 										</span>
 									</div>
 								</div>

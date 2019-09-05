@@ -6,7 +6,7 @@ angular.module('onAdmin', [
   'onAdmin.controllers',
   'ngTable',
   'textAngular',
-  'ngClipboard'
+  'angular-clipboard'
 ])
 .config(function($provide){
   $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions){
@@ -20,9 +20,6 @@ angular.module('onAdmin', [
     return taOptions;
   }]);
 })
-.config(['ngClipProvider', function(ngClipProvider){
-	ngClipProvider.setPath("/ngadmin/lib/zeroclipboard/ZeroClipboard.swf");
-}])
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider){
 	$stateProvider
 	.state('index', {

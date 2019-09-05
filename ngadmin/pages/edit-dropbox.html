@@ -68,7 +68,7 @@
 									<div class="input-group">
 										<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}" ng-model="dropbox.copy2" />
 										<span class="input-group-btn">
-											<button class="btn btn-blue clip_button" clip-copy="dropbox.copy2" clip-click="copyDone(dropbox.copy2)" type="button" data-clipboard-text="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}"><i class="fa fa-copy fa-fw" aria-hidden="true"></i></button>
+											<button clipboard text="dropbox.copy2" on-copied="success(dropbox.copy2)" on-error="fail(err)" class="btn btn-blue clip_button"><i class="fas fa-copy fa-fw" aria-hidden="true"></i></button>
 										</span>
 									</div>
 								</div>
