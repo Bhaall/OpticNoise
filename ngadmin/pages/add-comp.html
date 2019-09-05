@@ -83,13 +83,7 @@
 										<label for="sort">sort:</label>
 										<div class="input-icon">
 											<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-											<input type="number" name="sort" id="sort" class="form-control" required ng-model="comp.sort" />
-										</div>
-										<div ng-show="AddCompForm.sort.$valid">
-											<span ng-show="AddCompForm.sort.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="AddCompForm.sort.$invalid && AddCompForm.sort.$dirty">
-											<span ng-show="AddCompForm.sort.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+											<input type="number" touchspin name="sort" id="sort" class="form-control" required ng-model="comp.sort" />
 										</div>
 									</div>
 								</div>

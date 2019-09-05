@@ -413,4 +413,24 @@ angular.module('onAdmin.directives', [])
 				});
 			}
 		};
+	}])
+	.directive('touchspin', ['asyncScript', '$timeout', function (asyncScript, $timeout) {
+		return {
+			restrict: 'A',
+			transclude: true,
+			scope: {},
+			link: function(scope, el, attrs) {
+				asyncScript.load('touchspin',function(){
+					$timeout(function () {
+						$(el).TouchSpin({
+							verticalbuttons: true,
+							min: 0,
+              max: 1000,
+							buttondown_class: 'btn btn-xs btn-default',
+							buttonup_class: 'btn btn-xs btn-default'
+						});
+					});
+				});
+			}
+		}
 	}]);

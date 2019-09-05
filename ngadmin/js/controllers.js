@@ -1047,6 +1047,7 @@ angular.module('onAdmin.controllers', [])
 	$rootScope.showPlayer=true;
 	$rootScope.setLoading(true);
 	asyncScript.load('jasny',function(){});
+	asyncScript.load('touchspin',function(){});
 
 	var id = $stateParams.id;
 	getArtist.fetchArtistByID(id).success(function(data) {
@@ -2540,8 +2541,8 @@ angular.module('onAdmin.controllers', [])
 		$rootScope.isLoading = loading;
 	};
 	$rootScope.showPlayer=true;
-
 	asyncScript.load('jasny',function(){});
+	asyncScript.load('touchspin',function(){});
 
 	$rootScope.setLoading(true);
 	var id = $stateParams.id;

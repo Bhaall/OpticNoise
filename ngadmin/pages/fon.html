@@ -58,10 +58,16 @@
 																	</a>
 																</div>
 															</div>
-															<div class="row padded-grid">
+															<div class="row">
 																<div class="col-md-6 col-md-offset-3">
 																	<ul class="list-group">
-																		<li class="list-group-item">Sort order <input type="text" name="home_order" class="form-control pull-right sortorder" ng-model="artist.home_order" tabindex="{{ $index*10 + 1 }}" /></li>
+																		<li class="list-group-item">
+																			<label for="home_order">sort order</label>
+																			<div class="input-icon">
+																				<i class="fas fa-sort-numeric-down fa-fw"></i>
+																				<input type="text" touchspin name="home_order" id="home_order" class="form-control touchspin sortorder"  ng-model="artist.home_order" tabindex="{{ $index*10 + 1 }}" />
+																			</div>
+																		</li>
 																	</ul>
 																</div>
 															</div>

@@ -45,13 +45,7 @@
 										<label for="itemOrder">sort:</label>
 										<div class="input-icon">
 											<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-											<input type="number" name="sort" id="sort" class="form-control" ng-model="dropbox.sort" />
-										</div>
-										<div ng-show="AddDropboxForm.sort.$valid">
-											<span ng-show="AddDropboxForm.sort.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="AddDropboxForm.sort.$invalid && AddDropboxForm.sort.$dirty">
-											<span ng-show="AddDropboxForm.sort.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+											<input type="number" touchspin name="sort" id="sort" class="form-control" ng-model="dropbox.sort" />
 										</div>
 									</div>
 								</div>

@@ -329,7 +329,7 @@ hr {
 }
 /* global helper classes ------- */
 .capitalize {
-  text-transform: capitalize; 
+  text-transform: capitalize;
 }
 .strong {
   font-weight:800;
@@ -552,7 +552,7 @@ hr {
   z-index: 400;
 }
 .help-block {
-  font-weight: 600;
+  font-weight: 400;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -954,6 +954,10 @@ hr {
 }
 .form-control {
   font-size: 16px;
+  height: 40px;
+}
+button, input, optgroup, select, textarea {
+  font-weight: 400;
 }
 .form-control,
 .input-group-addon,
@@ -2599,7 +2603,7 @@ a.text-danger:visited {
 .has-error .form-control-feedback,
 .has-invalid .form-control-feedback {
   right: 15px;
-	top: 0;
+	top: 4px;
 }
 select.ng-valid.ng-valid-required {
 	border-color: #388e3c;
@@ -2621,7 +2625,7 @@ select.ng-valid.ng-valid-required {
 #EditAboutForm .form-control-feedback,
 #EditContactForm .form-control-feedback {
 	right: 0;
-	top: 24px;
+	top: 30px;
 }
 #EditSAHItemForm .text-angular .form-control-feedback {
   top: 40px;
@@ -2633,17 +2637,17 @@ select.ng-valid.ng-valid-required {
 #EditSongForm .form-control-feedback,
 #AddSongToArtistForm .form-control-feedback,
 #AddCompForm .form-control-feedback {
-	top: 24px;
+	top: 30px;
 }
 #registrationForm .has-success .form-control-feedback,
 #registrationForm .has-error .form-control-feedback,
 #registrationForm .has-invalid .form-control-feedback {
 	right: 0;
-	top: 24px;
+	top: 30px;
 }
 #EditContactForm .text-angular .form-control-feedback,
 #EditAboutForm .text-angular .form-control-feedback {
-  top: 65px;
+  top: 75px;
 }
 #AddSAHItemForm .text-angular .form-control-feedback {
   top: 40px;
@@ -2655,7 +2659,7 @@ select.ng-valid.ng-valid-required {
   }
 }
 .ta-scroll-window.form-control > .ta-bind {
-  padding-left: 33px;
+  padding-left: 0;
   padding-right: 33px;
 }
 .ta-root.focussed .ta-scroll-window.form-control {
@@ -2693,8 +2697,12 @@ select.ng-valid.ng-valid-required {
 	position: relative;
 }
 .input-icon > .form-control {
-	padding-left: 33px;
-  padding-right: 33px;
+	padding-left: 33px !important;
+  padding-right: 33px !important;
+}
+.input-icon .form-control.touchspin,
+.input-icon .form-control {
+  padding-left: 33px !important;
 }
 .input-group .input-icon > .form-control {
 	-webkit-border-radius: 4px 0 0 4px;
@@ -2708,7 +2716,7 @@ select.ng-valid.ng-valid-required {
 	display: block;
 	font-size: 16px;
 	left: 0;
-	margin: 11px 2px 4px 10px;
+	margin: 14px 2px 4px 10px;
 	position: absolute;
 	text-align: center;
 	width: 16px;
@@ -2982,6 +2990,7 @@ input[type=file]:hover,
 }
 .bootstrap-select>.btn.white {
   border: 1px solid #bbb;
+  height: 40px;
 }
 .bootstrap-select>.btn.white:active,
 .bootstrap-select>.btn.white:hover,
@@ -2998,7 +3007,7 @@ input[type=file]:hover,
 	border: none;
   box-shadow: none;
 	color: #93a2dd;
-	font-weight: 500;
+	font-weight: 400;
 	text-shadow: none;
 }
 .btn.white:active,
@@ -3165,6 +3174,54 @@ input[type=file]:hover,
 }
 /* plugin overrides */
 /* plugin helpers */
+.input-group.bootstrap-touchspin{
+  width: 100% !important;
+}
+.bootstrap-touchspin .input-group-btn-vertical .btn:first-child {
+  border-bottom: 0;
+}
+.bootstrap-touchspin .input-group-btn-vertical .btn {
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+      justify-content: center;
+  text-align: center;
+}
+.bootstrap-touchspin .input-group-btn-vertical .btn i {
+  padding: 0;
+  font-size: 1rem;
+}
+.bootstrap-touchspin .input-group-btn-vertical .btn-default {
+  -webkit-box-align: center;
+    -ms-flex-align: center;
+      align-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: #93a2dd;
+  font-weight: 600;
+}
+.bootstrap-touchspin .input-group-btn-vertical .btn-default:hover,
+.bootstrap-touchspin .input-group-btn-vertical .btn-default:focus,
+.bootstrap-touchspin .input-group-btn-vertical .btn-default:active {
+  background: #039be5;
+  color: #fff;
+  outline: none;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.input-group.bootstrap-touchspin .form-control:first-child {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/* .has-success .form-control-feedback,
+.ng-dirty.ng-valid .form-control-feedback,
+.has-success .form-control {
+  border-color: #388e3c;
+  box-shadow: none;
+	color: #363636;
+} */
+
 .datepicker thead tr:first-child th:hover,
 .datepicker tfoot tr th:hover,
 .datepicker table tr td.day:hover,
@@ -3278,8 +3335,8 @@ input[type=file]:hover,
 .ona--portlet__green .ng-table th.sortable.sort-asc div:hover:after {
   opacity: 1;
 }
-.table>tbody>tr td:first-child {
-	font-weight: bold;
+.table>tbody>tr td:first-child:not(input) {
+	font-weight: 600;
 }
 .pagination>li>a,
 .pagination>li>span {
