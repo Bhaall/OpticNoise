@@ -403,7 +403,6 @@ factory('uuid', function() {
 }).
 service('asyncScript', ['$window', function($window) {
     var libs = {
-      datepicker:		'//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js',
       moment:				'//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',
       jasny:				'//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js',
 			touchspin:		'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.min.js'

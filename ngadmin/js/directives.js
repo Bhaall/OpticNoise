@@ -396,24 +396,6 @@ angular.module('onAdmin.directives', [])
 			}
 		};
 	})
-	.directive('datepicker', ['asyncScript', '$timeout', function (asyncScript, $timeout) {
-		return {
-			restrict: 'A',
-			transclude: true,
-			scope: {},
-			link: function(scope, el, attrs) {
-				asyncScript.load('datepicker',function(){
-					$timeout(function () {
-						$(el).datepicker({
-							autoclose:true,
-						}).on("changeDate", function(e){
-							console.log(e.date);
-						});
-					});
-				});
-			}
-		};
-	}])
 	.directive('touchspin', ['asyncScript', '$timeout', function (asyncScript, $timeout) {
 		return {
 			restrict: 'A',

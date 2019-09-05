@@ -3228,56 +3228,6 @@ table .input-group.bootstrap-touchspin {
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }
-
-/* .has-success .form-control-feedback,
-.ng-dirty.ng-valid .form-control-feedback,
-.has-success .form-control {
-  border-color: #388e3c;
-  box-shadow: none;
-	color: #363636;
-} */
-
-.datepicker thead tr:first-child th:hover,
-.datepicker tfoot tr th:hover,
-.datepicker table tr td.day:hover,
-.datepicker table tr td.day.focused {
-	color: #343434;
-}
-.datepicker table tr td.active:hover,
-.datepicker table tr td.active:hover:hover,
-.datepicker table tr td.active.disabled:hover,
-.datepicker table tr td.active.disabled:hover:hover,
-.datepicker table tr td.active:active,
-.datepicker table tr td.active:hover:active,
-.datepicker table tr td.active.disabled:active,
-.datepicker table tr td.active.disabled:hover:active,
-.datepicker table tr td.active.active,
-.datepicker table tr td.active:hover.active,
-.datepicker table tr td.active.disabled.active,
-.datepicker table tr td.active.disabled:hover.active,
-.datepicker table tr td.active.disabled,
-.datepicker table tr td.active:hover.disabled,
-.datepicker table tr td.active.disabled.disabled,
-.datepicker table tr td.active.disabled:hover.disabled,
-.datepicker table tr td.active[disabled],
-.datepicker table tr td.active:hover[disabled],
-.datepicker table tr td.active.disabled[disabled],
-.datepicker table tr td.active.disabled:hover[disabled] {
-	color: #fff;
-}
-.datepicker table, .datepicker-inline {
-  width:100%;
-}
-.datepicker table tr td.old, .datepicker table tr td.new {
-  color:#cfcfcf;
-  color:rgba(240,240,240,.6);
-}
-.datepicker td:hover {
-  color:#444;
-}
-.timepicker-picker .table-condensed td {
-  text-align:center;
-}
 /* ng-table custom */
 .ng-table-pager .ng-table-pagination {
 	margin: 0 0 5px;
