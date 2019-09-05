@@ -172,11 +172,13 @@
 											<span class="ng-hide">{{comp.songID}}</span>
 										</li>
 										<li class="list-group-item">sort
-											<span class="pull-right pad-left-10">highest: {{max}}</span>
-											<span class="pull-right"><input type="text" name="item_sort_new" id="item_sort_new" class="form-control sortorder" ng-model="newsort"></span>
+											<div class="pull-right">
+												<input type="text" touchspin name="item_sort_new" id="item_sort_new" class="form-control sortorder" ng-model="newsort">
+												<h6 class="help-block margin-auto center">highest: {{max}}</h6>
+											</div>
 										</li>
 										<li class="list-group-item">
-											<button type="submit" class="btn btn-success" ng-disabled="!comp.songID" ng-click="addSelected(comp.songID)"><i class="fas fa-check-circle-square fa-fw" aria-hidden="true"></i> add to current playlist</button>
+											<button type="submit" class="btn btn-success" ng-disabled="!comp.songID" ng-click="addSelected(comp.songID)"><i class="fas fa-check-square fa-fw" aria-hidden="true"></i> add to current playlist</button>
 										</li>
 									</ul>
 								</div>
@@ -187,8 +189,8 @@
 								<ul class="list-group pull-down">
 								  <li class="list-group-item list-group-item-lightblue">new content</li>
 								  <li class="list-group-item">
-								  	<a href="#/add-song-to-comp/{{comp.comp_id}}" class="btn btn-success"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i> add new MP3 file</a>
-								  	<a href="#/add-artist-to-comp/{{comp.comp_id}}" class="btn btn-success"> <i class="fa fa-plus-square fa-fw" aria-hidden="true"></i> add new artist &amp; MP3 file</a>
+								  	<a href="#/add-song-to-comp/{{comp.comp_id}}" class="btn btn-success"><i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new MP3 file</a>
+								  	<a href="#/add-artist-to-comp/{{comp.comp_id}}" class="btn btn-success"> <i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new artist &amp; MP3 file</a>
 								  </li>
 								</ul>
 							</div>
@@ -217,7 +219,7 @@
 								 </thead>
 								 <tbody>
 									 <tr ng-repeat="song in playlist">
-										 <td class="col-xs-1"><input type="text" name="item_sort[]" class="form-control sortorder" ng-model="song.item_sort"></td>
+										 <td class="col-xs-1"><input touchspin type="text" name="item_sort[]" class="form-control sortorder" ng-model="song.item_sort"></td>
 										 <td class="col-xs-4"><a href="#/edit-song/{{song.songID}}">{{song.song_title}}</a></td>
 										 <td class="col-xs-3"><a href="#/edit-artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
 										 <td class="col-xs-1">{{song.song_count}}</td>

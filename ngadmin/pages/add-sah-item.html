@@ -25,7 +25,7 @@
 
 						<div class="form-group has-feedback" ng-class="{'has-success': AddSAHItemForm.itemMedia.$valid && AddSAHItemForm.itemMedia.$dirty, 'has-invalid': AddSAHItemForm.itemMedia.$invalid && AddSAHItemForm.itemMedia.$dirty, 'has-error': AddSAHItemForm.itemMedia.$invalid && AddSAHItemForm.submitted}">
 							<div class="row">
-								<div class="col-xs-8">
+								<div class="col-xs-9">
 									<label for="itemMedia">media:</label>
 									<select class="form-control" name="itemMedia" ng-model="item.itemMedia" selectpicker data-style="white" title="Select item media" data-width="100%" ng-required="true">
 										<option value=""></option>
@@ -36,11 +36,11 @@
 										<option value="PROMO">PROMO</option>
 									</select>
 								</div>
-								<div class="col-xs-4">
+								<div class="col-xs-3">
 									<label for="itemOrder">sort:</label>
 									<div class="input-icon">
 										<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-										<input type="number" name="itemOrder" id="itemOrder" class="form-control" required ng-model="item.itemOrder" />
+										<input type="number" touchspin name="itemOrder" id="itemOrder" class="form-control" required ng-model="item.itemOrder" />
 									</div>
 								</div>
 							</div>
@@ -49,9 +49,7 @@
 						<a href="#/sah-items/{{id}}" class="btn btn-cancel">Cancel</a>
 					</div>
 				</div>
-
 			</div>
-
 			<div class="col-lg-6">
 				<div class="panel panel-green-light">
 					<div class="panel-heading">

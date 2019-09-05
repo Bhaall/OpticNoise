@@ -36,7 +36,7 @@
 																<form novalidate role="form" class="form-horizontal" name="AddSAHForm" id="AddSAHForm" method="post">
 																	<small>Add SAH Holder</small>
 																	<input class="form-control input-sm margin-bottom-5" name="sceneName" id="sceneName" placeholder="Name" type="text" ng-model="sahholder.sceneName" required />
-																	<input class="form-control input-sm margin-bottom-5" name="scene_order" id="scene_order" placeholder="Sort order" ng-model="sahholder.scene_order" type="text"  />
+																	<input class="form-control input-sm margin-bottom-5" name="scene_order" id="scene_order" placeholder="Sort order" ng-model="sahholder.scene_order" type="text" />
 																	<button type="button" class="btn btn-info btn-block" data-toggle="dropdown" ng-disabled="AddSAHForm.$invalid || isUnchanged(sah)" id="add-new-btn" ng-click="add_new(sahholder)">Add</button>
 																</form>
 															</div>
@@ -75,7 +75,7 @@
 																	</form>
 																</td>
 																<td data-title="'added'" sortable="'sceneDate'" class="center col-xs-2">{{sah.sceneDate | timestampDateFormat}}</td>
-																<td data-title="'sort'" sortable="'scene_order'" class="center col-xs-2"><input type="number" name="itemOrderTbl" id="itemOrderTbl" class="form-control center" ng-model="sah.scene_order" /></td>
+																<td data-title="'sort'" sortable="'scene_order'" class="center col-xs-1"><input type="number" name="itemOrderTbl" id="itemOrderTbl" touchspin class="form-control" ng-model="sah.scene_order" /></td>
 																<td data-title="'items'" class="center col-xs-2"><a class="btn btn-default btn-xs" href="#/sah-items/{{sah.sceneID}}"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></a></td>
 																<td data-title="'active'" class="center col-xs-1">
 																	<div class="mt-radio-inline">

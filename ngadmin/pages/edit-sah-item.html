@@ -13,7 +13,7 @@
 						</h4>
 					</div>
 					<div class="panel-body">
-						<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemHeader.$valid, 'has-invalid': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty, 'has-error': EditSAHItemForm.itemHeader.$invalid && AddSongForm.submitted}">
+						<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemHeader.$valid, 'has-invalid': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty, 'has-error': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.submitted}">
 							<label for="itemHeader">name:</label>
 							<div class="input-icon">
 								<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
@@ -27,9 +27,9 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemMedia.$valid, 'has-invalid': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.itemMedia.$dirty, 'has-error': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.submitted}">
 							<div class="row">
-								<div class="col-xs-10">
+								<div class="col-xs-9">
 									<label for="itemMedia">media:</label>
 									<select class="form-control" name="itemMedia" ng-model="item.itemMedia" selectpicker data-style="white" title="Select item media" data-width="100%" ng-required="true">
 										<option value=""></option>
@@ -40,11 +40,11 @@
 										<option value="PROMO">PROMO</option>
 									</select>
 								</div>
-								<div class="col-xs-2">
+								<div class="col-xs-3">
 									<label for="itemOrder">sort:</label>
 									<div class="input-icon">
 										<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-										<input type="text" name="itemOrder" id="itemOrder" class="form-control" ng-model="item.itemOrder" />
+										<input type="text" touchspin name="itemOrder" id="itemOrder" class="form-control" ng-model="item.itemOrder" />
 									</div>
 								</div>
 							</div>

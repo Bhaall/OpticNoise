@@ -340,8 +340,14 @@ hr {
 .img-rounded {
   border-radius:4px;
 }
+.align-left {
+  text-align: left;
+}
 .align-right {
   text-align: right;
+}
+.center {
+	text-align: center;
 }
 .pad-15 {
   padding:15px;
@@ -414,9 +420,6 @@ hr {
 .pad-top-0 {
 	padding-top: 0 !important;
 }
-.center {
-	text-align: center;
-}
 .margin-auto {
 	margin: auto;
 }
@@ -469,6 +472,9 @@ hr {
   .tablet-margin-bottom-40 {
     margin-bottom: 40px;
   }
+}
+.margin-left-10 {
+  margin-left: 10px;
 }
 .margin-right-5 {
   margin-right: 5px;
@@ -1491,6 +1497,10 @@ fieldset[disabled] .btn-info.active {
 }
 .badge.bg-info:hover {
 	background-color: #1565c0;
+}
+.btn-blue {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .btn-blue,
 .btn-blue:visited,
@@ -3127,18 +3137,15 @@ input[type=file]:hover,
 .padded-grid .list-group {
   -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
+  display: flex;
+  flex-direction: column;
 	margin-bottom: 0;
 }
 .padded-grid input.sortorder {
-	height: 22px;
+	/* height: 22px;
 	padding: 4px 8px;
-	text-align: center;
-	width: 50px;
-}
-@media (max-width: 768px) {
-	.padded-grid input.sortorder {
-		width: 30px;
-	}
+	text-align: center; */
+	width: 70px;
 }
 .list-group-item-lightblue {
 	background-color: #eef1f7;
@@ -3174,8 +3181,16 @@ input[type=file]:hover,
 }
 /* plugin overrides */
 /* plugin helpers */
-.input-group.bootstrap-touchspin{
+.input-group.bootstrap-touchspin {
   width: 100% !important;
+}
+.padded-grid .list-group-item .input-group.bootstrap-touchspin {
+  width: auto !important;
+  float: right;
+}
+table .input-group.bootstrap-touchspin {
+  margin: auto;
+  width: auto !important;
 }
 .bootstrap-touchspin .input-group-btn-vertical .btn:first-child {
   border-bottom: 0;
