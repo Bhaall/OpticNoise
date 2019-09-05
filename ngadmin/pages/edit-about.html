@@ -1,195 +1,275 @@
 <div class="container-fluid">
 	<form novalidate class="form" role="form" name="EditAboutForm" id="EditAboutForm" method="post">
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fa fa-arrow-circle-up fa-fw" aria-hidden="true"></i> top
-						</h4>
-					</div> <!-- end of panel-heading -->
-					<div class="panel-body">
-						<div class="col-lg-6 pad-right-10 pad-left-0">
-							<div class="panel panel-ona">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<i class="fa fa-arrow-circle-left fa-fw" aria-hidden="true"></i> left
-									</h4>
-								</div>
-								<div class="panel-body">
-			            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_left_para_1.$valid, 'has-invalid': EditAboutForm.top_left_para_1.$invalid && EditAboutForm.top_left_para_1.$dirty, 'has-error': EditAboutForm.top_left_para_1.$invalid && EditAboutForm.submitted}">
-										<label for="top_left_para_1">paragraph 1:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_left_para_1.$invalid]">
-											<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-											<text-angular name="top_left_para_1" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_left_para_1" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-										</div>
-										<div ng-show="EditAboutForm.top_left_para_1.$valid">
-											<span ng-show="EditAboutForm.top_left_para_1.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.top_left_para_1.$invalid && EditAboutForm.top_left_para_1.$dirty">
-											<span ng-show="EditAboutForm.top_left_para_1.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+		  <div class="col-lg-12">
+		    <div class="panel">
+          <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__info">
+            <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+              <div class="ona-portlet__head-label">
+                <h3 class="ona-portlet__head-title">
+                  <span class="ona-widget__icon">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+									    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect x="0" y="0" width="24" height="24"/>
+								        <polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5"/>
+								        <path d="M13,2 C18.5228475,2 23,6.4771525 23,12 C23,17.5228475 18.5228475,22 13,22 C7.4771525,22 3,17.5228475 3,12 C3,6.4771525 7.4771525,2 13,2 Z M7.16794971,13.5547002 C8.67758127,15.8191475 10.6456687,17 13,17 C15.3543313,17 17.3224187,15.8191475 18.8320503,13.5547002 C19.1384028,13.0951715 19.0142289,12.4743022 18.5547002,12.1679497 C18.0951715,11.8615972 17.4743022,11.9857711 17.1679497,12.4452998 C16.0109146,14.1808525 14.6456687,15 13,15 C11.3543313,15 9.9890854,14.1808525 8.83205029,12.4452998 C8.52569784,11.9857711 7.90482849,11.8615972 7.4452998,12.1679497 C6.98577112,12.4743022 6.86159725,13.0951715 7.16794971,13.5547002 Z" fill="#000000"/>
+									    </g>
+										</svg>
+                  </span>
+                  About
+                </h3>
+              </div>
+            </div>
+						<div class="ona-portlet__body ona-portlet__body--fit">
+              <div class="ona-widget">
+                <div class="ona-widget__visual ona-widget__info">
+                </div>
+								<div class="ona-widget__stats">
+									<div class="col-lg-12">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--info">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<rect fill="#000000" x="2" y="5" width="19" height="4" rx="1"/>
+															<rect fill="#000000" opacity="0.3" x="2" y="11" width="19" height="10" rx="1"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Top
+												</span>
+											</div>
+	                  </div>
+									</div>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--info">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <rect fill="#000000" x="9" y="5" width="13" height="14" rx="1.5"/>
+											        <rect fill="#000000" opacity="0.3" x="2" y="5" width="5" height="14" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Left
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_left_para_1.$valid, 'has-invalid': EditAboutForm.top_left_para_1.$invalid && EditAboutForm.top_left_para_1.$dirty, 'has-error': EditAboutForm.top_left_para_1.$invalid && EditAboutForm.submitted}">
+														<label for="top_left_para_1">paragraph 1:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_left_para_1.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular name="top_left_para_1" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_left_para_1" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditAboutForm.top_left_para_1.$valid">
+															<span ng-show="EditAboutForm.top_left_para_1.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.top_left_para_1.$invalid && EditAboutForm.top_left_para_1.$dirty">
+															<span ng-show="EditAboutForm.top_left_para_1.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+							            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_left_para_2.$valid, 'has-invalid': EditAboutForm.top_left_para_2.$invalid && EditAboutForm.top_left_para_2.$dirty, 'has-error': EditAboutForm.top_left_para_2.$invalid && EditAboutForm.submitted}">
+														<label for="top_left_para_2">paragraph 2:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_left_para_2.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular name="top_left_para_2" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_left_para_2" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditAboutForm.top_left_para_2.$valid">
+															<span ng-show="EditAboutForm.top_left_para_2.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.top_left_para_2.$invalid && EditAboutForm.top_left_para_2.$dirty">
+															<span ng-show="EditAboutForm.top_left_para_2.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+							            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_left_para_3.$valid, 'has-invalid': EditAboutForm.top_left_para_3.$invalid && EditAboutForm.top_left_para_3.$dirty, 'has-error': EditAboutForm.top_left_para_3.$invalid && EditAboutForm.submitted}">
+														<label for="top_left_para_3">paragraph 3:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_left_para_3.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular name="top_left_para_3" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_left_para_3" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditAboutForm.top_left_para_3.$valid">
+															<span ng-show="EditAboutForm.top_left_para_3.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.top_left_para_3.$invalid && EditAboutForm.top_left_para_3.$dirty">
+															<span ng-show="EditAboutForm.top_left_para_3.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+												</span>
+											</div>
 										</div>
 									</div>
-			            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_left_para_2.$valid, 'has-invalid': EditAboutForm.top_left_para_2.$invalid && EditAboutForm.top_left_para_2.$dirty, 'has-error': EditAboutForm.top_left_para_2.$invalid && EditAboutForm.submitted}">
-										<label for="top_left_para_2">paragraph 2:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_left_para_2.$invalid]">
-											<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-											<text-angular name="top_left_para_2" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_left_para_2" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-										</div>
-										<div ng-show="EditAboutForm.top_left_para_2.$valid">
-											<span ng-show="EditAboutForm.top_left_para_2.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.top_left_para_2.$invalid && EditAboutForm.top_left_para_2.$dirty">
-											<span ng-show="EditAboutForm.top_left_para_2.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--info">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <rect fill="#000000" x="2" y="5" width="13" height="14" rx="1.5"/>
+											        <rect fill="#000000" opacity="0.3" x="17" y="5" width="5" height="14" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Right
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_right_para_1.$valid, 'has-invalid': EditAboutForm.top_right_para_1.$invalid && EditAboutForm.top_right_para_1.$dirty, 'has-error': EditAboutForm.top_right_para_1.$invalid && EditAboutForm.submitted}">
+							              <label for="top_right_para_1">paragraph:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_right_para_1.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+							              	<text-angular name="top_right_para_1" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_right_para_1" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditAboutForm.top_right_para_1.$valid">
+															<span ng-show="EditAboutForm.top_right_para_1.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.top_right_para_1.$invalid && EditAboutForm.top_right_para_1.$dirty">
+															<span ng-show="EditAboutForm.top_right_para_1.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+							            </div>
+												</span>
+											</div>
 										</div>
 									</div>
-			            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_left_para_3.$valid, 'has-invalid': EditAboutForm.top_left_para_3.$invalid && EditAboutForm.top_left_para_3.$dirty, 'has-error': EditAboutForm.top_left_para_3.$invalid && EditAboutForm.submitted}">
-										<label for="top_left_para_3">paragraph 3:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_left_para_3.$invalid]">
-											<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-											<text-angular name="top_left_para_3" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_left_para_3" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-										</div>
-										<div ng-show="EditAboutForm.top_left_para_3.$valid">
-											<span ng-show="EditAboutForm.top_left_para_3.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.top_left_para_3.$invalid && EditAboutForm.top_left_para_3.$dirty">
-											<span ng-show="EditAboutForm.top_left_para_3.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<div class="col-lg-12">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--info">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <rect fill="#000000" opacity="0.3" x="4" y="5" width="16" height="6" rx="1.5"/>
+											        <rect fill="#000000" x="4" y="13" width="16" height="6" rx="1.5"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Bottom
+												</span>
+											</div>
 										</div>
 									</div>
-								</div>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--info">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <rect fill="#000000" x="9" y="5" width="13" height="14" rx="1.5"/>
+											        <rect fill="#000000" opacity="0.3" x="2" y="5" width="5" height="14" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Left
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback" ng-class="{'has-success': EditAboutForm.bottom_left_heading.$valid, 'has-invalid': EditAboutForm.bottom_left_heading.$invalid && EditAboutForm.bottom_left_heading.$dirty, 'has-error': EditAboutForm.bottom_left_heading.$invalid && EditAboutForm.submitted}">
+														<label for="bottom_left_heading">heading:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_left_heading.$invalid]">
+															<i class="fas fa-heading fa-fw" aria-hidden="true"></i>
+															<input class="form-control" name="bottom_left_heading" type="text" ng-model="about.bottom_left_heading" required />
+														</div>
+														<div ng-show="EditAboutForm.bottom_left_heading.$valid">
+															<span ng-show="EditAboutForm.bottom_left_heading.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.bottom_left_heading.$invalid && EditAboutForm.bottom_left_heading.$dirty">
+															<span ng-show="EditAboutForm.bottom_left_heading.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+							            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.bottom_left_para.$valid, 'has-invalid': EditAboutForm.bottom_left_para.$invalid && EditAboutForm.bottom_left_para.$dirty, 'has-error': EditAboutForm.bottom_left_para.$invalid && EditAboutForm.submitted}">
+														<label for="bottom_left_para">paragraph:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_left_para.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular name="bottom_left_para" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.bottom_left_para"  data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditAboutForm.bottom_left_para.$valid">
+															<span ng-show="EditAboutForm.bottom_left_para.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.bottom_left_para.$invalid && EditAboutForm.bottom_left_para.$dirty">
+															<span ng-show="EditAboutForm.bottom_left_para.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--info">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <rect fill="#000000" x="2" y="5" width="13" height="14" rx="1.5"/>
+											        <rect fill="#000000" opacity="0.3" x="17" y="5" width="5" height="14" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Right
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback" ng-class="{'has-success': EditAboutForm.bottom_right_heading.$valid, 'has-invalid': EditAboutForm.bottom_right_heading.$invalid && EditAboutForm.bottom_right_heading.$dirty, 'has-error': EditAboutForm.bottom_right_heading.$invalid && EditAboutForm.submitted}">
+														<label for="bottom_right_heading">heading:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_right_heading.$invalid]">
+															<i class="fas fa-heading fa-fw" aria-hidden="true"></i>
+															<input class="form-control" name="bottom_right_heading" type="text" ng-model="about.bottom_right_heading" required />
+														</div>
+														<div ng-show="EditAboutForm.bottom_right_heading.$valid">
+															<span ng-show="EditAboutForm.bottom_right_heading.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.bottom_right_heading.$invalid && EditAboutForm.bottom_right_heading.$dirty">
+															<span ng-show="EditAboutForm.bottom_right_heading.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+							            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.bottom_right_para_1.$valid, 'has-invalid': EditAboutForm.bottom_right_para_1.$invalid && EditAboutForm.bottom_right_para_1.$dirty, 'has-error': EditAboutForm.bottom_right_para_1.$invalid && EditAboutForm.submitted}">
+														<label for="bottom_right_para_1">paragraph 1:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_right_para_1.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular name="bottom_right_para_1" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.bottom_right_para_1"  data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditAboutForm.bottom_right_para_1.$valid">
+															<span ng-show="EditAboutForm.bottom_right_para_1.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.bottom_right_para_1.$invalid && EditAboutForm.bottom_right_para_1.$dirty">
+															<span ng-show="EditAboutForm.bottom_right_para_1.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+							            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.bottom_right_para_2.$valid, 'has-invalid': EditAboutForm.bottom_right_para_2.$invalid && EditAboutForm.bottom_right_para_2.$dirty, 'has-error': EditAboutForm.bottom_right_para_2.$invalid && EditAboutForm.submitted}">
+														<label for="bottom_right_para_2">paragraph 2:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_right_para_2.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular name="bottom_right_para_2" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.bottom_right_para_2"  data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditAboutForm.bottom_right_para_2.$valid">
+															<span ng-show="EditAboutForm.bottom_right_para_2.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditAboutForm.bottom_right_para_2.$invalid && EditAboutForm.bottom_right_para_2.$dirty">
+															<span ng-show="EditAboutForm.bottom_right_para_2.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
+									</div>
+                </div>
+              </div>
+            </div>
+						<div class="ona-portlet__foot">
+							<div class="ona-form__actions">
+								<button class="btn btn-info" ng-disabled="EditAboutForm.$invalid || isUnchanged(about)" id="edit-about-btn" ng-click="update(about)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+								<a href="#/" class="btn btn-cancel"> Cancel</a>
 							</div>
-						</div> <!-- end of first col -->
-
-						<div class="col-lg-6 pad-left-10 pad-right-0">
-							<div class="panel panel-ona">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										right <i class="fa fa-arrow-circle-right fa-fw" aria-hidden="true"></i>
-									</h4>
-								</div>
-								<div class="panel-body">
-			            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.top_right_para_1.$valid, 'has-invalid': EditAboutForm.top_right_para_1.$invalid && EditAboutForm.top_right_para_1.$dirty, 'has-error': EditAboutForm.top_right_para_1.$invalid && EditAboutForm.submitted}">
-			              <label for="top_right_para_1">paragraph:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.top_right_para_1.$invalid]">
-											<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-			              	<text-angular name="top_right_para_1" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.top_right_para_1" data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-										</div>
-										<div ng-show="EditAboutForm.top_right_para_1.$valid">
-											<span ng-show="EditAboutForm.top_right_para_1.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.top_right_para_1.$invalid && EditAboutForm.top_right_para_1.$dirty">
-											<span ng-show="EditAboutForm.top_right_para_1.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-			            </div>
-								</div>
-							</div>
-						</div><!-- end of second col -->
-
-					</div> <!-- end of panel-body -->
-				</div> <!-- end of panel -->
-			</div> <!-- end of col-lg-12 -->
-
-			<div class="col-lg-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fa fa-arrow-circle-down fa-fw" aria-hidden="true"></i> bottom
-						</h4>
-					</div> <!-- end of panel-heading -->
-					<div class="panel-body">
-						<div class="col-lg-6 pad-right-10 pad-left-0">
-							<div class="panel panel-ona">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<i class="fa fa-arrow-circle-left fa-fw" aria-hidden="true"></i> left
-									</h4>
-								</div>
-								<div class="panel-body">
-									<div class="form-group has-feedback" ng-class="{'has-success': EditAboutForm.bottom_left_heading.$valid, 'has-invalid': EditAboutForm.bottom_left_heading.$invalid && EditAboutForm.bottom_left_heading.$dirty, 'has-error': EditAboutForm.bottom_left_heading.$invalid && EditAboutForm.submitted}">
-										<label for="bottom_left_heading">heading:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_left_heading.$invalid]">
-											<i class="fas fa-heading fa-fw" aria-hidden="true"></i>
-											<input class="form-control" name="bottom_left_heading" type="text" ng-model="about.bottom_left_heading" required />
-										</div>
-										<div ng-show="EditAboutForm.bottom_left_heading.$valid">
-											<span ng-show="EditAboutForm.bottom_left_heading.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.bottom_left_heading.$invalid && EditAboutForm.bottom_left_heading.$dirty">
-											<span ng-show="EditAboutForm.bottom_left_heading.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-									</div>
-			            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.bottom_left_para.$valid, 'has-invalid': EditAboutForm.bottom_left_para.$invalid && EditAboutForm.bottom_left_para.$dirty, 'has-error': EditAboutForm.bottom_left_para.$invalid && EditAboutForm.submitted}">
-										<label for="bottom_left_para">paragraph:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_left_para.$invalid]">
-											<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-											<text-angular name="bottom_left_para" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.bottom_left_para"  data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-										</div>
-										<div ng-show="EditAboutForm.bottom_left_para.$valid">
-											<span ng-show="EditAboutForm.bottom_left_para.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.bottom_left_para.$invalid && EditAboutForm.bottom_left_para.$dirty">
-											<span ng-show="EditAboutForm.bottom_left_para.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- end of first col -->
-
-						<div class="col-lg-6 pad-left-10 pad-right-0">
-							<div class="panel panel-ona">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										right <i class="fa fa-arrow-circle-right fa-fw" aria-hidden="true"></i>
-									</h4>
-								</div>
-								<div class="panel-body">
-			            <div class="form-group has-feedback" ng-class="{'has-success': EditAboutForm.bottom_right_heading.$valid, 'has-invalid': EditAboutForm.bottom_right_heading.$invalid && EditAboutForm.bottom_right_heading.$dirty, 'has-error': EditAboutForm.bottom_right_heading.$invalid && EditAboutForm.submitted}">
-										<label for="bottom_right_heading">heading:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_right_heading.$invalid]">
-											<i class="fas fa-heading fa-fw" aria-hidden="true"></i>
-											<input class="form-control" name="bottom_right_heading" type="text" ng-model="about.bottom_right_heading" required />
-										</div>
-										<div ng-show="EditAboutForm.bottom_right_heading.$valid">
-											<span ng-show="EditAboutForm.bottom_right_heading.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.bottom_right_heading.$invalid && EditAboutForm.bottom_right_heading.$dirty">
-											<span ng-show="EditAboutForm.bottom_right_heading.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-									</div>
-			            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.bottom_right_para_1.$valid, 'has-invalid': EditAboutForm.bottom_right_para_1.$invalid && EditAboutForm.bottom_right_para_1.$dirty, 'has-error': EditAboutForm.bottom_right_para_1.$invalid && EditAboutForm.submitted}">
-										<label for="bottom_right_para_1">paragraph 1:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_right_para_1.$invalid]">
-											<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-											<text-angular name="bottom_right_para_1" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.bottom_right_para_1"  data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-										</div>
-										<div ng-show="EditAboutForm.bottom_right_para_1.$valid">
-											<span ng-show="EditAboutForm.bottom_right_para_1.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.bottom_right_para_1.$invalid && EditAboutForm.bottom_right_para_1.$dirty">
-											<span ng-show="EditAboutForm.bottom_right_para_1.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-									</div>
-			            <div class="form-group has-feedback text-angular" ng-class="{'has-success': EditAboutForm.bottom_right_para_2.$valid, 'has-invalid': EditAboutForm.bottom_right_para_2.$invalid && EditAboutForm.bottom_right_para_2.$dirty, 'has-error': EditAboutForm.bottom_right_para_2.$invalid && EditAboutForm.submitted}">
-										<label for="bottom_right_para_2">paragraph 2:</label>
-										<div class="input-icon" ng-class="{true: 'error'}[EditAboutForm.submitted && EditAboutForm.bottom_right_para_2.$invalid]">
-											<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-											<text-angular name="bottom_right_para_2" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="about.bottom_right_para_2"  data-ng-required="true" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-										</div>
-										<div ng-show="EditAboutForm.bottom_right_para_2.$valid">
-											<span ng-show="EditAboutForm.bottom_right_para_2.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditAboutForm.bottom_right_para_2.$invalid && EditAboutForm.bottom_right_para_2.$dirty">
-											<span ng-show="EditAboutForm.bottom_right_para_2.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div><!-- end of second col -->
-						<button class="btn btn-info" ng-disabled="EditAboutForm.$invalid || isUnchanged(about)" id="edit-about-btn" ng-click="update(about)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
-						<a href="#/" class="btn btn-cancel"> Cancel</a>
-					</div> <!-- end of panel-body -->
-				</div> <!-- end of panel -->
-			</div> <!-- end of col-lg-12 -->
-		</div><!-- end of first row -->
+						</div>
+          </div>
+		    </div>
+		  </div>
+		</div>
 	</form>
 </div>

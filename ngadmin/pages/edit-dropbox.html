@@ -43,6 +43,12 @@
 											<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 											<input class="form-control" name="dropbox_file" type="text" ng-model="dropbox.dropbox_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
 										</div>
+										<div ng-show="EditDropboxForm.dropbox_file.$valid">
+											<span ng-show="EditDropboxForm.dropbox_file.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+										</div>
+										<div ng-show="EditDropboxForm.dropbox_file.$invalid && EditDropboxForm.dropbox_file.$dirty">
+											<span ng-show="EditDropboxForm.dropbox_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+										</div>
 										<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
 									</div>
 								</div>

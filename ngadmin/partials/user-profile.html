@@ -38,7 +38,7 @@
 									<span ng-show="registrationForm.username.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 								</div>
 								<div ng-show="registrationForm.username.$invalid && registrationForm.username.$dirty">
-									<span ng-show="form1.username.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									<span ng-show="registrationForm.username.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 								</div>
 							</div>
 							<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.email.$valid, 'has-invalid': registrationForm.email.$invalid && registrationForm.email.$dirty, 'has-error': registrationForm.email.$invalid && registrationForm.submitted}">

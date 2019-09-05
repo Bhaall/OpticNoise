@@ -6,6 +6,7 @@ body {
   background-color: #f7f7f7;
   color: #343434;
   font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
 }
 #wrapper {
   display: inline-block;
@@ -689,7 +690,7 @@ hr {
       display: flex;
 }
 .ona-portlet .ona-portlet__head .ona-portlet__head-label .ona-portlet__head-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin: 0;
   padding: 0;
@@ -916,6 +917,7 @@ hr {
 .input-group-addon {
   border-radius: 3px;
   box-shadow: none;
+  font-size: 16px;
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -947,6 +949,9 @@ hr {
 	.panel-footer {
 		padding: 5px;
 	}
+}
+.form-control {
+  font-size: 16px;
 }
 .form-control,
 .input-group-addon,
@@ -1663,6 +1668,7 @@ fieldset[disabled] .btn-blue.active {
 	border-bottom-right-radius: 0;
 }
 .panel-heading h4.panel-title {
+  font-size: 18px;
   font-weight: 600;
 	margin: 5px 0;
 }
@@ -2370,7 +2376,7 @@ a.text-danger:visited {
 }
 .ta-editor {
 	font-family: inherit;
-	font-size: 100%;
+	font-size: 16px !important;
   height: auto;
   max-height: 150px !important;
   min-height: 100px !important;
@@ -2535,12 +2541,18 @@ a.text-danger:visited {
 .has-success .form-control {
   border-color: #388e3c;
   box-shadow: none;
+	color: #363636;
+}
+.has-success .form-control-feedback.glyphicon,
+.ng-dirty.ng-valid .form-control-feedback.glyphicon,
+.has-success .form-control.glyphicon {
 	color: #388e3c;
 }
-.has-error .form-control-feedback {
+.has-error .form-control-feedback,
+.has-invalid .form-control-feedback {
 	color: #d32f2f;
 }
-.has-invalid .form-control-feedback {
+.has-invalid .form-control-feedback.glyphicon {
 	color: #d32f2f;
 }
 .has-invalid .input-group-addon {
@@ -2581,6 +2593,10 @@ select.ng-valid.ng-valid-required {
 	-webkit-box-shadow: none;
 		box-shadow: none;
 }
+#form1 .form-control-feedback {
+  right: 0;
+  top: 0;
+}
 #registrationForm .form-control-feedback,
 #AddSAHItemForm .form-control-feedback,
 #AddDropboxForm .form-control-feedback,
@@ -2609,7 +2625,7 @@ select.ng-valid.ng-valid-required {
 #registrationForm .has-success .form-control-feedback,
 #registrationForm .has-error .form-control-feedback,
 #registrationForm .has-invalid .form-control-feedback {
-	right: 15px;
+	right: 0;
 	top: 24px;
 }
 #EditContactForm .text-angular .form-control-feedback,
