@@ -1,58 +1,101 @@
 <div class="container-fluid">
 	<form novalidate class="form" role="form" name="AddDropboxForm" id="AddDropboxForm" method="post">
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="panel panel-light-blue">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fa fa-plus fa-fw" aria-hidden="true"></i> new dropbox
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_name.$valid, 'has-invalid': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.dropbox_name.$dirty, 'has-error': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.submitted}">
-							<label for="dropbox_name">name:</label>
-							<div class="input-icon">
-								<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
-								<input class="form-control" name="dropbox_name" type="text" ng-model="dropbox.dropbox_name" placeholder="name (required)" required autofocus focus-me />
-							</div>
-							<div ng-show="AddDropboxForm.dropbox_name.$valid">
-								<span ng-show="AddDropboxForm.dropbox_name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-							</div>
-							<div ng-show="AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.dropbox_name.$dirty">
-								<span ng-show="AddDropboxForm.dropbox_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+			<div class="col-lg-12">
+				<div class="panel">
+					<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__light-blue">
+						<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+							<div class="ona-portlet__head-label">
+								<h3 class="ona-portlet__head-title">
+									<span class="ona-widget__icon">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24"/>
+												<path d="M4,7 L20,7 L20,19.5 C20,20.3284271 19.3284271,21 18.5,21 L5.5,21 C4.67157288,21 4,20.3284271 4,19.5 L4,7 Z M10,10 C9.44771525,10 9,10.4477153 9,11 C9,11.5522847 9.44771525,12 10,12 L14,12 C14.5522847,12 15,11.5522847 15,11 C15,10.4477153 14.5522847,10 14,10 L10,10 Z" fill="#000000"/>
+												<rect fill="#000000" opacity="0.3" x="2" y="3" width="20" height="4" rx="1"/>
+											</g>
+										</svg>
+									</span>
+									New Dropbox
+								</h3>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-8">
-									<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_file.$valid, 'has-invalid': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty, 'has-error': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.submitted}">
-										<label for="dropbox_file">zip file:</label>
-										<div class="input-icon">
-											<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
-											<input class="form-control" name="dropbox_file" type="text" ng-model="dropbox.dropbox_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
-										</div>
-										<div ng-show="AddDropboxForm.dropbox_file.$valid">
-											<span ng-show="AddDropboxForm.dropbox_file.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty">
-											<span ng-show="AddDropboxForm.dropbox_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-										<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
-									</div>
+						<div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="ona-widget">
+								<div class="ona-widget__visual ona-widget__light-blue">
 								</div>
-								<div class="col-xs-4">
-									<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.sort.$valid, 'has-invalid': AddDropboxForm.sort.$invalid && EditDropboxForm.sort.$dirty, 'has-error': AddDropboxForm.sort.$invalid && AddDropboxForm.submitted}">
-										<label for="itemOrder">sort:</label>
-										<div class="input-icon">
-											<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-											<input type="number" touchspin name="sort" id="sort" class="form-control" ng-model="dropbox.sort" />
+								<div class="ona-widget__stats">
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--light-blue">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" fill="#000000"/>
+															<path d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Details
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_name.$valid, 'has-invalid': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.dropbox_name.$dirty, 'has-error': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.submitted}">
+														<label for="dropbox_name">name:</label>
+														<div class="input-icon">
+															<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
+															<input class="form-control" name="dropbox_name" type="text" ng-model="dropbox.dropbox_name" placeholder="name (required)" required autofocus focus-me />
+														</div>
+														<div ng-show="AddDropboxForm.dropbox_name.$valid">
+															<span ng-show="AddDropboxForm.dropbox_name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.dropbox_name.$dirty">
+															<span ng-show="AddDropboxForm.dropbox_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-xs-8">
+																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_file.$valid, 'has-invalid': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty, 'has-error': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.submitted}">
+																	<label for="dropbox_file">zip file:</label>
+																	<div class="input-icon">
+																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+																		<input class="form-control" name="dropbox_file" type="text" ng-model="dropbox.dropbox_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
+																	</div>
+																	<div ng-show="AddDropboxForm.dropbox_file.$valid">
+																		<span ng-show="AddDropboxForm.dropbox_file.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+																	</div>
+																	<div ng-show="AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty">
+																		<span ng-show="AddDropboxForm.dropbox_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+																	</div>
+																	<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
+																</div>
+															</div>
+															<div class="col-xs-4">
+																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.sort.$valid, 'has-invalid': AddDropboxForm.sort.$invalid && EditDropboxForm.sort.$dirty, 'has-error': AddDropboxForm.sort.$invalid && AddDropboxForm.submitted}">
+																	<label for="itemOrder">sort:</label>
+																	<div class="input-icon">
+																		<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
+																		<input type="number" touchspin name="sort" id="sort" class="form-control" ng-model="dropbox.sort" />
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</span>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-info" ng-disabled="AddDropboxForm.$invalid || isUnchanged(dropbox)" id="add-new-btn" ng-click="add_new(dropbox)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-						<a href="#/dropboxes" class="btn btn-cancel">Cancel</a>
+						<div class="ona-portlet__foot">
+							<div class="ona-form__actions">
+								<button class="btn btn-info" ng-disabled="AddDropboxForm.$invalid || isUnchanged(dropbox)" id="add-new-btn" ng-click="add_new(dropbox)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+								<a href="#/dropboxes" class="btn btn-cancel">Cancel</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
