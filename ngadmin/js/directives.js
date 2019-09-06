@@ -229,13 +229,11 @@ angular.module('onAdmin.directives', [])
 							currentFile = file;
 						}
 						oAudio.play();
-						angular.element(elm).find('i').removeClass('fa-headphones-alt');
-          					angular.element(elm).find('i').addClass('fa-pause');
+						angular.element(elm).html('<i class="pull-right fas fa-pause fa-fw" aria-hidden="true"></i> Pause')
 					}
 					else {
 						oAudio.pause();
-						angular.element(elm).find('i').removeClass('fa-pause');
-          					angular.element(elm).find('i').addClass('fa-headphones-alt');
+						angular.element(elm).html('<i class="pull-right fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Play');
 					}
 				})
 			}

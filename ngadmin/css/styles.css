@@ -1421,9 +1421,9 @@ a.list-group-item.active:focus {
   border:none;
   color: #93a2dd;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .btn-default.dropdown-toggle:hover,
 .btn-default.dropdown-toggle:focus,
@@ -1432,6 +1432,25 @@ a.list-group-item.active:focus {
 .open .dropdown-toggle.btn-default {
   background: #f0f3ff;
   color: #5d78ff;
+  outline: 0;
+  outline: none;
+}
+.table .btn-default.dropdown-toggle {
+  background-color: transparent;
+}
+.table .btn-default.dropdown-toggle:hover,
+.table .btn-default.dropdown-toggle:focus,
+.table .btn-default.dropdown-toggle:active {
+  background: #e3e8fa;
+  background-image: none;
+  box-shadow: none;
+    -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+  color: #5d78ff;
+  outline: 0;
+  outline: none;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
 .panel-purple .panel-heading .btn-default.dropdown-toggle,
 .panel-light-blue .panel-heading .btn-default.dropdown-toggle {
@@ -3232,30 +3251,60 @@ table .input-group.bootstrap-touchspin {
 .ng-table-pager .ng-table-pagination {
 	margin: 0 0 5px;
 }
+.ng-table-pager .ng-table-pagination > li > a,
+.ng-table-pager .ng-table-pagination > li > span,
+.pagination>li>a,
+.pagination>li>span {
+  border: none;
+	color: #0d47a1;
+}
 .ng-table-pager .ng-table-pagination > .disabled > span,
 .ng-table-pager .ng-table-pagination > .disabled > span:hover,
 .ng-table-pager .ng-table-pagination > .disabled > span:focus,
 .ng-table-pager .ng-table-pagination > .disabled > a,
 .ng-table-pager .ng-table-pagination > .disabled > a:hover,
 .ng-table-pager .ng-table-pagination > .disabled > a:focus {
-  border-color: #ddd;
+  border: none;
 	color: #b9c9e1;
   opacity: 0.8;
 }
-.ng-table-pager .ng-table-pagination > li > a,
-.ng-table-pager .ng-table-pagination > li > span {
-  border-color: #ddd;
-	color: #0d47a1;
+.pagination>li>a:hover,
+.pagination>li>a:focus,
+.pagination>li>span:hover,
+.pagination>li>span:focus {
+  background: #5d78ff;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s
+}
+.ng-table-pager .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle),
+.ng-table-pager .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.ng-table-pager .btn-group>.btn:last-child:not(:first-child),
+.btn-group>.dropdown-toggle:not(:first-child) {
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  color: #5d78ff;
+}
+.ng-table-pager .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle):hover,
+.ng-table-pager .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle):focus,
+.ng-table-pager .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle):hover,
+.ng-table-pager .btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle):focus,
+.ng-table-pager .btn-group>.btn:last-child:not(:first-child):hover,
+.btn-group>.dropdown-toggle:not(:first-child):hover,
+.ng-table-pager .btn-group>.btn:last-child:not(:first-child):focus,
+.btn-group>.dropdown-toggle:not(:first-child):focus {
+  background: #5d78ff;
+  border: none;
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s
 }
 .ng-table.table-condensed>thead>tr>th {
 	padding: 5px 0;
 }
 .ng-table th.filter .input-filter {
 	border-color: rgba(42, 118, 219, 0.24);
-}
-.elevation {
-  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
-	padding: 15px 15px 35px;
 }
 .table>thead>tr>th,
 .table>tbody>tr>th,
@@ -3302,10 +3351,6 @@ table .input-group.bootstrap-touchspin {
 }
 .table>tbody>tr td:first-child:not(input) {
 	font-weight: 600;
-}
-.pagination>li>a,
-.pagination>li>span {
-	color: #0d47a1;
 }
 .input-group-addon:not(:first-child) {
   border-bottom-right-radius: 4px;

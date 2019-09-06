@@ -43,14 +43,17 @@
 													<table class="table table-condensed table-striped table-hover pull-down" show-filter="true" ng-table="tableParams">
 														<tbody>
 															<tr ng-repeat="artist in $data">
-																<td class="col-xs-3" data-title="'name'" sortable="'INartistName'" filter="{ 'INartistName': 'text' }"><a href="#/edit-artist/{{artist.id}}">{{artist.marker | lowercase}} {{artist.INartistName | lowercase}}</a></td>
+																<td class="col-xs-4" data-title="'name'" sortable="'INartistName'" filter="{ 'INartistName': 'text' }"><a href="#/edit-artist/{{artist.id}}">{{artist.marker | lowercase}} {{artist.INartistName | lowercase}}</a></td>
 																<td class="col-xs-4" data-title="'description'">{{artist.INroster_desc}}</td>
 																<td class="center col-xs-2" data-title="'added'" sortable="'date_added'">{{artist.date_added | timestampDateFormat}}</td>
 																<td class="center col-xs-1" data-title="'active'" sortable="'activeTxt'"><span class="label" ng-class="{'label-warning': artist.active=='n','label-success': artist.active=='y'}">{{artist.activeTxt}}</span></td>
-																<td class="center col-xs-2" data-title="''">
-																	<div class="btn-group">
-																		<a href="#/edit-artist/{{artist.id}}" class="btn btn-default btn-xs"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
-																		<a href="" ng-click="delete(artist)" class="btn btn-default btn-xs"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
+																<td class="col-xs-1" data-title="''">
+																	<div class="tools btn-group">
+																		<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+																		<ul class="dropdown-menu pull-right" role="menu">
+																			<li><a href="#/edit-artist/{{artist.id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit details</a></li>
+																			<li><a href="javascript:;" ng-click="delete(artist)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+																		</ul>
 																	</div>
 																</td>
 															</tr>
