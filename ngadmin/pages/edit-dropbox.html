@@ -5,8 +5,8 @@
 				<div class="panel panel-light-blue">
 					<div class="panel-heading">
 						<div class="nav-btns pull-right">
-							<a ng-show="links.prevValue!=null" href="#/edit-dropbox/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-4"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-							<a ng-show="links.nextValue!=null" href="#/edit-dropbox/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-4"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
+							<a ng-show="links.prevValue!=null" href="#/edit-dropbox/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+							<a ng-show="links.nextValue!=null" href="#/edit-dropbox/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
 						</div>
 						<div class="pull-right btn-group pad-right-5">
 							<button tabindex="-1" type="button" class="btn btn-xs btn-default dropdown-toggle margin-top-4" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
@@ -102,7 +102,7 @@
 						<div class="row padded-grid">
 							<div class="col-lg-12">
 								<ul class="list-group pull-down">
-									<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-default btn-xs" href="" ng-click="resetCount(dropbox)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-3">{{dropbox.count}}</span></li>
+									<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(dropbox)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-3">{{dropbox.count}}</span></li>
 									<li class="list-group-item"><i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i> last download <span class="pull-right">{{dropbox.lastDownload}}</span></li>
 									<li class="list-group-item"><i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> added <span class="pull-right">{{dropbox.dateAdded}}</span></li>
 									<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> status <span class="label pull-right" ng-class="{'label-warning': dropbox.active=='n','label-success': dropbox.active=='y'}">{{dropbox.activeTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Only Active Dropboxes are displayed on the Comps page.</em></h6>

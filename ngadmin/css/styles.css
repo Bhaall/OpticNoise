@@ -476,6 +476,9 @@ hr {
 .margin-left-10 {
   margin-left: 10px;
 }
+.margin-left-5 {
+  margin-left: 5px;
+}
 .margin-right-5 {
   margin-right: 5px;
 }
@@ -484,6 +487,9 @@ hr {
 }
 .no-margin {
   margin: 0 !important;
+}
+.top-minus-5 {
+  top: -5px;
 }
 .strike {
   text-decoration: line-through;
@@ -1429,8 +1435,8 @@ a.list-group-item.active:focus {
 .btn-default:visited:hover,
 .btn-default:visited:active,
 .btn-default:visited:focus {
-  background-color: #039be5;
-  color: #fff;
+  background-color: #eee;
+  color: #363636;
   -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }

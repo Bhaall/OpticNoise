@@ -5,8 +5,8 @@
 				<div class="panel panel-purple">
 					<div class="panel-heading">
 						<div class="nav-btns pull-right">
-							<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-4"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-							<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-4"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
+							<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+							<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
 						</div>
 						<div class="pull-right btn-group pad-right-5">
 							<button tabindex="-1" type="button" class="btn btn-xs btn-default dropdown-toggle margin-top-4" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
@@ -104,7 +104,7 @@
 									<ul class="list-group pull-down">
 										<li class="list-group-item"><i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i> download link <strong><span class="pull-right"><a href="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}">{{comp.comp_name}}</a></span></strong></li>
 										<li class="list-group-item"><i class="fas fa-link fa-fw" aria-hidden="true"></i> page link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
-										<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-default btn-xs" href="" ng-click="resetCount(comp)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-3">{{comp.count}}</span></li>
+										<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-3">{{comp.count}}</span></li>
 										<li class="list-group-item"><i class="far fa-calendar-check fa-fw" aria-hidden="true"></i> last download <span class="pull-right">{{comp.lastDownload}}</span></li>
 										<li class="list-group-item"><i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> added <span class="pull-right">{{comp.dateAdded}}</span></li>
 										<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
