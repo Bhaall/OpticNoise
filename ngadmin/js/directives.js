@@ -520,7 +520,7 @@ angular.module('onAdmin.directives', [])
 					$timeout(function () {
 						$(el).TouchSpin({
 							verticalbuttons: true,
-							min: 0,
+							min: 1,
               max: 1000,
 							buttondown_class: 'btn btn-xs btn-default',
 							buttonup_class: 'btn btn-xs btn-default'

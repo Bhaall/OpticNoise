@@ -735,6 +735,15 @@ hr {
 .ona-portlet.ona--portlet__purple .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill] {
   fill: #fff !important;
 }
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a,
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:visited {
+  color: #fff;
+}
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:hover,
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:focus,
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:active {
+  color: #c7ffc9;
+}
 .ona-portlet .ona-portlet__body {
   color: #fff;
   margin-top: -80px;
@@ -794,7 +803,6 @@ hr {
     -ms-flex: 1;
       flex: 1;
   margin: 3px;
-  /* overflow: hidden; */
   padding: 20px;
   -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;

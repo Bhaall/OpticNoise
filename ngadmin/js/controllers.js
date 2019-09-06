@@ -2059,9 +2059,6 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.setFon = function(artist, AddFONForm) {
 		updateFon.putFonByID(artist.INartistID).success(function(data) {
-			// var id = artist;
-			// $scope.artist = data;
-			// console.log(artist);
 			$scope.noty.add({title:'FON data',body:'Fon has been updated.'});
 			$scope.refresh();
 		}).
@@ -2072,8 +2069,6 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.remove = function(artist, FONForm) {
 		removeFon.putFonByID(artist.INartistID).success(function(data) {
-			// var id = data.id;
-			// $scope.artist = data;
 			$scope.artist = {};
 			$scope.noty.add({title:'FON data',body:'Fon has been updated.'});
 			$scope.refresh();
@@ -2117,8 +2112,8 @@ angular.module('onAdmin.controllers', [])
 			$scope.master = {};
 			$scope.sahholder = {};
 			$scope.sahholder.sceneName = '';
-
 			$scope.sahholder.scene_order = parseInt($scope.sahTotal)+1;
+
 			$scope.add_new = function(sahholder, AddSAHForm) {
 				$rootScope.setLoading(true);
 
@@ -2279,6 +2274,9 @@ angular.module('onAdmin.controllers', [])
 
 	getSahItems.fetchItemsBySah(id).success(function(data) {
 		if(data.length){
+			for (var i = 0; i < data.length; i++) {
+				$scope.sah = data[i];
+			}
 			$scope.data = data;
 			$scope.itemTotal = $scope.data.length;
 		}
@@ -2289,6 +2287,8 @@ angular.module('onAdmin.controllers', [])
 		$scope.item.itemMedia = '';
 		$scope.item.itemText = '';
 		$scope.item.itemOrder = $scope.itemTotal+1;
+		$scope.item.sceneName = $scope.sah.sceneName;
+		$scope.item.sceneID = $scope.sah.sceneID;
 
 		$scope.add_new = function(item, AddSAHItemForm) {
 			$rootScope.setLoading(true);
@@ -2340,7 +2340,7 @@ angular.module('onAdmin.controllers', [])
 		updateSahItem.putSahItemByID(id, item).success(function(data) {
 			$scope.item = data;
 			$scope.noty.add({title:'Item data',body:'Item has been updated.'});
-			$location.path("/sah-items/"+$scope.sceneID).replace();
+			// $location.path("/sah-items/"+$scope.sceneID).replace();
 		}).
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'Item data status: ' + status,body:'There was a problem.'});

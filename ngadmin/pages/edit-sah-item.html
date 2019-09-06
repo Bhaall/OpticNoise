@@ -1,85 +1,135 @@
 <div class="container-fluid">
 	<form novalidate class="form" role="form" name="EditSAHItemForm" id="EditSAHItemForm" method="post">
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="panel panel-green">
-					<div class="panel-heading">
-						<div class="nav-btns pull-right">
-							<a ng-show="links.prevValue!=null" href="#/edit-sah-item/{{item.sceneID}}/item/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-							<a ng-show="links.nextValue!=null" href="#/edit-sah-item/{{item.sceneID}}/item/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
-						</div>
-						<h4 class="panel-title">
-							<i class="fas fa-edit fa-fw" aria-hidden="true"></i> item info | <a href="#/sah-items/{{item.sceneID}}">{{item.sceneName}}</a>
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemHeader.$valid, 'has-invalid': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty, 'has-error': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.submitted}">
-							<label for="itemHeader">name:</label>
-							<div class="input-icon">
-								<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
-								<input class="form-control" name="itemHeader" type="text" ng-model="item.itemHeader" placeholder="name (required)" required autofocus focus-me />
-							</div>
-							<div ng-show="EditSAHItemForm.itemHeader.$valid">
-								<span ng-show="EditSAHItemForm.itemHeader.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-							</div>
-							<div ng-show="EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty">
-								<span ng-show="EditSAHItemForm.itemHeader.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+			<div class="col-lg-12">
+				<div class="panel">
+					<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__green">
+						<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+							<div class="ona-portlet__head-label">
+								<h3 class="ona-portlet__head-title">
+									<span class="ona-widget__icon">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+									    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect x="0" y="0" width="24" height="24"/>
+								        <rect fill="#000000" x="2" y="6" width="13" height="12" rx="2"/>
+								        <path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
+									    </g>
+										</svg>
+									Item Info | <a href="#/sah-items/{{item.sceneID}}">{{item.sceneName}}</a>
+								</h3>
 							</div>
 						</div>
-
-						<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemMedia.$valid, 'has-invalid': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.itemMedia.$dirty, 'has-error': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.submitted}">
-							<div class="row">
-								<div class="col-xs-9">
-									<label for="itemMedia">media:</label>
-									<select class="form-control" name="itemMedia" ng-model="item.itemMedia" selectpicker data-style="white" title="Select item media" data-width="100%" ng-required="true">
-										<option value=""></option>
-										<option value="TV">TV</option>
-										<option value="MOVIE">MOVIE</option>
-										<option value="AUDIO">AUDIO</option>
-										<option value="GAME">GAME</option>
-										<option value="PROMO">PROMO</option>
-									</select>
+						<div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="ona-widget">
+								<div class="ona-widget__visual ona-widget__green">
 								</div>
-								<div class="col-xs-3">
-									<label for="itemOrder">sort:</label>
-									<div class="input-icon">
-										<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-										<input type="text" touchspin name="itemOrder" id="itemOrder" class="form-control" ng-model="item.itemOrder" />
+								<div class="ona-widget__stats">
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<div class="nav-btns pull-right">
+														<a ng-show="links.prevValue!=null" href="#/edit-sah-item/{{item.sceneID}}/item/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+														<a ng-show="links.nextValue!=null" href="#/edit-sah-item/{{item.sceneID}}/item/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
+													</div>
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+											        <rect fill="#000000" x="11" y="10" width="2" height="7" rx="1"/>
+											        <rect fill="#000000" x="11" y="7" width="2" height="2" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Item Info
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemHeader.$valid, 'has-invalid': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty, 'has-error': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.submitted}">
+														<label for="itemHeader">name:</label>
+														<div class="input-icon">
+															<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
+															<input class="form-control" name="itemHeader" type="text" ng-model="item.itemHeader" placeholder="name (required)" required />
+														</div>
+														<div ng-show="EditSAHItemForm.itemHeader.$valid">
+															<span ng-show="EditSAHItemForm.itemHeader.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty">
+															<span ng-show="EditSAHItemForm.itemHeader.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+													<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemMedia.$valid, 'has-invalid': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.itemMedia.$dirty, 'has-error': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.submitted}">
+														<div class="row">
+															<div class="col-xs-9">
+																<label for="itemMedia">media:</label>
+																<select class="form-control" name="itemMedia" ng-model="item.itemMedia" selectpicker data-style="white" title="Select item media" data-width="100%" ng-required="true">
+																	<option value=""></option>
+																	<option value="TV">TV</option>
+																	<option value="MOVIE">MOVIE</option>
+																	<option value="AUDIO">AUDIO</option>
+																	<option value="GAME">GAME</option>
+																	<option value="PROMO">PROMO</option>
+																</select>
+															</div>
+															<div class="col-xs-3">
+																<label for="itemOrder">sort:</label>
+																<div class="input-icon">
+																	<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
+																	<input type="text" touchspin name="itemOrder" id="itemOrder" class="form-control" ng-model="item.itemOrder" />
+																</div>
+															</div>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5"/>
+															<path d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M8.5,13 C9.32842712,13 10,12.3284271 10,11.5 C10,10.6715729 9.32842712,10 8.5,10 C7.67157288,10 7,10.6715729 7,11.5 C7,12.3284271 7.67157288,13 8.5,13 Z M13.5,13 C14.3284271,13 15,12.3284271 15,11.5 C15,10.6715729 14.3284271,10 13.5,10 C12.6715729,10 12,10.6715729 12,11.5 C12,12.3284271 12.6715729,13 13.5,13 Z M18.5,13 C19.3284271,13 20,12.3284271 20,11.5 C20,10.6715729 19.3284271,10 18.5,10 C17.6715729,10 17,10.6715729 17,11.5 C17,12.3284271 17.6715729,13 18.5,13 Z" fill="#000000"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Description
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditSAHItemForm.itemText.$valid, 'has-invalid': EditSAHItemForm.itemText.$invalid && EditSAHItemForm.itemText.$dirty, 'has-error': EditSAHItemForm.itemText.$invalid && EditSAHItemForm.submitted}">
+														<div class="input-icon" ng-class="{true: 'error'}[EditSAHItemForm.submitted && EditSAHItemForm.itemText.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." ng-required="true" ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+														<div ng-show="EditSAHItemForm.itemText.$valid">
+															<span ng-show="EditSAHItemForm.itemText.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditSAHItemForm.itemText.$invalid && EditSAHItemForm.itemText.$dirty">
+															<span ng-show="EditSAHItemForm.itemText.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-info" ng-disabled="EditSAHItemForm.$invalid || isUnchanged(item)" id="add-new-btn" ng-click="update(item)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
-						<button class="btn btn-danger" ng-click="delete(item)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-						<a href="#/sah-items/{{sceneID}}" class="btn btn-cancel">Cancel</a>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="col-lg-6">
-				<div class="panel panel-green-light">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fas fa-comment-dots" ></i> description
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditSAHItemForm.itemText.$valid, 'has-invalid': EditSAHItemForm.itemText.$invalid && EditSAHItemForm.itemText.$dirty, 'has-error': EditSAHItemForm.itemText.$invalid && EditSAHItemForm.submitted}">
-						<div class="input-icon" ng-class="{true: 'error'}[EditSAHItemForm.submitted && EditSAHItemForm.itemText.$invalid]">
-							<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-							<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." ng-required="true" ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-						</div>
-						<div ng-show="EditSAHItemForm.itemText.$valid">
-							<span ng-show="EditSAHItemForm.itemText.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-						</div>
-						<div ng-show="EditSAHItemForm.itemText.$invalid && EditSAHItemForm.itemText.$dirty">
-							<span ng-show="EditSAHItemForm.itemText.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						<div class="ona-portlet__foot">
+							<div class="ona-form__actions">
+								<button class="btn btn-info" ng-disabled="EditSAHItemForm.$invalid || isUnchanged(item)" id="add-new-btn" ng-click="update(item)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+								<button class="btn btn-danger" ng-click="delete(item)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+								<a href="#/add-sah-item/{{sceneID}}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add item</a>
+								<a href="#/sah-items/{{sceneID}}" class="btn btn-cancel">Cancel</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</form>
 </div>
