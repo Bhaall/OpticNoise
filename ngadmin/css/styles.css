@@ -4,7 +4,7 @@ body {
 }
 body {
   background-color: #f7f7f7;
-  color: #343434;
+  color: #363636;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
 }
@@ -997,7 +997,7 @@ pre {
 .list-group-item {
   background-color: #fdfdfd;
   border-color: #ddd;
-  color: #343434;
+  color: #363636;
 }
 .panel .ona-portlet .list-group-item:first-child {
   /* border-top: none; */
@@ -1408,18 +1408,36 @@ a.list-group-item.active:focus {
   border-color: #0d47a1;
 }
 .btn-default,
+.btn-default:visited,
 .bg-default,
 .label-default,
 .alert-default,
 .progress-bar-default,
 .navbar-default {
   background-color: #eee;
-  color: #343434;
+  color: #363636;
+}
+.bg-default:hover,
+.label-default:hover,
+.alert-default:hover,
+.progress-bar-default:hover {
+  color: #363636;
+}
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:visited:hover,
+.btn-default:visited:active,
+.btn-default:visited:focus {
+  background-color: #039be5;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
 .btn-default.dropdown-toggle {
 	background-color: #fff;
   border:none;
-  color: #93a2dd;
+  color: #039be5;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -1518,6 +1536,8 @@ fieldset[disabled] .btn-info.active {
 	background-color: #1565c0;
 }
 .btn-blue {
+  border-bottom-style: inset;
+  border-right-style: inset;
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -1612,16 +1632,6 @@ fieldset[disabled] .btn-blue.active {
   background-color: #d32f2f !important;
   color: #fff;
 }
-.btn-default:hover,
-.btn-default:active,
-.btn-default:focus,
-.btn-default:visited,
-.bg-default:hover,
-.label-default:hover,
-.alert-default:hover,
-.progress-bar-default:hover {
-  color: #343434;
-}
 .btn-success:hover,
 .bg-success:hover,
 .label-success:hover,
@@ -1630,14 +1640,22 @@ fieldset[disabled] .btn-blue.active {
   background-color: #4ba74b;
   border-color: #4ba74b;
 }
+.btn-warning,
+.btn-warning:visited {
+  background-color: #f8d145;
+  border-color: #f8d145;
+}
 .btn-warning:hover,
 .btn-warning:active,
 .btn-warning:focus,
-.btn-warning:visited,
 .bg-warning:hover,
 .label-warning:hover .alert-warning:hover,
 .progress-bar-warning:hover {
-  background-color: #f8d145;
+  background-color: #ed9c28;
+  border-color: #ed9c28;
+}
+.btn-warning.btn-xs {
+  border: none;
 }
 .btn-danger:hover,
 .btn-danger:active,
@@ -2898,17 +2916,13 @@ select.ng-valid.ng-valid-required {
 .playerpanel.active.panel-default>.panel-footer {
   border: 0;
 }
-.btn-default:hover,
-.btn-default:focus,
-.btn-default:active,
-.btn-default.active, .open
+.btn-default.active .open,
 .dropdown-toggle.btn-default,
 .panel-default .dropdown-menu,
 .panel-info .dropdown-menu,
 .panel-primary .dropdown-menu,
 .panel-green .dropdown-menu {
 	border-color: #c7d3d6;
-	/* color: #343434 !important; */
 }
 .btn-group.open .dropdown-toggle {
   -webkit-box-shadow: none;
@@ -3035,7 +3049,7 @@ input[type=file]:hover,
 	background: #fff;
 	border: none;
   box-shadow: none;
-	color: #93a2dd;
+	color: #039be5;
 	font-weight: 400;
 	text-shadow: none;
 }
@@ -3149,10 +3163,6 @@ input[type=file]:hover,
   min-width:250px;
   opacity:0.9;
 }
-.padded-grid [class^=col-] {
-	/* padding-bottom: 10px;
-	padding-top: 10px; */
-}
 .padded-grid .list-group {
   -webkit-box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
@@ -3161,10 +3171,7 @@ input[type=file]:hover,
 	margin-bottom: 0;
 }
 .padded-grid input.sortorder {
-	/* height: 22px;
-	padding: 4px 8px;
-	text-align: center; */
-	width: 70px;
+	width: 60px;
 }
 .list-group-item-lightblue {
 	background-color: #eef1f7;
@@ -3233,6 +3240,15 @@ table .input-group.bootstrap-touchspin {
   border-radius: 0;
   color: #93a2dd;
   font-weight: 600;
+  width: 20px;
+}
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-up {
+  top: 1px;
+  right: 1px;
+}
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-down {
+  bottom: 1px;
+  right: 1px;
 }
 .bootstrap-touchspin .input-group-btn-vertical .btn-default:hover,
 .bootstrap-touchspin .input-group-btn-vertical .btn-default:focus,
@@ -3256,7 +3272,7 @@ table .input-group.bootstrap-touchspin {
 .pagination>li>a,
 .pagination>li>span {
   border: none;
-	color: #0d47a1;
+	color: #039be5;
 }
 .ng-table-pager .ng-table-pagination > .disabled > span,
 .ng-table-pager .ng-table-pagination > .disabled > span:hover,
@@ -3272,7 +3288,7 @@ table .input-group.bootstrap-touchspin {
 .pagination>li>a:focus,
 .pagination>li>span:hover,
 .pagination>li>span:focus {
-  background: #5d78ff;
+  background: #039be5;
   color: #fff;
   -webkit-transition: all 0.3s;
     transition: all 0.3s
@@ -3284,7 +3300,7 @@ table .input-group.bootstrap-touchspin {
   background: #fff;
   border: none;
   border-radius: 0;
-  color: #5d78ff;
+  color: #039be5;
 }
 .ng-table-pager .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle):hover,
 .ng-table-pager .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle):focus,
@@ -3294,9 +3310,9 @@ table .input-group.bootstrap-touchspin {
 .btn-group>.dropdown-toggle:not(:first-child):hover,
 .ng-table-pager .btn-group>.btn:last-child:not(:first-child):focus,
 .btn-group>.dropdown-toggle:not(:first-child):focus {
-  background: #5d78ff;
+  background: #039be5;
   border: none;
-  color: #ffffff;
+  color: #fff;
   -webkit-transition: all 0.3s;
     transition: all 0.3s
 }

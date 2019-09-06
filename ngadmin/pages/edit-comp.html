@@ -118,7 +118,6 @@
 						<a href="#/comps" class="btn btn-cancel">Cancel</a>
 					</div>
 				</div>
-
 				<div class="panel panel-purple-light">
 					<div class="panel-heading">
 						<h4 class="panel-title">
@@ -221,14 +220,17 @@
 									 <tr ng-repeat="song in playlist">
 										 <td class="col-xs-1"><input touchspin type="text" name="item_sort[]" class="form-control sortorder" ng-model="song.item_sort"></td>
 										 <td class="col-xs-4"><a href="#/edit-song/{{song.songID}}">{{song.song_title}}</a></td>
-										 <td class="col-xs-3"><a href="#/edit-artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
+										 <td class="col-xs-4"><a href="#/edit-artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
 										 <td class="col-xs-1">{{song.song_count}}</td>
 										 <td class="col-xs-1">{{song.song_downloads}}</td>
-										 <td class="center col-xs-2">
-											<div class="btn-group">
-												<a ng-show="song.song_file" class="btn btn-default btn-xs play-mp3 margin-right-5" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i></a>
-												<a href="javascript:;" ng-click="deletePlaylistItem(song.comp_items_id)" class="btn btn-default btn-xs"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
-											</div>
+										 <td class="col-xs-1">
+											 <div class="tools btn-group">
+	 											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+	 											<ul class="dropdown-menu pull-right" role="menu">
+	 												<li><a ng-show="song.song_file" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="pull-right fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Play</a></li>
+	 												<li><a href="javascript:;" ng-click="deletePlaylistItem(song.comp_items_id)"><i class="pull-right fas fa-minus-circle fa-fw" aria-hidden="true"></i> Remove</a></li>
+	 											</ul>
+	 										</div>
 										 </td>
 									 </tr>
 								</tbody>
