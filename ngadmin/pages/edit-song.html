@@ -67,10 +67,6 @@
 											<li><a ng-click="deleteFile(song)" href=""><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
 										</ul>
 									</div>
-
-
-									<!-- <a ng-click="deleteFile(song)" href="" class="btn btn-default btn-xs pull-right"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
-									<a ng-show="song.song_file" class="btn btn-default btn-xs play-mp3 pull-right margin-right-5" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i></a> -->
 									<span class="pull-right margin-right-5"><strong>{{song.song_file}}</strong></span>
 								</li>
 								<li class="list-group-item">
@@ -87,7 +83,6 @@
 								</li>
 							</ul>
 						</div>
-
 						<div class="form-group" ng-hide="song.song_file">
 							<label>select a new mp3 file</label>
 							<div id="song-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
@@ -109,7 +104,6 @@
 								 <li class="list-group-item"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{song_file.size}}kb</li>
 							</ul>
 							<input type="hidden" name="old_song1" ng-model="song.song_file" />
-
 							<div id="progress_info">
 								<div class="progress">
 									<div id="progress" class="progress-bar progress-bar-info bar">
@@ -128,7 +122,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="col-lg-6">
 				<div class="panel panel-orange-light">
 					<div class="panel-heading">
@@ -145,7 +138,6 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="panel panel-orange-light">
 					<div class="panel-heading">
 						<h4 class="panel-title">
@@ -168,7 +160,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</form>

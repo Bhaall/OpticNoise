@@ -43,7 +43,6 @@
 			                        Main
 			                      </span>
 			                      <span class="ona-widget__desc">
-
 															<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.SiteTitle.$valid, 'has-invalid': EditSettingsForm.SiteTitle.$invalid && EditSettingsForm.SiteTitle.$dirty, 'has-error': EditSettingsForm.SiteTitle.$invalid && EditSettingsForm.submitted}">
 																<label for="SiteTitle">name:</label>
 																<div class="input-icon" ng-class="{true: 'error'}[EditSettingsForm.submitted && EditSettingsForm.SiteTitle.$invalid]">
@@ -62,7 +61,7 @@
 																<label for="SiteKeywords">keywords:</label>
 																<div class="input-icon">
 																	<i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
-																	<textarea class="form-control" rows="3" name="SiteKeywords" ng-model="setting.SiteKeywords" required></textarea>
+																	<textarea autosize class="form-control" rows="3" name="SiteKeywords" ng-model="setting.SiteKeywords" required></textarea>
 																</div>
 																<h6 class="help-block">Used for meta data.</h6>
 																<div ng-show="EditSettingsForm.SiteKeywords.$valid">
@@ -178,7 +177,7 @@
 																<label for="sitequote">site quote:</label>
 																<div class="input-icon">
 																	<i class="fa fa-quote-left fa-fw" aria-hidden="true"></i>
-																	<textarea class="form-control" rows="3" name="sitequote" ng-model="setting.sitequote" required></textarea>
+																	<textarea autosize class="form-control" rows="3" name="sitequote" ng-model="setting.sitequote" required></textarea>
 																</div>
 																<h6 class="help-block">Used in featured section.</h6>
 																<div ng-show="EditSettingsForm.sitequote.$valid">
@@ -192,7 +191,7 @@
 																<label for="homequote">home quote:</label>
 																<div class="input-icon">
 																	<i class="fa fa-quote-left fa-fw" aria-hidden="true"></i>
-																	<textarea class="form-control" rows="3" name="homequote" ng-model="setting.homequote" required></textarea>
+																	<textarea autosize class="form-control" rows="3" name="homequote" ng-model="setting.homequote" required></textarea>
 																</div>
 																<h6 class="help-block">Used in home page ribbon.</h6>
 																<div ng-show="EditSettingsForm.homequote.$valid">
@@ -206,7 +205,7 @@
 																<label for="rosterquote">roster quote:</label>
 																<div class="input-icon">
 																	<i class="fa fa-quote-left fa-fw" aria-hidden="true"></i>
-																	<textarea class="form-control" rows="3" name="rosterquote" ng-model="setting.rosterquote" required></textarea>
+																	<textarea autosize class="form-control" rows="3" name="rosterquote" ng-model="setting.rosterquote" required></textarea>
 																</div>
 																<h6 class="help-block">Used in roster page ribbon.</h6>
 																<div ng-show="EditSettingsForm.rosterquote.$valid">
@@ -220,7 +219,7 @@
 																<label for="placementsquote">licenses quote:</label>
 																<div class="input-icon">
 																	<i class="fa fa-quote-left fa-fw" aria-hidden="true"></i>
-																	<textarea class="form-control" rows="3" name="placementsquote" ng-model="setting.placementsquote" required></textarea>
+																	<textarea autosize class="form-control" rows="3" name="placementsquote" ng-model="setting.placementsquote" required></textarea>
 																</div>
 																<h6 class="help-block">Used in licenses page ribbon.</h6>
 																<div ng-show="EditSettingsForm.placementsquote.$valid">
@@ -234,7 +233,7 @@
 																<label for="compsquote">comps quote:</label>
 																<div class="input-icon">
 																	<i class="fa fa-quote-left fa-fw" aria-hidden="true"></i>
-																	<textarea class="form-control" rows="3" name="compsquote" ng-model="setting.compsquote" required></textarea>
+																	<textarea autosize class="form-control" rows="3" name="compsquote" ng-model="setting.compsquote" required></textarea>
 																</div>
 																<h6 class="help-block">Used in comps page ribbon.</h6>
 																<div ng-show="EditSettingsForm.compsquote.$valid">
@@ -248,7 +247,7 @@
 																<label for="aboutquote">about quote:</label>
 																<div class="input-icon">
 																	<i class="fa fa-quote-left fa-fw" aria-hidden="true"></i>
-																	<textarea class="form-control" rows="3" name="aboutquote" ng-model="setting.aboutquote" required></textarea>
+																	<textarea autosize class="form-control" rows="3" name="aboutquote" ng-model="setting.aboutquote" required></textarea>
 																</div>
 																<h6 class="help-block">Used in about page ribbon.</h6>
 																<div ng-show="EditSettingsForm.aboutquote.$valid">

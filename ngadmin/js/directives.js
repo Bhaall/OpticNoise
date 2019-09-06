@@ -394,6 +394,122 @@ angular.module('onAdmin.directives', [])
 			}
 		};
 	})
+
+	.directive('autosize', function autosizeDirective() {
+		return {
+			restrict: 'A',
+			require: 'ngModel',
+			link: function autosizeDirectiveLink($scope, $textarea, attrs, ngModel) {
+				var sizer = setupAutosizer($textarea[0]);
+
+				var run = function($0) {
+					if (!sizer.minHeight) {
+						sizer.measure();
+					}
+					sizer.adjust();
+					return $0;
+				};
+
+				ngModel.$viewChangeListeners.push(run);
+				$scope.$watch(attrs.ngModel, run);
+				if ($textarea[0].style.transition === '') {
+					$textarea[0].style.transition = [
+						'border-top-width 1ms',
+						'border-bottom-width 1ms',
+						'padding-top 1ms',
+						'padding-bottom 1ms',
+						'line-height 1ms'
+					].join(', ');
+				}
+				$textarea.on('transitionend', function() {
+					sizer.measure();
+					sizer.adjust();
+				});
+				$textarea[0].reinitAutosize = run;
+			}
+		};
+
+		function setupAutosizer(textarea) {
+
+			var minHeight, lineHeight, extraHeight;
+
+			function _throttle(ms, fn) {
+				var inprogress = false;
+				return function() {
+					if (!inprogress) {
+						fn();
+					}
+					inprogress = true;
+					setTimeout(function() {
+						inprogress = false;
+					}, ms);
+				};
+			}
+
+			function _getBoxSizing(style) {
+				return style.getPropertyValue('box-sizing') || 'content-box';
+			}
+
+			function _getLineHeight(style) {
+				lineHeight = style.getPropertyValue('line-height');
+				if (lineHeight == 'normal') {
+					lineHeight = (parseFloat(style.getPropertyValue('font-size')) || 16) * 1.14;
+				}
+				else {
+					lineHeight = parseFloat(lineHeight);
+				}
+				return lineHeight;
+			}
+
+			function _getBorderHeight(style) {
+				return parseFloat(style.getPropertyValue('border-top-width') || 0) || 0 +
+					parseFloat(style.getPropertyValue('border-bottom-width') || 0) || 0;
+			}
+
+			function _getPaddingHeight(style) {
+				return parseFloat(style.getPropertyValue('padding-top') || 0) || 0 +
+					parseFloat(style.getPropertyValue('padding-bottom') || 0) || 0;
+			}
+
+			function setOverflow() {
+				textarea.style.overflow = 'hidden';
+				textarea.style.resize = 'none';
+			}
+
+			function measure() {
+				var style = window.getComputedStyle(textarea, null);
+				lineHeight = _getLineHeight(style);
+				extraHeight = 0;
+				switch (_getBoxSizing(style)) {
+					case 'border-box': extraHeight += _getBorderHeight(style);
+					case 'padding-box': extraHeight += _getPaddingHeight(style);
+				}
+				minHeight = Math.ceil(
+					(parseFloat(textarea.getAttribute('rows')) || 1) * lineHeight + extraHeight
+				);
+			}
+
+			function _adjuster() {
+				var currentWindowScroll = window.scrollY;
+				textarea.style.height = '0';
+				var newHeight = Math.max(minHeight, textarea.scrollHeight) + 1;
+				textarea.style.height = newHeight + 'px';
+				if (currentWindowScroll != window.scrollY) {
+					window.scroll(window.scrollX, currentWindowScroll);
+				}
+			}
+
+			var adjust = _throttle(0, _adjuster);
+
+			setOverflow();
+
+			return {
+				minHeight: minHeight,
+				measure: measure,
+				adjust: adjust
+			};
+		}
+	})
 	.directive('touchspin', ['asyncScript', '$timeout', function (asyncScript, $timeout) {
 		return {
 			restrict: 'A',

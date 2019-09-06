@@ -2433,6 +2433,7 @@ a.text-danger:visited {
 .ta-scroll-window.form-control {
 	margin-top:5px;
 }
+/* textAngular */
 .ta-editor {
 	font-family: inherit;
 	font-size: 16px !important;
@@ -2441,21 +2442,9 @@ a.text-danger:visited {
   min-height: 100px !important;
   overflow: auto;
 }
-.ta-scroll-window > .ta-bind {
-	height: 120px !important;
-  max-height: 120px !important;
-	min-height: 120px !important;
-}
 .ta-scroll-window > .ta-bind:focus,
 .ta-scroll-window > .ta-bind:active {
   outline: none;
-}
-@media(max-width: 768px) {
-  .ta-scroll-window > .ta-bind {
-  	height: 140px !important;
-    max-height: 140px !important;
-  	min-height: 140px !important;
-  }
 }
 .breadcrumb,
 .pagination > li > a,
@@ -2843,11 +2832,6 @@ select.ng-valid.ng-valid-required {
   display: inline-block;
   line-height: 14px;
   -webkit-font-smoothing: antialiased;
-}
-@media(max-width: 768px) {
-  textarea.form-control {
-    height: 100px;
-  }
 }
 /* nav buttons */
 .nav-btns>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
