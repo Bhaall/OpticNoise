@@ -21,6 +21,10 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="nav-btns pull-right  margin-top-25 margin-right-25 relative">
+								<a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-clean margin-top-1"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+								<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-clean margin-top-1"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+							</div>
 							<div class="ona-widget">
 								<div class="ona-widget__visual ona-widget__aqua">
 								</div>
@@ -29,10 +33,6 @@
 										<div class="ona-widget__items">
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
-													<div class="nav-btns pull-right">
-														<a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-														<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
-													</div>
 													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--aqua">
 												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 											        <rect x="0" y="0" width="24" height="24"/>

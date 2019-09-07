@@ -331,6 +331,9 @@ hr {
 .capitalize {
   text-transform: capitalize;
 }
+.relative {
+  position: relative;
+}
 .strong {
   font-weight:800;
 }
@@ -453,6 +456,9 @@ hr {
 .margin-top-15 {
   margin-top: 15px;
 }
+.margin-top-20 {
+  margin-top: 20px;
+}
 .margin-top-25 {
   margin-top: 25px;
 }
@@ -481,6 +487,9 @@ hr {
 }
 .margin-right-5 {
   margin-right: 5px;
+}
+.margin-right-10 {
+  margin-right: 10px;
 }
 .margin-right-25 {
   margin-right: 25px;
@@ -1484,8 +1493,57 @@ a.list-group-item.active:focus {
   outline: 0;
   outline: none;
 }
+.btn.btn-clean {
+  background: transparent;
+  border-color: transparent;
+  color: #93a2dd;
+}
+.btn.btn-clean i {
+  color: #039be5;
+}
+.show > .btn.btn-clean,
+.btn.btn-clean.active,
+.btn.btn-clean:active,
+.btn.btn-clean:hover {
+  background: #f0f3ff;
+  color: #5d78ff;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.show > .btn.btn-clean i,
+.btn.btn-clean.active i,
+.btn.btn-clean:active i,
+.btn.btn-clean:hover i {
+  color: #5d78ff;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.ona-portlet__body > .nav-btns .btn.btn-clean,
+.ona-portlet__body > .nav-btns .btn.btn-clean:visited,
+.ona-portlet__body > .nav-btns .btn.btn-clean i,
+.ona-portlet__body > .nav-btns .show > .btn.btn-clean i,
+.ona-portlet__body > .nav-btns .btn.btn-clean.active i,
+.ona-portlet__body > .nav-btns .btn.btn-clean:active i {
+  background: transparent;
+  color: #fff;
+}
+.ona-portlet__body .show > .btn.btn-clean i,
+.ona-portlet__body > .nav-btns .btn.btn-clean.active i,
+.ona-portlet__body > .nav-btns .btn.btn-clean:active i,
+.ona-portlet__body > .nav-btns .btn.btn-clean:hover i {
+  color: #d1d1d1;
+}
+.ona-portlet__body > .nav-btns>.btn.btn-clean:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.ona-portlet__body > .nav-btns>.btn.btn-clean:last-child:not(:first-child) {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
 .table .btn-default.dropdown-toggle {
   background-color: transparent;
+  border-radius: 50%;
 }
 .table .btn-default.dropdown-toggle:hover,
 .table .btn-default.dropdown-toggle:focus,
@@ -1624,6 +1682,9 @@ fieldset[disabled] .btn-blue.active {
 }
 .badge.bg-blue:hover {
 	background-color: #039be5;
+}
+.clip_button {
+  cursor: copy;
 }
 .btn-success,
 .btn-success:visited,

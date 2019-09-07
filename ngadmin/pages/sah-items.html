@@ -20,7 +20,11 @@
             </div>
           </div>
           <div class="ona-portlet__body ona-portlet__body--fit">
-						<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{itemTotal}}</span>
+						<div class="nav-btns pull-right margin-top-20 margin-right-25 relative">
+							<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+							<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+						</div>
+						<span class="badge badge-white pull-right margin-top-25 margin-right-10">{{itemTotal}}</span>
             <div class="ona-widget">
               <div class="ona-widget__visual ona-widget__green">
               </div>
@@ -28,10 +32,6 @@
                 <div class="ona-widget__items">
                   <div class="ona-widget__item">
                     <span class="ona-widget__icon">
-											<div class="nav-btns pull-right margin-top-1">
-												<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-default"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-												<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-default"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
-											</div>
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
 										    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 									        <rect x="0" y="0" width="24" height="24"/>
@@ -77,7 +77,7 @@
 										<div class="ona-widget__foot">
 											<div class="ona-form__actions">
 												<a href="#/add-sah-item/{{id}}" class="btn btn-success"><i class="fas fa-plus fa-fw" aria-hidden="true"></i> Add item</a>
-												<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
+												<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-clean"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
 												<a href="#/sah" class="btn btn-cancel">Cancel</a>
 											</div>
 										</div>

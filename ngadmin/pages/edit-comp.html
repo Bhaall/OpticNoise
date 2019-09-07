@@ -21,6 +21,10 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="nav-btns pull-right margin-top-25 margin-right-25 relative">
+								<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-clean margin-top-1"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+								<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-clean margin-top-1"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+							</div>
 							<div class="ona-widget">
 								<div class="ona-widget__visual ona-widget__purple">
 								</div>
@@ -29,11 +33,7 @@
 										<div class="ona-widget__items">
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
-													<div class="nav-btns pull-right">
-														<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-														<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
-													</div>
-													<div class="pull-right btn-group pad-right-5">
+													<div class="pull-right btn-group">
 														<button tabindex="-1" type="button" class="btn btn-xs btn-default dropdown-toggle margin-top-2" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
 														<ul class="dropdown-menu pull-right" role="menu">
 															<li class="dropdown-header">carousel</li>
@@ -302,7 +302,7 @@
 												</span>
 												<div class="ona-widget__foot">
 													<div class="ona-form__actions">
-														<button type="button" name="updateSort" ng-click="updatePlaylistSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update playlist sort order</button>
+														<button type="button" name="updateSort" ng-click="updatePlaylistSortOrder()" class="btn btn-clean"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update playlist sort order</button>
 													</div>
 												</div>
 											</div>

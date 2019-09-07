@@ -58,7 +58,7 @@ angular.module('onAdmin.directives', [])
 				var $target = $($targetName);
 				if ($target) {
 					$el.click(function(){
-						$el.toggleClass("fas fa-chevron-left");
+						$el.toggleClass("fas fa-arrow-circle-left");
 					})
 				}
 			}
