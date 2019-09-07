@@ -463,6 +463,9 @@ hr {
 .margin-top-25 {
   margin-top: 25px;
 }
+.margin-top-27 {
+  margin-top: 27px;
+}
 .margin-top-30 {
   margin-top: 30px;
 }
@@ -1048,7 +1051,8 @@ pre {
 }
 .label,
 .badge {
-	font-size: 12px;
+	font-size: 11px;
+  font-weight: 600;
 }
 a,
 a.list-group-item {
@@ -1540,6 +1544,7 @@ a.list-group-item.active:focus {
 .ona-portlet__body > .nav-btns .btn.btn-clean:active i {
   background: transparent;
   color: #fff;
+  font-size: 18px;
 }
 .ona-portlet__body .show > .btn.btn-clean i,
 .ona-portlet__body > .nav-btns .btn.btn-clean.active i,
@@ -1641,8 +1646,8 @@ fieldset[disabled] .btn-info.active {
 .btn-blue {
   border-bottom-style: inset;
   border-right-style: inset;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 .btn-blue,
 .btn-blue:visited,
@@ -2745,7 +2750,7 @@ a.text-danger:visited {
 .has-error .form-control-feedback,
 .has-invalid .form-control-feedback {
   right: 15px;
-	top: 4px;
+	top: 3px;
 }
 select.ng-valid.ng-valid-required {
 	border-color: #388e3c;
@@ -2767,7 +2772,7 @@ select.ng-valid.ng-valid-required {
 #EditAboutForm .form-control-feedback,
 #EditContactForm .form-control-feedback {
 	right: 0;
-	top: 30px;
+	top: 28px;
 }
 #EditSAHItemForm .text-angular .form-control-feedback {
   top: 40px;
@@ -2779,17 +2784,17 @@ select.ng-valid.ng-valid-required {
 #EditSongForm .form-control-feedback,
 #AddSongToArtistForm .form-control-feedback,
 #AddCompForm .form-control-feedback {
-	top: 30px;
+	top: 28px;
 }
 #registrationForm .has-success .form-control-feedback,
 #registrationForm .has-error .form-control-feedback,
 #registrationForm .has-invalid .form-control-feedback {
 	right: 0;
-	top: 30px;
+	top: 28px;
 }
 #EditContactForm .text-angular .form-control-feedback,
 #EditAboutForm .text-angular .form-control-feedback {
-  top: 75px;
+  top: 65px;
 }
 #AddSAHItemForm .text-angular .form-control-feedback {
   top: 40px;
@@ -2858,7 +2863,7 @@ select.ng-valid.ng-valid-required {
 	display: block;
 	font-size: 14px;
 	left: 0;
-	margin: 12px 2px 4px 10px;
+	margin: 14px 2px 4px 10px;
 	position: absolute;
 	text-align: center;
 	width: 16px;
@@ -3066,6 +3071,9 @@ input[type=file]:hover,
 .fileinput .btn:hover,
 .btn-file:hover {
 	cursor: pointer;
+}
+.fileinput .form-control {
+  padding: 10px 15px;
 }
 .fileinput .thumbnail {
   border-color: #a4a4a4;

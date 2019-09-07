@@ -21,9 +21,9 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
-							<div class="nav-btns pull-right  margin-top-25 margin-right-25 relative">
-								<a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-clean margin-top-1"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-								<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-clean margin-top-1"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+							<div class="nav-btns pull-right  margin-top-20 margin-right-25 relative">
+								<a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
+								<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
 							</div>
 							<div class="ona-widget">
 								<div class="ona-widget__visual ona-widget__aqua">
@@ -150,9 +150,9 @@
 																	</div>
 																</div>
 																<ul class="list-group file-info" ng-repeat="album_pic in album_pics">
-																	 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{album_pic.name}}</li>
-																	 <li class="list-group-item"><i class="far fa-file-image fa-fw" aria-hidden="true"></i> <strong>type:</strong> {{album_pic.type}}</li>
-																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{album_pic.size}}kb</li>
+																	 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-light-blue" aria-hidden="true"></i> file name: {{album_pic.name}}</li>
+																	 <li class="list-group-item"><i class="far fa-file-image fa-fw text-yellow" aria-hidden="true"></i> type: {{album_pic.type}}</li>
+																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw text-pink" aria-hidden="true"></i> size: {{album_pic.size}}kb</li>
 																</ul>
 															</div>
 															<div class="col-xs-3">
@@ -217,9 +217,9 @@
 																	</div>
 																</div>
 																<ul class="list-group file-info" ng-repeat="slider_pic in slider_pics">
-																	 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{slider_pic.name}}</li>
-																	 <li class="list-group-item"><i class="far fa-file-image fa-fw" aria-hidden="true"></i> <strong>type:</strong> {{slider_pic.type}}</li>
-																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{slider_pic.size}}kb</li>
+																	 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-light-blue" aria-hidden="true"></i> file name: {{slider_pic.name}}</li>
+																	 <li class="list-group-item"><i class="far fa-file-image fa-fw text-yellow" aria-hidden="true"></i> type: {{slider_pic.type}}</li>
+																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw text-pink" aria-hidden="true"></i> size: {{slider_pic.size}}kb</li>
 																</ul>
 															</div>
 															<div class="col-lg-3 col-sm-4">
@@ -263,10 +263,10 @@
 													<table class="table table-condensed table-striped table-hover pull-down">
 														<thead>
 															<tr>
-																<th><i class="fas fa-tag fa-fw" aria-hidden="true"></i> name</th>
-																<th><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> mp3</th>
-																<th class="center"><i class="far fa-play-circle fa-fw" aria-hidden="true"></i> plays</th>
-																<th class="center"><i class="fas fa-desktop fa-fw" aria-hidden="true"></i> displayed</th>
+																<th><i class="fas fa-tag fa-fw text-aqua" aria-hidden="true"></i> name</th>
+																<th><i class="fas fa-file-audio fa-fw text-orange" aria-hidden="true"></i> mp3</th>
+																<th class="center"><i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i> plays</th>
+																<th class="center"><i class="fas fa-desktop fa-fw text-green" aria-hidden="true"></i> displayed</th>
 																<th></th>
 															</tr>
 														</thead>

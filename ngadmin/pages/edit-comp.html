@@ -21,9 +21,9 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
-							<div class="nav-btns pull-right margin-top-25 margin-right-25 relative">
-								<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-clean margin-top-1"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-								<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-clean margin-top-1"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+							<div class="nav-btns pull-right margin-top-20 margin-right-25 relative">
+								<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
+								<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
 							</div>
 							<div class="ona-widget">
 								<div class="ona-widget__visual ona-widget__purple">
@@ -34,7 +34,7 @@
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
 													<div class="pull-right btn-group">
-														<button tabindex="-1" type="button" class="btn btn-xs btn-default dropdown-toggle margin-top-2" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
+														<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i><span class="caret"></span></button>
 														<ul class="dropdown-menu pull-right" role="menu">
 															<li class="dropdown-header">carousel</li>
 															<li ng-show="comp.comp_flag=='y'"><a href="javascript:;" ng-click="setOutCarousel(comp)"><i class="pull-right fas fa-minus-circle fa-fw" aria-hidden="true"></i> Remove</a></li>
@@ -136,7 +136,7 @@
 																<ul class="list-group pull-down">
 																	<li class="list-group-item"><i class="fas fa-external-link-alt fa-fw text-purple" aria-hidden="true"></i> download link <strong><span class="pull-right"><a href="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}">{{comp.comp_name}}</a></span></strong></li>
 																	<li class="list-group-item"><i class="fas fa-link fa-fw text-green" aria-hidden="true"></i> page link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
-																	<li class="list-group-item"><i class="fas fa-file-download fa-fw text-orange" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-3">{{comp.count}}</span></li>
+																	<li class="list-group-item"><i class="fas fa-file-download fa-fw text-orange" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> last download <span class="pull-right">{{comp.lastDownload}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> added <span class="pull-right">{{comp.dateAdded}}</span></li>
 																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
@@ -271,11 +271,11 @@
 														<table class="table table-striped table-condensed table-hover pull-down">
 															 <thead>
 																<tr>
-																	 <th>sort</th>
-																	 <th>name</th>
-																	 <th>artist</th>
-																	 <th><i class="fas fa-play-circle fa-fw" aria-hidden="true"></i></th>
-																	 <th><i class="fas fa-download fa-fw" aria-hidden="true"></i></th>
+																	 <th><i class="fas fa-sort-numeric-down fa-fw text-yellow-casablanca" aria-hidden="true"></i> sort</th>
+																	 <th><i class="fas fa-tag fa-fw text-green" aria-hidden="true"></i> name</th>
+																	 <th><i class="fas fa-heart fa-fw text-danger" aria-hidden="true"></i> artist</th>
+																	 <th><i class="fas fa-play-circle fa-fw text-light-blue" aria-hidden="true"></i></th>
+																	 <th><i class="fas fa-download fa-fw text-pink" aria-hidden="true"></i></th>
 																	 <th></th>
 																 </tr>
 															 </thead>

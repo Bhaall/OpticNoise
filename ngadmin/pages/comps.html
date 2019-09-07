@@ -52,7 +52,7 @@
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
 													<div class="pull-right tools btn-group">
-														<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
+														<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i><span class="caret"></span></button>
 														<ul class="dropdown-menu pull-right" role="menu">
 															<li class="dropdown-header">review</li>
 															<li><a href="#/edit-comp/{{comp.comp_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit</a></li>
@@ -107,7 +107,7 @@
 																</li>
 																<li class="list-group-item"><i class="fas fa-cloud-download-alt fa-fw text-purple" aria-hidden="true"></i> Download Link<span class="pull-right"><a href="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></li>
 																<li class="list-group-item"><i class="fas fa-link fa-fw text-green" aria-hidden="true"></i> Page Link<span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></li>
-																<li class="list-group-item"><i class="fas fa-file-download fa-fw text-orange" aria-hidden="true"></i> Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span><span class="badge bg-blue margin-top-3">{{comp.count}}</span></li>
+																<li class="list-group-item"><i class="fas fa-file-download fa-fw text-orange" aria-hidden="true"></i> Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span><span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download <span class="pull-right">{{comp.last_download | timestampDateTimeFormat}}</span></li>
 																<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added <span class="pull-right">{{comp.date_added | timestampDateFormat}}</span></li>
 																<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span></li>
