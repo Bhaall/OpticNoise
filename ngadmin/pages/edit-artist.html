@@ -73,7 +73,7 @@
 														<div class="input-icon" ng-class="{true: 'error'}[EditArtistForm.submitted && EditArtistForm.INroster_desc.$invalid]">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
-															<h6 class="help-block"><i class="fas fa-exclamation-triangle"></i> <em>Used in Roster</em></h6>
+															<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Used in Roster</em></h6>
 														</div>
 													</div>
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.INlabel.$invalid && EditArtistForm.INlabel.$dirty, 'has-error': EditArtistForm.INlabel.$invalid && EditArtistForm.submitted}">
@@ -166,7 +166,7 @@
 																		<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="n">no
 																		<span></span>
 																	</label>
-																	<h6 class="help-block"><i class="fas fa-exclamation-triangle"></i> <em>Enabled if image exists.</em></h6>
+																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Enabled if image exists.</em></h6>
 																	<h6 class="help-block">Note: there can be only three artists displayed in Signings section on home page.</h6>
 																</div>
 															</div>
@@ -182,7 +182,7 @@
 													</div>
 												</span>
 												<div class="ona-widget__foot">
-													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Image <span class="red">must be 125x125</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image <span class="red">must be 125x125</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
 												</div>
 											</div>
 										</div>
@@ -233,14 +233,14 @@
 																		<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="n">no
 																		<span></span>
 																	</label>
-																	<h6 class="help-block"><i class="fas fa-exclamation-triangle"></i> <em>Enabled if image exists.</em></h6>
+																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Enabled if image exists.</em></h6>
 																</div>
 															</div>
 														</div>
 													</div>
 												</span>
 												<div class="ona-widget__foot">
-													<h6 class="help-block">	<i class="fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Image <span class="red">must be 573x282</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+													<h6 class="help-block">	<i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image <span class="red">must be 573x282</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
 												</div>
 											</div>
 										</div>
