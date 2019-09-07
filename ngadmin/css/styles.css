@@ -5,8 +5,9 @@ body {
 body {
   background-color: #f7f7f7;
   color: #363636;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
 }
 #wrapper {
   display: inline-block;
@@ -874,14 +875,15 @@ hr {
 .ona-widget .ona-widget__stats .ona-widget__items .ona-widget__item .ona-widget__subtitle {
   color: #595d6e;
   display: block;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   margin-top: 0.75rem;
+  text-transform: capitalize;
 }
 .ona-widget .ona-widget__stats .ona-widget__items .ona-widget__item .ona-widget__desc {
   color: #74788d;
   display: block;
-  font-size: 16px;
+  /* font-size: 16px; */
 }
 .ona-widget .ona-widget__stats .ona-widget__items .ona-widget__item .ona-widget__foot {
   color: #363636;
@@ -965,7 +967,7 @@ hr {
 .input-group-addon {
   border-radius: 3px;
   box-shadow: none;
-  font-size: 16px;
+  /* font-size: 16px; */
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -999,7 +1001,7 @@ hr {
 	}
 }
 .form-control {
-  font-size: 16px;
+  /* font-size: 16px; */
   height: 40px;
 }
 button, input, optgroup, select, textarea {
@@ -2854,9 +2856,9 @@ select.ng-valid.ng-valid-required {
 .input-icon > i {
 	color: #ccc;
 	display: block;
-	font-size: 16px;
+	font-size: 14px;
 	left: 0;
-	margin: 14px 2px 4px 10px;
+	margin: 12px 2px 4px 10px;
 	position: absolute;
 	text-align: center;
 	width: 16px;
