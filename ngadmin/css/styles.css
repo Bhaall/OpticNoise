@@ -720,6 +720,7 @@ hr {
 .ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__aqua .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title,
+.ona-portlet.ona--portlet__yellow .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title,
 .ona-portlet.ona--portlet__light-blue .ona-portlet__head .ona-portlet__head-title,
@@ -729,6 +730,7 @@ hr {
 .ona-portlet.ona--portlet__info .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__aqua .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__red .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
+.ona-portlet.ona--portlet__yellow .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
 .ona-portlet.ona--portlet__light-blue .ona-portlet__head .ona-portlet__head-title .ona-svg-icon g [fill],
@@ -772,6 +774,9 @@ hr {
 .ona-widget .ona-widget__visual.ona-widget__purple {
   background-color: #8e44ad;
 }
+.ona-portlet.ona--portlet__purple #refresh1 {
+  color: #8e44ad;
+}
 .ona-widget .ona-widget__visual.ona-widget__light-blue {
   background-color: #29b6f6;
 }
@@ -783,6 +788,10 @@ hr {
 }
 .ona-widget .ona-widget__visual.ona-widget__red {
   background-color: #d32f2f;
+}
+.ona-portlet.ona--portlet__red #refresh1,
+.ona-portlet.ona--portlet__yellow #refresh1 {
+  position: relative;
 }
 .ona-widget .ona-widget__stats {
   display: column;

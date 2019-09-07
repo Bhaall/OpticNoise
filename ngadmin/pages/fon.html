@@ -2,10 +2,10 @@
 	<form novalidate class="form" role="form" name="FONForm" id="FONForm" method="post">
 		<div class="row">
 		  <div class="col-lg-12">
-		    <div class="panel">
+		    <div id="fon-panel" class="panel">
 		      <div class="row">
 		        <div class="col-lg-12">
-		          <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__red">  <!--class for heading color -->
+		          <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__yellow">
 		            <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
 		              <div class="ona-portlet__head-label">
 		                <h3 class="ona-portlet__head-title">
@@ -23,10 +23,11 @@
 		              </div>
 		            </div>
 		            <div class="ona-portlet__body ona-portlet__body--fit">
+									<a id="refresh1" ng-click="refresh()" class="pull-right refresh-me margin-top-25 margin-right-25" data-target="#fon-panel" href="javascript:;"><span class="fas fa-redo" aria-hidden="true"></span></a>
 		              <div class="ona-widget">
 		                <div class="ona-widget__visual ona-widget__yellow">
 		                </div>
-		                <div class="ona-widget__stats">
+		                <div class="ona-widget__stats refresh-container">
 											<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="artist in fon">
 			                  <div class="ona-widget__items">
 													<div class="ona-widget__item">
@@ -106,7 +107,7 @@
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="panel panel-yellow">
+							<div class="panel panel-yellow refresh-data">
 								<div class="panel-heading">
 									Select the artist to add
 								</div>

@@ -2396,8 +2396,6 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.remove = function(artist, SliderForm) {
 		removeFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
-			// var id = data.id;
-			// $scope.artist = data;
 			$scope.artist = {};
 			$scope.noty.add({title:'Featured data',body:'Artist was removed.'});
 			$scope.refresh();
@@ -2810,7 +2808,6 @@ angular.module('onAdmin.controllers', [])
 			$rootScope.setLoading(false);
 			$scope.noty.add({type: 'Error', title:'Comp data status: ' + status,body:'There was a problem.'});
 		});
-
 
 		getMaxCompPlaylistSort.fetchMaxCompPlaylistSortOrder(comp_id).success(function(data) {
 			$scope.max = data;

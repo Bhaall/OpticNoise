@@ -1,244 +1,316 @@
 <div class="container-fluid">
 	<form novalidate class="form" role="form" name="EditCompForm" id="EditCompForm" method="post">
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="panel panel-purple">
-					<div class="panel-heading">
-						<div class="nav-btns pull-right">
-							<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-							<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
-						</div>
-						<div class="pull-right btn-group pad-right-5">
-							<button tabindex="-1" type="button" class="btn btn-xs btn-default dropdown-toggle margin-top-2" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
-							<ul class="dropdown-menu pull-right" role="menu">
-								<li class="dropdown-header">carousel</li>
-								<li ng-show="comp.comp_flag=='y'"><a href="javascript:;" ng-click="setOutCarousel(comp)"><i class="pull-right fas fa-minus-circle fa-fw" aria-hidden="true"></i> Remove</a></li>
-								<li ng-show="comp.comp_flag=='n'"><a href="javascript:;" ng-click="setInCarousel(comp)"><i class="pull-right fas fa-plus-circle fa-fw" aria-hidden="true"></i> Add</a></li>
-								<li class="divider"></li>
-								<li class="dropdown-header pad-top-0">status</li>
-								<li ng-show="comp.active=='y'"><a href="javascript:;" ng-click="setInActive(comp)"><i class="pull-right fas fa-eye-slash fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
-								<li ng-show="comp.active=='n'"><a href="javascript:;" ng-click="setActive(comp)"><i class="pull-right fas fa-eye fa-fw" aria-hidden="true"></i> Set Active</a></li>
-							</ul>
-						</div>
-						<h4 class="panel-title">
-							<i class="fas fa-edit fa-fw" aria-hidden="true"></i> {{comp.comp_name}}
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group has-feedback" ng-class="{'has-success': EditCompForm.comp_name.$valid, 'has-invalid': EditCompForm.comp_name.$invalid && EditCompForm.comp_name.$dirty, 'has-error': EditCompForm.comp_name.$invalid && EditCompForm.submitted}">
-							<label for="comp_name">name:</label>
-							<div class="input-icon">
-								<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
-								<input class="form-control" name="comp_name" type="text" ng-model="comp.comp_name" placeholder="name (required)" required />
-							</div>
-							<div ng-show="EditCompForm.comp_name.$valid">
-								<span ng-show="EditCompForm.comp_name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-							</div>
-							<div ng-show="EditCompForm.comp_name.$invalid && EditCompForm.comp_name.$dirty">
-								<span ng-show="EditCompForm.comp_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+			<div class="col-lg-12">
+				<div class="panel">
+					<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__purple">
+						<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+							<div class="ona-portlet__head-label">
+								<h3 class="ona-portlet__head-title">
+									<span class="ona-widget__icon">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24"/>
+												<path d="M4,7 L20,7 L20,19.5 C20,20.3284271 19.3284271,21 18.5,21 L5.5,21 C4.67157288,21 4,20.3284271 4,19.5 L4,7 Z M10,10 C9.44771525,10 9,10.4477153 9,11 C9,11.5522847 9.44771525,12 10,12 L14,12 C14.5522847,12 15,11.5522847 15,11 C15,10.4477153 14.5522847,10 14,10 L10,10 Z" fill="#000000"/>
+												<rect fill="#000000" opacity="0.3" x="2" y="3" width="20" height="4" rx="1"/>
+											</g>
+										</svg>
+									</span>
+									{{comp.comp_name}}
+								</h3>
 							</div>
 						</div>
-						<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditCompForm.comp_desc.$valid, 'has-invalid': EditCompForm.comp_desc.$invalid && EditCompForm.comp_desc.$dirty, 'has-error': EditCompForm.comp_desc.$invalid && EditCompForm.submitted}">
-							<label for="comp_desc">description:</label>
-							<div class="input-icon" ng-class="{true: 'error'}[EditCompForm.submitted && EditCompForm.comp_desc.$invalid]">
-								<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-								<text-angular name="comp_desc" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="comp.comp_desc" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-8">
-									<div class="form-group has-feedback" ng-class="{'has-success': EditCompForm.comp_file.$valid, 'has-invalid': EditCompForm.comp_file.$invalid && EditCompForm.comp_file.$dirty, 'has-error': EditCompForm.comp_file.$invalid && EditCompForm.submitted}">
-										<label for="comp_file">zip file:</label>
-										<div class="input-icon">
-											<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
-											<input class="form-control" name="comp_file" type="text" ng-model="comp.comp_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
-										</div>
-										<div ng-show="EditCompForm.comp_file.$valid">
-											<span ng-show="EditCompForm.comp_file.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-										</div>
-										<div ng-show="EditCompForm.comp_file.$invalid && EditCompForm.comp_file.$dirty">
-											<span ng-show="EditCompForm.comp_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-										</div>
-										<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
-									</div>
+						<div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="ona-widget">
+								<div class="ona-widget__visual ona-widget__purple">
 								</div>
-								<div class="col-xs-4">
-									<div class="form-group" ng-class="{'has-success': EditCompForm.sort.$valid, 'has-invalid': EditCompForm.sort.$invalid && EditCompForm.sort.$dirty, 'has-error': EditCompForm.sort.$invalid && EditCompForm.submitted}">
-										<label for="itemOrder">sort:</label>
-										<div class="input-icon">
-											<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
-											<input type="text" touchspin name="sort" id="sort" class="form-control" ng-model="comp.sort" />
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12">
-									<label for="link-{{ $index*10 + 1 }}">download link:</label>
-									<div class="input-group">
-										<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}" ng-model="comp.copy2" />
-										<span class="input-group-btn">
-											<button clipboard text="comp.copy2" on-copied="success(comp.copy2)" on-error="fail(err)" class="btn btn-blue clip_button"><i class="fas fa-copy fa-fw" aria-hidden="true"></i></button>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-12">
-									<label for="link-{{ $index*10 + 1 }}">page link:</label>
-									<div class="input-group">
-										<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" ng-model="comp.copy3" />
-										<span class="input-group-btn">
-											<button clipboard text="comp.copy3" on-copied="success(comp.copy3)" on-error="fail(err)" class="btn btn-blue clip_button"><i class="fas fa-copy fa-fw" aria-hidden="true"></i></button>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="row padded-grid">
-								<div class="col-lg-12">
-									<ul class="list-group pull-down">
-										<li class="list-group-item"><i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i> download link <strong><span class="pull-right"><a href="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}">{{comp.comp_name}}</a></span></strong></li>
-										<li class="list-group-item"><i class="fas fa-link fa-fw" aria-hidden="true"></i> page link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
-										<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-3">{{comp.count}}</span></li>
-										<li class="list-group-item"><i class="far fa-calendar-check fa-fw" aria-hidden="true"></i> last download <span class="pull-right">{{comp.lastDownload}}</span></li>
-										<li class="list-group-item"><i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> added <span class="pull-right">{{comp.dateAdded}}</span></li>
-										<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
-										<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Only Active Comps are displayed on the Comps page.</em></h6></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<button class="btn btn-info" ng-disabled="EditCompForm.$invalid || isUnchanged(comp)" id="edit-btn" ng-click="update(comp)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
-						<button class="btn btn-danger" ng-click="delete(comp)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-						<a href="#/comps" class="btn btn-cancel">Cancel</a>
-					</div>
-				</div>
-				<div class="panel panel-purple-light">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fas fa-image fa-fw" aria-hidden="true"></i> image
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group">
-							<div class="row">
-								<div class="col-xs-6">
-									<div class="fileinput fileinput-exists" data-provides="fileinput">
-										<div class="fileinput-new thumbnail">
-											<img ng-src="img/200-no-image.gif" class="img-responsive">
-										</div>
-										<div class="fileinput-preview fileinput-exists thumbnail">
-											<img ng-src="{{comp.image}}" />
-										</div>
-										<div>
-											<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span><span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" id="comp_pic" name="comp_pic" portrait-input="comp_pics"></span>
-											<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
-											<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Image must be 200x200 (file name must not have strange characters; no dashes; NO SPACES; end in '.jpg')</em></h6>
-										</div>
-									</div>
-									<ul class="list-group file-info" ng-repeat="comp_pic in comp_pics">
-										 <li class="list-group-item"><strong>name:</strong> {{comp_pic.name}}</li>
-										 <li class="list-group-item"><strong>type:</strong> {{comp_pic.type}}</li>
-										 <li class="list-group-item"><strong>size:</strong> {{comp_pic.size}}kb</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="panel panel-purple-light">
-					<div class="panel-heading">
-						<h4 class="panel-title"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add to playlist</h4>
-					</div>
-					<div class="panel-body">
-						<ng-form name="addSongToPlaylistForm">
-							<div class="row padded-grid">
-								<div class="col-lg-12">
-									<ul class="list-group pull-down">
-										<li class="list-group-item list-group-item-lightblue">select</li>
-										<li class="list-group-item" style="overflow: visible;">
-											<select ng-model="comp.songID" data-style="white" selectpicker title="select a song" data-width="100%" data-live-search="true">
-												<option value=""></option>
-												<option ng-repeat="s in songs" value="{{s.song_id}}" >{{s.song_title}} - {{s.artist_name}}</option>
-											</select>
-											<span class="ng-hide">{{comp.songID}}</span>
-										</li>
-										<li class="list-group-item">sort
-											<div class="pull-right">
-												<input type="text" touchspin name="item_sort_new" id="item_sort_new" class="form-control sortorder" ng-model="newsort">
-												<h6 class="help-block margin-auto center">highest: {{max}}</h6>
+								<div class="ona-widget__stats">
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<div class="nav-btns pull-right">
+														<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+														<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
+													</div>
+													<div class="pull-right btn-group pad-right-5">
+														<button tabindex="-1" type="button" class="btn btn-xs btn-default dropdown-toggle margin-top-2" data-toggle="dropdown"><i class="fas fa-cog fa-fw" aria-hidden="true"></i> &nbsp;&nbsp;<span class="caret"></span></button>
+														<ul class="dropdown-menu pull-right" role="menu">
+															<li class="dropdown-header">carousel</li>
+															<li ng-show="comp.comp_flag=='y'"><a href="javascript:;" ng-click="setOutCarousel(comp)"><i class="pull-right fas fa-minus-circle fa-fw" aria-hidden="true"></i> Remove</a></li>
+															<li ng-show="comp.comp_flag=='n'"><a href="javascript:;" ng-click="setInCarousel(comp)"><i class="pull-right fas fa-plus-circle fa-fw" aria-hidden="true"></i> Add</a></li>
+															<li class="divider"></li>
+															<li class="dropdown-header pad-top-0">status</li>
+															<li ng-show="comp.active=='y'"><a href="javascript:;" ng-click="setInActive(comp)"><i class="pull-right fas fa-eye-slash fa-fw" aria-hidden="true"></i> Set Inactive</a></li>
+															<li ng-show="comp.active=='n'"><a href="javascript:;" ng-click="setActive(comp)"><i class="pull-right fas fa-eye fa-fw" aria-hidden="true"></i> Set Active</a></li>
+														</ul>
+													</div>
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>
+											        <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Details
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback" ng-class="{'has-success': EditCompForm.comp_name.$valid, 'has-invalid': EditCompForm.comp_name.$invalid && EditCompForm.comp_name.$dirty, 'has-error': EditCompForm.comp_name.$invalid && EditCompForm.submitted}">
+														<label for="comp_name">name:</label>
+														<div class="input-icon">
+															<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
+															<input class="form-control" name="comp_name" type="text" ng-model="comp.comp_name" placeholder="name (required)" required />
+														</div>
+														<div ng-show="EditCompForm.comp_name.$valid">
+															<span ng-show="EditCompForm.comp_name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+														</div>
+														<div ng-show="EditCompForm.comp_name.$invalid && EditCompForm.comp_name.$dirty">
+															<span ng-show="EditCompForm.comp_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+														</div>
+													</div>
+													<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditCompForm.comp_desc.$valid, 'has-invalid': EditCompForm.comp_desc.$invalid && EditCompForm.comp_desc.$dirty, 'has-error': EditCompForm.comp_desc.$invalid && EditCompForm.submitted}">
+														<label for="comp_desc">description:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditCompForm.submitted && EditCompForm.comp_desc.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular name="comp_desc" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="comp.comp_desc" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-xs-8">
+																<div class="form-group has-feedback" ng-class="{'has-success': EditCompForm.comp_file.$valid, 'has-invalid': EditCompForm.comp_file.$invalid && EditCompForm.comp_file.$dirty, 'has-error': EditCompForm.comp_file.$invalid && EditCompForm.submitted}">
+																	<label for="comp_file">zip file:</label>
+																	<div class="input-icon">
+																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
+																		<input class="form-control" name="comp_file" type="text" ng-model="comp.comp_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
+																	</div>
+																	<div ng-show="EditCompForm.comp_file.$valid">
+																		<span ng-show="EditCompForm.comp_file.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+																	</div>
+																	<div ng-show="EditCompForm.comp_file.$invalid && EditCompForm.comp_file.$dirty">
+																		<span ng-show="EditCompForm.comp_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+																	</div>
+																	<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
+																</div>
+															</div>
+															<div class="col-xs-4">
+																<div class="form-group" ng-class="{'has-success': EditCompForm.sort.$valid, 'has-invalid': EditCompForm.sort.$invalid && EditCompForm.sort.$dirty, 'has-error': EditCompForm.sort.$invalid && EditCompForm.submitted}">
+																	<label for="itemOrder">sort:</label>
+																	<div class="input-icon">
+																		<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
+																		<input type="text" touchspin name="sort" id="sort" class="form-control" ng-model="comp.sort" />
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-xs-12">
+																<label for="link-{{ $index*10 + 1 }}">download link:</label>
+																<div class="input-group">
+																	<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}" ng-model="comp.copy2" />
+																	<span class="input-group-btn">
+																		<button clipboard text="comp.copy2" on-copied="success(comp.copy2)" on-error="fail(err)" class="btn btn-blue clip_button"><i class="fas fa-copy fa-fw" aria-hidden="true"></i></button>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-xs-12">
+																<label for="link-{{ $index*10 + 1 }}">page link:</label>
+																<div class="input-group">
+																	<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" ng-model="comp.copy3" />
+																	<span class="input-group-btn">
+																		<button clipboard text="comp.copy3" on-copied="success(comp.copy3)" on-error="fail(err)" class="btn btn-blue clip_button"><i class="fas fa-copy fa-fw" aria-hidden="true"></i></button>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<div class="row padded-grid">
+															<div class="col-lg-12">
+																<ul class="list-group pull-down">
+																	<li class="list-group-item"><i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i> download link <strong><span class="pull-right"><a href="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}">{{comp.comp_name}}</a></span></strong></li>
+																	<li class="list-group-item"><i class="fas fa-link fa-fw" aria-hidden="true"></i> page link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
+																	<li class="list-group-item"><i class="fas fa-file-download fa-fw" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fa fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-3">{{comp.count}}</span></li>
+																	<li class="list-group-item"><i class="far fa-calendar-check fa-fw" aria-hidden="true"></i> last download <span class="pull-right">{{comp.lastDownload}}</span></li>
+																	<li class="list-group-item"><i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> added <span class="pull-right">{{comp.dateAdded}}</span></li>
+																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
+																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw" aria-hidden="true"></i> status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Only Active Comps are displayed on the Comps page.</em></h6></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<div class="ona-form__actions">
+														<button class="btn btn-info" ng-disabled="EditCompForm.$invalid || isUnchanged(comp)" id="edit-btn" ng-click="update(comp)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+														<button class="btn btn-danger" ng-click="delete(comp)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+														<a href="#/comps" class="btn btn-cancel">Cancel</a>
+													</div>
+												</div>
 											</div>
-										</li>
-										<li class="list-group-item">
-											<button type="submit" class="btn btn-success" ng-disabled="!comp.songID" ng-click="addSelected(comp.songID)"><i class="fas fa-check-square fa-fw" aria-hidden="true"></i> add to current playlist</button>
-										</li>
-									</ul>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <polygon points="0 0 24 0 24 24 0 24"/>
+											        <path d="M6,5 L18,5 C19.6568542,5 21,6.34314575 21,8 L21,17 C21,18.6568542 19.6568542,20 18,20 L6,20 C4.34314575,20 3,18.6568542 3,17 L3,8 C3,6.34314575 4.34314575,5 6,5 Z M5,17 L14,17 L9.5,11 L5,17 Z M16,14 C17.6568542,14 19,12.6568542 19,11 C19,9.34314575 17.6568542,8 16,8 C14.3431458,8 13,9.34314575 13,11 C13,12.6568542 14.3431458,14 16,14 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Image
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group">
+														<div class="row">
+															<div class="col-xs-6">
+																<div class="fileinput fileinput-exists" data-provides="fileinput">
+																	<div class="fileinput-new thumbnail">
+																		<img ng-src="img/200-no-image.gif" class="img-responsive">
+																	</div>
+																	<div class="fileinput-preview fileinput-exists thumbnail">
+																		<img ng-src="{{comp.image}}" />
+																	</div>
+																	<div>
+																		<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span><span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" id="comp_pic" name="comp_pic" portrait-input="comp_pics"></span>
+																		<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
+																		<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Image must be 200x200 (file name must not have strange characters; no dashes; NO SPACES; end in '.jpg')</em></h6>
+																	</div>
+																</div>
+																<ul class="list-group file-info" ng-repeat="comp_pic in comp_pics">
+																	 <li class="list-group-item"><strong>name:</strong> {{comp_pic.name}}</li>
+																	 <li class="list-group-item"><strong>type:</strong> {{comp_pic.type}}</li>
+																	 <li class="list-group-item"><strong>size:</strong> {{comp_pic.size}}kb</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M8.97852058,18.8007059 C8.80029331,20.0396328 7.53473012,21 6,21 C4.34314575,21 3,19.8807119 3,18.5 C3,17.1192881 4.34314575,16 6,16 C6.35063542,16 6.68722107,16.0501285 7,16.1422548 L7,5.93171093 C7,5.41893942 7.31978104,4.96566617 7.78944063,4.81271925 L13.5394406,3.05418311 C14.2638626,2.81827161 15,3.38225531 15,4.1731748 C15,4.95474642 15,5.54092513 15,5.93171093 C15,6.51788965 14.4511634,6.89225606 14,7 C13.3508668,7.15502181 11.6842001,7.48835515 9,8 L9,18.5512168 C9,18.6409956 8.9927193,18.7241187 8.97852058,18.8007059 Z" fill="#000000" fill-rule="nonzero"/>
+											        <path d="M16,13 L16,11 C16,10.4477153 16.4477153,10 17,10 C17.5522847,10 18,10.4477153 18,11 L18,13 L20,13 C20.5522847,13 21,13.4477153 21,14 C21,14.5522847 20.5522847,15 20,15 L18,15 L18,17 C18,17.5522847 17.5522847,18 17,18 C16.4477153,18 16,17.5522847 16,17 L16,15 L14,15 C13.4477153,15 13,14.5522847 13,14 C13,13.4477153 13.4477153,13 14,13 L16,13 Z" fill="#000000" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Add to playlist
+												</span>
+												<span class="ona-widget__desc">
+													<ng-form name="addSongToPlaylistForm">
+														<div class="row padded-grid">
+															<div class="col-lg-12">
+																<ul class="list-group pull-down">
+																	<li class="list-group-item list-group-item-lightblue">select</li>
+																	<li class="list-group-item" style="overflow: visible;">
+																		<select ng-model="comp.songID" data-style="white" selectpicker title="select a song" data-width="100%" data-live-search="true">
+																			<option value=""></option>
+																			<option ng-repeat="s in songs" value="{{s.song_id}}" >{{s.song_title}} - {{s.artist_name}}</option>
+																		</select>
+																		<span class="ng-hide">{{comp.songID}}</span>
+																	</li>
+																	<li class="list-group-item">sort
+																		<div class="pull-right">
+																			<input type="text" touchspin name="item_sort_new" id="item_sort_new" class="form-control sortorder" ng-model="newsort">
+																			<h6 class="help-block margin-auto center">highest: {{max}}</h6>
+																		</div>
+																	</li>
+																	<li class="list-group-item">
+																		<button type="submit" class="btn btn-success" ng-disabled="!comp.songID" ng-click="addSelected(comp.songID)"><i class="fas fa-check-square fa-fw" aria-hidden="true"></i> add to current playlist</button>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</ng-form>
+													<div class="row">
+														<div class="col-lg-12">
+															<ul class="list-group pull-down">
+															  <li class="list-group-item list-group-item-lightblue">new content</li>
+															  <li class="list-group-item">
+															  	<a href="#/add-song-to-comp/{{comp.comp_id}}" class="btn btn-success"><i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new MP3 file</a>
+															  	<a href="#/add-artist-to-comp/{{comp.comp_id}}" class="btn btn-success"> <i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new artist &amp; MP3 file</a>
+															  </li>
+															</ul>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M8.97852058,18.8007059 C8.80029331,20.0396328 7.53473012,21 6,21 C4.34314575,21 3,19.8807119 3,18.5 C3,17.1192881 4.34314575,16 6,16 C6.35063542,16 6.68722107,16.0501285 7,16.1422548 L7,5.93171093 C7,5.41893942 7.31978104,4.96566617 7.78944063,4.81271925 L13.5394406,3.05418311 C14.2638626,2.81827161 15,3.38225531 15,4.1731748 C15,4.95474642 15,5.54092513 15,5.93171093 C15,6.51788965 14.4511634,6.89225606 14,7 C13.3508668,7.15502181 11.6842001,7.48835515 9,8 L9,18.5512168 C9,18.6409956 8.9927193,18.7241187 8.97852058,18.8007059 Z" fill="#000000" fill-rule="nonzero"/>
+											        <path d="M16,9 L20,9 C20.5522847,9 21,9.44771525 21,10 C21,10.5522847 20.5522847,11 20,11 L16,11 C15.4477153,11 15,10.5522847 15,10 C15,9.44771525 15.4477153,9 16,9 Z M14,13 L20,13 C20.5522847,13 21,13.4477153 21,14 C21,14.5522847 20.5522847,15 20,15 L14,15 C13.4477153,15 13,14.5522847 13,14 C13,13.4477153 13.4477153,13 14,13 Z M14,17 L20,17 C20.5522847,17 21,17.4477153 21,18 C21,18.5522847 20.5522847,19 20,19 L14,19 C13.4477153,19 13,18.5522847 13,18 C13,17.4477153 13.4477153,17 14,17 Z" fill="#000000" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Playlist
+												</span>
+												<span class="ona-widget__desc">
+													<div class="padded-grid">
+														<table class="table table-striped table-condensed table-hover pull-down">
+															 <thead>
+																<tr>
+																	 <th>sort</th>
+																	 <th>name</th>
+																	 <th>artist</th>
+																	 <th><i class="fa fa-play-circle fa-fw" aria-hidden="true"></i></th>
+																	 <th><i class="fas fa-download fa-fw" aria-hidden="true"></i></th>
+																	 <th></th>
+																 </tr>
+															 </thead>
+															 <tbody>
+																 <tr ng-repeat="song in playlist">
+																	 <td class="col-xs-1"><input touchspin type="text" name="item_sort[]" class="form-control sortorder" ng-model="song.item_sort"></td>
+																	 <td class="col-xs-4"><a href="#/edit-song/{{song.songID}}">{{song.song_title}}</a></td>
+																	 <td class="col-xs-4"><a href="#/edit-artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
+																	 <td class="col-xs-1">{{song.song_count}}</td>
+																	 <td class="col-xs-1">{{song.song_downloads}}</td>
+																	 <td class="col-xs-1">
+																		 <div class="tools btn-group">
+								 											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+								 											<ul class="dropdown-menu pull-right" role="menu">
+								 												<li><a ng-show="song.song_file" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="pull-right fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Play</a></li>
+								 												<li><a href="javascript:;" ng-click="deletePlaylistItem(song.comp_items_id)"><i class="pull-right fas fa-minus-circle fa-fw" aria-hidden="true"></i> Remove</a></li>
+								 											</ul>
+								 										</div>
+																	 </td>
+																 </tr>
+															</tbody>
+														</table>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<div class="ona-form__actions">
+														<button type="button" name="updateSort" ng-click="updatePlaylistSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update playlist sort order</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</ng-form>
-						<div class="row">
-							<div class="col-lg-12">
-								<ul class="list-group pull-down">
-								  <li class="list-group-item list-group-item-lightblue">new content</li>
-								  <li class="list-group-item">
-								  	<a href="#/add-song-to-comp/{{comp.comp_id}}" class="btn btn-success"><i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new MP3 file</a>
-								  	<a href="#/add-artist-to-comp/{{comp.comp_id}}" class="btn btn-success"> <i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new artist &amp; MP3 file</a>
-								  </li>
-								</ul>
-							</div>
 						</div>
-					</div>
-				</div>
-				<div class="panel panel-purple-light">
-					<div class="panel-heading">
-						<span class="badge badge-white pull-right margin-top-3">{{playlist.length}}</span>
-						<h4 class="panel-title">
-							<i class="fa fa-music fa-fw" aria-hidden="true"></i> playlist
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="padded-grid">
-							<table class="table table-striped table-condensed table-hover pull-down">
-								 <thead>
-									<tr>
-										 <th>sort</th>
-										 <th>name</th>
-										 <th>artist</th>
-										 <th><i class="fa fa-play-circle fa-fw" aria-hidden="true"></i></th>
-										 <th><i class="fas fa-download fa-fw" aria-hidden="true"></i></th>
-										 <th></th>
-									 </tr>
-								 </thead>
-								 <tbody>
-									 <tr ng-repeat="song in playlist">
-										 <td class="col-xs-1"><input touchspin type="text" name="item_sort[]" class="form-control sortorder" ng-model="song.item_sort"></td>
-										 <td class="col-xs-4"><a href="#/edit-song/{{song.songID}}">{{song.song_title}}</a></td>
-										 <td class="col-xs-4"><a href="#/edit-artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
-										 <td class="col-xs-1">{{song.song_count}}</td>
-										 <td class="col-xs-1">{{song.song_downloads}}</td>
-										 <td class="col-xs-1">
-											 <div class="tools btn-group">
-	 											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
-	 											<ul class="dropdown-menu pull-right" role="menu">
-	 												<li><a ng-show="song.song_file" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="pull-right fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Play</a></li>
-	 												<li><a href="javascript:;" ng-click="deletePlaylistItem(song.comp_items_id)"><i class="pull-right fas fa-minus-circle fa-fw" aria-hidden="true"></i> Remove</a></li>
-	 											</ul>
-	 										</div>
-										 </td>
-									 </tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="panel-footer">
-						<button type="button" name="updateSort" ng-click="updatePlaylistSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update playlist sort order</button>
 					</div>
 				</div>
 			</div>

@@ -630,9 +630,9 @@ $.fn.pageMe = function(opts){
 	defaults = {
 		perPage: 7,
 		showPrevNext: false,
-            numbersPerPage: 5,
-            hidePageNumbers: false,
-            pagerSelector: ".pagination"
+    numbersPerPage: 5,
+    hidePageNumbers: false,
+    pagerSelector: ".pagination"
 	},
 	settings = $.extend(defaults, opts);
 

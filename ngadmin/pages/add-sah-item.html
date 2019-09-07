@@ -77,6 +77,12 @@
 														</div>
 													</div>
 												</span>
+												<div class="ona-widget__foot">
+													<div class="ona-form__actions">
+														<button class="btn btn-info" ng-disabled="AddSAHItemForm.$invalid || isUnchanged(item)" id="add-new-btn" ng-click="add_new(item)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+														<a href="#/sah-items/{{id}}" class="btn btn-cancel">Cancel</a>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -113,12 +119,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="ona-portlet__foot">
-							<div class="ona-form__actions">
-								<button class="btn btn-info" ng-disabled="AddSAHItemForm.$invalid || isUnchanged(item)" id="add-new-btn" ng-click="add_new(item)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-								<a href="#/sah-items/{{id}}" class="btn btn-cancel">Cancel</a>
 							</div>
 						</div>
 					</div>

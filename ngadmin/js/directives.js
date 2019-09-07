@@ -64,35 +64,6 @@ angular.module('onAdmin.directives', [])
 			}
 		}
 	})
-	.directive('currentTime', function($timeout, dateFilter) {
-		return function(scope, element, attrs) {
-
-			var format,
-				timeoutId;
-
-			function updateTime() {
-				element.text(dateFilter(new Date(), format));
-			}
-
-			scope.$watch(attrs.currentTime, function(value) {
-				format = value;
-				updateTime();
-			});
-
-			function updateLater() {
-				timeoutId = $timeout(function() {
-					updateTime();
-					updateLater();
-				}, 1000);
-			}
-
-			element.bind('$destroy', function() {
-				$timeout.cancel(timeoutId);
-			});
-
-			updateLater();
-		};
-	})
 	.directive('jasnyUpload', ['asyncScript', '$timeout', function (asyncScript, $timeout) {
 		return {
 			restrict: 'C',
@@ -349,16 +320,13 @@ angular.module('onAdmin.directives', [])
 					var jqEl = $(el);
 					var ps = jqEl.attr("data-pager");
 					var pp = jqEl.attr("data-per-page");
-
 					jqEl.pageMe({
 						pagerSelector:ps,
 						showPrevNext:true,
 						hidePageNumbers:false,
 						perPage:pp
 					});
-
 				});
-
 			}
 		};
 	})
