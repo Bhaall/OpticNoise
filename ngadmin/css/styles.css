@@ -1518,6 +1518,20 @@ a.list-group-item.active:focus {
   -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
+
+.btn.btn-outline-clean {
+  background: transparent;
+  border-color: #93a2dd;
+  color: #93a2dd;
+  -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.btn.btn-outline-clean:hover {
+  background: #f0f3ff;
+  border-color: #5d78ff;
+  color: #5d78ff;
+}
+
 .ona-portlet__body > .nav-btns .btn.btn-clean,
 .ona-portlet__body > .nav-btns .btn.btn-clean:visited,
 .ona-portlet__body > .nav-btns .btn.btn-clean i,
