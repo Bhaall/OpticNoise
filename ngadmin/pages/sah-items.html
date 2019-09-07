@@ -2,95 +2,91 @@
 	<div class="row">
 	  <div class="col-lg-12">
 	    <div class="panel">
-	      <div class="row">
-	        <div class="col-lg-12">
-	          <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__green">  <!--class for heading color -->
-	            <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
-	              <div class="ona-portlet__head-label">
-	                <h3 class="ona-portlet__head-title">
-	                  <span class="ona-widget__icon">
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+        <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__green">
+          <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+            <div class="ona-portlet__head-label">
+              <h3 class="ona-portlet__head-title">
+                <span class="ona-widget__icon">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+								    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							        <rect x="0" y="0" width="24" height="24"/>
+							        <rect fill="#000000" x="2" y="6" width="13" height="12" rx="2"/>
+							        <path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
+								    </g>
+									</svg>
+								</span>
+                Scene &amp; Heard
+              </h3>
+            </div>
+          </div>
+          <div class="ona-portlet__body ona-portlet__body--fit">
+						<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{itemTotal}}</span>
+            <div class="ona-widget">
+              <div class="ona-widget__visual ona-widget__green">
+              </div>
+              <div class="ona-widget__stats">
+                <div class="ona-widget__items">
+                  <div class="ona-widget__item">
+                    <span class="ona-widget__icon">
+											<div class="nav-btns pull-right margin-top-1">
+												<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-default"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+												<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-default"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
+											</div>
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
 										    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 									        <rect x="0" y="0" width="24" height="24"/>
 									        <rect fill="#000000" x="2" y="6" width="13" height="12" rx="2"/>
 									        <path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
 										    </g>
 											</svg>
-										</span>
-	                  Scene &amp; Heard
-	                </h3>
-	              </div>
-	            </div>
-	            <div class="ona-portlet__body ona-portlet__body--fit">
-								<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{itemTotal}}</span>
-	              <div class="ona-widget">
-	                <div class="ona-widget__visual ona-widget__green">
-	                </div>
-	                <div class="ona-widget__stats">
-	                  <div class="ona-widget__items">
-	                    <div class="ona-widget__item">
-	                      <span class="ona-widget__icon">
-													<div class="nav-btns pull-right margin-top-1">
-														<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-default"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
-														<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-default"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
-													</div>
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
-												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-											        <rect x="0" y="0" width="24" height="24"/>
-											        <rect fill="#000000" x="2" y="6" width="13" height="12" rx="2"/>
-											        <path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
-												    </g>
-													</svg>
-	                      </span>
-	                      <span class="ona-widget__subtitle">
-	                        Scene &amp; Heard Items for {{sceneName}}
-	                      </span>
-	                      <span class="ona-widget__desc">
-													<table class="table table-condensed table-striped table-hover pull-down">
-														<thead>
-															<tr>
-																<th>name</th>
-																<th>media</th>
-																<th>description</th>
-																<th class="center">sort</th>
-																<th></th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr ng-repeat="item in data">
-																<td class="col-xs-2"><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}">{{item.itemHeader}}</a></td>
-																<td class="col-xs-1">{{item.itemMedia}}</td>
-																<td class="col-xs-7"><span ng-bind-html="renderItemText(item.itemText)"></span></td>
-																<td class="center col-xs-1"><input type="number" touchspin name="itemOrderTbl" id="itemOrderTbl" class="form-control" ng-model="item.itemOrder" /></td>
-																<td class="col-xs-1">
-																	<div class="tools btn-group">
-																		<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
-																		<ul class="dropdown-menu pull-right" role="menu">
-																			<li><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit details</a></li>
-																			<li><a href="" ng-disabled="{{data.length==1}}" ng-click="delete(item)""><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
-																		</ul>
-																	</div>
-																</td>
-															</tr>
-															<tr data-ng-show="!data"><td colspan=5><div>There are no items...oops.</div></td></tr>
-														</tbody>
-													</table>
-	                      </span>
-												<div class="ona-widget__foot">
-													<div class="ona-form__actions">
-														<a href="#/add-sah-item/{{id}}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add item</a>
-														<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
-														<a href="#/sah" class="btn btn-cancel">Cancel</a>
-													</div>
-												</div>
-	                    </div>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
+                    </span>
+                    <span class="ona-widget__subtitle">
+                      Scene &amp; Heard Items for {{sceneName}}
+                    </span>
+                    <span class="ona-widget__desc">
+											<table class="table table-condensed table-striped table-hover pull-down">
+												<thead>
+													<tr>
+														<th>name</th>
+														<th>media</th>
+														<th>description</th>
+														<th class="center">sort</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr ng-repeat="item in data">
+														<td class="col-xs-2"><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}">{{item.itemHeader}}</a></td>
+														<td class="col-xs-1">{{item.itemMedia}}</td>
+														<td class="col-xs-7"><span ng-bind-html="renderItemText(item.itemText)"></span></td>
+														<td class="center col-xs-1"><input type="number" touchspin name="itemOrderTbl" id="itemOrderTbl" class="form-control" ng-model="item.itemOrder" /></td>
+														<td class="col-xs-1">
+															<div class="tools btn-group">
+																<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+																<ul class="dropdown-menu pull-right" role="menu">
+																	<li><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit details</a></li>
+																	<li><a href="" ng-disabled="{{data.length==1}}" ng-click="delete(item)""><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+																</ul>
+															</div>
+														</td>
+													</tr>
+													<tr data-ng-show="!data"><td colspan=5><div>There are no items...oops.</div></td></tr>
+												</tbody>
+											</table>
+                    </span>
+										<div class="ona-widget__foot">
+											<div class="ona-form__actions">
+												<a href="#/add-sah-item/{{id}}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add item</a>
+												<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-info"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
+												<a href="#/sah" class="btn btn-cancel">Cancel</a>
+											</div>
+										</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 	    </div>
 	  </div>
 	</div>
