@@ -14,7 +14,7 @@
 				<li class="list-group-item list-group-item-default"><i class="fas fa-id-badge fa-fw" aria-hidden="true"></i> PROFILE</li>
 				<li class="list-group-item text-right"><span class="pull-left"><i class="fas fa-sign-in-alt fa-fw" aria-hidden="true"></i> <strong>recent login</strong></span> {{profile.last_login}}</li>
 				<li class="list-group-item text-right"><span class="pull-left"><i class="fas fa-signature fa-fw" aria-hidden="true"></i> <strong>name</strong></span> {{profile.firstname}} {{profile.lastname}}</li>
-				<li class="list-group-item text-right"><span class="pull-left"><i class="fa fa-link fa-fw" aria-hidden="true"></i> <strong>website</strong></span> <a href="{{profile.site}}" target="_blank" rel="noopener">{{profile.sitename}}</a></li>
+				<li class="list-group-item text-right"><span class="pull-left"><i class="fas fa-link fa-fw" aria-hidden="true"></i> <strong>website</strong></span> <a href="{{profile.site}}" target="_blank" rel="noopener">{{profile.sitename}}</a></li>
 				<li class="list-group-item text-right"><span class="pull-left"><i class="fas fa-database fa-fw" aria-hidden="true"></i> <strong>current db</strong></span> {{profile.db_alias}}</li>
 			</ul>
 		</div>
@@ -22,7 +22,7 @@
 			<div class="panel panel-onl">
 				<div class="panel-heading">
 					<h4 class="panel-title">
-						<i class="fa fa-list-alt fa-fw" aria-hidden="true"></i> settings
+						<i class="fas fa-list-alt fa-fw" aria-hidden="true"></i> settings
 					</h4>
 				</div>
 				<div class="panel-body">
@@ -44,7 +44,7 @@
 							<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.email.$valid, 'has-invalid': registrationForm.email.$invalid && registrationForm.email.$dirty, 'has-error': registrationForm.email.$invalid && registrationForm.submitted}">
 								<label for="email">email</label>
 								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.email.$invalid]">
-									<i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+									<i class="fas fa-envelope fa-fw" aria-hidden="true"></i>
 									<input type="text" class="form-control" name="email" id="email" placeholder="email address" title="enter your email address." ng-model="profile.email" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" />
 								</div>
 								<div ng-show="registrationForm.email.$valid">
@@ -57,7 +57,7 @@
 							<div class="form-group has-feedback" ng-class="{'has-success': registrationForm.firstname.$valid, 'has-invalid': registrationForm.firstname.$invalid && registrationForm.firstname.$dirty, 'has-error': registrationForm.firstname.$invalid && registrationForm.submitted}">
 								<label for="firstname">first name</label>
 								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.firstname.$invalid]">
-									<i class="fa fa-address-card fa-fw" aria-hidden="true"></i>
+									<i class="fas fa-address-card fa-fw" aria-hidden="true"></i>
 									<input type="text" class="form-control" name="firstname" id="firstname" placeholder="first name" title="enter your first name." ng-model="profile.firstname" required />
 								</div>
 								<div ng-show="registrationForm.firstname.$valid">
@@ -70,7 +70,7 @@
 							<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.lastname.$valid, 'has-invalid': registrationForm.lastname.$invalid && registrationForm.lastname.$dirty, 'has-error': registrationForm.lastname.$invalid && registrationForm.submitted}">
 								<label for="lastname">last name</label>
 								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.lastname.$invalid]">
-									<i class="fa fa-address-card fa-fw" aria-hidden="true"></i>
+									<i class="fas fa-address-card fa-fw" aria-hidden="true"></i>
 									<input type="text" class="form-control" name="lastname" id="lastname" placeholder="last name" title="enter your last name." ng-model="profile.lastname" required />
 								</div>
 								<div ng-show="registrationForm.lastname.$valid">
@@ -107,7 +107,7 @@
 							<div class="form-group has-feedback" ng-class="{'has-success': registrationForm.password.$valid, 'has-invalid': registrationForm.password.$invalid && registrationForm.password.$dirty, 'has-error': registrationForm.password.$invalid && registrationForm.submitted}">
 								<label for="password">password</label>
 								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.password.$invalid]">
-									<i class="fa fa-key fa-fw" aria-hidden="true"></i>
+									<i class="fas fa-key fa-fw" aria-hidden="true"></i>
 									<input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password." ng-model="profile.password" equals="{{profile.password2}}" ng-required="equals='{{profile.password2}}'" />
 								</div>
 								<div ng-show="registrationForm.password.$valid">
@@ -120,7 +120,7 @@
 							<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.password2.$valid, 'has-invalid': registrationForm.password2.$invalid && registrationForm.password2.$dirty, 'has-error': registrationForm.password2.$invalid && registrationForm.submitted}">
 								<label for="password2">verify</label>
 								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.password2.$invalid]">
-									<i class="fa fa-thumbs-up fa-fw" aria-hidden="true"></i>
+									<i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>
 									<input type="password" class="form-control" name="password2" id="password2" placeholder="verify password" title="verify your password." ng-model="profile.password2" equals="{{profile.password}}" ng-required="equals='{{profile.password}}'" />
 								</div>
 								<div ng-show="registrationForm.password2.$valid">
@@ -133,7 +133,7 @@
 							<div class="form-group has-feedback" ng-class="{'has-success': registrationForm.sitename.$valid, 'has-invalid': registrationForm.sitename.$invalid && registrationForm.sitename.$dirty, 'has-error': registrationForm.sitename.$invalid && registrationForm.submitted}">
 								<label for="sitename">site</label>
 								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.firstname.$invalid]">
-									<i class="fa fa-desktop fa-fw" aria-hidden="true"></i>
+									<i class="fas fa-desktop fa-fw" aria-hidden="true"></i>
 									<input type="text" class="form-control" name="sitename" id="sitename" placeholder="site name" title="enter your site's name." ng-model="profile.sitename" required />
 								</div>
 								<div ng-show="registrationForm.firstname.$valid">
@@ -146,7 +146,7 @@
 							<div class="form-group has-feedback clearfix" ng-class="{'has-success': registrationForm.site.$valid, 'has-invalid': registrationForm.site.$invalid && registrationForm.site.$dirty, 'has-error': registrationForm.site.$invalid && registrationForm.submitted}">
 								<label for="site">URL</label>
 								<div class="input-icon" ng-class="{true: 'error'}[registrationForm.submitted && registrationForm.lastname.$invalid]">
-									<i class="fa fa-link fa-fw" aria-hidden="true"></i>
+									<i class="fas fa-link fa-fw" aria-hidden="true"></i>
 									<input type="url" class="form-control" name="site" id="site" placeholder="site" title="enter your site's URL." ng-model="profile.site" required ng-pattern="/^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$/" />
 								</div>
 								<div ng-show="registrationForm.site.$valid">
@@ -167,7 +167,7 @@
 									</div>
 									<div>
 										<span class="btn btn-info btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span><span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" name="portrait" portrait-input="portraits"></span>
-										<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
+										<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
 									</div>
 									<div id="progress_info">
 										<div id="progress"></div>

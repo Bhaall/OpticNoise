@@ -44,7 +44,7 @@
 													<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_name.$valid, 'has-invalid': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.dropbox_name.$dirty, 'has-error': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.submitted}">
 														<label for="dropbox_name">name:</label>
 														<div class="input-icon">
-															<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
+															<i class="fas fa-flag fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="dropbox_name" type="text" ng-model="dropbox.dropbox_name" placeholder="name (required)" required autofocus focus-me />
 														</div>
 														<div ng-show="AddDropboxForm.dropbox_name.$valid">
@@ -69,7 +69,7 @@
 																	<div ng-show="AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty">
 																		<span ng-show="AddDropboxForm.dropbox_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 																	</div>
-																	<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
+																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
 																</div>
 															</div>
 															<div class="col-xs-4">

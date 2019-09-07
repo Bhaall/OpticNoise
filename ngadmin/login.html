@@ -8,13 +8,13 @@
 		<div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">
-					<h4 class="panel-title"><i class="fa fa-sign-in" aria-hidden="true"></i> Please Sign In</h4>
+					<h4 class="panel-title"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> Please Sign In</h4>
 				</div>
 				<div class="panel-body">
 					<form class="form" role="form" name="form1" id="form1" ng-submit="login(user)">
 						<div class="form-group has-feedback" ng-class="{'has-success': form1.username.$valid && form1.username.$dirty, 'has-invalid': form1.username.$invalid && form1.username.$dirty, 'has-error': form1.username.$invalid && form1.submitted}">
 							<div class="input-icon" ng-class="{true: 'error'}[form1.submitted && form1.username.$invalid]">
-								<i class="fa fa-user-circle fa-fw" aria-hidden="true"></i>
+								<i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>
 								<input type="text" id="username" name="username" class="form-control" placeholder="User name" ng-model="user.username" required autofocus focus-me ng-model="user.username" />
 							</div>
 							<div ng-show="form1.username.$valid">
@@ -26,7 +26,7 @@
 						</div>
 						<div class="form-group has-feedback" ng-class="{'has-success': form1.password.$valid, 'has-invalid': form1.password.$invalid && form1.password.$dirty, 'has-error': form1.password.$invalid && form1.submitted}">
 							<div class="input-icon" ng-class="{true: 'error'}[form1.submitted && form1.password.$invalid]">
-								<i class="fa fa-key fa-fw" aria-hidden="true"></i>
+								<i class="fas fa-key fa-fw" aria-hidden="true"></i>
 								<input type="password" id="password" name="password" class="form-control" placeholder="Password" ng-model="user.password" required ng-model="user.password" />
 							</div>
 							<div ng-show="form1.password.$valid">

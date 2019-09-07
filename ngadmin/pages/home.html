@@ -2,22 +2,22 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<ul class="well well-sm nav nav-justified hidden-xs hidden-sm home">
-				<li><a class="text-center text-aqua" href="#/artists"><i class="fa fa-star fa-3x" aria-hidden="true"></i><br />Artists</a></li>
-				<li><a class="text-center text-orange" href="#/songs"><i class="fa fa-music fa-3x" aria-hidden="true"></i><br />Songs</a></li>
+				<li><a class="text-center text-aqua" href="#/artists"><i class="fas fa-star fa-3x" aria-hidden="true"></i><br />Artists</a></li>
+				<li><a class="text-center text-orange" href="#/songs"><i class="fas fa-music fa-3x" aria-hidden="true"></i><br />Songs</a></li>
 				<li><a class="text-center text-purple" href="#/comps"><i class="fas fa-gift fa-3x" aria-hidden="true"></i><br />Comps</a></li>
 				<li><a class="text-center text-light-blue" href="#/dropboxes"><i class="fab fa-dropbox fa-3x" aria-hidden="true"></i><br />Dropboxes</a></li>
 				<li><a class="text-center text-green" href="#/sah"><i class="fas fa-video fa-3x" aria-hidden="true"></i><br />Scene &amp; Heard</a></li>
-				<li><a class="text-center text-yellow" href="#/fon"><i class="fa fa-book fa-3x" aria-hidden="true"></i><br />New Signings</a></li>
-				<li><a class="text-center text-danger" href="#/slider"><i class="fa fa-heart fa-3x" aria-hidden="true"></i><br />Featured Artists</a></li>
+				<li><a class="text-center text-yellow" href="#/fon"><i class="fas fa-book fa-3x" aria-hidden="true"></i><br />New Signings</a></li>
+				<li><a class="text-center text-danger" href="#/slider"><i class="fas fa-heart fa-3x" aria-hidden="true"></i><br />Featured Artists</a></li>
       </ul>
 			<ul class="well well-sm nav nav-justified hidden-md hidden-lg home">
-				<li><a class="text-center text-aqua" href="#/artists"><i class="fa fa-star fa-2x" aria-hidden="true"></i><br />Artists</a></li>
-				<li><a class="text-center text-orange" href="#/songs"><i class="fa fa-music fa-2x" aria-hidden="true"></i><br />Songs</a></li>
+				<li><a class="text-center text-aqua" href="#/artists"><i class="fas fa-star fa-2x" aria-hidden="true"></i><br />Artists</a></li>
+				<li><a class="text-center text-orange" href="#/songs"><i class="fas fa-music fa-2x" aria-hidden="true"></i><br />Songs</a></li>
 				<li><a class="text-center text-purple" href="#/comps"><i class="fas fa-gift fa-2x" aria-hidden="true"></i><br />Comps</a></li>
 				<li><a class="text-center text-light-blue" href="#/dropboxes"><i class="fab fa-dropbox fa-2x" aria-hidden="true"></i><br />Dboxes</a></li>
 				<li><a class="text-center text-green" href="#/sah"><i class="fas fa-video fa-2x" aria-hidden="true"></i><br />S&amp;H</a></li>
-				<li><a class="text-center text-yellow" href="#/fon"><i class="fa fa-book fa-2x" aria-hidden="true"></i><br />Signings</a></li>
-				<li><a class="text-center text-danger" href="#/slider"><i class="fa fa-heart fa-2x" aria-hidden="true"></i><br />Featured</a></li>
+				<li><a class="text-center text-yellow" href="#/fon"><i class="fas fa-book fa-2x" aria-hidden="true"></i><br />Signings</a></li>
+				<li><a class="text-center text-danger" href="#/slider"><i class="fas fa-heart fa-2x" aria-hidden="true"></i><br />Featured</a></li>
       </ul>
 		</div>
 	</div>
@@ -215,7 +215,7 @@
 													Current New Signings
 												</span>
 												<span ng-repeat="artist in signing_artists" class="ona-widget__desc">
-													<a href="edit-artist/{{artist.INartistID}}" class="capitalize"><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
+													<a href="edit-artist/{{artist.INartistID}}" class="capitalize"><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
 												</span>
 											</div>
 										</div>
@@ -233,7 +233,7 @@
 													Featured Artists
 												</span>
 												<span ng-repeat="artist in fon" class="ona-widget__desc">
-													<a href="edit-artist/{{artist.INartistID}}" class="capitalize"><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
+													<a href="edit-artist/{{artist.INartistID}}" class="capitalize"><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
 												</span>
 											</div>
 											<div class="ona-widget__item">
@@ -294,7 +294,7 @@
 										<div class="ona-widget__items">
 											<div class="ona-widget__item">
 												<ul id="tabsJustified" class="nav nav-tabs nav-justified">
-													<li class="active"><a href="javascript:;" data-target="#top-songs" data-toggle="tab"><i class="fa fa-headphones fa-fw" aria-hidden="true"></i> Top  Songs</a></li>
+													<li class="active"><a href="javascript:;" data-target="#top-songs" data-toggle="tab"><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Top  Songs</a></li>
 													<li><a href="javascript:;" data-target="#top-song-download" data-toggle="tab"><i class="fas fa-calendar-check fa-fw" aria-hidden="true"></i> Top DL Songs</a></li>
 													<li><a href="javascript:;" data-target="#top-comps" data-toggle="tab"><i class="fas fa-gift fa-fw" aria-hidden="true"></i> Top DL Comps</a></li>
 													<li><a href="javascript:;" data-target="#top-dropboxes" data-toggle="tab"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> Top DL Dropboxes</a></li>
@@ -305,8 +305,8 @@
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongs" class="list-group-item">
 																<span class="badge badge-pink">{{songs.song_count}}</span>
-																<p><i class="fa fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
-																<p><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
+																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
 																<p class="no-margin"><i class="fas fa-clock fa-fw text-pink" aria-hidden="true"></i><em>Last played:</em> {{songs.last_played | timestampDateTimeFormat}}</p>
 															</li>
 														</ul>
@@ -315,8 +315,8 @@
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongsDownload" class="list-group-item">
 																<span class="badge badge-pink">{{songs.song_downloads}}</span>
-																<p><i class="fa fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
-																<p><i class="fa fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
+																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
 																<p class="no-margin"><i class="fas fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{songs.last_download | timestampDateTimeFormat}}</p>
 															</li>
 														</ul>

@@ -49,7 +49,7 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemHeader.$valid, 'has-invalid': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty, 'has-error': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.submitted}">
 														<label for="itemHeader">name:</label>
 														<div class="input-icon">
-															<i class="fa fa-flag fa-fw" aria-hidden="true"></i>
+															<i class="fas fa-flag fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="itemHeader" type="text" ng-model="item.itemHeader" placeholder="name (required)" required />
 														</div>
 														<div ng-show="EditSAHItemForm.itemHeader.$valid">
@@ -124,7 +124,7 @@
 							<div class="ona-form__actions">
 								<button class="btn btn-info" ng-disabled="EditSAHItemForm.$invalid || isUnchanged(item)" id="add-new-btn" ng-click="update(item)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
 								<button class="btn btn-danger" ng-click="delete(item)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-								<a href="#/add-sah-item/{{sceneID}}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add item</a>
+								<a href="#/add-sah-item/{{sceneID}}" class="btn btn-success"><i class="fas fa-plus fa-fw" aria-hidden="true"></i> Add item</a>
 								<a href="#/sah-items/{{sceneID}}" class="btn btn-cancel">Cancel</a>
 							</div>
 						</div>

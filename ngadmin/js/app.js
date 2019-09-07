@@ -11,7 +11,7 @@ angular.module('onAdmin', [
 .config(function($provide){
   $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions){
     taRegisterTool('colorRed', {
-      iconclass: "fa fa-square red",
+      iconclass: "fas fa-square red",
       action: function(){
         this.$editor().wrapSelection('forecolor', '#990000');
       }
