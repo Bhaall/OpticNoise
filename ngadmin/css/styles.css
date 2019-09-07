@@ -738,13 +738,20 @@ hr {
   fill: #fff !important;
 }
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a,
-.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:visited {
+.ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:visited,
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title a,
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title a:visited {
   color: #fff;
 }
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:hover,
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:focus,
 .ona-portlet.ona--portlet__green .ona-portlet__head .ona-portlet__head-title a:active {
   color: #c7ffc9;
+}
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title a:hover,
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title a:focus,
+.ona-portlet.ona--portlet__orange .ona-portlet__head .ona-portlet__head-title a:active {
+  color: #ffd54f;
 }
 .ona-portlet .ona-portlet__body {
   color: #fff;
@@ -827,7 +834,7 @@ hr {
   margin-left: -4px;
   width: 38px;
 }
-.ona-svg-icon.ona-svg-icon--brand g [fill] {
+.ona-svg-icon.ona-svg-icon--aqua g [fill] {
   fill: #32c5d2 !important;
 }
 .ona-svg-icon.ona-svg-icon--success g [fill] {
@@ -868,6 +875,7 @@ hr {
   font-size: 16px;
 }
 .ona-widget .ona-widget__stats .ona-widget__items .ona-widget__item .ona-widget__foot {
+  color: #363636;
   padding-top: 20px;
 }
 .ona-widget .ona-widget__stats .ona-widget__items .ona-widget__item .ona-widget__foot .btn-sm,
@@ -2954,7 +2962,9 @@ select.ng-valid.ng-valid-required {
 }
 /* file info list */
 div.comp-list h5 {
-	margin-bottom: 3px;
+  font-size: 18px;
+	margin-bottom: 5px;
+  text-transform: capitalize;
 }
 div.comp-list ul {
 	margin: 0;

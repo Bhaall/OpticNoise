@@ -1,5 +1,93 @@
 <div class="container-fluid">
 	<div class="row">
+	  <div class="col-lg-12">
+	    <div class="panel">
+        <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__orange">
+          <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+            <div class="ona-portlet__head-label">
+              <h3 class="ona-portlet__head-title">
+                <span class="ona-widget__icon">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+								    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							        <polygon points="0 0 24 0 24 24 0 24"/>
+							        <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+							        <path d="M9.83333333,17 C8.82081129,17 8,16.3159906 8,15.4722222 C8,14.6284539 8.82081129,13.9444444 9.83333333,13.9444444 C10.0476105,13.9444444 10.2533018,13.9750785 10.4444444,14.0313779 L10.4444444,9.79160113 C10.4444444,9.47824076 10.6398662,9.20124044 10.9268804,9.10777287 L14.4407693,8.0331119 C14.8834716,7.88894376 15.3333333,8.23360047 15.3333333,8.71694016 L15.3333333,9.79160113 C15.3333333,10.1498215 14.9979332,10.3786009 14.7222222,10.4444444 C14.3255297,10.53918 13.3070112,10.7428837 11.6666667,11.0555556 L11.6666667,15.5035214 C11.6666667,15.5583862 11.6622174,15.6091837 11.6535404,15.6559869 C11.5446237,16.4131089 10.771224,17 9.83333333,17 Z" fill="#000000"/>
+								    </g>
+									</svg>
+								</span>
+                Songs with no MP3 File
+              </h3>
+            </div>
+          </div>
+          <div class="ona-portlet__body ona-portlet__body--fit">
+						<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{songsTotal}}</span>
+            <div class="ona-widget">
+              <div class="ona-widget__visual ona-widget__orange">
+              </div>
+              <div class="ona-widget__stats">
+                <div class="ona-widget__items">
+                  <div class="ona-widget__item">
+                    <span class="ona-widget__icon">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+										    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									        <rect x="0" y="0" width="24" height="24"/>
+									        <path d="M11.9785206,18.8007059 C11.8002933,20.0396328 10.5347301,21 9,21 C7.34314575,21 6,19.8807119 6,18.5 C6,17.1192881 7.34314575,16 9,16 C9.35063542,16 9.68722107,16.0501285 10,16.1422548 L10,5.93171093 C10,5.41893942 10.319781,4.96566617 10.7894406,4.81271925 L16.5394406,3.05418311 C17.2638626,2.81827161 18,3.38225531 18,4.1731748 C18,4.95474642 18,5.54092513 18,5.93171093 C18,6.51788965 17.4511634,6.89225606 17,7 C16.3508668,7.15502181 14.6842001,7.48835515 12,8 L12,18.5512168 C12,18.6409956 11.9927193,18.7241187 11.9785206,18.8007059 Z" fill="#000000" fill-rule="nonzero"/>
+										    </g>
+											</svg>
+                    </span>
+                    <span class="ona-widget__subtitle">
+                      Songs
+                    </span>
+                    <span class="ona-widget__desc">
+											<table class="table table-condensed table-striped table-hover pull-down" show-filter="true" ng-table="tableParams">
+												<tbody>
+													<tr ng-repeat="song in $data">
+														<td class="col-xs-4" data-title="'name'" sortable="'song_title'" filter="{ 'song_title': 'text' }"><a href="#/edit-song/{{song.song_id}}">{{song.song_title | lowercase}}</a></td>
+														<td class="col-xs-4" data-title="'artist'" sortable="'INartistName'"><a href="#/edit-artist/{{song.INartistID}}">{{song.marker}} {{song.INartistName}}</a></td>
+														<td class="center col-xs-2" data-title="'added'" sortable="'date_added'">{{song.date_added | timestampDateFormat}}</td>
+														<td class="center col-xs-1" data-title="'displayed'" sortable="'rosterTxt'"><span class="label" ng-class="{'label-warning': song.roster_flag=='n','label-success': song.roster_flag=='y'}">{{song.rosterTxt}}</span></td>
+														<td class="col-xs-1" data-title="''">
+															<div class="tools btn-group">
+																<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+																<ul class="dropdown-menu pull-right" role="menu">
+																	<li><a href="#/edit-song/{{song.song_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit details</a></li>
+																	<li><a href="" ng-click="delete(song)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+																</ul>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container-fluid">
+	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-orange" id="songsPanel">
 				<div class="panel-heading">
@@ -35,4 +123,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->

@@ -2,72 +2,69 @@
 	<div class="row">
 	  <div class="col-lg-12">
 	    <div class="panel">
-	      <div class="row">
-	        <div class="col-lg-12">
-	          <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__aqua">  <!--class for heading color -->
-	            <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
-	              <div class="ona-portlet__head-label">
-	                <h3 class="ona-portlet__head-title">
-	                  <span class="ona-widget__icon">
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
-										    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-									        <rect x="0" y="0" width="24" height="24"/>
-									        <path d="M3.5,21 L20.5,21 C21.3284271,21 22,20.3284271 22,19.5 L22,8.5 C22,7.67157288 21.3284271,7 20.5,7 L10,7 L7.43933983,4.43933983 C7.15803526,4.15803526 6.77650439,4 6.37867966,4 L3.5,4 C2.67157288,4 2,4.67157288 2,5.5 L2,19.5 C2,20.3284271 2.67157288,21 3.5,21 Z" fill="#000000" opacity="0.3"/>
-									        <path d="M11.9999651,17.2276651 L9.80187391,18.4352848 C9.53879239,18.5798204 9.21340017,18.4741205 9.07509004,18.1991974 C9.02001422,18.0897216 9.00100892,17.9643258 9.02101638,17.8424227 L9.44081443,15.2846431 L7.66252134,13.4732136 C7.44968392,13.2564102 7.44532889,12.9003514 7.65279409,12.677934 C7.73540782,12.5893662 7.84365664,12.5317281 7.96078237,12.5139426 L10.418323,12.1407676 L11.5173686,9.81362288 C11.6489093,9.53509542 11.97161,9.42073887 12.2381407,9.5582004 C12.3442746,9.6129383 12.4301813,9.70271178 12.4825615,9.81362288 L13.5816071,12.1407676 L16.0391477,12.5139426 C16.3332818,12.5586066 16.5370768,12.8439892 16.4943366,13.1513625 C16.4773173,13.2737601 16.4221618,13.3868813 16.3374088,13.4732136 L14.5591157,15.2846431 L14.9789137,17.8424227 C15.0291578,18.148554 14.8324094,18.4392867 14.5394638,18.4917923 C14.4228114,18.5127004 14.3028166,18.4928396 14.1980562,18.4352848 L11.9999651,17.2276651 Z" fill="#000000" opacity="0.3"/>
-										    </g>
-											</svg>
-	                  All Artists
-	                </h3>
-	              </div>
-	            </div>
-	            <div class="ona-portlet__body ona-portlet__body--fit">
-								<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{artistTotal}}</span>
-	              <div class="ona-widget">
-	                <div class="ona-widget__visual ona-widget__aqua">
-	                </div>
-	                <div class="ona-widget__stats">
-	                  <div class="ona-widget__items">
-	                    <div class="ona-widget__item">
-	                      <span class="ona-widget__icon">
-	                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--brand">
-	                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-	                            <polygon points="0 0 24 0 24 24 0 24"/>
-	                            <path d="M12,18 L7.91561963,20.1472858 C7.42677504,20.4042866 6.82214789,20.2163401 6.56514708,19.7274955 C6.46280801,19.5328351 6.42749334,19.309867 6.46467018,19.0931094 L7.24471742,14.545085 L3.94038429,11.3241562 C3.54490071,10.938655 3.5368084,10.3055417 3.92230962,9.91005817 C4.07581822,9.75257453 4.27696063,9.65008735 4.49459766,9.61846284 L9.06107374,8.95491503 L11.1032639,4.81698575 C11.3476862,4.32173209 11.9473121,4.11839309 12.4425657,4.36281539 C12.6397783,4.46014562 12.7994058,4.61977315 12.8967361,4.81698575 L14.9389263,8.95491503 L19.5054023,9.61846284 C20.0519472,9.69788046 20.4306287,10.2053233 20.351211,10.7518682 C20.3195865,10.9695052 20.2170993,11.1706476 20.0596157,11.3241562 L16.7552826,14.545085 L17.5353298,19.0931094 C17.6286908,19.6374458 17.263103,20.1544017 16.7187666,20.2477627 C16.5020089,20.2849396 16.2790408,20.2496249 16.0843804,20.1472858 L12,18 Z" fill="#000000"/>
-	                          </g>
-	                        </svg>
-	                      </span>
-	                      <span class="ona-widget__subtitle">
-	                        Artists
-	                      </span>
-	                      <span class="ona-widget__desc">
-													<table class="table table-condensed table-striped table-hover pull-down" show-filter="true" ng-table="tableParams">
-														<tbody>
-															<tr ng-repeat="artist in $data">
-																<td class="col-xs-4" data-title="'name'" sortable="'INartistName'" filter="{ 'INartistName': 'text' }"><a href="#/edit-artist/{{artist.id}}">{{artist.marker | lowercase}} {{artist.INartistName | lowercase}}</a></td>
-																<td class="col-xs-4" data-title="'description'">{{artist.INroster_desc}}</td>
-																<td class="center col-xs-2" data-title="'added'" sortable="'date_added'">{{artist.date_added | timestampDateFormat}}</td>
-																<td class="center col-xs-1" data-title="'active'" sortable="'activeTxt'"><span class="label" ng-class="{'label-warning': artist.active=='n','label-success': artist.active=='y'}">{{artist.activeTxt}}</span></td>
-																<td class="col-xs-1" data-title="''">
-																	<div class="tools btn-group">
-																		<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
-																		<ul class="dropdown-menu pull-right" role="menu">
-																			<li><a href="#/edit-artist/{{artist.id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit details</a></li>
-																			<li><a href="javascript:;" ng-click="delete(artist)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
-																		</ul>
-																	</div>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-	                      </span>
-	                    </div>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
+        <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__aqua">
+          <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+            <div class="ona-portlet__head-label">
+              <h3 class="ona-portlet__head-title">
+                <span class="ona-widget__icon">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+								    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							        <rect x="0" y="0" width="24" height="24"/>
+							        <path d="M3.5,21 L20.5,21 C21.3284271,21 22,20.3284271 22,19.5 L22,8.5 C22,7.67157288 21.3284271,7 20.5,7 L10,7 L7.43933983,4.43933983 C7.15803526,4.15803526 6.77650439,4 6.37867966,4 L3.5,4 C2.67157288,4 2,4.67157288 2,5.5 L2,19.5 C2,20.3284271 2.67157288,21 3.5,21 Z" fill="#000000" opacity="0.3"/>
+							        <path d="M11.9999651,17.2276651 L9.80187391,18.4352848 C9.53879239,18.5798204 9.21340017,18.4741205 9.07509004,18.1991974 C9.02001422,18.0897216 9.00100892,17.9643258 9.02101638,17.8424227 L9.44081443,15.2846431 L7.66252134,13.4732136 C7.44968392,13.2564102 7.44532889,12.9003514 7.65279409,12.677934 C7.73540782,12.5893662 7.84365664,12.5317281 7.96078237,12.5139426 L10.418323,12.1407676 L11.5173686,9.81362288 C11.6489093,9.53509542 11.97161,9.42073887 12.2381407,9.5582004 C12.3442746,9.6129383 12.4301813,9.70271178 12.4825615,9.81362288 L13.5816071,12.1407676 L16.0391477,12.5139426 C16.3332818,12.5586066 16.5370768,12.8439892 16.4943366,13.1513625 C16.4773173,13.2737601 16.4221618,13.3868813 16.3374088,13.4732136 L14.5591157,15.2846431 L14.9789137,17.8424227 C15.0291578,18.148554 14.8324094,18.4392867 14.5394638,18.4917923 C14.4228114,18.5127004 14.3028166,18.4928396 14.1980562,18.4352848 L11.9999651,17.2276651 Z" fill="#000000" opacity="0.3"/>
+								    </g>
+									</svg>
+								</span>
+                All Artists
+              </h3>
+            </div>
+          </div>
+          <div class="ona-portlet__body ona-portlet__body--fit">
+						<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{artistTotal}}</span>
+            <div class="ona-widget">
+              <div class="ona-widget__visual ona-widget__aqua">
+              </div>
+              <div class="ona-widget__stats">
+                <div class="ona-widget__items">
+                  <div class="ona-widget__item">
+                    <span class="ona-widget__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--aqua">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <polygon points="0 0 24 0 24 24 0 24"/>
+                          <path d="M12,18 L7.91561963,20.1472858 C7.42677504,20.4042866 6.82214789,20.2163401 6.56514708,19.7274955 C6.46280801,19.5328351 6.42749334,19.309867 6.46467018,19.0931094 L7.24471742,14.545085 L3.94038429,11.3241562 C3.54490071,10.938655 3.5368084,10.3055417 3.92230962,9.91005817 C4.07581822,9.75257453 4.27696063,9.65008735 4.49459766,9.61846284 L9.06107374,8.95491503 L11.1032639,4.81698575 C11.3476862,4.32173209 11.9473121,4.11839309 12.4425657,4.36281539 C12.6397783,4.46014562 12.7994058,4.61977315 12.8967361,4.81698575 L14.9389263,8.95491503 L19.5054023,9.61846284 C20.0519472,9.69788046 20.4306287,10.2053233 20.351211,10.7518682 C20.3195865,10.9695052 20.2170993,11.1706476 20.0596157,11.3241562 L16.7552826,14.545085 L17.5353298,19.0931094 C17.6286908,19.6374458 17.263103,20.1544017 16.7187666,20.2477627 C16.5020089,20.2849396 16.2790408,20.2496249 16.0843804,20.1472858 L12,18 Z" fill="#000000"/>
+                        </g>
+                      </svg>
+                    </span>
+                    <span class="ona-widget__subtitle">
+                      Artists
+                    </span>
+                    <span class="ona-widget__desc">
+											<table class="table table-condensed table-striped table-hover pull-down" show-filter="true" ng-table="tableParams">
+												<tbody>
+													<tr ng-repeat="artist in $data">
+														<td class="col-xs-4" data-title="'name'" sortable="'INartistName'" filter="{ 'INartistName': 'text' }"><a href="#/edit-artist/{{artist.id}}">{{artist.marker | lowercase}} {{artist.INartistName | lowercase}}</a></td>
+														<td class="col-xs-4" data-title="'description'">{{artist.INroster_desc}}</td>
+														<td class="center col-xs-2" data-title="'added'" sortable="'date_added'">{{artist.date_added | timestampDateFormat}}</td>
+														<td class="center col-xs-1" data-title="'active'" sortable="'activeTxt'"><span class="label" ng-class="{'label-warning': artist.active=='n','label-success': artist.active=='y'}">{{artist.activeTxt}}</span></td>
+														<td class="col-xs-1" data-title="''">
+															<div class="tools btn-group">
+																<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+																<ul class="dropdown-menu pull-right" role="menu">
+																	<li><a href="#/edit-artist/{{artist.id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit details</a></li>
+																	<li><a href="javascript:;" ng-click="delete(artist)"><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+																</ul>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 	    </div>
 	  </div>
 	</div>

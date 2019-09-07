@@ -1,6 +1,363 @@
 <div class="container-fluid">
 	<form novalidate class="form" role="form" name="EditArtistForm" id="EditArtistForm" method="post" enctype="multiple/form-data">
 		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel">
+					<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__aqua">
+						<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+							<div class="ona-portlet__head-label">
+								<h3 class="ona-portlet__head-title">
+									<span class="ona-widget__icon">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<polygon points="0 0 24 0 24 24 0 24"/>
+												<path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+												<path d="M9.83333333,17 C8.82081129,17 8,16.3159906 8,15.4722222 C8,14.6284539 8.82081129,13.9444444 9.83333333,13.9444444 C10.0476105,13.9444444 10.2533018,13.9750785 10.4444444,14.0313779 L10.4444444,9.79160113 C10.4444444,9.47824076 10.6398662,9.20124044 10.9268804,9.10777287 L14.4407693,8.0331119 C14.8834716,7.88894376 15.3333333,8.23360047 15.3333333,8.71694016 L15.3333333,9.79160113 C15.3333333,10.1498215 14.9979332,10.3786009 14.7222222,10.4444444 C14.3255297,10.53918 13.3070112,10.7428837 11.6666667,11.0555556 L11.6666667,15.5035214 C11.6666667,15.5583862 11.6622174,15.6091837 11.6535404,15.6559869 C11.5446237,16.4131089 10.771224,17 9.83333333,17 Z" fill="#000000"/>
+											</g>
+										</svg>
+									</span>
+									{{showname}}
+								</h3>
+							</div>
+						</div>
+						<div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="ona-widget">
+								<div class="ona-widget__visual ona-widget__aqua">
+								</div>
+								<div class="ona-widget__stats">
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<div class="nav-btns pull-right">
+														<a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-default margin-top-1"><i class="fas fa-chevron-left fa-fw" aria-hidden="true"></i> </a>&nbsp;
+														<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-default margin-top-1"> <i class="fas fa-chevron-right fa-fw" aria-hidden="true"></i></a>
+													</div>
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--aqua">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+											        <rect fill="#000000" x="11" y="10" width="2" height="7" rx="1"/>
+											        <rect fill="#000000" x="11" y="7" width="2" height="2" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Details
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback" ng-class="{'has-success': EditArtistForm.INartistName.$valid, 'has-invalid': EditArtistForm.INartistName.$invalid && EditArtistForm.INartistName.$dirty, 'has-error': EditArtistForm.INartistName.$invalid && EditArtistForm.submitted}">
+														<label for="INartistName">name:</label>
+														<div class="row">
+															<div class="col-xs-2">
+																<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
+																	<option value="the">the</option>
+																</select>
+															</div>
+															<div class="col-xs-10">
+																<div class="input-icon">
+																	<i class="fa fa-id-badge fa-fw" aria-hidden="true"></i>
+																	<input class="form-control" name="INartistName" type="text" ng-model="artist.INartistName" ng-required="true" />
+																</div>
+																<div ng-show="EditArtistForm.INartistName.$valid">
+																	<span ng-show="EditArtistForm.INartistName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+																</div>
+																<div ng-show="EditArtistForm.INartistName.$invalid && EditArtistForm.INartistName.$dirty">
+																	<span ng-show="EditArtistForm.INartistName.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="form-group" ng-class="{'has-success': EditArtistForm.INroster_desc.$valid, 'has-invalid': EditArtistForm.INroster_desc.$invalid && EditArtistForm.INroster_desc.$dirty, 'has-error': EditArtistForm.INroster_desc.$invalid && EditArtistForm.submitted}">
+														<label for="INroster_desc">description:</label>
+														<div class="input-icon" ng-class="{true: 'error'}[EditArtistForm.submitted && EditArtistForm.INroster_desc.$invalid]">
+															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
+															<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
+															<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Used in Roster</em></h6>
+														</div>
+													</div>
+													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.INlabel.$invalid && EditArtistForm.INlabel.$dirty, 'has-error': EditArtistForm.INlabel.$invalid && EditArtistForm.submitted}">
+														<div class="row">
+															<div class="col-xs-6">
+															<label for="INlabel">label:</label>
+																<div class="input-icon">
+																	<i class="fas fa-tag fa-fw"></i>
+																	<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
+																</div>
+															</div>
+															<div class="col-xs-3">
+																<label>active:</label>
+																<div class="mt-radio-inline">
+																	<label class="mt-radio">
+																		<input type="radio" name="optionsActive" ng-model="artist.active" value="y" >yes
+																		<span></span>
+																	</label>
+																	<label class="mt-radio">
+																		<input type="radio" name="optionsActive" ng-model="artist.active" value="n">no
+																		<span></span>
+																	</label>
+																</div>
+															</div>
+															<div class="col-xs-3">
+																<label for="INsync">sync:</label>
+																<select class="form-control" data-width="100%" title="" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
+																	<option value="Master">Master</option>
+																	<option value="Sync">Sync</option>
+																	<option value="Master/Sync">Master/Sync</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<div class="ona-form__actions">
+														<button class="btn btn-info" id="edit-btn" ng-click="update(artist)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+														<button class="btn btn-danger" ng-click="delete(artist)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+														<a href="#/artists" class="btn btn-cancel">Cancel</a>
+														<div class="pull-right">added: {{artist.dateAdded}}</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--aqua">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M13.6855025,18.7082217 C15.9113859,17.8189707 18.682885,17.2495635 22,17 C22,16.9325178 22,13.1012863 22,5.50630526 L21.9999762,5.50630526 C21.9999762,5.23017604 21.7761292,5.00632908 21.5,5.00632908 C21.4957817,5.00632908 21.4915635,5.00638247 21.4873465,5.00648922 C18.658231,5.07811173 15.8291155,5.74261533 13,7 C13,7.04449645 13,10.79246 13,18.2438906 L12.9999854,18.2438906 C12.9999854,18.520041 13.2238496,18.7439052 13.5,18.7439052 C13.5635398,18.7439052 13.6264972,18.7317946 13.6855025,18.7082217 Z" fill="#000000"/>
+											        <path d="M10.3144829,18.7082217 C8.08859955,17.8189707 5.31710038,17.2495635 1.99998542,17 C1.99998542,16.9325178 1.99998542,13.1012863 1.99998542,5.50630526 L2.00000925,5.50630526 C2.00000925,5.23017604 2.22385621,5.00632908 2.49998542,5.00632908 C2.50420375,5.00632908 2.5084219,5.00638247 2.51263888,5.00648922 C5.34175439,5.07811173 8.17086991,5.74261533 10.9999854,7 C10.9999854,7.04449645 10.9999854,10.79246 10.9999854,18.2438906 L11,18.2438906 C11,18.520041 10.7761358,18.7439052 10.4999854,18.7439052 C10.4364457,18.7439052 10.3734882,18.7317946 10.3144829,18.7082217 Z" fill="#000000" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													New ON Signings section (Fresh Optic Noises)
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.home_order.$invalid && EditArtistForm.home_order.$dirty, 'has-error': EditArtistForm.home_order.$invalid && EditArtistForm.submitted}">
+														<div class="row">
+															<div class="col-xs-6">
+																<div class="fileinput fileinput-{{albumClass}}" data-provides="fileinput">
+																	<div class="fileinput-new thumbnail">
+																		<img ng-src="img/125-no-image.gif" class="img-responsive">
+																	</div>
+																	<div class="fileinput-preview fileinput-exists thumbnail">
+																		<img ng-src="{{artist.albumImage}}" />
+																	</div>
+																	<div>
+																		<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span><span class="fileinput-exists"><i class="fas fa-edit"></i> Change</span><input type="file" id="album_pic" name="album_pic" class="btn btn-success" portrait-input="album_pics"></span>
+																		<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
+																	</div>
+																</div>
+																<ul class="list-group file-info" ng-repeat="album_pic in album_pics">
+																	 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{album_pic.name}}</li>
+																	 <li class="list-group-item"><i class="far fa-file-image fa-fw" aria-hidden="true"></i> <strong>type:</strong> {{album_pic.type}}</li>
+																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{album_pic.size}}kb</li>
+																</ul>
+															</div>
+															<div class="col-xs-3">
+																<label>display in signings</label>
+																<div class="mt-radio-inline">
+																	<label class="mt-radio">
+																		<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="y" >yes
+																		<span></span>
+																	</label>
+																	<label class="mt-radio">
+																		<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="n">no
+																		<span></span>
+																	</label>
+																	<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Enabled if image exists.</em></h6>
+																	<h6 class="help-block">Note: there can be only three artists displayed in Signings section on home page.</h6>
+																</div>
+															</div>
+															<div class="col-xs-3">
+																<label for="home_order">sort order</label>
+																<div class="input-icon">
+																	<i class="fas fa-sort-numeric-down fa-fw"></i>
+																	<input type="text" touchspin name="home_order" id="home_order" class="form-control touchspin"  ng-model="artist.home_order" />
+																</div>
+																<h6 class="help-block">highest: {{max}}</h6>
+															</div>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<h6 class="help-block"><i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Image <span class="red">must be 125x125</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+												</div>
+											</div>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--aqua">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <polygon points="0 0 24 0 24 24 0 24"/>
+											        <path d="M6,5 L18,5 C19.6568542,5 21,6.34314575 21,8 L21,17 C21,18.6568542 19.6568542,20 18,20 L6,20 C4.34314575,20 3,18.6568542 3,17 L3,8 C3,6.34314575 4.34314575,5 6,5 Z M5,17 L14,17 L9.5,11 L5,17 Z M16,14 C17.6568542,14 19,12.6568542 19,11 C19,9.34314575 17.6568542,8 16,8 C14.3431458,8 13,9.34314575 13,11 C13,12.6568542 14.3431458,14 16,14 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Home page carousel
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group">
+														<div class="row">
+															<div class="col-lg-9 col-sm-8">
+																<div class="fileinput fileinput-{{sliderClass}}" data-provides="fileinput">
+																	<div class="fileinput-new thumbnail">
+																		<img ng-src="img/carousel-no-image.gif" alt="" />
+																	</div>
+																	<div class="fileinput-preview fileinput-exists thumbnail">
+																		<img ng-src="{{artist.sliderImage}}" />
+																	</div>
+																	<div>
+																		<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image"></i> Select image...</span>
+																		<span class="fileinput-exists"><i class="fas fa-edit"></i> Change</span><input type="file" id="slider_pic" name="slider_pic" portrait-input="slider_pics"></span>
+																		<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+																	</div>
+																</div>
+																<ul class="list-group file-info" ng-repeat="slider_pic in slider_pics">
+																	 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{slider_pic.name}}</li>
+																	 <li class="list-group-item"><i class="far fa-file-image fa-fw" aria-hidden="true"></i> <strong>type:</strong> {{slider_pic.type}}</li>
+																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{slider_pic.size}}kb</li>
+																</ul>
+															</div>
+															<div class="col-lg-3 col-sm-4">
+																<label>display in carousel</label>
+																<div class="mt-radio-inline">
+																	<label class="mt-radio">
+																		<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="y">yes
+																		<span></span>
+																	</label>
+																	<label class="mt-radio">
+																		<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="n">no
+																		<span></span>
+																	</label>
+																	<h6 class="help-block"><i class="fa fa-exclamation-triangle"></i> <em>Enabled if image exists.</em></h6>
+																</div>
+															</div>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<h6 class="help-block">	<i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>Image <span class="red">must be 573x282</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--aqua">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M11.9785206,18.8007059 C11.8002933,20.0396328 10.5347301,21 9,21 C7.34314575,21 6,19.8807119 6,18.5 C6,17.1192881 7.34314575,16 9,16 C9.35063542,16 9.68722107,16.0501285 10,16.1422548 L10,5.93171093 C10,5.41893942 10.319781,4.96566617 10.7894406,4.81271925 L16.5394406,3.05418311 C17.2638626,2.81827161 18,3.38225531 18,4.1731748 C18,4.95474642 18,5.54092513 18,5.93171093 C18,6.51788965 17.4511634,6.89225606 17,7 C16.3508668,7.15502181 14.6842001,7.48835515 12,8 L12,18.5512168 C12,18.6409956 11.9927193,18.7241187 11.9785206,18.8007059 Z" fill="#000000" fill-rule="nonzero"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Songs
+												</span>
+												<span class="ona-widget__desc">
+													<table class="table table-condensed table-striped table-hover pull-down">
+														<thead>
+															<tr>
+																<th><i class="fas fa-tag fa-fw" aria-hidden="true"></i> name</th>
+																<th><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> mp3</th>
+																<th class="center"><i class="far fa-play-circle fa-fw" aria-hidden="true"></i> plays</th>
+																<th class="center"><i class="fas fa-desktop fa-fw" aria-hidden="true"></i> displayed</th>
+																<th></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr ng-repeat="song in songs">
+																<td class="col-xs-3"><a href="#/edit-song/{{song.song_id}}">{{song.song_title | lowercase}}</a></td>
+																<td class="col-xs-4">{{song.song_file}}</td>
+																<td class="center col-xs-2">{{song.song_count}}</td>
+																<td class="center col-xs-2"><span class="label {{song.rosterClass}}">{{song.rosterTxt}}</span></td>
+																<td class="col-xs-1">
+																	<div class="tools btn-group">
+																		<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+																		<ul class="dropdown-menu pull-right" role="menu">
+																			<li><a ng-show="song.song_file" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="pull-right fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Play</a></li>
+																			<li><a href="#/edit-song/{{song.song_id}}"><i class="pull-right fas fa-edit fa-fw" aria-hidden="true"></i> Edit details</a></li>
+																		</ul>
+																	</div>
+																</td>
+															</tr>
+															<tr data-ng-show="songCount==0"><td colspan=5><div>There are no songs for {{showname}}.</div></td></tr>
+														</tbody>
+													</table>
+												</span>
+												<div class="ona-widget__foot">
+													<div class="ona-form__actions">
+														<a href="#/add-song-to-artist/{{artist.INartistID}}" class="btn btn-success"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> add song</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--aqua">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z" fill="#000000"/>
+											        <path d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Comps
+												</span>
+												<span class="ona-widget__desc">
+													<h5 ng-show="emptyCompInfo" class="pull-down"><strong>{{showname}}</strong> is currently in zero comps.</h5>
+													<div class="comp-list pull-down" ng-repeat="(key,value) in compinfo">
+														<h5><a href="edit-comp/{{key}}"><strong>{{value[0].comp_name}}</strong></a></h5>
+														<ol>
+															<li ng-show="value[0].song_id"><a href="edit-song/{{value[0].song_id}}"><strong>{{value[0].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[0].song_comments)"></span></li>
+															<li ng-show="value[1].song_id"><a href="edit-song/{{value[1].song_id}}"><strong>{{value[1].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[1].song_comments)"></span></li>
+															<li ng-show="value[2].song_id"><a href="edit-song/{{value[2].song_id}}"><strong>{{value[2].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[2].song_comments)"></span></li>
+															<li ng-show="value[3].song_id"><a href="edit-song/{{value[3].song_id}}"><strong>{{value[3].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[3].song_comments)"></span></li>
+															<li ng-show="value[4].song_id"><a href="edit-song/{{value[4].song_id}}"><strong>{{value[4].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[4].song_comments)"></span></li>
+															<li ng-show="value[5].song_id"><a href="edit-song/{{value[5].song_id}}"><strong>{{value[5].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[5].song_comments)"></span></li>
+															<li ng-show="value[6].song_id"><a href="edit-song/{{value[6].song_id}}"><strong>{{value[6].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[6].song_comments)"></span></li>
+															<li ng-show="value[7].song_id"><a href="edit-song/{{value[7].song_id}}"><strong>{{value[7].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[7].song_comments)"></span></li>
+															<li ng-show="value[8].song_id"><a href="edit-song/{{value[8].song_id}}"><strong>{{value[8].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[8].song_comments)"></span></li>
+															<li ng-show="value[9].song_id"><a href="edit-song/{{value[9].song_id}}"><strong>{{value[9].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[9].song_comments)"></span></li>
+															<li ng-show="value[10].song_id"><a href="edit-song/{{value[10].song_id}}"><strong>{{value[10].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[10].song_comments)"></span></li>
+														</ol>
+													</div>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="EditArtistForm" id="EditArtistForm" method="post" enctype="multiple/form-data">
+		<div class="row">
 			<div class="col-lg-6">
 				<div class="panel panel-aqua">
 					<div class="panel-heading">

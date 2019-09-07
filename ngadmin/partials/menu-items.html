@@ -4,7 +4,7 @@
 		<a href="#/artists" ng-init="collapseArtist=true" ng-click="collapseArtist=!collapseArtist"><i class="fa fa-star menu-icon fa-fw" aria-hidden="true"></i> <span>Artists &nbsp;&nbsp;<span class="label label-info">{{allArtistsTotal}}</span> <i class="text-muted pull-right fa fa-plus-square-o fa-fw" aria-hidden="true"></i></span></a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseArtist}" id="artistMenu">
 			<li data-ng-class="{active: isActive('/add-artist')}"><a href="#/add-artist">New Artist</a></li>
-			<li data-ng-class="{active: isActive('/artists-no-songs')}"><a href="#/artists-no-songs">Artists with no songs &nbsp;&nbsp;<span class="label label-info">{{artistNoSongsTotal}}</span></a></li>
+			<li data-ng-class="{active: isActive('/artists-no-songs')}"><a href="#/artists-no-songs">w/o Songs &nbsp;&nbsp;<span class="label label-info">{{artistNoSongsTotal}}</span></a></li>
 			<li><a href="javascript:;" ng-init="collapseArtistList=true" ng-click="collapseArtistList=!collapseArtistList">Artist List <i class="fa fa-caret-down fa-fw" aria-hidden="true"></i></a>
 				<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseArtistList}" id="artistListMenu">
 					<li ng-repeat="artist in artists" data-ng-class="{active: isActive('/edit-artist/{{ artist.id }}')}">
@@ -18,8 +18,8 @@
 		<a href="#/songs" ng-init="collapseSongs=true" ng-click="collapseSongs=!collapseSongs"><i class="fa fa-music menu-icon fa-fw" aria-hidden="true"></i> <span>Songs &nbsp;&nbsp;<span class="label label-info">{{allSongsTotal}}</span><i class="text-muted pull-right fa fa-plus-square-o fa-fw" aria-hidden="true"></i></span> </a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseSongs}" id="aongsMenu">
 			<li data-ng-class="{active: isActive('/add-song')}"><a href="#/add-song">New Song</a></li>
-			<li data-ng-class="{active: isActive('/songs-no-file')}"><a href="#/songs-no-file">Songs with no MP3 &nbsp;&nbsp;<span class="label label-info">{{songsNoFileTotal}}</span></a></li>
-			<li data-ng-class="{active: isActive('/songs-no-comp')}"><a href="#/songs-no-comp">Songs not in comps &nbsp;&nbsp;<span class="label label-info">{{songsNoCompTotal}}</span></a></li>
+			<li data-ng-class="{active: isActive('/songs-no-file')}"><a href="#/songs-no-file">w/o MP3s &nbsp;&nbsp;<span class="label label-info">{{songsNoFileTotal}}</span></a></li>
+			<li data-ng-class="{active: isActive('/songs-no-comp')}"><a href="#/songs-no-comp">Not in Comps &nbsp;&nbsp;<span class="label label-info">{{songsNoCompTotal}}</span></a></li>
 			<li><a href="javascript:;" ng-init="collapseSongList=true" ng-click="collapseSongList=!collapseSongList">Song List <i class="fa fa-caret-down fa-fw" aria-hidden="true"></i></a>
 				<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseSongList}" id="songListMenu">
 					<li ng-repeat="song in songs" data-ng-class="{active: isActive('/edit-song/{{ song.id }}')}">

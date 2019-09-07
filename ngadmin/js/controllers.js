@@ -1037,6 +1037,7 @@ angular.module('onAdmin.controllers', [])
 		if (deleteArtist) {
 			deleteArtists.deleteArtistByID(artist.id);
 			$scope.refresh();
+			$scope.refreshCounters();
 		}
 	};
 }])

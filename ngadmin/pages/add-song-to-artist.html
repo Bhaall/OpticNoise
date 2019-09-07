@@ -1,117 +1,178 @@
 <div class="container-fluid">
 	<form novalidate class="form" role="form" name="AddSongToArtistForm" id="AddSongToArtistForm" method="post" enctype="multiple/form-data">
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="panel panel-aqua">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fa fa-plus fa-fw" aria-hidden="true"></i> new song for {{showname}}
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group has-feedback" ng-class="{'has-success': AddSongToArtistForm.song_title.$valid, 'has-invalid': AddSongToArtistForm.song_title.$invalid && AddSongToArtistForm.song_title.$dirty, 'has-error': AddSongToArtistForm.song_title.$invalid && AddSongToArtistForm.submitted}">
-							<div class="row">
-								<div class="col-xs-8">
-									<label for="song_title">name:</label>
-									<div class="input-icon">
-										<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
-										<input class="form-control" name="song_title" placeholder="song name/title (required)" type="text" ng-model="song.song_title" required />
+		  <div class="col-lg-12">
+		    <div class="panel">
+	        <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__orange">
+	          <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+	            <div class="ona-portlet__head-label">
+	              <h3 class="ona-portlet__head-title">
+	                <span class="ona-widget__icon">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<polygon points="0 0 24 0 24 24 0 24"/>
+												<path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+												<path d="M9.83333333,17 C8.82081129,17 8,16.3159906 8,15.4722222 C8,14.6284539 8.82081129,13.9444444 9.83333333,13.9444444 C10.0476105,13.9444444 10.2533018,13.9750785 10.4444444,14.0313779 L10.4444444,9.79160113 C10.4444444,9.47824076 10.6398662,9.20124044 10.9268804,9.10777287 L14.4407693,8.0331119 C14.8834716,7.88894376 15.3333333,8.23360047 15.3333333,8.71694016 L15.3333333,9.79160113 C15.3333333,10.1498215 14.9979332,10.3786009 14.7222222,10.4444444 C14.3255297,10.53918 13.3070112,10.7428837 11.6666667,11.0555556 L11.6666667,15.5035214 C11.6666667,15.5583862 11.6622174,15.6091837 11.6535404,15.6559869 C11.5446237,16.4131089 10.771224,17 9.83333333,17 Z" fill="#000000"/>
+											</g>
+										</svg>
+	                </span>
+									new song for {{showname}}
+								</h3>
+	            </div>
+	          </div>
+						<div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="ona-widget">
+	              <div class="ona-widget__visual ona-widget__orange">
+	              </div>
+								<div class="ona-widget__stats">
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+											        <path d="M11,11 L11,7 C11,6.44771525 11.4477153,6 12,6 C12.5522847,6 13,6.44771525 13,7 L13,11 L17,11 C17.5522847,11 18,11.4477153 18,12 C18,12.5522847 17.5522847,13 17,13 L13,13 L13,17 C13,17.5522847 12.5522847,18 12,18 C11.4477153,18 11,17.5522847 11,17 L11,13 L7,13 C6.44771525,13 6,12.5522847 6,12 C6,11.4477153 6.44771525,11 7,11 L11,11 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Details
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback" ng-class="{'has-success': AddSongToArtistForm.song_title.$valid, 'has-invalid': AddSongToArtistForm.song_title.$invalid && AddSongToArtistForm.song_title.$dirty, 'has-error': AddSongToArtistForm.song_title.$invalid && AddSongToArtistForm.submitted}">
+														<div class="row">
+															<div class="col-xs-8">
+																<label for="song_title">name:</label>
+																<div class="input-icon">
+																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
+																	<input class="form-control" name="song_title" placeholder="song name/title (required)" type="text" ng-model="song.song_title" required />
+																</div>
+																<div ng-show="AddSongToArtistForm.song_title.$valid">
+																	<span ng-show="AddSongToArtistForm.song_title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+																</div>
+																<div ng-show="AddSongToArtistForm.song_title.$invalid && AddSongToArtistForm.song_title.$dirty">
+																	<span ng-show="AddSongToArtistForm.song_title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+																</div>
+															</div>
+															<div class="col-xs-4">
+																<label for="roster_flag">show in roster:</label>
+																<div class="mt-radio-inline">
+																	<label class="mt-radio">
+																		<input type="radio" ng-model="song.roster_flag" name="roster_flag" value="y" checked>yes
+																		<span></span>
+																	</label>
+																	<label class="mt-radio">
+																		<input type="radio" ng-model="song.roster_flag" name="roster_flag" value="n">no
+																		<span></span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<div class="ona-form__actions">
+														<button class="btn btn-info" ng-disabled="AddSongToArtistForm.$invalid || isUnchanged(song)" id="add-new-btn" ng-click="add_new(song)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+														<a href="#/edit-artist/{{artistid}}" class="btn btn-cancel">Cancel</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <polygon points="0 0 24 0 24 24 0 24"/>
+											        <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+											        <path d="M9.83333333,17 C8.82081129,17 8,16.3159906 8,15.4722222 C8,14.6284539 8.82081129,13.9444444 9.83333333,13.9444444 C10.0476105,13.9444444 10.2533018,13.9750785 10.4444444,14.0313779 L10.4444444,9.79160113 C10.4444444,9.47824076 10.6398662,9.20124044 10.9268804,9.10777287 L14.4407693,8.0331119 C14.8834716,7.88894376 15.3333333,8.23360047 15.3333333,8.71694016 L15.3333333,9.79160113 C15.3333333,10.1498215 14.9979332,10.3786009 14.7222222,10.4444444 C14.3255297,10.53918 13.3070112,10.7428837 11.6666667,11.0555556 L11.6666667,15.5035214 C11.6666667,15.5583862 11.6622174,15.6091837 11.6535404,15.6559869 C11.5446237,16.4131089 10.771224,17 9.83333333,17 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													MP3 file
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group">
+														<label>select a new mp3 file:</label>
+														<div id="song-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
+															<div class="form-control" data-trigger="fileinput">
+																<i class="glyphicon glyphicon-file fileinput-exists"></i>
+																<span class="fileinput-filename"></span>
+															</div>
+															<span class="input-group-addon btn btn-success btn-file">
+																<span class="fileinput-new"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> Select...</span>
+																<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span>
+																<input type="file" name="song_file" id="song_file" accept="audio/*" portrait-input="song_files" />
+															</span>
+															<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
+														</div>
+														<h6 class="help-block"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes</strong>; end in '.mp3'</em></h6>
+														<ul class="list-group file-info" ng-repeat="song_file in song_files">
+															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{song_file.name}}</li>
+															 <li class="list-group-item"><i class="far fa-file-audio fa-fw" aria-hidden="true"></i> <strong>type:</strong> {{song_file.type}}</li>
+															 <li class="list-group-item"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{song_file.size}}kb</li>
+															 <li class="list-group-item"><strong>test:</strong> <a class="btn btn-default btn-xs play-mp3" new-mp3 data-songtitle="{{song_file.name}}" href=""><i class="fa fas fa-headphones-alt fa-fw" aria-hidden="true"></i></a></li>
+														</ul>
+														<input type="hidden" name="old_song1" ng-model="song.song_file" />
+														<div id="progress_info">
+															<div class="progress">
+																<div id="progress" class="progress-bar progress-bar-info bar">
+																	<span id="progress_percent" class="percent"></span>
+																</div>
+															</div>
+															<div class="clear_both"></div>
+															<div>
+																<div id="remaining">&nbsp;</div>
+																<div id="b_transfered">&nbsp;</div>
+																<div class="clearfix"></div>
+															</div>
+															<div id="upload_response"></div>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes</strong>; end in '.mp3'</em>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div ng-show="AddSongToArtistForm.song_title.$valid">
-										<span ng-show="AddSongToArtistForm.song_title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-									</div>
-									<div ng-show="AddSongToArtistForm.song_title.$invalid && AddSongToArtistForm.song_title.$dirty">
-										<span ng-show="AddSongToArtistForm.song_title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-									</div>
-								</div>
-								<div class="col-xs-4">
-									<label for="roster_flag">show in roster:</label>
-									<div class="mt-radio-inline">
-										<label class="mt-radio">
-											<input type="radio" ng-model="song.roster_flag" name="roster_flag" value="y" checked>yes
-											<span></span>
-										</label>
-										<label class="mt-radio">
-											<input type="radio" ng-model="song.roster_flag" name="roster_flag" value="n">no
-											<span></span>
-										</label>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5"/>
+											        <path d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Description
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback text-angular" ng-class="{'has-success': AddSongToArtistForm.song_comments.$valid, 'has-invalid': AddSongToArtistForm.song_comments.$invalid && AddSongToArtistForm.song_comments.$dirty, 'has-error': AddSongToArtistForm.song_comments.$invalid && AddSongToArtistForm.submitted}">
+														<div class="input-icon" ng-class="{true: 'error'}[AddSongToArtistForm.submitted && AddSongToArtistForm.song_comments.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular ng-model="song.song_comments" name="song_comments" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<i class="fa fa-info-circle fa-fw" aria-hidden="true"></i> <em>This text is displayed in the comp and describes each track</em>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<button class="btn btn-info" ng-disabled="AddSongToArtistForm.$invalid || isUnchanged(song)" id="add-new-btn" ng-click="add_new(song)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-						<a href="#/edit-artist/{{artistid}}" class="btn btn-cancel">Cancel</a>
-					</div>
-				</div>
-
-				<div class="panel panel-aqua-light">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> MP3 file
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group">
-							<label>select a new mp3 file:</label>
-							<div id="song-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
-								<div class="form-control" data-trigger="fileinput">
-									<i class="glyphicon glyphicon-file fileinput-exists"></i>
-									<span class="fileinput-filename"></span>
-								</div>
-								<span class="input-group-addon btn btn-success btn-file">
-									<span class="fileinput-new"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> Select...</span>
-									<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span>
-									<input type="file" name="song_file" id="song_file" accept="audio/*" portrait-input="song_files" />
-								</span>
-								<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times fa-fw" aria-hidden="true"></i> Remove</a>
-							</div>
-							<h6 class="help-block"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes</strong>; end in '.mp3'</em></h6>
-							<ul class="list-group file-info" ng-repeat="song_file in song_files">
-								 <li class="list-group-item"><i class="fas fa-file-signature fa-fw" aria-hidden="true"></i> <strong>file name:</strong> {{song_file.name}}</li>
-								 <li class="list-group-item"><i class="far fa-file-audio fa-fw" aria-hidden="true"></i> <strong>type:</strong> {{song_file.type}}</li>
-								 <li class="list-group-item"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> <strong>size:</strong> {{song_file.size}}kb</li>
-								 <li class="list-group-item"><strong>test:</strong> <a class="btn btn-default btn-xs play-mp3" new-mp3 data-songtitle="{{song_file.name}}" href=""><i class="fa fas fa-headphones-alt fa-fw" aria-hidden="true"></i></a></li>
-							</ul>
-							<input type="hidden" name="old_song1" ng-model="song.song_file" />
-
-							<div id="progress_info">
-								<div class="progress">
-									<div id="progress" class="progress-bar progress-bar-info bar">
-										<span id="progress_percent" class="percent"></span>
-									</div>
-								</div>
-								<div class="clear_both"></div>
-								<div>
-									<div id="remaining">&nbsp;</div>
-									<div id="b_transfered">&nbsp;</div>
-									<div class="clearfix"></div>
-								</div>
-								<div id="upload_response"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="panel panel-aqua-light">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i> song description for comp
-						</h4>
-					</div>
-					<div class="panel-body">
-						<div class="form-group has-feedback text-angular" ng-class="{'has-success': AddSongToArtistForm.song_comments.$valid, 'has-invalid': AddSongToArtistForm.song_comments.$invalid && AddSongToArtistForm.song_comments.$dirty, 'has-error': AddSongToArtistForm.song_comments.$invalid && AddSongToArtistForm.submitted}">
-							<div class="input-icon" ng-class="{true: 'error'}[AddSongToArtistForm.submitted && AddSongToArtistForm.song_comments.$invalid]">
-								<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-								<text-angular ng-model="song.song_comments" name="song_comments" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-							</div>
-						</div>
-					</div>
-					<div class="panel-footer">
-						<i class="fa fa-info-circle fa-fw" aria-hidden="true"></i> <em>This text is displayed in the comp and describes each track</em>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-</div>
