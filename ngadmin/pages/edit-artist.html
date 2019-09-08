@@ -49,12 +49,12 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': EditArtistForm.INartistName.$valid, 'has-invalid': EditArtistForm.INartistName.$invalid && EditArtistForm.INartistName.$dirty, 'has-error': EditArtistForm.INartistName.$invalid && EditArtistForm.submitted}">
 														<label for="INartistName">name:</label>
 														<div class="row">
-															<div class="col-xs-2">
+															<div class="col-lg-2 col-sm-3">
 																<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="the">the</option>
 																</select>
 															</div>
-															<div class="col-xs-10">
+															<div class="col-lg-10 col-sm-9">
 																<div class="input-icon">
 																	<i class="fas fa-id-badge fa-fw" aria-hidden="true"></i>
 																	<input class="form-control" name="INartistName" type="text" ng-model="artist.INartistName" ng-required="true" />
@@ -78,14 +78,14 @@
 													</div>
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.INlabel.$invalid && EditArtistForm.INlabel.$dirty, 'has-error': EditArtistForm.INlabel.$invalid && EditArtistForm.submitted}">
 														<div class="row">
-															<div class="col-xs-6">
+															<div class="col-lg-6 col-sm-5">
 															<label for="INlabel">label:</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw"></i>
 																	<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
 																</div>
 															</div>
-															<div class="col-xs-3">
+															<div class="col-lg-3 col-sm-4">
 																<label>active:</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
@@ -98,7 +98,7 @@
 																	</label>
 																</div>
 															</div>
-															<div class="col-xs-3">
+															<div class="col-lg-3 col-sm-3">
 																<label for="INsync">sync:</label>
 																<select class="form-control" data-width="100%" title="" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="Master">Master</option>
@@ -136,7 +136,7 @@
 												<span class="ona-widget__desc">
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.home_order.$invalid && EditArtistForm.home_order.$dirty, 'has-error': EditArtistForm.home_order.$invalid && EditArtistForm.submitted}">
 														<div class="row">
-															<div class="col-xs-6">
+															<div class="col-lg-6 col-sm-5">
 																<div class="fileinput fileinput-{{albumClass}}" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/125-no-image.gif" class="img-responsive">
@@ -155,7 +155,7 @@
 																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw text-pink" aria-hidden="true"></i> size: {{album_pic.size}}kb</li>
 																</ul>
 															</div>
-															<div class="col-xs-3">
+															<div class="col-lg-3 col-sm-4">
 																<label>display in signings</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
@@ -168,7 +168,7 @@
 																	</label>
 																</div>
 															</div>
-															<div class="col-xs-3">
+															<div class="col-lg-3 col-sm-3">
 																<label for="home_order">sort order</label>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw"></i>

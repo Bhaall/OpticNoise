@@ -63,16 +63,16 @@
 														<td class="center col-xs-2">
 															<form name="rowform" method="post" class="form-buttons form-inline">
 																<div class="btn-group">
-																	<a ng-if="!sah.$edit" href="" class="btn btn-default btn-xs margin-right-5" ng-click="sah.$edit = true"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
-																	<a ng-if="!sah.$edit" href="" ng-click="delete(sah)" class="btn btn-default btn-xs"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
-																	<button ng-if="sah.$edit" type="button" data-ng-click="saveSah(sah.sceneID, sah.sceneName); sah.$edit = false" class="btn btn-info btn-xs margin-right-5"><i class="fas fa-save fa-fw" aria-hidden="true"></i></button>
-																	<a ng-if="sah.$edit" href="" class="btn white btn-xs" ng-click="sah.$edit = false"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a>
+																	<a ng-if="!sah.$edit" href="" class="btn btn-clean btn-xs margin-right-5" ng-click="sah.$edit = true"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
+																	<a ng-if="!sah.$edit" href="" ng-click="delete(sah)" class="btn btn-clean btn-xs"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
+																	<button ng-if="sah.$edit" type="button" data-ng-click="saveSah(sah.sceneID, sah.sceneName); sah.$edit = false" class="btn btn-clean btn-xs margin-right-5"><i class="fas fa-save fa-fw" aria-hidden="true"></i></button>
+																	<a ng-if="sah.$edit" href="" class="btn btn-clean btn-xs" ng-click="sah.$edit = false"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a>
 																</div>
 															</form>
 														</td>
 														<td data-title="'added'" sortable="'sceneDate'" class="center col-xs-2">{{sah.sceneDate | timestampDateFormat}}</td>
 														<td data-title="'sort'" sortable="'scene_order'" class="center col-xs-1"><input type="number" name="itemOrderTbl" id="itemOrderTbl" touchspin class="form-control" ng-model="sah.scene_order" /></td>
-														<td data-title="'items'" class="center col-xs-2"><a class="btn btn-default btn-xs" href="#/sah-items/{{sah.sceneID}}"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a></td>
+														<td data-title="'items'" class="center col-xs-2"><a class="btn btn-clean btn-xs" href="#/sah-items/{{sah.sceneID}}"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a></td>
 														<td data-title="'active'" class="center col-xs-1">
 															<div class="mt-radio-inline">
 																<label class="mt-radio">

@@ -24,7 +24,7 @@
 							<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
 							<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
 						</div>
-						<span class="badge badge-white pull-right margin-top-27 margin-right-10">{{itemTotal}}</span>
+						<span class="badge badge-white" id="sahcount">{{itemTotal}}</span>
             <div class="ona-widget">
               <div class="ona-widget__visual ona-widget__green">
               </div>
@@ -59,7 +59,7 @@
 														<td class="col-xs-2"><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}">{{item.itemHeader}}</a></td>
 														<td class="col-xs-1">{{item.itemMedia}}</td>
 														<td class="col-xs-7"><span ng-bind-html="renderItemText(item.itemText)"></span></td>
-														<td class="center col-xs-1"><input type="number" touchspin name="itemOrderTbl" id="itemOrderTbl" class="form-control" ng-model="item.itemOrder" /></td>
+														<td class="center col-xs-1"><input type="text" touchspin name="itemOrderTbl" id="itemOrderTbl" class="form-control" ng-model="item.itemOrder" /></td>
 														<td class="col-xs-1">
 															<div class="tools btn-group">
 																<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
