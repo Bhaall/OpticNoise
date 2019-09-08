@@ -111,9 +111,9 @@
 														</div>
 														<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes</strong>; end in '.mp3'</em></h6>
 														<ul class="list-group file-info" ng-repeat="song_file in song_files">
-															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> file name: {{song_file.name}}</li>
-															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> type: {{song_file.type}}</li>
-															 <li class="list-group-item"><i class="fas fa-file-audio fa-fw text-pink" aria-hidden="true"></i> size: {{song_file.size}}kb</li>
+															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> File Name: {{song_file.name}}</li>
+															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> Type: {{song_file.type}}</li>
+															 <li class="list-group-item"><i class="fas fa-file-audio fa-fw text-pink" aria-hidden="true"></i> Size: {{song_file.size}}kb</li>
 															 <li class="list-group-item"><strong>test:</strong> <a class="btn btn-default btn-xs play-mp3" new-mp3 data-songtitle="{{song_file.name}}" href=""><i class="fas fa-headphones-alt fa-fw text-purple" aria-hidden="true"></i></a></li>
 														</ul>
 														<input type="hidden" name="old_song1" ng-model="song.song_file" />

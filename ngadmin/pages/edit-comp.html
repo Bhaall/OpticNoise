@@ -136,7 +136,7 @@
 																<ul class="list-group pull-down">
 																	<li class="list-group-item"><i class="fas fa-external-link-alt fa-fw text-purple" aria-hidden="true"></i> Download Link <strong><span class="pull-right"><a href="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}">{{comp.comp_name}}</a></span></strong></li>
 																	<li class="list-group-item"><i class="fas fa-link fa-fw text-green" aria-hidden="true"></i> Page Link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
-																	<li class="list-group-item"><i class="fas fa-file-download fa-fw text-orange" aria-hidden="true"></i> Number of Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
+																	<li class="list-group-item"><i class="fas fa-download fa-fw text-orange" aria-hidden="true"></i> Number of Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download <span class="pull-right">{{comp.lastDownload}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added <span class="pull-right">{{comp.dateAdded}}</span></li>
 																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
@@ -225,7 +225,7 @@
 																		</select>
 																		<span class="ng-hide">{{comp.songID}}</span>
 																	</li>
-																	<li class="list-group-item">sort
+																	<li class="list-group-item pull-down" ng-show="comp.songID">sort
 																		<div class="pull-right">
 																			<input type="text" touchspin name="item_sort_new" id="item_sort_new" class="form-control sortorder" ng-model="newsort">
 																			<h6 class="help-block margin-auto center">highest: {{max}}</h6>
@@ -274,8 +274,8 @@
 																	 <th><i class="fas fa-sort-numeric-down fa-fw text-yellow-casablanca" aria-hidden="true"></i> sort</th>
 																	 <th><i class="fas fa-tag fa-fw text-green" aria-hidden="true"></i> name</th>
 																	 <th><i class="fas fa-heart fa-fw text-danger" aria-hidden="true"></i> artist</th>
-																	 <th><i class="fas fa-play-circle fa-fw text-light-blue" aria-hidden="true"></i></th>
-																	 <th><i class="fas fa-download fa-fw text-pink" aria-hidden="true"></i></th>
+																	 <th><i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i></th>
+																	 <th><i class="fas fa-download fa-fw text-orange" aria-hidden="true"></i></th>
 																	 <th></th>
 																 </tr>
 															 </thead>

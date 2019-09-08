@@ -109,7 +109,7 @@
 													<div class="form-group" ng-show="song.song_file">
 														<ul class="list-group">
 															<li class="list-group-item">
-																<i class="fas fa-file-signature fa-fw text-green" aria-hidden="true"></i> file name:
+																<i class="fas fa-file-signature fa-fw text-green" aria-hidden="true"></i> File Name:
 																<div class="tools btn-group pull-right margin-left-5 top-minus-5">
 																	<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
 																	<ul class="dropdown-menu pull-right" role="menu">
@@ -120,16 +120,16 @@
 																<span class="pull-right margin-right-5">{{song.song_file}}</span>
 															</li>
 															<li class="list-group-item">
-																<i class="fas fa-play-circle fa-fw text-light-blue" aria-hidden="true"></i> plays: <span class="pull-right pad-left-5"><a ng-click="resetCount(song)" href="" class="btn btn-warning btn-xs"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_count}}</span>
+																<i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i> Plays: <span class="pull-right pad-left-5"><a ng-click="resetCount(song)" href="" class="btn btn-warning btn-xs"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_count}}</span>
 															</li>
 															<li class="list-group-item">
-																<i class="fas fa-clock fa-fw text-green-meadow" aria-hidden="true"></i> last played: <span class="pull-right">{{song.lastPlayed}}</span>
+																<i class="fas fa-clock fa-fw text-green-meadow" aria-hidden="true"></i> Last Played: <span class="pull-right">{{song.lastPlayed}}</span>
 															</li>
 															<li class="list-group-item">
-																<i class="fas fa-file-download fa-fw text-orange" aria-hidden="true"></i> downloads: <span class="pull-right pad-left-5"><a ng-click="resetDownloads(song)" href="" class="btn btn-warning btn-xs"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_downloads}}</span>
+																<i class="fas fa-download fa-fw text-orange" aria-hidden="true"></i> Downloads: <span class="pull-right pad-left-5"><a ng-click="resetDownloads(song)" href="" class="btn btn-warning btn-xs"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_downloads}}</span>
 															</li>
 															<li class="list-group-item">
-																<i class="fas fa-calendar-check fa-fw text-yellow" aria-hidden="true"></i> last download: <span class="pull-right">{{song.lastDownload}}</span>
+																<i class="fas fa-calendar-check fa-fw text-yellow" aria-hidden="true"></i> Last Download: <span class="pull-right">{{song.lastDownload}}</span>
 															</li>
 														</ul>
 													</div>
@@ -149,9 +149,9 @@
 														</div>
 														<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes; </strong>end in '.mp3'</em></h6>
 														<ul class="list-group file-info" ng-repeat="song_file in song_files">
-															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> file name: {{song_file.name}}</li>
-															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> type: {{song_file.type}}</li>
-															 <li class="list-group-item"><i class="fas fa-file-audio fa-fw text-pink" aria-hidden="true"></i> size: {{song_file.size}}kb</li>
+															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> File Name: {{song_file.name}}</li>
+															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> Type: {{song_file.type}}</li>
+															 <li class="list-group-item"><i class="fas fa-file-audio fa-fw text-pink" aria-hidden="true"></i> Size: {{song_file.size}}kb</li>
 														</ul>
 														<input type="hidden" name="old_song1" ng-model="song.song_file" />
 														<div id="progress_info">
