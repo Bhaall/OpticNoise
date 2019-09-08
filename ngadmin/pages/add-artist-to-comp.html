@@ -44,15 +44,15 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': AddArtistForm.INartistName.$valid && AddArtistForm.INartistName.$dirty, 'has-invalid': AddArtistForm.INartistName.$invalid && AddArtistForm.INartistName.$dirty, 'has-error': AddArtistForm.INartistName.$invalid && AddArtistForm.submitted}">
 														<label for="INartistName">name:</label>
 														<div class="row">
-															<div class="col-xs-2">
+															<div class="col-lg-3 col-sm-3">
 																<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="the">the</option>
 																</select>
 															</div>
-															<div class="col-xs-10">
+															<div class="col-lg-9 col-sm-9">
 																<div class="input-icon">
 																	<i class="fas fa-id-badge fa-fw" aria-hidden="true"></i>
-																	<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" required autofocus />
+																	<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" required />
 																</div>
 																<div ng-show="AddArtistForm.INartistName.$valid">
 																	<span ng-show="AddArtistForm.INartistName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -72,14 +72,14 @@
 													</div>
 													<div class="form-group">
 														<div class="row">
-															<div class="col-xs-6">
+															<div class="col-lg-6 col-sm-4">
 															<label for="INlabel">label:</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
 																	<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
 																</div>
 															</div>
-															<div class="col-xs-3">
+															<div class="col-lg-6 col-sm-4">
 																<label>active:</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
@@ -92,7 +92,7 @@
 																	</label>
 																</div>
 															</div>
-															<div class="col-xs-3">
+															<div class="col-lg-3 col-sm-4">
 																<label for="INsync">sync:</label>
 																<select class="form-control" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="Master">Master</option>
