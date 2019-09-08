@@ -2999,9 +2999,10 @@ select.ng-valid.ng-valid-required {
 }
 .playerpanel {
 	border-top: 1px solid #c7d3d6;
+  bottom: -10px;
 	position: fixed;
   right: -330px;
-	top: 55px;
+	/* top: 55px; */
 	-webkit-transition: right 0.2s;
 	  transition: right 0.2s;
 	width: 330px;

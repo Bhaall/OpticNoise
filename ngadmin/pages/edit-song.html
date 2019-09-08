@@ -78,11 +78,15 @@
 													</div>
 												</span>
 												<div class="ona-widget__foot">
-													<div class="ona-form__actions">
-														<button class="btn btn-info" ng-disabled="EditSongForm.$invalid || isUnchanged(artist)" id="add-new-btn" ng-click="update(song)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
-														<button class="btn btn-danger" ng-click="delete(song)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-														<a href="#/songs" class="btn btn-cancel">Cancel</a>
-														<div class="pull-right">added: {{song.dateAdded}}</div>
+													<div class="ona-form__actions row">
+														<div class="col-lg-9 col-sm-8">
+															<button class="btn btn-info" ng-disabled="EditSongForm.$invalid || isUnchanged(artist)" id="add-new-btn" ng-click="update(song)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+															<button class="btn btn-danger" ng-click="delete(song)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+															<a href="#/songs" class="btn btn-cancel">Cancel</a>
+														</div>
+														<div class="col-lg-3 col-sm-4">
+															<div class="center">Added: {{song.dateAdded}}</div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -209,18 +213,18 @@
 													Comps
 												</span>
 												<span class="ona-widget__desc">
-													<h5 ng-show="emptyCompInfo" class="pull-down"><strong>{{song.song_title}}</strong> is currently in zero comps.</h5>
+													<h5 ng-show="emptyCompInfo" class="pull-down">{{song.song_title}} is currently in zero comps.</h5>
 													<div class="comp-list pull-down" ng-repeat="(key,value) in compinfo">
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[0].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[1].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[2].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[3].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[4].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[5].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[6].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[7].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[8].comp_name}}</strong></a></h5>
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[9].comp_name}}</strong></a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[0].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[1].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[2].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[3].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[4].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[5].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[6].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[7].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[8].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[9].comp_name}}</a></h5>
 													</div>
 												</span>
 											</div>

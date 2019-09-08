@@ -3,13 +3,13 @@ angular.module('onAdmin.filters', [])
 .filter('timestampDateFormat', function timestampDateFormat($filter){
 	return function(text){
 		var tempdate = new Date(text.replace(/-/g,"/"));
-		return $filter('date')(tempdate, "MMM-dd-yyyy");
+		return $filter('date')(tempdate, "MMM dd yyyy");
 	}
 })
 .filter('timestampDateTimeFormat', function timestampDateTimeFormat($filter){
 	return function(text){
 		var tempdate = new Date(text.replace(/-/g,"/"));
-		return $filter('date')(tempdate, "MMM-dd-yyyy @ h:mm a");
+		return $filter('date')(tempdate, "MMM dd yyyy @ h:mm a");
 	}
 })
 .filter('utcdate', ['$filter','$locale', function($filter, $locale){

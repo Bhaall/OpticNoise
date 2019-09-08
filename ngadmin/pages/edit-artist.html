@@ -73,7 +73,7 @@
 														<div class="input-icon" ng-class="{true: 'error'}[EditArtistForm.submitted && EditArtistForm.INroster_desc.$invalid]">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
-															<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Used in Roster</em></h6>
+															<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-danger" aria-hidden="true"></i> <em>Used in Roster</em></h6>
 														</div>
 													</div>
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.INlabel.$invalid && EditArtistForm.INlabel.$dirty, 'has-error': EditArtistForm.INlabel.$invalid && EditArtistForm.submitted}">
@@ -110,11 +110,15 @@
 													</div>
 												</span>
 												<div class="ona-widget__foot">
-													<div class="ona-form__actions">
-														<button class="btn btn-info" id="edit-btn" ng-click="update(artist)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
-														<button class="btn btn-danger" ng-click="delete(artist)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-														<a href="#/artists" class="btn btn-cancel">Cancel</a>
-														<div class="pull-right">added: {{artist.dateAdded}}</div>
+													<div class="ona-form__actions row">
+														<div class="col-lg-9 col-sm-8">
+															<button class="btn btn-info" id="edit-btn" ng-click="update(artist)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+															<button class="btn btn-danger" ng-click="delete(artist)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+															<a href="#/artists" class="btn btn-cancel">Cancel</a>
+														</div>
+														<div class="col-lg-3 col-sm-4">
+															<div class="center">Added: {{artist.dateAdded}}</div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -136,7 +140,7 @@
 												<span class="ona-widget__desc">
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.home_order.$invalid && EditArtistForm.home_order.$dirty, 'has-error': EditArtistForm.home_order.$invalid && EditArtistForm.submitted}">
 														<div class="row">
-															<div class="col-lg-6 col-sm-5">
+															<div class="col-lg-6 col-sm-6">
 																<div class="fileinput fileinput-{{albumClass}}" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/125-no-image.gif" class="img-responsive">
@@ -167,8 +171,9 @@
 																		<span></span>
 																	</label>
 																</div>
+																<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-purple" aria-hidden="true"></i> Enabled if image exists.</h6>
 															</div>
-															<div class="col-lg-3 col-sm-3">
+															<div class="col-lg-3 col-sm-2">
 																<label for="home_order">sort order</label>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw"></i>
@@ -180,9 +185,8 @@
 													</div>
 												</span>
 												<div class="ona-widget__foot">
-													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image <span class="red">must be 125x125</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
-													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Display In Signings enabled if image exists.</em></h6>
-													<h6 class="help-block">Note: there can be only three artists displayed in Signings section on home page.</h6>
+													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> Image <span class="red">must be 125x125</span> (name must not contain strange characters; end in '.jpg')</h6>
+													<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-purple" aria-hidden="true"></i> Note: there can be only three artists displayed in Signings section on home page.</h6>
 												</div>
 											</div>
 										</div>
@@ -233,14 +237,14 @@
 																		<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="n">no
 																		<span></span>
 																	</label>
-																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Enabled if image exists.</em></h6>
+																	<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-purple" aria-hidden="true"></i> Enabled if image exists.</h6>
 																</div>
 															</div>
 														</div>
 													</div>
 												</span>
 												<div class="ona-widget__foot">
-													<h6 class="help-block">	<i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image <span class="red">must be 573x282</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> Image <span class="red">must be 573x282</span> (name must not contain strange characters; end in '.jpg')</h6>
 												</div>
 											</div>
 										</div>
@@ -265,8 +269,8 @@
 															<tr>
 																<th><i class="fas fa-tag fa-fw text-aqua" aria-hidden="true"></i> name</th>
 																<th><i class="fas fa-file-audio fa-fw text-orange" aria-hidden="true"></i> mp3</th>
-																<th class="center"><i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i> plays</th>
-																<th class="center"><i class="fas fa-desktop fa-fw text-green" aria-hidden="true"></i> displayed</th>
+																<th class="center"><i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i></th>
+																<th class="center"><i class="fas fa-desktop fa-fw text-green" aria-hidden="true"></i></th>
 																<th></th>
 															</tr>
 														</thead>
@@ -314,19 +318,19 @@
 												<span class="ona-widget__desc">
 													<h5 ng-show="emptyCompInfo" class="pull-down"><strong>{{showname}}</strong> is currently in zero comps.</h5>
 													<div class="comp-list pull-down" ng-repeat="(key,value) in compinfo">
-														<h5><a href="edit-comp/{{key}}"><strong>{{value[0].comp_name}}</strong></a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[0].comp_name}}</a></h5>
 														<ol>
-															<li ng-show="value[0].song_id"><a href="edit-song/{{value[0].song_id}}"><strong>{{value[0].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[0].song_comments)"></span></li>
-															<li ng-show="value[1].song_id"><a href="edit-song/{{value[1].song_id}}"><strong>{{value[1].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[1].song_comments)"></span></li>
-															<li ng-show="value[2].song_id"><a href="edit-song/{{value[2].song_id}}"><strong>{{value[2].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[2].song_comments)"></span></li>
-															<li ng-show="value[3].song_id"><a href="edit-song/{{value[3].song_id}}"><strong>{{value[3].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[3].song_comments)"></span></li>
-															<li ng-show="value[4].song_id"><a href="edit-song/{{value[4].song_id}}"><strong>{{value[4].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[4].song_comments)"></span></li>
-															<li ng-show="value[5].song_id"><a href="edit-song/{{value[5].song_id}}"><strong>{{value[5].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[5].song_comments)"></span></li>
-															<li ng-show="value[6].song_id"><a href="edit-song/{{value[6].song_id}}"><strong>{{value[6].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[6].song_comments)"></span></li>
-															<li ng-show="value[7].song_id"><a href="edit-song/{{value[7].song_id}}"><strong>{{value[7].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[7].song_comments)"></span></li>
-															<li ng-show="value[8].song_id"><a href="edit-song/{{value[8].song_id}}"><strong>{{value[8].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[8].song_comments)"></span></li>
-															<li ng-show="value[9].song_id"><a href="edit-song/{{value[9].song_id}}"><strong>{{value[9].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[9].song_comments)"></span></li>
-															<li ng-show="value[10].song_id"><a href="edit-song/{{value[10].song_id}}"><strong>{{value[10].song_title}}</strong></a> | <span ng-bind-html="renderItemText(value[10].song_comments)"></span></li>
+															<li ng-show="value[0].song_id"><a href="edit-song/{{value[0].song_id}}">{{value[0].song_title}}</a> | <span ng-bind-html="renderItemText(value[0].song_comments)"></span></li>
+															<li ng-show="value[1].song_id"><a href="edit-song/{{value[1].song_id}}">{{value[1].song_title}}</a> | <span ng-bind-html="renderItemText(value[1].song_comments)"></span></li>
+															<li ng-show="value[2].song_id"><a href="edit-song/{{value[2].song_id}}">{{value[2].song_title}}</a> | <span ng-bind-html="renderItemText(value[2].song_comments)"></span></li>
+															<li ng-show="value[3].song_id"><a href="edit-song/{{value[3].song_id}}">{{value[3].song_title}}</a> | <span ng-bind-html="renderItemText(value[3].song_comments)"></span></li>
+															<li ng-show="value[4].song_id"><a href="edit-song/{{value[4].song_id}}">{{value[4].song_title}}</a> | <span ng-bind-html="renderItemText(value[4].song_comments)"></span></li>
+															<li ng-show="value[5].song_id"><a href="edit-song/{{value[5].song_id}}">{{value[5].song_title}}</a> | <span ng-bind-html="renderItemText(value[5].song_comments)"></span></li>
+															<li ng-show="value[6].song_id"><a href="edit-song/{{value[6].song_id}}">{{value[6].song_title}}</a> | <span ng-bind-html="renderItemText(value[6].song_comments)"></span></li>
+															<li ng-show="value[7].song_id"><a href="edit-song/{{value[7].song_id}}">{{value[7].song_title}}</a> | <span ng-bind-html="renderItemText(value[7].song_comments)"></span></li>
+															<li ng-show="value[8].song_id"><a href="edit-song/{{value[8].song_id}}">{{value[8].song_title}}</a> | <span ng-bind-html="renderItemText(value[8].song_comments)"></span></li>
+															<li ng-show="value[9].song_id"><a href="edit-song/{{value[9].song_id}}">{{value[9].song_title}}</a> | <span ng-bind-html="renderItemText(value[9].song_comments)"></span></li>
+															<li ng-show="value[10].song_id"><a href="edit-song/{{value[10].song_id}}">{{value[10].song_title}}</a> | <span ng-bind-html="renderItemText(value[10].song_comments)"></span></li>
 														</ol>
 													</div>
 												</span>
