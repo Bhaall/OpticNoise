@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
-							<div class="nav-btns pull-right  margin-top-20 margin-right-25 relative">
+							<div class="nav-btns">
 								<a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
 								<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
 							</div>
@@ -166,8 +166,6 @@
 																		<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="n">no
 																		<span></span>
 																	</label>
-																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Enabled if image exists.</em></h6>
-																	<h6 class="help-block">Note: there can be only three artists displayed in Signings section on home page.</h6>
 																</div>
 															</div>
 															<div class="col-xs-3">
@@ -183,6 +181,8 @@
 												</span>
 												<div class="ona-widget__foot">
 													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image <span class="red">must be 125x125</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
+													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Display In Signings enabled if image exists.</em></h6>
+													<h6 class="help-block">Note: there can be only three artists displayed in Signings section on home page.</h6>
 												</div>
 											</div>
 										</div>

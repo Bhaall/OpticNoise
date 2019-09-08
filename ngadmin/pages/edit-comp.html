@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
-							<div class="nav-btns pull-right margin-top-20 margin-right-25 relative">
+							<div class="nav-btns">
 								<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
 								<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
 							</div>
@@ -139,8 +139,8 @@
 																	<li class="list-group-item"><i class="fas fa-file-download fa-fw text-orange" aria-hidden="true"></i> number of downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> last download <span class="pull-right">{{comp.lastDownload}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> added <span class="pull-right">{{comp.dateAdded}}</span></li>
-																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
-																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span><h6 class="help-block align-right margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Only Active Comps are displayed on the Comps page.</em></h6></li>
+																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
+																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span><h6 class="help-block margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Only Active Comps are displayed on the Comps page.</em></h6></li>
 																</ul>
 															</div>
 														</div>
