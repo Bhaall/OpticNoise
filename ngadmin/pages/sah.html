@@ -2,7 +2,7 @@
 	<div class="row">
 	  <div class="col-lg-12">
 	    <div class="panel">
-        <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__green">  <!--class for heading color -->
+        <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__green">
           <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
             <div class="ona-portlet__head-label">
               <h3 class="ona-portlet__head-title">
@@ -20,27 +20,16 @@
             </div>
           </div>
           <div class="ona-portlet__body ona-portlet__body--fit">
-						<span class="badge badge-white pull-right margin-top-25 margin-right-25">{{sahTotal}}</span>
             <div class="ona-widget">
               <div class="ona-widget__visual ona-widget__green">
               </div>
               <div class="ona-widget__stats">
-                <div class="ona-widget__items">
+                <div class="ona-widget__items ona-ribbon ona-ribbon--ver ona-ribbon--shadow ona-ribbon--round">
+									<div class="ona-ribbon__target">
+										{{sahTotal}}
+									</div>
                   <div class="ona-widget__item">
                     <span class="ona-widget__icon">
-											<ul class="list-inline pull-right margin-top-10 margin-right-5">
-												<li class="dropdown">
-													<a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown"><span class="glyphicon glyphicon-plus"></span></a>
-													<div class="dropdown-menu dropdown-menu-right spacer5" style="min-width:240px;">
-														<form novalidate role="form" class="form-horizontal" name="AddSAHForm" id="AddSAHForm" method="post">
-															<small>Add SAH Holder</small>
-															<input class="form-control input-sm margin-bottom-5" name="sceneName" id="sceneName" placeholder="Name" type="text" ng-model="sahholder.sceneName" required />
-															<input class="form-control input-sm margin-bottom-5" name="scene_order" id="scene_order" placeholder="Sort order" ng-model="sahholder.scene_order" type="text" />
-															<button type="button" class="btn btn-info btn-block" data-toggle="dropdown" ng-disabled="AddSAHForm.$invalid || isUnchanged(sah)" id="add-new-btn" ng-click="add_new(sahholder)">Add</button>
-														</form>
-													</div>
-												</li>
-											</ul>
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
 										    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 									        <rect x="0" y="0" width="24" height="24"/>
@@ -87,6 +76,18 @@
                     </span>
 										<div class="ona-widget__foot">
 											<div class="ona-form__actions">
+												<ul class="list-inline pull-left">
+													<li class="dropdown dropup">
+														<a class="dropdown-toggle btn btn-info" href="javascript:;" data-toggle="dropdown" aria-haspopup="true"><span class="glyphicon glyphicon-plus"></span> Add SAH Holder</a>
+														<div class="dropdown-menu dropdown-menu-right spacer5" style="min-width:240px;">
+															<form novalidate role="form" class="form-horizontal" name="AddSAHForm" id="AddSAHForm" method="post">
+																<input class="form-control input-sm margin-bottom-5" name="sceneName" id="sceneName" placeholder="Name" type="text" ng-model="sahholder.sceneName" required />
+																<input class="form-control input-sm margin-bottom-5" name="scene_order" id="scene_order" placeholder="Sort order" ng-model="sahholder.scene_order" type="text" />
+																<button type="button" class="btn btn-info btn-block" data-toggle="dropdown" ng-disabled="AddSAHForm.$invalid || isUnchanged(sah)" id="add-new-btn" ng-click="add_new(sahholder)">Add</button>
+															</form>
+														</div>
+													</li>
+												</ul>
 												<button type="submit" name="setActive" ng-click="setActive()" class="btn btn-success"><i class="fas fa-eye fa-fw" aria-hidden="true"></i> Set Active</button>
 												<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-clean btn-outline-clean"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>
 												<a href="#/" class="btn btn-cancel">Cancel</a>

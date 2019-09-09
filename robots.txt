@@ -7,5 +7,6 @@ Disallow: /swf/
 Disallow: /comps/
 Disallow: /comp.php?*
 Disallow: /comp?*
+Disallow: /comp*
 
 Sitemap: http://www.optic-noise.com/sitemap.xml

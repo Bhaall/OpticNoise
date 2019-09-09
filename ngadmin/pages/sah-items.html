@@ -15,7 +15,7 @@
 								    </g>
 									</svg>
 								</span>
-                Scene &amp; Heard
+                Scene &amp; Heard | {{sceneName}}
               </h3>
             </div>
           </div>
@@ -24,13 +24,15 @@
 							<a ng-show="links.prevValue!=null" href="#/sah-items/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
 							<a ng-show="links.nextValue!=null" href="#/sah-items/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
 						</div>
-						<span class="badge badge-white" id="sahcount">{{itemTotal}}</span>
             <div class="ona-widget">
               <div class="ona-widget__visual ona-widget__green">
               </div>
               <div class="ona-widget__stats">
-                <div class="ona-widget__items">
-                  <div class="ona-widget__item">
+                <div class="ona-widget__items ona-ribbon ona-ribbon--ver ona-ribbon--shadow ona-ribbon--round">
+									<div class="ona-ribbon__target">
+										{{itemTotal}}
+									</div>
+                  <div class="ona-widget__item ">
                     <span class="ona-widget__icon">
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
 										    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -41,7 +43,7 @@
 											</svg>
                     </span>
                     <span class="ona-widget__subtitle">
-                      Scene &amp; Heard Items for {{sceneName}}
+                      Items
                     </span>
                     <span class="ona-widget__desc">
 											<table class="table table-condensed table-striped table-hover pull-down">

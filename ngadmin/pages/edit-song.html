@@ -48,7 +48,7 @@
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSongForm.song_title.$valid, 'has-invalid': EditSongForm.song_title.$invalid && EditSongForm.song_title.$dirty, 'has-error': EditSongForm.song_title.$invalid && EditSongForm.submitted}">
 														<div class="row">
-															<div class="col-lg-9 col-sm-8">
+															<div class="col-lg-8 col-sm-8">
 																<label for="song_title">name</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
@@ -61,7 +61,7 @@
 																	<span ng-show="EditSongForm.song_title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 																</div>
 															</div>
-															<div class="col-lg-3 col-sm-4 center">
+															<div class="col-lg-4 col-sm-4 center">
 																<label>display in roster</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
@@ -79,13 +79,13 @@
 												</span>
 												<div class="ona-widget__foot">
 													<div class="ona-form__actions row">
-														<div class="col-lg-9 col-sm-8">
+														<div class="col-lg-8 col-sm-8">
 															<button class="btn btn-info" ng-disabled="EditSongForm.$invalid || isUnchanged(artist)" id="add-new-btn" ng-click="update(song)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
 															<button class="btn btn-danger" ng-click="delete(song)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 															<a href="#/songs" class="btn btn-cancel">Cancel</a>
 														</div>
-														<div class="col-lg-3 col-sm-4">
-															<div class="center">Added: {{song.dateAdded}}</div>
+														<div class="col-lg-4 col-sm-4">
+															<div class="center"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{song.dateAdded}}</div>
 														</div>
 													</div>
 												</div>

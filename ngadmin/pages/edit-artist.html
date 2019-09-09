@@ -78,7 +78,7 @@
 													</div>
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.INlabel.$invalid && EditArtistForm.INlabel.$dirty, 'has-error': EditArtistForm.INlabel.$invalid && EditArtistForm.submitted}">
 														<div class="row">
-															<div class="col-lg-6 col-sm-5">
+															<div class="col-lg-5 col-sm-4">
 															<label for="INlabel">label:</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw"></i>
@@ -98,7 +98,7 @@
 																	</label>
 																</div>
 															</div>
-															<div class="col-lg-3 col-sm-3">
+															<div class="col-lg-4 col-sm-4">
 																<label for="INsync">sync:</label>
 																<select class="form-control" data-width="100%" title="" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="Master">Master</option>
@@ -111,13 +111,13 @@
 												</span>
 												<div class="ona-widget__foot">
 													<div class="ona-form__actions row">
-														<div class="col-lg-9 col-sm-8">
+														<div class="col-lg-8 col-sm-8">
 															<button class="btn btn-info" id="edit-btn" ng-click="update(artist)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
 															<button class="btn btn-danger" ng-click="delete(artist)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 															<a href="#/artists" class="btn btn-cancel">Cancel</a>
 														</div>
-														<div class="col-lg-3 col-sm-4">
-															<div class="center">Added: {{artist.dateAdded}}</div>
+														<div class="col-lg-4 col-sm-4">
+															<div class="center"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{artist.dateAdded}}</div>
 														</div>
 													</div>
 												</div>
@@ -140,7 +140,7 @@
 												<span class="ona-widget__desc">
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.home_order.$invalid && EditArtistForm.home_order.$dirty, 'has-error': EditArtistForm.home_order.$invalid && EditArtistForm.submitted}">
 														<div class="row">
-															<div class="col-lg-6 col-sm-6">
+															<div class="col-lg-5 col-sm-4">
 																<div class="fileinput fileinput-{{albumClass}}" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/125-no-image.gif" class="img-responsive">
@@ -173,7 +173,7 @@
 																</div>
 																<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i> Enabled if image exists.</h6>
 															</div>
-															<div class="col-lg-3 col-sm-2">
+															<div class="col-lg col-sm-4">
 																<label for="home_order">sort order</label>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw"></i>
