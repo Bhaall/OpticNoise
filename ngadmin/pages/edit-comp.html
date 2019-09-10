@@ -140,8 +140,8 @@
 																	<li class="list-group-item"><i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Number of Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download <span class="pull-right">{{comp.lastDownload}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added <span class="pull-right">{{comp.dateAdded}}</span></li>
-																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Comps In Carousel are displayed on the Home page."></i></li>
-																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Only Active Comps are displayed on the Comps page."></i></li>
+																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="Comps In Carousel are displayed on the Home page."></i></li>
+																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="Only Active Comps are displayed on the Comps page."></i></li>
 																</ul>
 															</div>
 														</div>
@@ -167,13 +167,13 @@
 													</svg>
 												</span>
 												<span class="ona-widget__subtitle">
-													Image
+													Comp Carousel
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-xs-6">
-																<label><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')"></i></label><br>
+																<label>Image <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')."></i></label><br>
 																<div class="fileinput fileinput-exists" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/200-no-image.gif" class="img-responsive">
@@ -218,7 +218,7 @@
 														<div class="row padded-grid">
 															<div class="col-lg-12">
 																<ul class="list-group pull-down">
-																	<li class="list-group-item list-group-item-lightblue">select</li>
+																	<li class="list-group-item list-group-item-lightpurple">select</li>
 																	<li class="list-group-item" style="overflow: visible;">
 																		<select ng-model="comp.songID" data-style="white" selectpicker title="select a song" data-width="100%" data-live-search="true">
 																			<option value=""></option>
@@ -242,7 +242,7 @@
 													<div class="row">
 														<div class="col-lg-12">
 															<ul class="list-group pull-down">
-															  <li class="list-group-item list-group-item-lightblue">new content</li>
+															  <li class="list-group-item list-group-item-lightpurple">new content</li>
 															  <li class="list-group-item">
 															  	<a href="#/add-song-to-comp/{{comp.comp_id}}" class="btn btn-success"><i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new MP3 file</a>
 															  	<a href="#/add-artist-to-comp/{{comp.comp_id}}" class="btn btn-success"> <i class="fas fa-plus-square fa-fw" aria-hidden="true"></i> add new artist &amp; MP3 file</a>

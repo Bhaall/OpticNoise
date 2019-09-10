@@ -334,6 +334,9 @@ hr {
 .relative {
   position: relative;
 }
+.full-width {
+  width: 100%;
+}
 .strong {
   font-weight:800;
 }
@@ -2589,6 +2592,12 @@ a.text-danger:visited {
 .text-purple:visited {
   color: #8e44ad;
 }
+.text-light-purple,
+.text-light-purple:hover,
+.text-light-purple:focus,
+.text-light-purple:visited {
+  color: #f2e6f7;
+}
 .text-light-blue,
 .text-light-blue:hover,
 .text-light-blue:focus,
@@ -3392,6 +3401,10 @@ input[type=file]:hover,
 .list-group-item-lightblue {
 	background-color: #eef1f7;
 	color: #2d466c;
+}
+.list-group-item-lightpurple {
+	background-color: #f2e6f7;
+	color: #363636;
 }
 .list-group-item-lightgray {
 	background-color: #eee;

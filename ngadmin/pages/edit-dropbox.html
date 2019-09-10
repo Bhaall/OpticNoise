@@ -93,6 +93,8 @@
 																</div>
 															</div>
 														</div>
+													</div>
+													<div class="form-group">
 														<div class="row">
 															<div class="col-xs-12">
 																<label for="link-{{ $index*10 + 1 }}">download link</label>
@@ -108,11 +110,12 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-xs-12">
-																<label for="">link</label>
-																<div class="input-group">
+																<label>download link</label>
+																<div class="input-group full-width">
 																	<span><a href="http://www.optic-noise.com/download_dropbox.php?id={{dropbox.dropbox_id}}">{{dropbox.dropbox_name}}</a></span>
+																	<span class="pull-right"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{dropbox.dateAdded}}</span>
 																</div>
-																<span class="pull-right"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{dropbox.dateAdded}}</span>
+
 															</div>
 														</div>
 													</div>
@@ -152,7 +155,7 @@
 																<li class="list-group-item"><i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Number of Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(dropbox)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{dropbox.count}}</span></li>
 																<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download <span class="pull-right">{{dropbox.lastDownload}}</span></li>
 																<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added <span class="pull-right">{{dropbox.dateAdded}}</span></li>
-																<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <i class="fas fa-info-circle fa-fw text-green ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Only Active Dropboxes are displayed on the Comps page."></i><span class="label pull-right" ng-class="{'label-warning': dropbox.active=='n','label-success': dropbox.active=='y'}">{{dropbox.activeTxt}}</span></li>
+																<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <i class="fas fa-info-circle fa-fw text-green ng-scope" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="Only Active Dropboxes are displayed on the Comps page."></i><span class="label pull-right" ng-class="{'label-warning': dropbox.active=='n','label-success': dropbox.active=='y'}">{{dropbox.activeTxt}}</span></li>
 															</ul>
 														</div>
 													</div>
