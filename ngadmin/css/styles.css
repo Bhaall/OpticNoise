@@ -337,6 +337,15 @@ hr {
 .full-width {
   width: 100%;
 }
+.table {
+  display: table;
+}
+.table-cell {
+  display: table-cell;
+}
+.v-align-middle {
+  vertical-align: middle;
+}
 .strong {
   font-weight:800;
 }

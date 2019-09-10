@@ -226,7 +226,8 @@
 																		</select>
 																		<span class="ng-hide">{{comp.songID}}</span>
 																	</li>
-																	<li class="list-group-item pull-down" ng-show="comp.songID">sort
+																	<li class="list-group-item pull-down table" ng-show="comp.songID">
+																		<span class="table-cell v-align-middle">sort order</span>
 																		<div class="pull-right">
 																			<input type="text" touchspin name="item_sort_new" id="item_sort_new" class="form-control sortorder" ng-model="newsort">
 																			<h6 class="help-block margin-auto center">highest: {{max}}</h6>
