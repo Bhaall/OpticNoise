@@ -16,7 +16,7 @@
 									    </g>
 										</svg>
 									</span>
-									{{comp.comp_name}} | add artist
+									{{comp.comp_name}} | {{showname}} | add song
 								</h3>
 							</div>
 						</div>
@@ -39,7 +39,7 @@
 													</svg>
 												</span>
 												<span class="ona-widget__subtitle">
-													Artist Details
+													Song Details
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group" ng-class="{'has-success': AddSongArtistToCompForm.song_title.$valid, 'has-invalid': AddSongArtistToCompForm.song_title.$invalid && AddSongArtistToCompForm.song_title.$dirty, 'has-error': AddSongArtistToCompForm.song_title.$invalid && AddSongArtistToCompForm.submitted}">
@@ -110,7 +110,7 @@
 															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> File Name: {{song_file.name}}</li>
 															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> Type: {{song_file.type}}</li>
 															 <li class="list-group-item"><i class="fas fa-file-audio fa-fw text-pink" aria-hidden="true"></i> Size: {{song_file.size}}kb</li>
-															 <li class="list-group-item"><strong>test:</strong> <a class="btn btn-default btn-xs play-mp3" new-mp3 data-songtitle="{{song_file.name}}" href=""><i class="fas fa-headphones-alt fa-fw text-purple" aria-hidden="true"></i></a></li>
+															 <li class="list-group-item">Test: <a class="btn btn-clean btn-xs play-mp3" new-mp3 data-songtitle="{{song_file.name}}" href=""><i class="fas fa-headphones-alt fa-fw text-purple" aria-hidden="true"></i></a></li>
 														</ul>
 														<input type="hidden" name="old_song1" ng-model="song.song_file" />
 														<div id="progress_info">
