@@ -362,7 +362,6 @@ angular.module('onAdmin.directives', [])
 			}
 		};
 	})
-
 	.directive('autosize', function autosizeDirective() {
 		return {
 			restrict: 'A',
@@ -478,6 +477,273 @@ angular.module('onAdmin.directives', [])
 			};
 		}
 	})
+	// popover and tooltips
+	.directive( 'popoverPopup', function () {
+		return {
+			restrict: 'EA',
+			replace: true,
+			scope: { title: '@', content: '@', placement: '@', animation: '&', isOpen: '&' },
+			templateUrl: 'partials/popover.html'
+		};
+	})
+
+	.directive( 'popover', [ '$tooltip', function ( $tooltip ) {
+		return $tooltip( 'popover', 'popover', 'click' );
+	}])
+
+	.directive( 'popoverTemplatePopup', function () {
+		return {
+			restrict: 'EA',
+			replace: true,
+			scope: { title: '@', content: '@', placement: '@', animation: '&', isOpen: '&', template: '@' },
+			templateUrl: 'template/popover/popover-template.html'
+		};
+	})
+
+	.directive( 'popoverTemplate', [ '$tooltip', function ( $tooltip ) {
+		return $tooltip( 'popoverTemplate', 'popover', 'click' );
+	}])
+
+	.provider( '$tooltip', function () {
+		var defaultOptions = {
+			placement: 'top',
+			animation: true,
+			popupDelay: 0
+		};
+
+		var triggerMap = {
+			'mouseenter': 'mouseleave',
+			'click': 'click',
+			'focus': 'blur'
+		};
+
+		var globalOptions = {};
+
+		this.options = function( value ) {
+			angular.extend( globalOptions, value );
+		};
+
+		function snake_case(name){
+			var regexp = /[A-Z]/g;
+			var separator = '-';
+			return name.replace(regexp, function(letter, pos) {
+				return (pos ? separator : '') + letter.toLowerCase();
+			});
+		}
+
+		this.$get = [ '$window', '$compile', '$timeout', '$parse', '$document', '$position', function ( $window, $compile, $timeout, $parse, $document, $position ) {
+			return function $tooltip ( type, prefix, defaultTriggerShow ) {
+				var options = angular.extend( {}, defaultOptions, globalOptions );
+
+				function setTriggers ( trigger ) {
+					var show, hide;
+					show = trigger || options.trigger || defaultTriggerShow;
+					if ( angular.isDefined ( options.trigger ) ) {
+						hide = triggerMap[options.trigger] || show;
+					} else {
+						hide = triggerMap[show] || show;
+					}
+
+					return {
+						show: show,
+						hide: hide
+					};
+				}
+
+				var directiveName = snake_case( type );
+				var triggers = setTriggers( undefined );
+
+				var template =
+					'<'+ directiveName +'-popup '+
+					'title="{{tt_title}}" '+
+					'content="{{tt_content}}" '+
+					'placement="{{tt_placement}}" '+
+					'animation="tt_animation()" '+
+					'is-open="tt_isOpen" '+
+					'template="{{tt_template}}"'+
+					'>'+
+					'</'+ directiveName +'-popup>';
+
+				return {
+					restrict: 'EA',
+					scope: true,
+					link: function link ( scope, element, attrs ) {
+						var tooltip = $compile( template )( scope );
+						var transitionTimeout;
+						var popupTimeout;
+						var $body;
+
+						scope.tt_isOpen = false;
+
+						function toggleTooltipBind () {
+							if ( ! scope.tt_isOpen ) {
+								showTooltipBind();
+							} else {
+								hideTooltipBind();
+							}
+						}
+
+						function showTooltipBind() {
+							if ( scope.tt_popupDelay ) {
+								popupTimeout = $timeout( show, scope.tt_popupDelay );
+							} else {
+								scope.$apply( show );
+							}
+						}
+
+						function hideTooltipBind () {
+							scope.$apply(function () {
+								hide();
+							});
+						}
+
+						function show() {
+							var position,
+							ttWidth,
+							ttHeight,
+							ttPosition;
+
+							if ( ! scope.tt_content ) {
+								return;
+							}
+
+							if ( transitionTimeout ) {
+								$timeout.cancel( transitionTimeout );
+							}
+
+							tooltip.css({ top: 0, left: 0, display: 'block' });
+
+							if ( options.appendToBody ) {
+								$body = $body || $document.find( 'body' );
+								$body.append( tooltip );
+							} else {
+								element.after( tooltip );
+							}
+
+							position = $position.position( element );
+							ttWidth = tooltip.prop( 'offsetWidth' );
+							ttHeight = tooltip.prop( 'offsetHeight' );
+
+							switch ( scope.tt_placement ) {
+								case 'right':
+									ttPosition = {
+										top: (position.top + position.height / 2 - ttHeight / 2) + 'px',
+										left: (position.left + position.width) + 'px'
+									};
+									break;
+								case 'bottom':
+									ttPosition = {
+										top: (position.top + position.height) + 'px',
+										left: (position.left + position.width / 2 - ttWidth / 2) + 'px'
+									};
+									break;
+								case 'left':
+									ttPosition = {
+										top: (position.top + position.height / 2 - ttHeight / 2) + 'px',
+										left: (position.left - ttWidth) + 'px'
+									};
+	                						break;
+								default:
+									ttPosition = {
+										top: (position.top - ttHeight) + 'px',
+										left: (position.left + position.width / 2 - ttWidth / 2) + 'px'
+									};
+	                						break;
+	            					}
+
+								tooltip.css( ttPosition );
+								scope.tt_isOpen = true;
+							}
+
+							function hide() {
+								scope.tt_isOpen = false;
+								$timeout.cancel( popupTimeout );
+								if ( angular.isDefined( scope.tt_animation ) && scope.tt_animation() ) {
+									transitionTimeout = $timeout( function () { tooltip.remove(); }, 500 );
+								} else {
+									tooltip.remove();
+								}
+							}
+
+							attrs.$observe( type, function ( val ) {
+								scope.tt_content = val;
+							});
+
+							attrs.$observe( prefix+'Title', function ( val ) {
+								scope.tt_title = val;
+							});
+
+							attrs.$observe( prefix+'Placement', function ( val ) {
+								scope.tt_placement = angular.isDefined( val ) ? val : options.placement;
+							});
+
+							attrs.$observe( prefix+'Animation', function ( val ) {
+								scope.tt_animation = angular.isDefined( val ) ? $parse( val ) : function(){ return options.animation; };
+							});
+
+							attrs.$observe( prefix+'PopupDelay', function ( val ) {
+								var delay = parseInt( val, 10 );
+								scope.tt_popupDelay = ! isNaN(delay) ? delay : options.popupDelay;
+							});
+
+							attrs.$observe( prefix+'Trigger', function ( val ) {
+								element.unbind( triggers.show );
+								element.unbind( triggers.hide );
+								triggers = setTriggers( val );
+
+								if ( triggers.show === triggers.hide ) {
+									element.bind( triggers.show, toggleTooltipBind );
+								} else {
+									element.bind( triggers.show, showTooltipBind );
+									element.bind( triggers.hide, hideTooltipBind );
+								}
+							});
+
+							attrs.$observe( prefix+'Template', function ( val ) {
+								scope.tt_template = val;
+							});
+						}
+					};
+				};
+			}];
+		})
+		.directive( 'tooltipPopup', function () {
+			return {
+				restrict: 'E',
+				replace: true,
+				scope: { content: '@', placement: '@', animation: '&', isOpen: '&' },
+				templateUrl: 'template/tooltip/tooltip-popup.html'
+			};
+		})
+		.directive( 'tooltip', [ '$tooltip', function ( $tooltip ) {
+			return $tooltip( 'tooltip', 'tooltip', 'mouseenter' );
+		}])
+		.directive( 'tooltipHtmlUnsafePopup', function () {
+			return {
+				restrict: 'E',
+				replace: true,
+				scope: { content: '@', placement: '@', animation: '&', isOpen: '&' },
+				templateUrl: 'template/tooltip/tooltip-html-unsafe-popup.html'
+			};
+		})
+		.directive( 'tooltipHtmlUnsafe', [ '$tooltip', function ( $tooltip ) {
+			return $tooltip( 'tooltipHtmlUnsafe', 'tooltip', 'mouseenter' );
+		}])
+		.directive( 'ttLoadTemplateInSibling', [ '$http', '$templateCache', '$compile', function ( $http, $templateCache, $compile ) {
+			return {
+				link: function ( scope, element, attrs ) {
+				var templateScope = scope.$parent.$new();
+
+				attrs.$observe( 'ttLoadTemplateInSibling', function ( val ) {
+					$http.get( val, { cache: $templateCache } )
+						.then( function( response ) {
+							element.html( response.data );
+							$compile( element.contents() )( templateScope );
+					});
+				});
+			}
+		};
+	}])
 	.directive('touchspin', ['asyncScript', '$timeout', function (asyncScript, $timeout) {
 		return {
 			restrict: 'A',

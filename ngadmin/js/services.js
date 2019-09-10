@@ -47,6 +47,61 @@ factory('sessionService', ['$http', function($http) {
 		}
 	};
 }]).
+factory('$position', ['$document', '$window', function ($document, $window) {
+
+	function getStyle(el, cssprop) {
+		if (el.currentStyle) {
+			return el.currentStyle[cssprop];
+		} else if ($window.getComputedStyle) {
+			return $window.getComputedStyle(el)[cssprop];
+		}
+		return el.style[cssprop];
+	}
+
+	function isStaticPositioned(element) {
+		return (getStyle(element, "position") || 'static' ) === 'static';
+	}
+
+	var parentOffsetEl = function (element) {
+		var docDomEl = $document[0];
+		var offsetParent = element.offsetParent || docDomEl;
+		while (offsetParent && offsetParent !== docDomEl && isStaticPositioned(offsetParent) ) {
+			offsetParent = offsetParent.offsetParent;
+		}
+		return offsetParent || docDomEl;
+	};
+
+	return {
+
+		position: function (element) {
+			var elBCR = this.offset(element);
+			var offsetParentBCR = { top: 0, left: 0 };
+			var offsetParentEl = parentOffsetEl(element[0]);
+			if (offsetParentEl != $document[0]) {
+				offsetParentBCR = this.offset(angular.element(offsetParentEl));
+				offsetParentBCR.top += offsetParentEl.clientTop;
+				offsetParentBCR.left += offsetParentEl.clientLeft;
+			}
+
+		return {
+			width: element.prop('offsetWidth'),
+			height: element.prop('offsetHeight'),
+			top: elBCR.top - offsetParentBCR.top,
+			left: elBCR.left - offsetParentBCR.left
+		};
+	},
+
+	offset: function (element) {
+		var boundingClientRect = element[0].getBoundingClientRect();
+			return {
+				width: element.prop('offsetWidth'),
+				height: element.prop('offsetHeight'),
+				top: boundingClientRect.top + ($window.pageYOffset || $document[0].body.scrollTop),
+				left: boundingClientRect.left + ($window.pageXOffset || $document[0].body.scrollLeft)
+			};
+		}
+	};
+}]).
 factory('getTopPlayedSongs', ['$http', function($http) {
   return new getTopSongs($http);
 }]).
