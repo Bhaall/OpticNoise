@@ -42,11 +42,11 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group">
-														<label for="artistID">select artist:</label>
+														<label for="artistID">select artist</label>
 														<select class="form-control" name="artistID" id="artistID" ng-model="song.artistID" data-live-search="true" ng-options="artist.artist_id as artist.artist_name for artist in artists" data-style="white" selectpicker title="Select an artist" data-width="100%" ng-required="true"></select>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': AddSongForm.song_title.$valid, 'has-invalid': AddSongForm.song_title.$invalid && AddSongForm.song_title.$dirty, 'has-error': AddSongForm.song_title.$invalid && AddSongForm.submitted}">
-														<label for="song_title">song name:</label>
+														<label for="song_title">song name</label>
 														<div class="row">
 															<div class="col-xs-9">
 																<div class="input-icon">
@@ -61,7 +61,7 @@
 																</div>
 															</div>
 															<div class="col-xs-3">
-																<label>display in roster:</label>
+																<label>display in roster</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
 																		<input type="radio" name="roster_flag" ng-model="song.roster_flag" value="y" checked>yes
@@ -75,6 +75,13 @@
 															</div>
 														</div>
 													</div>
+													<div class="form-group has-feedback text-angular" ng-class="{'has-success': AddSongForm.song_comments.$valid, 'has-invalid': AddSongForm.song_comments.$invalid && AddSongForm.song_comments.$dirty, 'has-error': AddSongForm.song_comments.$invalid && AddSongForm.submitted}">
+														<label>song description</label> <i class="fas fa-info-circle fa-fw text-green ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Description is displayed in the comp and describes each track."></i>
+														<div class="input-icon" ng-class="{true: 'error'}[AddSongForm.submitted && AddSongForm.song_comments.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular ng-model="song.song_comments" name="song_comments" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+													</div>
 												</span>
 												<div class="ona-widget__foot">
 													<div class="ona-form__actions">
@@ -84,6 +91,8 @@
 												</div>
 											</div>
 										</div>
+									</div>
+									<div class="col-lg-6">
 										<div class="ona-widget__items">
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
@@ -100,7 +109,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group">
-														<label>select a new mp3 file:</label>
+														<label>select a new mp3 file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover=" MP3 file name must not contain strange characters; no dashes; end in '.mp3'."></i>
 														<div id="song-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
 															<div class="form-control" data-trigger="fileinput">
 																<i class="glyphicon glyphicon-file fileinput-exists text-light-blue" aria-hidden="true"></i>
@@ -113,7 +122,6 @@
 															</span>
 															<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
 														</div>
-														<h6 class="help-block">Click 'Choose...' to select an MP3 file.</h6>
 														<ul class="list-group file-info" ng-repeat="song_file in song_files">
 															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> File name: {{song_file.name}}</li>
 															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> Type: {{song_file.type}}</li>
@@ -137,38 +145,6 @@
 														</div>
 													</div>
 												</span>
-												<div class="ona-widget__foot">
-													<i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes</strong>; end in '.mp3'</em>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="ona-widget__items">
-											<div class="ona-widget__item">
-												<span class="ona-widget__icon">
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
-												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-											        <rect x="0" y="0" width="24" height="24"/>
-											        <polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5"/>
-											        <path d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z" fill="#000000"/>
-												    </g>
-													</svg>
-												</span>
-												<span class="ona-widget__subtitle">
-													Description
-												</span>
-												<span class="ona-widget__desc">
-													<div class="form-group has-feedback text-angular" ng-class="{'has-success': AddSongForm.song_comments.$valid, 'has-invalid': AddSongForm.song_comments.$invalid && AddSongForm.song_comments.$dirty, 'has-error': AddSongForm.song_comments.$invalid && AddSongForm.submitted}">
-														<div class="input-icon" ng-class="{true: 'error'}[AddSongForm.submitted && AddSongForm.song_comments.$invalid]">
-															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-															<text-angular ng-model="song.song_comments" name="song_comments" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
-														</div>
-													</div>
-												</span>
-												<div class="ona-widget__foot">
-													<i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i> <em>This text is displayed in the comp and describes each track</em>
-												</div>
 											</div>
 										</div>
 									</div>

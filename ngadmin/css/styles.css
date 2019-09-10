@@ -915,6 +915,7 @@ hr {
 }
 .ona-portlet .ona-portlet__body .ona-widget__stats .form-group label {
   color: #363636;
+  font-weight: 600;
 }
 @media (min-width: 1025px) {
   .ona-portlet.ona-portlet--height-fluid {
@@ -1486,6 +1487,7 @@ td > .mt-checkbox.mt-checkbox-single {
 }
 .popover-content {
   color: #363636;
+  font-size: 14px;
   font-weight: 400;
   padding: 9px 14px;
   text-transform: none;
@@ -1641,13 +1643,13 @@ a.list-group-item.active:focus {
 }
 .btn.btn-outline-clean {
   background: transparent;
-  border-color: #93a2dd;
-  color: #93a2dd;
+  border-color: #1565c0;
+  color: #1565c0;
   -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
 .btn.btn-outline-clean:hover {
-  background: #f0f3ff;
+  background: #eee;
   border-color: #5d78ff;
   color: #5d78ff;
 }
@@ -2987,7 +2989,7 @@ select.ng-valid.ng-valid-required {
 	z-index: 10055;
 }
 .text-angular .input-icon > i {
-  top: 40px
+  top: 36px
 }
 @media(max-width: 480px) {
   .text-angular .input-icon > i {

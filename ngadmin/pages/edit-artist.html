@@ -47,7 +47,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': EditArtistForm.INartistName.$valid, 'has-invalid': EditArtistForm.INartistName.$invalid && EditArtistForm.INartistName.$dirty, 'has-error': EditArtistForm.INartistName.$invalid && EditArtistForm.submitted}">
-														<label for="INartistName">name:</label>
+														<label for="INartistName">name</label>
 														<div class="row">
 															<div class="col-lg-2 col-sm-3">
 																<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
@@ -69,24 +69,23 @@
 														</div>
 													</div>
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INroster_desc.$valid, 'has-invalid': EditArtistForm.INroster_desc.$invalid && EditArtistForm.INroster_desc.$dirty, 'has-error': EditArtistForm.INroster_desc.$invalid && EditArtistForm.submitted}">
-														<label for="INroster_desc">description:</label>
+														<label for="INroster_desc">description</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in Roster"></i>
 														<div class="input-icon" ng-class="{true: 'error'}[EditArtistForm.submitted && EditArtistForm.INroster_desc.$invalid]">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
-															<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i> <em>Used in Roster</em></h6>
 														</div>
 													</div>
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.INlabel.$invalid && EditArtistForm.INlabel.$dirty, 'has-error': EditArtistForm.INlabel.$invalid && EditArtistForm.submitted}">
 														<div class="row">
 															<div class="col-lg-5 col-sm-4">
-															<label for="INlabel">label:</label>
+															<label for="INlabel">label</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw"></i>
 																	<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
 																</div>
 															</div>
 															<div class="col-lg-3 col-sm-4">
-																<label>active:</label>
+																<label>active</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
 																		<input type="radio" name="optionsActive" ng-model="artist.active" value="y" >yes
@@ -99,7 +98,7 @@
 																</div>
 															</div>
 															<div class="col-lg-4 col-sm-4">
-																<label for="INsync">sync:</label>
+																<label for="INsync">sync</label>
 																<select class="form-control" data-width="100%" title="" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="Master">Master</option>
 																	<option value="Sync">Sync</option>
@@ -141,6 +140,7 @@
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.home_order.$invalid && EditArtistForm.home_order.$dirty, 'has-error': EditArtistForm.home_order.$invalid && EditArtistForm.submitted}">
 														<div class="row">
 															<div class="col-lg-5 col-sm-4">
+																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Image must be 125x125 (name must not contain strange characters; end in '.jpg')"></i><br>
 																<div class="fileinput fileinput-{{albumClass}}" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/125-no-image.gif" class="img-responsive">
@@ -160,35 +160,29 @@
 																</ul>
 															</div>
 															<div class="col-lg-4 col-sm-4">
-																<label><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Enabled if image exists."></i> display in signings</label>
+																<label for="home_status"> display in signings</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
-																		<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="y" >yes
+																		<input type="radio" class="form-control" name="home_status" ng-model="artist.home_status" value="y" >yes
 																		<span></span>
 																	</label>
 																	<label class="mt-radio">
-																		<input type="radio" class="form-control" name="home_status" ng-disabled="albumClass=='new'" ng-model="artist.home_status" value="n">no
+																		<input type="radio" class="form-control" name="home_status" ng-model="artist.home_status" value="n">no
 																		<span></span>
 																	</label>
 																</div>
-																<!-- <h6 class="help-block"><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i> Enabled if image exists.</h6> -->
-
 															</div>
 															<div class="col-lg-3 col-sm-4">
-																<label for="home_order">sort order</label>
+																<label for="home_order"> sort order</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Only three artists are displayed in Signings section on home page."></i>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw"></i>
 																	<input type="text" touchspin name="home_order" id="home_order" class="form-control touchspin"  ng-model="artist.home_order" />
 																</div>
-																<h6 class="help-block">highest: {{max}}</h6>
+																<h6 class="help-block"><i class="fas fa-sort-numeric-down text-green" aria-hidden="true"></i> highest: {{max}}</h6>
 															</div>
 														</div>
 													</div>
 												</span>
-												<div class="ona-widget__foot">
-													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> Image <span class="red">must be 125x125</span> (name must not contain strange characters; end in '.jpg')</h6>
-													<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i> Note: there can be only three artists displayed in Signings section on home page.</h6>
-												</div>
 											</div>
 										</div>
 										<div class="ona-widget__items">
@@ -207,7 +201,8 @@
 												<span class="ona-widget__desc">
 													<div class="form-group">
 														<div class="row">
-															<div class="col-lg-9 col-sm-8">
+															<div class="col-lg-8 col-sm-8">
+																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Image must be 573x282 (name must not contain strange characters; end in '.jpg')"></i>
 																<div class="fileinput fileinput-{{sliderClass}}" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/carousel-no-image.gif" alt="" />
@@ -227,26 +222,22 @@
 																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw text-pink" aria-hidden="true"></i> Size: {{slider_pic.size}}kb</li>
 																</ul>
 															</div>
-															<div class="col-lg-3 col-sm-4">
+															<div class="col-lg-4 col-sm-4">
 																<label>display in carousel</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
-																		<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="y">yes
+																		<input type="radio" name="slider_status" ng-model="artist.slider_status" value="y">yes
 																		<span></span>
 																	</label>
 																	<label class="mt-radio">
-																		<input type="radio" name="slider_status" ng-disabled="sliderClass=='new'" ng-model="artist.slider_status" value="n">no
+																		<input type="radio" name="slider_status" ng-model="artist.slider_status" value="n">no
 																		<span></span>
 																	</label>
-																	<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i> Enabled if image exists.</h6>
 																</div>
 															</div>
 														</div>
 													</div>
 												</span>
-												<div class="ona-widget__foot">
-													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> Image <span class="red">must be 573x282</span> (name must not contain strange characters; end in '.jpg')</h6>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -268,8 +259,8 @@
 													<table class="table table-condensed table-striped table-hover pull-down">
 														<thead>
 															<tr>
-																<th><i class="fas fa-tag fa-fw text-aqua" aria-hidden="true"></i> name</th>
-																<th><i class="fas fa-file-audio fa-fw text-orange" aria-hidden="true"></i> mp3</th>
+																<th><i class="fas fa-tag fa-fw text-orange" aria-hidden="true"></i> name</th>
+																<th><i class="fas fa-file-audio fa-fw text-danger" aria-hidden="true"></i> mp3</th>
 																<th class="center"><i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i></th>
 																<th class="center"><i class="fas fa-desktop fa-fw text-green" aria-hidden="true"></i></th>
 																<th></th>

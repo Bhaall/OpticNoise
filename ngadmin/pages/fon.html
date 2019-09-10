@@ -110,12 +110,11 @@
 						<div class="col-lg-12">
 							<div class="panel panel-yellow refresh-data">
 								<div class="panel-heading">
-									Select the artist to add
+									Add artist <i class="fas fa-info-circle fa-fw text-green ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="This list only displays artist that are currently not in FON and already have an album image."></i>
 								</div>
 								<div class="panel-body">
 									<div class="form-group">
 										<select class="form-control" name="artistID" id="artistID" ng-model="artist.INartistID" data-live-search="true" ng-options="artist.artist_id as artist.artist_name for artist in artists" data-style="white" selectpicker title="Select an artist" data-width="100%" ng-required="true"></select>
-										<h6 class="help-block"><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i> <em>This list only displays artist that are currently <u>not</u> in FON and already have an album image</em></h6>
 									</div>
 								</div>
 							</div>

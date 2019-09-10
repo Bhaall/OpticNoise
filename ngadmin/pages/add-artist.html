@@ -42,7 +42,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': AddArtistForm.INartistName.$valid && AddArtistForm.INartistName.$dirty, 'has-invalid': AddArtistForm.INartistName.$invalid && AddArtistForm.INartistName.$dirty, 'has-error': AddArtistForm.INartistName.$invalid && AddArtistForm.submitted}">
-														<label for="INartistName">name:</label>
+														<label for="INartistName">name</label>
 														<div class="row">
 															<div class="col-lg-3 col-sm-3">
 																<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
@@ -52,7 +52,7 @@
 															<div class="col-lg-9 col-sm-9">
 																<div class="input-icon">
 																	<i class="fas fa-id-badge fa-fw" aria-hidden="true"></i>
-																	<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" required autofocus />
+																	<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" required />
 																</div>
 																<div ng-show="AddArtistForm.INartistName.$valid">
 																	<span ng-show="AddArtistForm.INartistName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -64,7 +64,7 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': AddArtistForm.INroster_desc.$valid && AddArtistForm.INroster_desc.$dirty, 'has-invalid': AddArtistForm.INroster_desc.$invalid && AddArtistForm.INroster_desc.$dirty, 'has-error': AddArtistForm.INroster_desc.$invalid && AddArtistForm.submitted}">
-														<label for="INroster_desc">description:</label>
+														<label for="INroster_desc">description</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in Roster"></i>
 														<div class="input-icon">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
@@ -73,14 +73,14 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': AddArtistForm.INlabel.$valid && AddArtistForm.INlabel.$dirty, 'has-invalid': AddArtistForm.INlabel.$invalid && AddArtistForm.INlabel.$dirty, 'has-error': AddArtistForm.INlabel.$invalid && AddArtistForm.submitted}">
 														<div class="row">
 															<div class="col-lg-6 col-sm-4">
-															<label for="INlabel">label:</label>
+															<label for="INlabel">label</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
 																	<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
 																</div>
 															</div>
 															<div class="col-lg-3 col-sm-4">
-																<label>active:</label>
+																<label>active</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
 																		<input type="radio" name="optionsActive" ng-model="artist.active" value="y" checked>yes
@@ -93,7 +93,7 @@
 																</div>
 															</div>
 															<div class="col-lg-3 col-sm-4">
-																<label for="INsync">sync:</label>
+																<label for="INsync">sync</label>
 																<select class="form-control" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="Master">Master</option>
 																	<option value="Sync">Sync</option>
@@ -128,7 +128,8 @@
 												<span class="ona-widget__desc">
 													<div class="form-group">
 														<div class="row">
-															<div class="col-xs-6">
+															<div class="col-lg-5 col-sm-4">
+																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Image must be 125x125 (name must not contain strange characters; end in '.jpg')"></i><br>
 																<div class="fileinput fileinput-new" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img src="img/125-no-image.gif" class="img-responsive">
@@ -146,7 +147,7 @@
 																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw text-pink" aria-hidden="true"></i> size: {{album_pic.size}}kb</li>
 																</ul>
 															</div>
-															<div class="col-xs-3">
+															<div class="col-lg-4 col-sm-4">
 																<label>display in new signings</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
@@ -159,20 +160,17 @@
 																	</label>
 																</div>
 															</div>
-															<div class="col-xs-3">
-																<label for="home_order">sort order</label>
+															<div class="col-lg-3 col-sm-4">
+																<label for="home_order">sort order</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Only three artists are displayed in Signings section on home page."></i>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
 																	<input type="number" touchspin name="home_order" id="home_order" class="form-control"  ng-model="artist.home_order" />
 																</div>
-																<h6 class="help-block">highest: {{max}}</h6>
+																<h6 class="help-block"><i class="fas fa-sort-numeric-down text-green" aria-hidden="true"></i> highest: {{max}}</h6>
 															</div>
 														</div>
 													</div>
 												</span>
-												<div class="ona-widget__foot">
-													<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image <span class="red">must be 125x125</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -193,7 +191,8 @@
 												<span class="ona-widget__desc">
 													<div class="form-group">
 														<div class="row">
-															<div class="col-lg-9 col-sm-8">
+															<div class="col-lg-8 col-sm-8">
+																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Image must be 573x282 (name must not contain strange characters; end in '.jpg')"></i>
 																<div class="fileinput fileinput-new" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img src="img/carousel-no-image.gif" alt="" />
@@ -211,7 +210,7 @@
 																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw text-pink" aria-hidden="true"></i> Size: {{slider_pic.size}}kb</li>
 																</ul>
 															</div>
-															<div class="col-lg-3 col-sm-4">
+															<div class="col-lg-4 col-sm-4">
 																<label>display in carousel</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
@@ -227,9 +226,6 @@
 														</div>
 													</div>
 												</span>
-												<div class="ona-widget__foot">
-													<h6 class="help-block">	<i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image <span class="red">must be 573x282</span> (name must not contain strange characters; no dashes; end in '.jpg')</em></h6>
-												</div>
 											</div>
 										</div>
 									</div>

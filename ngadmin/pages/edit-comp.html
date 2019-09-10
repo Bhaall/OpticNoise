@@ -58,7 +58,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': EditCompForm.comp_name.$valid, 'has-invalid': EditCompForm.comp_name.$invalid && EditCompForm.comp_name.$dirty, 'has-error': EditCompForm.comp_name.$invalid && EditCompForm.submitted}">
-														<label for="comp_name">name:</label>
+														<label for="comp_name">name</label>
 														<div class="input-icon">
 															<i class="fas fa-flag fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="comp_name" type="text" ng-model="comp.comp_name" placeholder="name (required)" required />
@@ -71,7 +71,7 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditCompForm.comp_desc.$valid, 'has-invalid': EditCompForm.comp_desc.$invalid && EditCompForm.comp_desc.$dirty, 'has-error': EditCompForm.comp_desc.$invalid && EditCompForm.submitted}">
-														<label for="comp_desc">description:</label>
+														<label for="comp_desc">description</label>
 														<div class="input-icon" ng-class="{true: 'error'}[EditCompForm.submitted && EditCompForm.comp_desc.$invalid]">
 															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
 															<text-angular name="comp_desc" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="comp.comp_desc" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
@@ -81,7 +81,7 @@
 														<div class="row">
 															<div class="col-xs-8">
 																<div class="form-group has-feedback" ng-class="{'has-success': EditCompForm.comp_file.$valid, 'has-invalid': EditCompForm.comp_file.$invalid && EditCompForm.comp_file.$dirty, 'has-error': EditCompForm.comp_file.$invalid && EditCompForm.submitted}">
-																	<label for="comp_file">zip file:</label>
+																	<label for="comp_file">zip file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
 																	<div class="input-icon">
 																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 																		<input class="form-control" name="comp_file" type="text" ng-model="comp.comp_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
@@ -92,12 +92,11 @@
 																	<div ng-show="EditCompForm.comp_file.$invalid && EditCompForm.comp_file.$dirty">
 																		<span ng-show="EditCompForm.comp_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 																	</div>
-																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
 																</div>
 															</div>
 															<div class="col-xs-4">
 																<div class="form-group" ng-class="{'has-success': EditCompForm.sort.$valid, 'has-invalid': EditCompForm.sort.$invalid && EditCompForm.sort.$dirty, 'has-error': EditCompForm.sort.$invalid && EditCompForm.submitted}">
-																	<label for="itemOrder">sort:</label>
+																	<label for="itemOrder">sort</label>
 																	<div class="input-icon">
 																		<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
 																		<input type="text" touchspin name="sort" id="sort" class="form-control" ng-model="comp.sort" />
@@ -105,9 +104,11 @@
 																</div>
 															</div>
 														</div>
+													</div>
+													<div class="form-group">
 														<div class="row">
 															<div class="col-xs-12">
-																<label for="link-{{ $index*10 + 1 }}">download link:</label>
+																<label for="link-{{ $index*10 + 1 }}">download link</label>
 																<div class="input-group">
 																	<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}" ng-model="comp.copy2" />
 																	<span class="input-group-btn">
@@ -120,7 +121,7 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-xs-12">
-																<label for="link-{{ $index*10 + 1 }}">page link:</label>
+																<label for="link-{{ $index*10 + 1 }}">page link</label>
 																<div class="input-group">
 																	<input type="text" name="link-{{ $index*10 + 1 }}" id="link-{{ $index*10 + 1 }}" class="form-control" value="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" ng-model="comp.copy3" />
 																	<span class="input-group-btn">
@@ -135,12 +136,12 @@
 															<div class="col-lg-12">
 																<ul class="list-group pull-down">
 																	<li class="list-group-item"><i class="fas fa-external-link-alt fa-fw text-purple" aria-hidden="true"></i> Download Link <strong><span class="pull-right"><a href="http://www.optic-noise.com/download_comp.php?id={{comp.comp_id}}">{{comp.comp_name}}</a></span></strong></li>
-																	<li class="list-group-item"><i class="fas fa-link fa-fw text-green" aria-hidden="true"></i> Page Link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
-																	<li class="list-group-item"><i class="fas fa-download fa-fw text-orange" aria-hidden="true"></i> Number of Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
+																	<li class="list-group-item"><i class="fas fa-link fa-fw text-orange" aria-hidden="true"></i> Page Link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
+																	<li class="list-group-item"><i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Number of Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download <span class="pull-right">{{comp.lastDownload}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added <span class="pull-right">{{comp.dateAdded}}</span></li>
-																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span><h6 class="help-block margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Comps In Carousel are displayed on the Home page.</em></h6></li>
-																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span><h6 class="help-block margin-bottom-0"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Only Active Comps are displayed on the Comps page.</em></h6></li>
+																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Comps In Carousel are displayed on the Home page."></i></li>
+																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Only Active Comps are displayed on the Comps page."></i></li>
 																</ul>
 															</div>
 														</div>
@@ -172,6 +173,7 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-xs-6">
+																<label><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')"></i></label><br>
 																<div class="fileinput fileinput-exists" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/200-no-image.gif" class="img-responsive">
@@ -182,7 +184,6 @@
 																	<div>
 																		<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span><span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" id="comp_pic" name="comp_pic" portrait-input="comp_pics"></span>
 																		<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
-																		<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image must be 200x200 (file name must not have strange characters; no dashes; NO SPACES; end in '.jpg')</em></h6>
 																	</div>
 																</div>
 																<ul class="list-group file-info" ng-repeat="comp_pic in comp_pics">
@@ -271,11 +272,11 @@
 														<table class="table table-striped table-condensed table-hover pull-down">
 															 <thead>
 																<tr>
-																	 <th><i class="fas fa-sort-numeric-down fa-fw text-yellow-casablanca" aria-hidden="true"></i> sort</th>
-																	 <th><i class="fas fa-tag fa-fw text-green" aria-hidden="true"></i> name</th>
-																	 <th><i class="fas fa-heart fa-fw text-danger" aria-hidden="true"></i> artist</th>
-																	 <th><i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i></th>
-																	 <th><i class="fas fa-download fa-fw text-orange" aria-hidden="true"></i></th>
+																	 <th class="center"><i class="fas fa-sort-numeric-down fa-fw text-danger" aria-hidden="true"></i></th>
+																	 <th><i class="fas fa-tag fa-fw text-orange" aria-hidden="true"></i> name</th>
+																	 <th><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> artist</th>
+																	 <th class="center"><i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i></th>
+																	 <th class="center"><i class="fas fa-download fa-fw text-green" aria-hidden="true"></i></th>
 																	 <th></th>
 																 </tr>
 															 </thead>
@@ -284,8 +285,8 @@
 																	 <td class="col-xs-1"><input touchspin type="text" name="item_sort[]" class="form-control sortorder" ng-model="song.item_sort"></td>
 																	 <td class="col-xs-4"><a href="#/edit-song/{{song.songID}}">{{song.song_title}}</a></td>
 																	 <td class="col-xs-4"><a href="#/edit-artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
-																	 <td class="col-xs-1">{{song.song_count}}</td>
-																	 <td class="col-xs-1">{{song.song_downloads}}</td>
+																	 <td class="col-xs-1 center">{{song.song_count}}</td>
+																	 <td class="col-xs-1 center">{{song.song_downloads}}</td>
 																	 <td class="col-xs-1">
 																		 <div class="tools btn-group">
 								 											<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>

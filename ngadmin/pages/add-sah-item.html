@@ -42,7 +42,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': AddSAHItemForm.itemHeader.$valid && AddSAHItemForm.itemHeader.$dirty, 'has-invalid': AddSAHItemForm.itemHeader.$invalid && AddSAHItemForm.itemHeader.$dirty, 'has-error': AddSAHItemForm.itemHeader.$invalid && AddSAHItemForm.submitted}">
-														<label for="itemHeader">name:</label>
+														<label for="itemHeader">name</label>
 														<div class="input-icon">
 															<i class="fas fa-flag fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="itemHeader" id="itemHeader" type="text" ng-model="item.itemHeader" placeholder="name (required)" required autofocus focus-me />
@@ -57,7 +57,7 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': AddSAHItemForm.itemMedia.$valid && AddSAHItemForm.itemMedia.$dirty, 'has-invalid': AddSAHItemForm.itemMedia.$invalid && AddSAHItemForm.itemMedia.$dirty, 'has-error': AddSAHItemForm.itemMedia.$invalid && AddSAHItemForm.submitted}">
 														<div class="row">
 															<div class="col-xs-9">
-																<label for="itemMedia">media:</label>
+																<label for="itemMedia">media</label>
 																<select class="form-control" name="itemMedia" ng-model="item.itemMedia" selectpicker data-style="white" title="Select item media" data-width="100%" ng-required="true">
 																	<option value=""></option>
 																	<option value="TV">TV</option>
@@ -68,7 +68,7 @@
 																</select>
 															</div>
 															<div class="col-xs-3">
-																<label for="itemOrder">sort:</label>
+																<label for="itemOrder">sort</label>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
 																	<input type="number" touchspin name="itemOrder" id="itemOrder" class="form-control" required ng-model="item.itemOrder" />

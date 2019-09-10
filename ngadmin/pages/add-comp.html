@@ -44,7 +44,7 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': AddCompForm.comp_name.$valid, 'has-invalid': AddCompForm.comp_name.$invalid && AddCompForm.comp_name.$dirty, 'has-error': AddCompForm.comp_name.$invalid && AddCompForm.submitted}">
 														<div class="row">
 															<div class="col-xs-6">
-																<label for="comp_name">name:</label>
+																<label for="comp_name">name</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
 																	<input class="form-control" name="comp_name" placeholder="comp name (required)" type="text" ng-model="comp.comp_name" required />
@@ -57,7 +57,7 @@
 																</div>
 															</div>
 															<div class="col-xs-3">
-																<label>active:</label>
+																<label>active</label>
 																	<div class="mt-radio-inline">
 																	<label class="mt-radio">
 																		<input type="radio" name="active" ng-model="comp.active" value="y" checked>yes
@@ -70,7 +70,7 @@
 																</div>
 															</div>
 															<div class="col-xs-3">
-																<label>carousel:</label>
+																<label>carousel</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
 																		<input type="radio" name="comp_flag" ng-model="comp.comp_flag" value="y" checked>yes
@@ -85,7 +85,7 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback text-angular" ng-class="{'has-success': AddCompForm.comp_desc.$valid, 'has-invalid': AddCompForm.comp_desc.$invalid && AddCompForm.comp_desc.$dirty, 'has-error': AddCompForm.comp_desc.$invalid && AddCompForm.submitted}">
-														<label for="comp_desc">description:</label>
+														<label for="comp_desc">description</label>
 														<div class="input-icon" ng-class="{true: 'error'}[AddCompForm.submitted && AddCompForm.comp_desc.$invalid]">
 															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
 															<text-angular ng-model="comp.comp_desc" name="comp_desc" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
@@ -95,7 +95,7 @@
 														<div class="row">
 															<div class="col-xs-8">
 																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddCompForm.comp_file.$valid, 'has-invalid': AddCompForm.comp_file.$invalid && AddCompForm.comp_file.$dirty, 'has-error': AddCompForm.comp_file.$invalid && AddCompForm.submitted}">
-																	<label for="comp_file">zip file:</label>
+																	<label for="comp_file">zip file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
 																	<div class="input-icon">
 																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 																		<input class="form-control" name="comp_file" type="text" ng-model="comp.comp_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
@@ -106,12 +106,11 @@
 																	<div ng-show="AddCompForm.comp_file.$invalid && AddCompForm.comp_file.$dirty">
 																		<span ng-show="AddCompForm.comp_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 																	</div>
-																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
 																</div>
 															</div>
 															<div class="col-xs-4">
 																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddCompForm.sort.$valid, 'has-invalid': AddCompForm.sort.$invalid && AddCompForm.comp_file.$dirty, 'has-error': AddCompForm.sort.$invalid && AddCompForm.submitted}">
-																	<label for="sort">sort:</label>
+																	<label for="sort">sort</label>
 																	<div class="input-icon">
 																		<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
 																		<input type="number" touchspin name="sort" id="sort" class="form-control" required ng-model="comp.sort" />
@@ -148,6 +147,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group">
+														<label><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')"></i></label><br>
 														<div class="fileinput fileinput-new" data-provides="fileinput">
 															<div class="fileinput-new thumbnail">
 																<img src="img/200-no-image.gif" class="img-responsive">
@@ -157,7 +157,6 @@
 																<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span>
 																<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" id="comp_pic" name="comp_pic" portrait-input="comp_pics"></span>
 																<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
-																<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')</em></h6>
 															</div>
 														</div>
 														<ul class="list-group file-info" ng-repeat="comp_pic in comp_pics">

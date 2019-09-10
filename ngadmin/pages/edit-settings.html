@@ -42,12 +42,11 @@
 	                      </span>
 	                      <span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.SiteTitle.$valid, 'has-invalid': EditSettingsForm.SiteTitle.$invalid && EditSettingsForm.SiteTitle.$dirty, 'has-error': EditSettingsForm.SiteTitle.$invalid && EditSettingsForm.submitted}">
-														<label for="SiteTitle">name:</label>
+														<label for="SiteTitle">name</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used for title of each page."></i>
 														<div class="input-icon" ng-class="{true: 'error'}[EditSettingsForm.submitted && EditSettingsForm.SiteTitle.$invalid]">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="SiteTitle" type="text" ng-model="setting.SiteTitle" placeholder="site name (required)" required />
 														</div>
-														<h6 class="help-block">Used for title of each page.</h6>
 														<div ng-show="EditSettingsForm.SiteTitle.$valid">
 															<span ng-show="EditSettingsForm.SiteTitle.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -56,12 +55,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.SiteKeywords.$valid, 'has-invalid': EditSettingsForm.SiteKeywords.$invalid && EditSettingsForm.SiteKeywords.$dirty, 'has-error': EditSettingsForm.SiteKeywords.$invalid && EditSettingsForm.submitted}">
-														<label for="SiteKeywords">keywords:</label>
+														<label for="SiteKeywords">keywords</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used for meta data."></i>
 														<div class="input-icon">
-															<i class="fas fa-info-circle fa-fw text-green" aria-hidden="true"></i>
+															<i class="fas fa-key fa-fw text-green" aria-hidden="true"></i>
 															<textarea autosize class="form-control" rows="3" name="SiteKeywords" ng-model="setting.SiteKeywords" required></textarea>
 														</div>
-														<h6 class="help-block">Used for meta data.</h6>
 														<div ng-show="EditSettingsForm.SiteKeywords.$valid">
 															<span ng-show="EditSettingsForm.SiteKeywords.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -70,12 +68,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.SiteDesc.$valid, 'has-invalid': EditSettingsForm.SiteDesc.$invalid && EditSettingsForm.SiteDesc.$dirty, 'has-error': EditSettingsForm.SiteDesc.$invalid && EditSettingsForm.submitted}">
-														<label for="SiteKeywords">description:</label>
+														<label for="SiteKeywords">description</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used for meta data."></i>
 														<div class="input-icon" ng-class="{true: 'error'}[EditSettingsForm.submitted && EditSettingsForm.SiteDesc.$invalid]">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="SiteDesc" type="text" ng-model="setting.SiteDesc" required />
 														</div>
-														<h6 class="help-block">Used for meta data.</h6>
 														<div ng-show="EditSettingsForm.SiteDesc.$valid">
 															<span ng-show="EditSettingsForm.SiteDesc.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -84,12 +81,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.SiteURL.$valid, 'has-invalid': EditSettingsForm.SiteURL.$invalid && EditSettingsForm.SiteURL.$dirty, 'has-error': EditSettingsForm.SiteURL.$invalid && EditSettingsForm.submitted}">
-														<label for="SiteKeywords">URL:</label>
+														<label for="SiteKeywords">URL</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used for SEO Structured Data."></i>
 														<div class="input-icon" ng-class="{true: 'error'}[EditSettingsForm.submitted && EditSettingsForm.SiteURL.$invalid]">
 															<i class="fas fa-link fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="SiteURL" type="text" ng-model="setting.SiteURL" required />
 														</div>
-														<h6 class="help-block">Used for SEO Structured Data.</h6>
 														<div ng-show="EditSettingsForm.SiteURL.$valid">
 															<span ng-show="EditSettingsForm.SiteURL.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -98,12 +94,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.ContactEmail.$valid, 'has-invalid': EditSettingsForm.ContactEmail.$invalid && EditSettingsForm.ContactEmail.$dirty, 'has-error': EditSettingsForm.ContactEmail.$invalid && EditSettingsForm.submitted}">
-														<label for="ContactEmail">email:</label>
+														<label for="ContactEmail">email</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in contact section."></i>
 														<div class="input-icon" ng-class="{true: 'error'}[EditSettingsForm.submitted && EditSettingsForm.ContactEmail.$invalid]">
 															<i class="fas fa-envelope fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="ContactEmail" type="text" ng-model="setting.ContactEmail" required />
 														</div>
-														<h6 class="help-block">Used for contact section.</h6>
 														<div ng-show="EditSettingsForm.ContactEmail.$valid">
 															<span ng-show="EditSettingsForm.ContactEmail.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -112,12 +107,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.ContactPhone.$valid, 'has-invalid': EditSettingsForm.ContactPhone.$invalid && EditSettingsForm.ContactPhone.$dirty, 'has-error': EditSettingsForm.ContactPhone.$invalid && EditSettingsForm.submitted}">
-														<label for="ContactPhone">phone:</label>
+														<label for="ContactPhone">phone</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in contact section."></i>
 														<div class="input-icon" ng-class="{true: 'error'}[EditSettingsForm.submitted && EditSettingsForm.ContactPhone.$invalid]">
 															<i class="fas fa-phone fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="ContactPhone" type="text" ng-model="setting.ContactPhone" required />
 														</div>
-														<h6 class="help-block">Used for contact section.</h6>
 														<div ng-show="EditSettingsForm.ContactPhone.$valid">
 															<span ng-show="EditSettingsForm.ContactPhone.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -126,6 +120,7 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.logo.$valid, 'has-invalid': EditSettingsForm.logo.$invalid && EditSettingsForm.logo.$dirty, 'has-error': EditSettingsForm.logo.$invalid && EditSettingsForm.submitted}">
+														<label>Logo</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used site wide and for SEO Structured Data."></i><br>
 														<div class="fileinput fileinput-{{logoClass}}" data-provides="fileinput">
 															<div class="fileinput-new thumbnail">
 																<img ng-src="img/125-no-image.gif" class="img-responsive">
@@ -143,7 +138,6 @@
 															 <li class="list-group-item"><strong>type:</strong> {{logo.type}}</li>
 															 <li class="list-group-item"><strong>size:</strong> {{logo.size}}kb</li>
 														</ul>
-														<h6 class="help-block">Used site wide and for SEO Structured Data.</h6>
 														<div ng-show="EditSettingsForm.logo.$valid">
 															<span ng-show="EditSettingsForm.logo.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -172,12 +166,11 @@
 	                      </span>
 	                      <span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.sitequote.$valid, 'has-invalid': EditSettingsForm.sitequote.$invalid && EditSettingsForm.sitequote.$dirty, 'has-error': EditSettingsForm.sitequote.$invalid && EditSettingsForm.submitted}">
-														<label for="sitequote">site quote:</label>
+														<label for="sitequote">site quote</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover=" Used in featured section."></i>
 														<div class="input-icon">
 															<i class="fas fa-quote-left fa-fw" aria-hidden="true"></i>
 															<textarea autosize class="form-control" rows="3" name="sitequote" ng-model="setting.sitequote" required></textarea>
 														</div>
-														<h6 class="help-block">Used in featured section.</h6>
 														<div ng-show="EditSettingsForm.sitequote.$valid">
 															<span ng-show="EditSettingsForm.sitequote.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -186,12 +179,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.homequote.$valid, 'has-invalid': EditSettingsForm.homequote.$invalid && EditSettingsForm.homequote.$dirty, 'has-error': EditSettingsForm.homequote.$invalid && EditSettingsForm.submitted}">
-														<label for="homequote">home quote:</label>
+														<label for="homequote">home quote</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in home page ribbon."></i>
 														<div class="input-icon">
 															<i class="fas fa-quote-left fa-fw" aria-hidden="true"></i>
 															<textarea autosize class="form-control" rows="3" name="homequote" ng-model="setting.homequote" required></textarea>
 														</div>
-														<h6 class="help-block">Used in home page ribbon.</h6>
 														<div ng-show="EditSettingsForm.homequote.$valid">
 															<span ng-show="EditSettingsForm.homequote.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -200,12 +192,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.rosterquote.$valid, 'has-invalid': EditSettingsForm.rosterquote.$invalid && EditSettingsForm.rosterquote.$dirty, 'has-error': EditSettingsForm.rosterquote.$invalid && EditSettingsForm.submitted}">
-														<label for="rosterquote">roster quote:</label>
+														<label for="rosterquote">roster quote</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in roster page ribbon."></i>
 														<div class="input-icon">
 															<i class="fas fa-quote-left fa-fw" aria-hidden="true"></i>
 															<textarea autosize class="form-control" rows="3" name="rosterquote" ng-model="setting.rosterquote" required></textarea>
 														</div>
-														<h6 class="help-block">Used in roster page ribbon.</h6>
 														<div ng-show="EditSettingsForm.rosterquote.$valid">
 															<span ng-show="EditSettingsForm.rosterquote.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -214,12 +205,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.placementsquote.$valid, 'has-invalid': EditSettingsForm.placementsquote.$invalid && EditSettingsForm.placementsquote.$dirty, 'has-error': EditSettingsForm.placementsquote.$invalid && EditSettingsForm.submitted}">
-														<label for="placementsquote">licenses quote:</label>
+														<label for="placementsquote">licenses quote</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in licenses page ribbon."></i>
 														<div class="input-icon">
 															<i class="fas fa-quote-left fa-fw" aria-hidden="true"></i>
 															<textarea autosize class="form-control" rows="3" name="placementsquote" ng-model="setting.placementsquote" required></textarea>
 														</div>
-														<h6 class="help-block">Used in licenses page ribbon.</h6>
 														<div ng-show="EditSettingsForm.placementsquote.$valid">
 															<span ng-show="EditSettingsForm.placementsquote.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -228,12 +218,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.compsquote.$valid, 'has-invalid': EditSettingsForm.compsquote.$invalid && EditSettingsForm.compsquote.$dirty, 'has-error': EditSettingsForm.compsquote.$invalid && EditSettingsForm.submitted}">
-														<label for="compsquote">comps quote:</label>
+														<label for="compsquote">comps quote</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in comps page ribbon."></i>
 														<div class="input-icon">
 															<i class="fas fa-quote-left fa-fw" aria-hidden="true"></i>
 															<textarea autosize class="form-control" rows="3" name="compsquote" ng-model="setting.compsquote" required></textarea>
 														</div>
-														<h6 class="help-block">Used in comps page ribbon.</h6>
 														<div ng-show="EditSettingsForm.compsquote.$valid">
 															<span ng-show="EditSettingsForm.compsquote.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>
@@ -242,12 +231,11 @@
 														</div>
 													</div>
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSettingsForm.aboutquote.$valid, 'has-invalid': EditSettingsForm.aboutquote.$invalid && EditSettingsForm.aboutquote.$dirty, 'has-error': EditSettingsForm.aboutquote.$invalid && EditSettingsForm.submitted}">
-														<label for="aboutquote">about quote:</label>
+														<label for="aboutquote">about quote</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in about page ribbon."></i>
 														<div class="input-icon">
 															<i class="fas fa-quote-left fa-fw" aria-hidden="true"></i>
 															<textarea autosize class="form-control" rows="3" name="aboutquote" ng-model="setting.aboutquote" required></textarea>
 														</div>
-														<h6 class="help-block">Used in about page ribbon.</h6>
 														<div ng-show="EditSettingsForm.aboutquote.$valid">
 															<span ng-show="EditSettingsForm.aboutquote.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 														</div>

@@ -42,7 +42,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': AddArtistForm.INartistName.$valid && AddArtistForm.INartistName.$dirty, 'has-invalid': AddArtistForm.INartistName.$invalid && AddArtistForm.INartistName.$dirty, 'has-error': AddArtistForm.INartistName.$invalid && AddArtistForm.submitted}">
-														<label for="INartistName">name:</label>
+														<label for="INartistName">name</label>
 														<div class="row">
 															<div class="col-lg-3 col-sm-3">
 																<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
@@ -64,7 +64,7 @@
 														</div>
 													</div>
 													<div class="form-group">
-														<label for="INroster_desc">description:</label>
+														<label for="INroster_desc">description</label> <i class="fas fa-info-circle fa-fw text-green ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in Roster"></i>
 														<div class="input-icon">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
@@ -73,14 +73,14 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-lg-6 col-sm-4">
-															<label for="INlabel">label:</label>
+															<label for="INlabel">label</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
 																	<input class="form-control" id="INlabel" name="INlabel" type="text" ng-model="artist.INlabel" />
 																</div>
 															</div>
 															<div class="col-lg-6 col-sm-4">
-																<label>active:</label>
+																<label>active</label>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
 																		<input type="radio" name="optionsActive" ng-model="artist.active" value="y" checked>yes
@@ -93,7 +93,7 @@
 																</div>
 															</div>
 															<div class="col-lg-3 col-sm-4">
-																<label for="INsync">sync:</label>
+																<label for="INsync">sync</label>
 																<select class="form-control" name="INsync" ng-model="artist.INsync" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="Master">Master</option>
 																	<option value="Sync">Sync</option>

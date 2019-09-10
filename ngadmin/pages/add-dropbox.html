@@ -42,7 +42,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_name.$valid, 'has-invalid': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.dropbox_name.$dirty, 'has-error': AddDropboxForm.dropbox_name.$invalid && AddDropboxForm.submitted}">
-														<label for="dropbox_name">name:</label>
+														<label for="dropbox_name">name</label>
 														<div class="input-icon">
 															<i class="fas fa-flag fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="dropbox_name" type="text" ng-model="dropbox.dropbox_name" placeholder="name (required)" required autofocus focus-me />
@@ -58,7 +58,7 @@
 														<div class="row">
 															<div class="col-xs-8">
 																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_file.$valid, 'has-invalid': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty, 'has-error': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.submitted}">
-																	<label for="dropbox_file">zip file:</label>
+																	<label for="dropbox_file">zip file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
 																	<div class="input-icon">
 																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 																		<input class="form-control" name="dropbox_file" type="text" ng-model="dropbox.dropbox_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
@@ -69,12 +69,11 @@
 																	<div ng-show="AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty">
 																		<span ng-show="AddDropboxForm.dropbox_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
 																	</div>
-																	<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip</em></h6>
 																</div>
 															</div>
 															<div class="col-xs-4">
 																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.sort.$valid, 'has-invalid': AddDropboxForm.sort.$invalid && EditDropboxForm.sort.$dirty, 'has-error': AddDropboxForm.sort.$invalid && AddDropboxForm.submitted}">
-																	<label for="itemOrder">sort:</label>
+																	<label for="itemOrder">sort</label>
 																	<div class="input-icon">
 																		<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
 																		<input type="number" touchspin name="sort" id="sort" class="form-control" ng-model="dropbox.sort" />

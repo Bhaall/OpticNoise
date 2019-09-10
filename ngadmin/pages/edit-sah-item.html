@@ -47,7 +47,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemHeader.$valid, 'has-invalid': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.itemHeader.$dirty, 'has-error': EditSAHItemForm.itemHeader.$invalid && EditSAHItemForm.submitted}">
-														<label for="itemHeader">name:</label>
+														<label for="itemHeader">name</label>
 														<div class="input-icon">
 															<i class="fas fa-flag fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="itemHeader" type="text" ng-model="item.itemHeader" placeholder="name (required)" required />
@@ -62,7 +62,7 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': EditSAHItemForm.itemMedia.$valid, 'has-invalid': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.itemMedia.$dirty, 'has-error': EditSAHItemForm.itemMedia.$invalid && EditSAHItemForm.submitted}">
 														<div class="row">
 															<div class="col-xs-9">
-																<label for="itemMedia">media:</label>
+																<label for="itemMedia">media</label>
 																<select class="form-control" name="itemMedia" ng-model="item.itemMedia" selectpicker data-style="white" title="Select item media" data-width="100%" ng-required="true">
 																	<option value=""></option>
 																	<option value="TV">TV</option>
@@ -73,7 +73,7 @@
 																</select>
 															</div>
 															<div class="col-xs-3">
-																<label for="itemOrder">sort:</label>
+																<label for="itemOrder">sort</label>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i>
 																	<input type="text" touchspin name="itemOrder" id="itemOrder" class="form-control" ng-model="item.itemOrder" />

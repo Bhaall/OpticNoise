@@ -129,12 +129,12 @@
 																<i class="fas fa-download fa-fw text-orange" aria-hidden="true"></i> Downloads: <span class="pull-right pad-left-5"><a ng-click="resetDownloads(song)" href="" class="btn btn-warning btn-xs"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_downloads}}</span>
 															</li>
 															<li class="list-group-item">
-																<i class="fas fa-calendar-check fa-fw text-yellow" aria-hidden="true"></i> Last Download: <span class="pull-right">{{song.lastDownload}}</span>
+																<i class="far fa-calendar-check fa-fw text-yellow" aria-hidden="true"></i> Last Download: <span class="pull-right">{{song.lastDownload}}</span>
 															</li>
 														</ul>
 													</div>
 													<div class="form-group" ng-hide="song.song_file">
-														<label>select a new mp3 file</label>
+														<label>select a new mp3 file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="MP3 file name must not contain strange characters; no dashes; end in '.mp3'."></i>
 														<div id="song-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
 															<div class="form-control" data-trigger="fileinput">
 																<i class="glyphicon glyphicon-file fileinput-exists text-light-blue"></i>
@@ -147,7 +147,6 @@
 															</span>
 															<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
 														</div>
-														<h6 class="help-block"><i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true"></i> <em>MP3 file name must not contain strange characters; <strong>no dashes; </strong>end in '.mp3'</em></h6>
 														<ul class="list-group file-info" ng-repeat="song_file in song_files">
 															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> File Name: {{song_file.name}}</li>
 															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> Type: {{song_file.type}}</li>
