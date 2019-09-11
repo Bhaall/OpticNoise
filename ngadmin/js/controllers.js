@@ -1274,7 +1274,7 @@ angular.module('onAdmin.controllers', [])
 		$scope.reset();
 	};
 }])
-.controller('editArtistFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'getComp', 'updateArtist', 'getArtistLinks', 'getMaxHomeSort', 'deleteArtists', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, getComp, updateArtist, getArtistLinks, getMaxHomeSort, deleteArtists, getCompInfoArtist, $filter, $sce, asyncScript) {
+.controller('editArtistFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'getComp', 'updateArtist', 'getMaxHomeSort', 'deleteArtists', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, getComp, updateArtist, getMaxHomeSort, deleteArtists, getCompInfoArtist, $filter, $sce, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -1338,15 +1338,6 @@ angular.module('onAdmin.controllers', [])
 
 					$scope.artist.dateAdded = $filter('timestampDateFormat')($scope.artist.date_added);
 				}
-				getArtistLinks.fetchArtistNavLinks($scope.name).success(function(data) {
-					$scope.linksdata = data;
-					for (var i = 0; i < $scope.linksdata.length; i++) {
-						$scope.links = $scope.linksdata[i];
-					}
-				}).
-				error(function(data, status, headers, config) {
-					$scope.noty.add({type: 'Error', title:'Artist links data status: '  + status,body:status,body:'There was a problem.'});
-				});
 
 				getMaxHomeSort.fetchMaxHomeSort().success(function(data) {
 					$scope.max = data;
