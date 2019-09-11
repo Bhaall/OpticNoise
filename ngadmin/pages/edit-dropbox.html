@@ -70,7 +70,7 @@
 														<div class="row">
 															<div class="col-xs-8">
 																<div class="form-group has-feedback clearfix" ng-class="{'has-success': EditDropboxForm.dropbox_file.$valid, 'has-invalid': EditDropboxForm.dropbox_file.$invalid && EditDropboxForm.dropbox_file.$dirty, 'has-error': EditDropboxForm.dropbox_file.$invalid && EditDropboxForm.submitted}">
-																	<label for="dropbox_file">zip file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
+																	<label for="dropbox_file">zip file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger ng-scope" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
 																	<div class="input-icon">
 																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 																		<input class="form-control" name="dropbox_file" type="text" ng-model="dropbox.dropbox_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />

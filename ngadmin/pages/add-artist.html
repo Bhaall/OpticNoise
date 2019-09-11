@@ -44,12 +44,12 @@
 													<div class="form-group has-feedback" ng-class="{'has-success': AddArtistForm.INartistName.$valid && AddArtistForm.INartistName.$dirty, 'has-invalid': AddArtistForm.INartistName.$invalid && AddArtistForm.INartistName.$dirty, 'has-error': AddArtistForm.INartistName.$invalid && AddArtistForm.submitted}">
 														<label for="INartistName">name</label>
 														<div class="row">
-															<div class="col-lg-3 col-sm-3">
+															<div class="col-lg-2 col-sm-3">
 																<select class="form-control" name="marker" ng-model="artist.marker" data-style="white" selectpicker title="select..." data-width="100%" data-live-search="false">
 																	<option value="the">the</option>
 																</select>
 															</div>
-															<div class="col-lg-9 col-sm-9">
+															<div class="col-lg-10 col-sm-9">
 																<div class="input-icon">
 																	<i class="fas fa-id-badge fa-fw" aria-hidden="true"></i>
 																	<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" required />
