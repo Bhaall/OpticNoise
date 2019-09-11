@@ -234,7 +234,7 @@
 																		</div>
 																	</li>
 																	<li class="list-group-item">
-																		<button type="submit" class="btn btn-success" ng-disabled="!comp.songID" ng-click="addSelected(comp.songID)"><i class="fas fa-check-square fa-fw" aria-hidden="true"></i> add to current playlist</button>
+																		<button type="submit" class="btn btn-blue" ng-disabled="!comp.songID" ng-click="addSelected(comp.songID)"><i class="fas fa-check-square fa-fw" aria-hidden="true"></i> add to current playlist</button>
 																	</li>
 																</ul>
 															</div>
@@ -284,8 +284,8 @@
 															 <tbody>
 																 <tr ng-repeat="song in playlist">
 																	 <td class="col-xs-1"><input touchspin type="text" name="item_sort[]" class="form-control sortorder" ng-model="song.item_sort"></td>
-																	 <td class="col-xs-4"><a href="#/edit-song/{{song.songID}}">{{song.song_title}}</a></td>
-																	 <td class="col-xs-4"><a href="#/edit-artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
+																	 <td class="col-xs-4"><a href="#/edit-song-from-comp/{{comp.comp_id}}/song/{{song.songID}}">{{song.song_title}}</a></td>
+																	 <td class="col-xs-4"><a href="#/edit-artist-from-comp/{{comp.comp_id}}/artist/{{song.INartistID}}">{{song.artist_name | lowercase}}</a></td>
 																	 <td class="col-xs-1 center">{{song.song_count}}</td>
 																	 <td class="col-xs-1 center">{{song.song_downloads}}</td>
 																	 <td class="col-xs-1">

@@ -1,0 +1,240 @@
+<div class="container-fluid">
+	<form novalidate class="form" role="form" name="EditSongForm" id="EditSongForm" method="post" enctype="multiple/form-data">
+		<div class="row">
+		  <div class="col-lg-12">
+		    <div class="panel">
+	        <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__purple">
+	          <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x">
+	            <div class="ona-portlet__head-label">
+	              <h3 class="ona-portlet__head-title">
+	                <span class="ona-widget__icon">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon">
+									    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								        <rect x="0" y="0" width="24" height="24"/>
+								        <path d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z" fill="#000000"/>
+								        <path d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+									    </g>
+										</svg>
+									</span>
+	                <a href="#/edit-comp/{{comp_id}}">{{comp.comp_name}}</a> | <a href="#/edit-artist-from-comp/{{comp_id}}/artist/{{song.INartistID}}">{{song.marker}} {{song.INartistName}}</a> | {{song.song_title}}
+	              </h3>
+	            </div>
+	          </div>
+	          <div class="ona-portlet__body ona-portlet__body--fit">
+							<div class="nav-btns">
+								<a ng-show="links.prevValue!=null" href="#/edit-song/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
+								<a ng-show="links.nextValue!=null" href="#/edit-song/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+							</div>
+							<div class="ona-widget">
+	              <div class="ona-widget__visual ona-widget__purple">
+	              </div>
+								<div class="ona-widget__stats">
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+											        <rect fill="#000000" x="11" y="10" width="2" height="7" rx="1"/>
+											        <rect fill="#000000" x="11" y="7" width="2" height="2" rx="1"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Details
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback" ng-class="{'has-success': EditSongForm.song_title.$valid, 'has-invalid': EditSongForm.song_title.$invalid && EditSongForm.song_title.$dirty, 'has-error': EditSongForm.song_title.$invalid && EditSongForm.submitted}">
+														<div class="row">
+															<div class="col-lg-8 col-sm-8">
+																<label for="song_title">name</label>
+																<div class="input-icon">
+																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
+																	<input class="form-control" name="song_title" type="text" ng-model="song.song_title" required />
+																</div>
+																<div ng-show="EditSongForm.song_title.$valid">
+																	<span ng-show="EditSongForm.song_title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+																</div>
+																<div ng-show="EditSongForm.song_title.$invalid && EditSongForm.song_title.$dirty">
+																	<span ng-show="EditSongForm.song_title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+																</div>
+															</div>
+															<div class="col-lg-4 col-sm-4 center">
+																<label>display in roster</label>
+																<div class="mt-radio-inline">
+																	<label class="mt-radio">
+																		<input type="radio" name="roster_flag" ng-model="song.roster_flag" value="y">yes
+																		<span></span>
+																	</label>
+																	<label class="mt-radio">
+																		<input type="radio" name="roster_flag" ng-model="song.roster_flag" value="n">no
+																		<span></span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</span>
+												<div class="ona-widget__foot">
+													<div class="ona-form__actions row">
+														<div class="col-lg-8 col-sm-8">
+															<button class="btn btn-info" ng-disabled="EditSongForm.$invalid || isUnchanged(artist)" id="add-new-btn" ng-click="update(song)"><span class="glyphicon glyphicon-floppy-disk"></span> Update</button>
+															<button class="btn btn-danger" ng-click="delete(song)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+															<a href="#/edit-comp/{{comp_id}}" class="btn btn-cancel">Cancel</a>
+														</div>
+														<div class="col-lg-4 col-sm-4">
+															<div class="center"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{song.dateAdded}}</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <polygon points="0 0 24 0 24 24 0 24"/>
+											        <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+											        <path d="M9.83333333,17 C8.82081129,17 8,16.3159906 8,15.4722222 C8,14.6284539 8.82081129,13.9444444 9.83333333,13.9444444 C10.0476105,13.9444444 10.2533018,13.9750785 10.4444444,14.0313779 L10.4444444,9.79160113 C10.4444444,9.47824076 10.6398662,9.20124044 10.9268804,9.10777287 L14.4407693,8.0331119 C14.8834716,7.88894376 15.3333333,8.23360047 15.3333333,8.71694016 L15.3333333,9.79160113 C15.3333333,10.1498215 14.9979332,10.3786009 14.7222222,10.4444444 C14.3255297,10.53918 13.3070112,10.7428837 11.6666667,11.0555556 L11.6666667,15.5035214 C11.6666667,15.5583862 11.6622174,15.6091837 11.6535404,15.6559869 C11.5446237,16.4131089 10.771224,17 9.83333333,17 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													MP3 file
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group" ng-show="song.song_file">
+														<ul class="list-group">
+															<li class="list-group-item">
+																<i class="fas fa-file-signature fa-fw text-green" aria-hidden="true"></i> File Name:
+																<div class="tools btn-group pull-right margin-left-5 top-minus-5">
+																	<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
+																	<ul class="dropdown-menu pull-right" role="menu">
+																		<li><a ng-show="song.song_file" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="pull-right fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Play</a></li>
+																		<li><a ng-click="deleteFile(song)" href=""><i class="pull-right fas fa-trash fa-fw" aria-hidden="true"></i> Delete</a></li>
+																	</ul>
+																</div>
+																<span class="pull-right margin-right-5">{{song.song_file}}</span>
+															</li>
+															<li class="list-group-item">
+																<i class="far fa-play-circle fa-fw text-purple" aria-hidden="true"></i> Plays: <span class="pull-right pad-left-5"><a ng-click="resetCount(song)" href="" class="btn btn-warning btn-xs"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_count}}</span>
+															</li>
+															<li class="list-group-item">
+																<i class="fas fa-clock fa-fw text-green-meadow" aria-hidden="true"></i> Last Played: <span class="pull-right">{{song.lastPlayed}}</span>
+															</li>
+															<li class="list-group-item">
+																<i class="fas fa-download fa-fw text-orange" aria-hidden="true"></i> Downloads: <span class="pull-right pad-left-5"><a ng-click="resetDownloads(song)" href="" class="btn btn-warning btn-xs"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge badge-orange margin-top-3">{{song.song_downloads}}</span>
+															</li>
+															<li class="list-group-item">
+																<i class="far fa-calendar-check fa-fw text-yellow" aria-hidden="true"></i> Last Download: <span class="pull-right">{{song.lastDownload}}</span>
+															</li>
+														</ul>
+													</div>
+													<div class="form-group" ng-hide="song.song_file">
+														<label>select a new mp3 file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger ng-scope" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="MP3 file name must not contain strange characters; no dashes; end in '.mp3'."></i>
+														<div id="song-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
+															<div class="form-control" data-trigger="fileinput">
+																<i class="glyphicon glyphicon-file fileinput-exists text-light-blue"></i>
+																<span class="fileinput-filename"></span>
+															</div>
+															<span class="input-group-addon btn btn-success btn-file">
+																<span class="fileinput-new"><i class="fas fa-file-audio fa-fw" aria-hidden="true"></i> Select MP3...</span>
+																<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span>
+																<input type="file" name="song_file" id="song_file" accept="audio/*" portrait-input="song_files" />
+															</span>
+															<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
+														</div>
+														<ul class="list-group file-info" ng-repeat="song_file in song_files">
+															 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> File Name: {{song_file.name}}</li>
+															 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> Type: {{song_file.type}}</li>
+															 <li class="list-group-item"><i class="fas fa-file-audio fa-fw text-pink" aria-hidden="true"></i> Size: {{song_file.size}}kb</li>
+														</ul>
+														<input type="hidden" name="old_song1" ng-model="song.song_file" />
+														<div id="progress_info">
+															<div class="progress">
+																<div id="progress" class="progress-bar progress-bar-info bar">
+																	<span id="progress_percent" class="percent"></span>
+																</div>
+															</div>
+															<div class="clear_both"></div>
+															<div>
+																<div id="remaining">&nbsp;</div>
+																<div id="b_transfered">&nbsp;</div>
+																<div class="clearfix"></div>
+															</div>
+															<div id="upload_response"></div>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <polygon fill="#000000" opacity="0.3" points="5 15 3 21.5 9.5 19.5"/>
+											        <path d="M13.5,21 C8.25329488,21 4,16.7467051 4,11.5 C4,6.25329488 8.25329488,2 13.5,2 C18.7467051,2 23,6.25329488 23,11.5 C23,16.7467051 18.7467051,21 13.5,21 Z M9,8 C8.44771525,8 8,8.44771525 8,9 C8,9.55228475 8.44771525,10 9,10 L18,10 C18.5522847,10 19,9.55228475 19,9 C19,8.44771525 18.5522847,8 18,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 C8,13.5522847 8.44771525,14 9,14 L14,14 C14.5522847,14 15,13.5522847 15,13 C15,12.4477153 14.5522847,12 14,12 L9,12 Z" fill="#000000"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Description
+												</span>
+												<span class="ona-widget__desc">
+													<div class="form-group has-feedback text-angular" ng-class="{'has-success': EditSongForm.song_comments.$valid, 'has-invalid': EditSongForm.song_comments.$invalid && EditSongForm.song_comments.$dirty, 'has-error': EditSongForm.song_comments.$invalid && EditSongForm.submitted}">
+														<div class="input-icon" ng-class="{true: 'error'}[EditSongForm.submitted && EditSongForm.song_comments.$invalid]">
+															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
+															<text-angular ng-model="song.song_comments" name="song_comments" placeholder="something pithy goes here..." ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
+												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect x="0" y="0" width="24" height="24"/>
+											        <path d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z" fill="#000000"/>
+											        <path d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+												    </g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Comps
+												</span>
+												<span class="ona-widget__desc">
+													<h5 ng-show="emptyCompInfo" class="pull-down">{{song.song_title}} is currently in zero comps.</h5>
+													<div class="comp-list pull-down" ng-repeat="(key,value) in compinfo">
+														<h5><a href="edit-comp/{{key}}">{{value[0].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[1].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[2].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[3].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[4].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[5].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[6].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[7].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[8].comp_name}}</a></h5>
+														<h5><a href="edit-comp/{{key}}">{{value[9].comp_name}}</a></h5>
+													</div>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

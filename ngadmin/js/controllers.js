@@ -1051,98 +1051,105 @@ angular.module('onAdmin.controllers', [])
 	asyncScript.load('touchspin',function(){});
 
 	var id = $stateParams.id;
-	getArtist.fetchArtistByID(id).success(function(data) {
-		if(data.length){
-			for (var i = 0; i < data.length; i++) {
-				$scope.artist = data[i];
-				$rootScope.artistid = $scope.artist.INartistID;
-				$scope.name = $scope.artist.INartistName;
-				if($scope.artist.marker) {
-					$scope.showname = $scope.artist.marker + ' ' + $scope.artist.INartistName;
-				}
-				else {
-					$scope.showname = $scope.artist.INartistName;
-				}
-				if ($scope.artist.album_pic === '') {
-					$scope.albumClass = 'new';
-					$scope.artist.albumImage = '';
-				}
-				else {
-					$scope.albumClass = 'exists';
-					$scope.artist.albumImage = '../images/artists/'+$scope.artist.album_pic;
-				}
-				if ($scope.artist.slider_pic === '') {
-					$scope.sliderClass = 'new';
-					$scope.artist.sliderImage = '';
-				}
-				else {
-					$scope.sliderClass = 'exists';
-					$scope.artist.sliderImage = '../images/artists/'+$scope.artist.slider_pic;
-				}
 
-				$scope.artist.dateAdded = $filter('timestampDateFormat')($scope.artist.date_added);
+	$scope.refresh = function() {
+
+		getArtist.fetchArtistByID(id).success(function(data) {
+			if(data.length){
+				for (var i = 0; i < data.length; i++) {
+					$scope.artist = data[i];
+					$rootScope.artistid = $scope.artist.INartistID;
+					$scope.name = $scope.artist.INartistName;
+					if($scope.artist.marker) {
+						$scope.showname = $scope.artist.marker + ' ' + $scope.artist.INartistName;
+					}
+					else {
+						$scope.showname = $scope.artist.INartistName;
+					}
+					if ($scope.artist.album_pic === '') {
+						$scope.albumClass = 'new';
+						$scope.artist.albumImage = '';
+					}
+					else {
+						$scope.albumClass = 'exists';
+						$scope.artist.albumImage = '../images/artists/'+$scope.artist.album_pic;
+					}
+					if ($scope.artist.slider_pic === '') {
+						$scope.sliderClass = 'new';
+						$scope.artist.sliderImage = '';
+					}
+					else {
+						$scope.sliderClass = 'exists';
+						$scope.artist.sliderImage = '../images/artists/'+$scope.artist.slider_pic;
+					}
+
+					$scope.artist.dateAdded = $filter('timestampDateFormat')($scope.artist.date_added);
+				}
+				getArtistLinks.fetchArtistNavLinks($scope.name).success(function(data) {
+					$scope.linksdata = data;
+					for (var i = 0; i < $scope.linksdata.length; i++) {
+						$scope.links = $scope.linksdata[i];
+					}
+				}).
+				error(function(data, status, headers, config) {
+					$scope.noty.add({type: 'Error', title:'Artist links data status: '  + status,body:status,body:'There was a problem.'});
+				});
+
+				getMaxHomeSort.fetchMaxHomeSort().success(function(data) {
+					$scope.max = data;
+				}).
+				error(function(data, status, headers, config) {
+					$scope.noty.add({type: 'Error', title:'Max sort status: '  + status,body:status,body:'There was a problem.'});
+				});
+
+				$rootScope.setLoading(false);
 			}
-			getArtistLinks.fetchArtistNavLinks($scope.name).success(function(data) {
-				$scope.linksdata = data;
-				for (var i = 0; i < $scope.linksdata.length; i++) {
-					$scope.links = $scope.linksdata[i];
-				}
-			}).
-			error(function(data, status, headers, config) {
-				$scope.noty.add({type: 'Error', title:'Artist links data status: '  + status,body:status,body:'There was a problem.'});
-			});
-
-			getMaxHomeSort.fetchMaxHomeSort().success(function(data) {
-				$scope.max = data;
-			}).
-			error(function(data, status, headers, config) {
-				$scope.noty.add({type: 'Error', title:'Max sort status: '  + status,body:status,body:'There was a problem.'});
-			});
-
+			else {
+				$rootScope.setLoading(false);
+				$location.path("/artists");
+			}
+		}).
+		error(function(data, status, headers, config) {
 			$rootScope.setLoading(false);
-		}
-		else {
-			$rootScope.setLoading(false);
-			$location.path("/artists");
-		}
-	}).
-	error(function(data, status, headers, config) {
-		$rootScope.setLoading(false);
-		$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
-	});
+			$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
+		});
 
-	getArtistSongs.fetchSongsByArtist(id).success(function(data) {
-		if(data){
-			$scope.songs = data;
-			$scope.songCount = $scope.songs.length;
-			for (var i = 0; i < $scope.songs.length; i++) {
-				if($scope.songs[i].roster_flag==='y') {
-					$scope.songs[i].rosterClass = "label-success";
-					$scope.songs[i].rosterTxt = "yes";
-				}
-				else if($scope.songs[i].roster_flag==='n') {
-					$scope.songs[i].rosterClass = "label-warning";
-					$scope.songs[i].rosterTxt = "no";
+		getArtistSongs.fetchSongsByArtist(id).success(function(data) {
+			if(data){
+				$scope.songs = data;
+				$scope.songCount = $scope.songs.length;
+				for (var i = 0; i < $scope.songs.length; i++) {
+					if($scope.songs[i].roster_flag==='y') {
+						$scope.songs[i].rosterClass = "label-success";
+						$scope.songs[i].rosterTxt = "yes";
+					}
+					else if($scope.songs[i].roster_flag==='n') {
+						$scope.songs[i].rosterClass = "label-warning";
+						$scope.songs[i].rosterTxt = "no";
+					}
 				}
 			}
-		}
-	}).
-	error(function(data, status, headers, config) {
-		$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
-	});
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
+		});
 
-	getCompInfoArtist.fetchCompByArtist(id).success(function(data) {
-		$scope.compinfo = data;
-		if ($scope.compinfo.length==0) {
-			$scope.emptyCompInfo=true;
-		}
-		else {
-			$scope.emptyCompInfo=false;
-		}
-	}).
-	error(function(data, status, headers, config) {
-		$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
-	});
+		getCompInfoArtist.fetchCompByArtist(id).success(function(data) {
+			$scope.compinfo = data;
+			if ($scope.compinfo.length==0) {
+				$scope.emptyCompInfo=true;
+			}
+			else {
+				$scope.emptyCompInfo=false;
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
+		});
+
+	};
+
+	$scope.refresh();
 
 	$scope.update = function(artist){
 		if($scope.album_pics){
@@ -1265,6 +1272,184 @@ angular.module('onAdmin.controllers', [])
 		};
 
 		$scope.reset();
+	};
+}])
+.controller('editArtistFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'getComp', 'updateArtist', 'getArtistLinks', 'getMaxHomeSort', 'deleteArtists', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, getComp, updateArtist, getArtistLinks, getMaxHomeSort, deleteArtists, getCompInfoArtist, $filter, $sce, asyncScript) {
+	$rootScope.setLoading = function(loading) {
+		$rootScope.isLoading = loading;
+	};
+	$rootScope.showPlayer=true;
+	$rootScope.setLoading(true);
+	asyncScript.load('jasny',function(){});
+	asyncScript.load('touchspin',function(){});
+
+	var comp_id = $stateParams.comp_id;
+	$scope.comp_id = $stateParams.comp_id;
+	var id = $stateParams.id;
+
+	$scope.refresh = function() {
+
+		getComp.fetchCompByID(comp_id).success(function(data) {
+			if(data.length){
+				for (var i = 0; i < data.length; i++) {
+					$scope.comp = data[i];
+
+				}
+				$rootScope.setLoading(false);
+			}
+			else {
+				$rootScope.setLoading(false);
+				$location.path("/edit-comp/"+comp_id).replace();
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$rootScope.setLoading(false);
+			$scope.noty.add({type: 'Error', title:'Comp data status: ' + status,body:'There was a problem.'});
+		});
+
+		getArtist.fetchArtistByID(id).success(function(data) {
+			if(data.length){
+				for (var i = 0; i < data.length; i++) {
+					$scope.artist = data[i];
+					$rootScope.artistid = $scope.artist.INartistID;
+					$scope.name = $scope.artist.INartistName;
+					if($scope.artist.marker) {
+						$scope.showname = $scope.artist.marker + ' ' + $scope.artist.INartistName;
+					}
+					else {
+						$scope.showname = $scope.artist.INartistName;
+					}
+					if ($scope.artist.album_pic === '') {
+						$scope.albumClass = 'new';
+						$scope.artist.albumImage = '';
+					}
+					else {
+						$scope.albumClass = 'exists';
+						$scope.artist.albumImage = '../images/artists/'+$scope.artist.album_pic;
+					}
+					if ($scope.artist.slider_pic === '') {
+						$scope.sliderClass = 'new';
+						$scope.artist.sliderImage = '';
+					}
+					else {
+						$scope.sliderClass = 'exists';
+						$scope.artist.sliderImage = '../images/artists/'+$scope.artist.slider_pic;
+					}
+
+					$scope.artist.dateAdded = $filter('timestampDateFormat')($scope.artist.date_added);
+				}
+				getArtistLinks.fetchArtistNavLinks($scope.name).success(function(data) {
+					$scope.linksdata = data;
+					for (var i = 0; i < $scope.linksdata.length; i++) {
+						$scope.links = $scope.linksdata[i];
+					}
+				}).
+				error(function(data, status, headers, config) {
+					$scope.noty.add({type: 'Error', title:'Artist links data status: '  + status,body:status,body:'There was a problem.'});
+				});
+
+				getMaxHomeSort.fetchMaxHomeSort().success(function(data) {
+					$scope.max = data;
+				}).
+				error(function(data, status, headers, config) {
+					$scope.noty.add({type: 'Error', title:'Max sort status: '  + status,body:status,body:'There was a problem.'});
+				});
+
+				$rootScope.setLoading(false);
+			}
+			else {
+				$rootScope.setLoading(false);
+				$location.path("/artists");
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$rootScope.setLoading(false);
+			$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
+		});
+
+		getArtistSongs.fetchSongsByArtist(id).success(function(data) {
+			if(data){
+				$scope.songs = data;
+				$scope.songCount = $scope.songs.length;
+				for (var i = 0; i < $scope.songs.length; i++) {
+					if($scope.songs[i].roster_flag==='y') {
+						$scope.songs[i].rosterClass = "label-success";
+						$scope.songs[i].rosterTxt = "yes";
+					}
+					else if($scope.songs[i].roster_flag==='n') {
+						$scope.songs[i].rosterClass = "label-warning";
+						$scope.songs[i].rosterTxt = "no";
+					}
+				}
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
+		});
+
+		getCompInfoArtist.fetchCompByArtist(id).success(function(data) {
+			$scope.compinfo = data;
+			if ($scope.compinfo.length==0) {
+				$scope.emptyCompInfo=true;
+			}
+			else {
+				$scope.emptyCompInfo=false;
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
+		});
+
+	};
+
+  $scope.refresh();
+
+	$scope.update = function(artist){
+		if($scope.album_pics){
+			if($scope.album_pics.length > 0){
+				var vFD = new FormData(document.getElementById('EditArtistForm'));
+				var oXHR = new XMLHttpRequest();
+				oXHR.open('POST', 'api/update_album/'+id);
+				oXHR.send(vFD);
+			}
+			else {
+				$scope.artist.album_pic = '';
+			}
+		}
+
+		if($scope.slider_pics){
+			if($scope.slider_pics.length > 0){
+				var vFD2 = new FormData(document.getElementById('EditArtistForm'));
+				var oXHR2 = new XMLHttpRequest();
+				oXHR2.open('POST', 'api/update_slider/'+id);
+				oXHR2.send(vFD2);
+			}
+			else {
+				$scope.artist.slider_pic = '';
+			}
+		}
+
+		updateArtist.putArtistByID(id, artist).success(function(data) {
+			$scope.artist = data;
+			$scope.refreshCounters();
+			$scope.noty.add({title:'Artist data',body:'Artist has been updated.'});
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
+		});
+	};
+
+	$scope.delete = function(artist) {
+		var deleteArtist = confirm('Are you absolutely sure you want to delete ' + artist.INartistName + '?');
+		if (deleteArtist) {
+			deleteArtists.deleteArtistByID(artist.INartistID);
+			$scope.refreshCounters();
+			$location.path("/artists");
+		}
+	};
+
+	$scope.renderItemText = function(html){
+		return $sce.trustAsHtml(html);
 	};
 }])
 .controller('songsCtrl', ['$scope', '$rootScope', '$filter', 'songsRepo', 'deleteSongs', 'ngTableParams',  function($scope, $rootScope, $filter, songsRepo, deleteSongs, ngTableParams) {
@@ -1825,6 +2010,222 @@ angular.module('onAdmin.controllers', [])
 				error(function(data, status, headers, config) {
 					$scope.noty.add({type: 'Error', title:'Song links data status: '  + status,body:status,body:'There was a problem.'});
 				});
+
+				$rootScope.setLoading(false);
+			}
+			else {
+				$rootScope.setLoading(false);
+				$location.path("/songs");
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$rootScope.setLoading(false);
+			$scope.noty.add({type: 'Error', title:'Song data status: ' + status,body:'There was a problem.'});
+		});
+
+		getCompInfoSong.fetchCompBySong(id).success(function(data) {
+			$scope.compinfo = data;
+			if ($scope.compinfo.length==0) {
+				$scope.emptyCompInfo=true;
+			}
+			else {
+				$scope.emptyCompInfo=false;
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
+		});
+	};
+
+	$scope.refresh();
+
+	$scope.update = function(song){
+		var iBytesUploaded = 0;
+		var iBytesTotal = 0;
+		var iPreviousBytesLoaded = 0;
+		var iMaxFilesize = 1048576;
+		var oTimer = 0;
+		var sResultFileSize = '';
+
+		var oProgress = document.getElementById('progress');
+		oProgress.style.display = 'block';
+		oProgress.style.width = '0px';
+
+		function secondsToTime(secs) {
+	    var hr = Math.floor(secs / 3600);
+	    var min = Math.floor((secs - (hr * 3600))/60);
+	    var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
+
+	    if (hr < 10) {hr = "0" + hr; }
+	    if (min < 10) {min = "0" + min;}
+	    if (sec < 10) {sec = "0" + sec;}
+	    if (hr) {hr = "00";}
+	    return hr + ':' + min + ':' + sec;
+		};
+
+		function bytesToSize(bytes) {
+	    var sizes = ['Bytes', 'KB', 'MB'];
+	    if (bytes == 0) return 'n/a';
+	    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+	    return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
+		};
+
+		function uploadProgress(e) {
+			if (e.lengthComputable) {
+				iBytesUploaded = e.loaded;
+				iBytesTotal = e.total;
+				var iPercentComplete = Math.round(e.loaded * 100 / e.total);
+				var iBytesTransfered = bytesToSize(iBytesUploaded);
+
+				document.getElementById('progress_percent').innerHTML = iPercentComplete.toString() + '%';
+				document.getElementById('progress').style.width = (iPercentComplete * 4).toString() + 'px';
+				document.getElementById('b_transfered').innerHTML = iBytesTransfered;
+				if (iPercentComplete == 100) {
+					var oUploadResponse = document.getElementById('upload_response');
+					oUploadResponse.innerHTML = '<span>Please wait...processing</span>';
+					oUploadResponse.style.display = 'block';
+				}
+			} else {
+				document.getElementById('progress').innerHTML = 'unable to compute';
+			}
+		}
+
+		function uploadFinish(e) {
+			var oUploadResponse = document.getElementById('upload_response');
+			oUploadResponse.innerHTML = e.target.responseText;
+			oUploadResponse.style.display = 'block';
+
+			document.getElementById('progress_percent').innerHTML = '100%';
+			document.getElementById('progress').style.width = '100%';
+			document.getElementById('remaining').innerHTML = '00:00:00';
+
+			clearInterval(oTimer);
+
+			$timeout(function() {
+				$scope.refresh();
+			}, 1000);
+		}
+
+		function uploadError(e) {
+			document.getElementById('error2').style.display = 'block';
+			clearInterval(oTimer);
+		}
+
+		function uploadAbort(e) {
+			document.getElementById('abort').style.display = 'block';
+			clearInterval(oTimer);
+		}
+
+		updateSong.putSongByID(id, song).success(function(data) {
+			$scope.song = data;
+
+			if($scope.song_files){
+				if($scope.song_files.length > 0){
+					var vFD = new FormData(document.getElementById('EditSongForm'));
+					var oXHR = new XMLHttpRequest();
+					oXHR.upload.addEventListener('progress', uploadProgress, false);
+					oXHR.addEventListener('load', uploadFinish, false);
+					oXHR.addEventListener('error', uploadError, false);
+					oXHR.addEventListener('abort', uploadAbort, false);
+					oXHR.open('POST', 'api/update_mp3/'+id);
+					oXHR.send(vFD);
+				}
+				else {
+					$scope.artist.album_pic = '';
+				}
+			}
+			else {
+				$scope.refresh();
+				$scope.refreshCounters();
+			}
+			$scope.noty.add({title:'Song data',body:'Song has been updated.'});
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Song data status: ' + status,body:'There was a problem.'});
+		});
+	};
+
+	$scope.delete = function(song) {
+		var deleteSong = confirm('Are you absolutely sure you want to delete ' + song.song_title + '?');
+		if (deleteSong) {
+			deleteSongs.deleteSongByID(song.song_id);
+			$scope.refreshCounters();
+			$location.path("/songs");
+		}
+	};
+
+	$scope.deleteFile = function(song) {
+		var deleteMP3 = confirm('Are you absolutely sure you want to delete the file for ' + song.song_title + '?');
+		if (deleteMP3) {
+			removeSongFile.removeSongFileByID(song.song_id);
+			$scope.refresh();
+		}
+	};
+
+	$scope.resetCount = function(song) {
+		var resetSongCount = confirm('Are you absolutely sure you want to reset?');
+		if (resetSongCount) {
+			updateSongCount.putSongCount(id, song);
+			$scope.noty.add({title:'Song count',body:'Song count has been reset.'});
+			$scope.refresh();
+		}
+	};
+
+	$scope.resetDownloads = function(song) {
+		var resetSongDownloads = confirm('Are you absolutely sure you want to reset?');
+		if (resetSongDownloads) {
+			updateSongDownloads.putSongDownload(id, song);
+			$scope.noty.add({title:'Song downloads',body:'Song downloads has been reset.'});
+			$scope.refresh();
+		}
+	};
+}])
+.controller('editSongFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getSong', 'getComp', 'updateSong', 'updateSongCount', 'updateSongDownloads', 'deleteSongs', 'removeSongFile', '$filter', 'asyncScript', 'getCompInfoSong', '$timeout', function($scope, $rootScope, noty, $location, $stateParams, getSong, getComp, updateSong, updateSongCount, updateSongDownloads, deleteSongs, removeSongFile, $filter, asyncScript, getCompInfoSong, $timeout) {
+	$rootScope.setLoading = function(loading) {
+		$rootScope.isLoading = loading;
+	};
+	$rootScope.showPlayer=true;
+	$rootScope.setLoading(true);
+
+	asyncScript.load('jasny',function(){});
+
+	var id = $stateParams.id;
+	var comp_id = $stateParams.comp_id;
+	$scope.comp_id = $stateParams.comp_id;
+
+	$scope.refresh = function() {
+
+		getComp.fetchCompByID(comp_id).success(function(data) {
+			if(data.length){
+				for (var i = 0; i < data.length; i++) {
+					$scope.comp = data[i];
+
+				}
+				$rootScope.setLoading(false);
+			}
+			else {
+				$rootScope.setLoading(false);
+				$location.path("/edit-comp/"+comp_id).replace();
+			}
+		}).
+		error(function(data, status, headers, config) {
+			$rootScope.setLoading(false);
+			$scope.noty.add({type: 'Error', title:'Comp data status: ' + status,body:'There was a problem.'});
+		});
+
+		getSong.fetchSongByID(id).success(function(data) {
+			if(data.length){
+				for (var i = 0; i < data.length; i++) {
+					$scope.song = data[i];
+					$scope.name = $scope.song.song_title;
+					$scope.artistID = $scope.song.artistID;
+					$rootScope.songid = $scope.song.song_id;
+					$scope.song.dateAdded = $filter('timestampDateFormat')($scope.song.date_added);
+					$scope.song.lastDownload = $filter('timestampDateTimeFormat')($scope.song.last_download);
+					$scope.song.lastPlayed = $filter('timestampDateTimeFormat')($scope.song.last_played);
+					// clear song_files from scope
+					$scope.song_files = '';
+				}
 
 				$rootScope.setLoading(false);
 			}
@@ -2977,7 +3378,6 @@ angular.module('onAdmin.controllers', [])
 			$rootScope.setLoading(false);
 			$scope.noty.add({type: 'Error', title:'Comp data status: ' + status,body:'There was a problem.'});
 		});
-
 	};
 
 	$scope.refresh();

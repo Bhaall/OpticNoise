@@ -314,6 +314,15 @@ angular.module('onAdmin', [
 			breadcrumb  : [{label:"Home",link:"#/"},{label:"Comps","link":"#/comps"},{label:"Add artist to comp"}]
 		}
 	})
+  .state('index.edit-song-from-comp/comp_id/:id', {
+    url: 'edit-song-from-comp/:comp_id/song/:id',
+    templateUrl : 'pages/edit-song-from-comp.html',
+    controller  : 'editSongFromCompCtrl',
+    data : {
+      title: 'edit song from comp',
+      breadcrumb  : [{label:"Home",link:"#/"},{label:"Songs","link":"#/comps"},{label:"Edit song from comp"}]
+    }
+  })
 	.state('index.add-song-artist-to-comp/:comp_id/:id', {
 		url: 'add-song-artist-to-comp/:comp_id/artist/:id',
 		templateUrl : 'pages/add-song-artist-to-comp.html',
@@ -323,6 +332,15 @@ angular.module('onAdmin', [
 			breadcrumb  : [{label:"Home",link:"#/"},{label:"Comps","link":"#/comps"},{label:"Add song to comp"}]
 		}
 	})
+  .state('index.edit-artist-from-comp/comp_id/:id', {
+    url: 'edit-artist-from-comp/:comp_id/artist/:id',
+    templateUrl : 'pages/edit-artist-from-comp.html',
+    controller  : 'editArtistFromCompCtrl',
+    data : {
+      title: 'edit artist from comp',
+      breadcrumb  : [{label:"Home",link:"#/"},{label:"Comps","link":"#/comps"},{label:"Edit artist from comp"}]
+    }
+  })
 	.state('index.dropboxes', {
 	    url: 'dropboxes',
 		templateUrl : 'pages/dropboxes.html',
