@@ -1075,6 +1075,10 @@ hr {
   background-color: #039be5;
   color: #fff;
 }
+.ona--portlet__purple .ona-widget__items.ona-ribbon--ver .ona-ribbon__target {
+  background-color: #8e44ad;
+  color: #fff;
+}
 /* buttons -----------*/
 .btn,
 .btn-group,

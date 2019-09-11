@@ -134,6 +134,8 @@ $app->get('/comps/:id', 'getComp');
 $app->put('/comps/:id', 'updateComp');
 $app->get('/songs_select', 'getSongsForSelector');
 $app->get('/comp_playlist/:id', 'getCompPlaylist');
+$app->put('/comp_playlist_count/:id', 'addToCompPlaylistCount');
+$app->put('/comp_playlist_count_remove/:id', 'removeFromCompPlaylistCount');
 $app->delete('/comp_playlist_item/:id', 'deleteCompPlaylistItem');
 $app->get('/max_comp_playlist_sortorder/:id', 'getMaxCompPlaylistSortOrder');
 $app->post('/comp_playlist', 'updateCompPlaylist');
@@ -203,7 +205,7 @@ function updateProfile($id) {
     $request = $app->request();
     $body = $request->getBody();
     $profile = json_decode($body);
-	$sql = "UPDATE admin SET email=:email, username=:username, firstname=:firstname, lastname=:lastname, portrait=:portrait, pootymorning=:pootymorning, pootyafternoon=:pootyafternoon, pootyevening=:pootyevening, pootynight=:pootynight, sitename=:sitename, site=:site, password=:password WHERE AdminID=:id";
+	$sql = "update admin set email=:email, username=:username, firstname=:firstname, lastname=:lastname, portrait=:portrait, pootymorning=:pootymorning, pootyafternoon=:pootyafternoon, pootyevening=:pootyevening, pootynight=:pootynight, sitename=:sitename, site=:site, password=:password where AdminID=:id";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);
@@ -574,7 +576,7 @@ function getArtistsCount() {
 }
 
 function getArtistsNoSongs() {
-	$sql = "select INartistName as INartistName, marker as marker, INroster_desc as INroster_desc, active as active, INartistID as id, indies.date_added AS date_added from indies left join songs on indies.INartistID = songs.artistID where ISNULL(songs.artistID) order by indies.INartistName";
+	$sql = "select INartistName as INartistName, marker as marker, INroster_desc as INroster_desc, active as active, INartistID as id, indies.date_added as date_added from indies left join songs on indies.INartistID = songs.artistID where ISNULL(songs.artistID) order by indies.INartistName";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
@@ -919,7 +921,7 @@ function deleteArtistSliderPic($image) {
 }
 
 function getArtistLinks($name) {
-	$sql = "SELECT ( SELECT INartistID FROM indies WHERE INartistName > :name ORDER BY INartistName ASC LIMIT 1 ) AS nextValue, ( SELECT INartistID FROM indies WHERE INartistName < :name ORDER BY INartistName DESC LIMIT 1 ) AS prevValue FROM indies";
+	$sql = "select ( select INartistID from indies where INartistName > :name order by INartistName asc limit 1 ) as nextValue, ( select INartistID from indies where INartistName < :name order by INartistName desc limit 1 ) as prevValue from indies";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);
@@ -947,7 +949,7 @@ function getSongs() {
 }
 
 function getSongsNoFile() {
-	$sql = "select *, songs.date_added AS date_added from songs left join indies on songs.artistID = indies.INartistID where song_file='' order by song_title";
+	$sql = "select *, songs.date_added as date_added from songs left join indies on songs.artistID = indies.INartistID where song_file='' order by song_title";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
@@ -1031,7 +1033,7 @@ function getActiveSongsCount() {
 }
 
 function getSong($id) {
-	$sql = "select *, songs.date_added AS date_added from songs left join indies on songs.artistID = indies.INartistID where song_id=".$id." order by song_title";
+	$sql = "select *, songs.date_added as date_added from songs left join indies on songs.artistID = indies.INartistID where song_id=".$id." order by song_title";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
@@ -1145,7 +1147,7 @@ function removeSongFile($id) {
 	try {
 		$db = getConnection();
 		$newfile = '';
-		$sql = "UPDATE songs SET song_file=? WHERE song_id=?";
+		$sql = "update songs set song_file=? where song_id=?";
 		$q = $db->prepare($sql);
 		$q->execute(array($newfile,$id));
 		$db = null;
@@ -1170,7 +1172,7 @@ function updateMP3($id) {
 
 		// update song_file field in indies table
 		$app = \Slim\Slim::getInstance();
-		$sql = "UPDATE songs SET song_file=:song_file WHERE song_id=:id";
+		$sql = "update songs set song_file=:song_file where song_id=:id";
 		try {
 			$db = getConnection();
 			$stmt = $db->prepare($sql);
@@ -1203,7 +1205,7 @@ function uploadMP3() {
 
 		// update album_pic field in indies table
 		$app = \Slim\Slim::getInstance();
-		$sql = "UPDATE songs SET song_file=:song_file WHERE song_id=:id";
+		$sql = "update songs set song_file=:song_file where song_id=:id";
 		try {
 			$db = getConnection();
 			$stmt = $db->prepare($sql);
@@ -1339,7 +1341,7 @@ function updateFon($id) {
 	try {
 		$db = getConnection();
 		$newstatus = 'y';
-		$sql = "update indies SET home_status=? where INartistID=?";
+		$sql = "update indies set home_status=? where INartistID=?";
 		$q = $db->prepare($sql);
 		$q->execute(array($newstatus,$id));
 		$db = null;
@@ -1357,7 +1359,7 @@ function removeFon($id) {
 	try {
 		$db = getConnection();
 		$newstatus = 'n';
-		$sql = "update indies SET home_status=? where INartistID=?";
+		$sql = "update indies set home_status=? where INartistID=?";
 		$q = $db->prepare($sql);
 		$q->execute(array($newstatus,$id));
 		$db = null;
@@ -1663,7 +1665,7 @@ function removeFeatured($id) {
 	try {
 		$db = getConnection();
 		$newstatus = 'n';
-		$sql = "update indies SET slider_status=? where INartistID=?";
+		$sql = "update indies set slider_status=? where INartistID=?";
 		$q = $db->prepare($sql);
 		$q->execute(array($newstatus,$id));
 		$db = null;
@@ -1694,7 +1696,7 @@ function updateFeatured($id) {
 	try {
 		$db = getConnection();
 		$newstatus = 'y';
-		$sql = "update indies SET slider_status=? where INartistID=?";
+		$sql = "update indies set slider_status=? where INartistID=?";
 		$q = $db->prepare($sql);
 		$q->execute(array($newstatus,$id));
 		$db = null;
@@ -1890,7 +1892,7 @@ function updateCompPic($id) {
 
 		// update comp_pic field in indies table
 		$app = \Slim\Slim::getInstance();
-		$sql = "update comp_main SET comp_pic=:comp_pic where comp_id=:id";
+		$sql = "update comp_main set comp_pic=:comp_pic where comp_id=:id";
 		try {
 			$db = getConnection();
 			$stmt = $db->prepare($sql);
@@ -1996,7 +1998,7 @@ function getCompPlaylist($id) {
 					on a.songID = b.song_id
 				left join indies c
 					on b.artistID = c.INartistID
-		where	a.compID=".$id." order by a.item_sort";
+		where	a.compID=".$id." and b.song_file!='' order by a.item_sort";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
@@ -2007,6 +2009,8 @@ function getCompPlaylist($id) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
+
+
 
 function deleteCompPlaylistItem($id) {
 	$sql = "delete from comp_items where comp_items_id=".$id;
@@ -2047,6 +2051,46 @@ function updateCompPlaylist() {
 		$stmt->execute();
 		$db = null;
 		echo json_encode($playlist);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function addToCompPlaylistCount($id) {
+    $app = \Slim\Slim::getInstance();
+    $request = $app->request();
+    $body = $request->getBody();
+    $comp = json_decode($body);
+	$sql = "update comp_main
+    set playlist_count = playlist_count + 1
+      where comp_id=:id";
+	try {
+		$db = getConnection();
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam("id", $id);
+		$stmt->execute();
+		$db = null;
+		echo json_encode($comp);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function removeFromCompPlaylistCount($id) {
+    $app = \Slim\Slim::getInstance();
+    $request = $app->request();
+    $body = $request->getBody();
+    $comp = json_decode($body);
+	$sql = "update comp_main
+    set playlist_count = (playlist_count - 1)
+      where comp_id=:id";
+	try {
+		$db = getConnection();
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam("id", $id);
+		$stmt->execute();
+		$db = null;
+		echo json_encode($comp);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
@@ -2107,7 +2151,7 @@ function uploadCompPic() {
 
 		// update comp_pic field in comp_main table
 		$app = \Slim\Slim::getInstance();
-		$sql = "update comp_main SET comp_pic=:comp_pic WHERE comp_id=:id";
+		$sql = "update comp_main set comp_pic=:comp_pic where comp_id=:id";
 		try {
 			$db = getConnection();
 			$stmt = $db->prepare($sql);

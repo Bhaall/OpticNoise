@@ -2190,7 +2190,6 @@ angular.module('onAdmin.controllers', [])
 			if(data.length){
 				for (var i = 0; i < data.length; i++) {
 					$scope.comp = data[i];
-
 				}
 				$rootScope.setLoading(false);
 			}
@@ -2242,6 +2241,7 @@ angular.module('onAdmin.controllers', [])
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
 		});
+
 	};
 
 	$scope.refresh();
@@ -2836,6 +2836,7 @@ angular.module('onAdmin.controllers', [])
 					$scope.comps[i].copy2 = "http://www.optic-noise.com/download_comp.php?id="+$scope.comps[i].comp_id;
 					$scope.comps[i].copy3 = "http://www.optic-noise.com/comp.php?id="+$scope.comps[i].comp_id;
 				}
+
 				$rootScope.setLoading(false);
 			}
 			else {
@@ -2847,6 +2848,7 @@ angular.module('onAdmin.controllers', [])
 			$rootScope.setLoading(false);
 			$scope.noty.add({type: 'Error', title:'Comps data status: ' + status,body:'There was a problem.'});
 		});
+
 	};
 
 	$scope.refresh();
@@ -2931,7 +2933,7 @@ angular.module('onAdmin.controllers', [])
 		});
 	};
 
-}]).controller('editCompCtrl', ['$scope', '$rootScope', '$location', '$filter', '$sce', '$stateParams', 'getComp', 'updateComp', 'getCompLinks', 'deleteComps', '$filter', 'updateCompCount', 'getSongsForSelector', 'getCompsPlaylist', 'deleteCompsPlaylistItem', 'getMaxCompPlaylistSort', 'addCompsPlaylistItem', 'updateCompActive', 'updateCompInActive', 'updateCompInCarousel', 'updateCompOutCarousel', 'updatePlaylistSortOrder', 'asyncScript', function($scope, $rootScope, $location, $filter, $sce, $stateParams, getComp, updateComp, getCompLinks, deleteComps, $filter, updateCompCount, getSongsForSelector, getCompsPlaylist, deleteCompsPlaylistItem, getMaxCompPlaylistSort, addCompsPlaylistItem, updateCompActive, updateCompInActive, updateCompInCarousel, updateCompOutCarousel, updatePlaylistSortOrder, asyncScript) {
+}]).controller('editCompCtrl', ['$scope', '$rootScope', '$location', '$filter', '$sce', '$stateParams', 'getComp', 'updateComp', 'getCompLinks', 'deleteComps', '$filter', 'updateCompCount', 'getSongsForSelector', 'getCompsPlaylist', 'deleteCompsPlaylistItem', 'getMaxCompPlaylistSort', 'addCompsPlaylistItem', 'addToCompPlaylist', 'removeFromCompPlaylist', 'updateCompActive', 'updateCompInActive', 'updateCompInCarousel', 'updateCompOutCarousel', 'updatePlaylistSortOrder', 'asyncScript', function($scope, $rootScope, $location, $filter, $sce, $stateParams, getComp, updateComp, getCompLinks, deleteComps, $filter, updateCompCount, getSongsForSelector, getCompsPlaylist, deleteCompsPlaylistItem, getMaxCompPlaylistSort, addCompsPlaylistItem, addToCompPlaylist, removeFromCompPlaylist, updateCompActive, updateCompInActive, updateCompInCarousel, updateCompOutCarousel, updatePlaylistSortOrder, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -3011,6 +3013,7 @@ angular.module('onAdmin.controllers', [])
 				}
 			}
 			$scope.playlist = data;
+			$scope.playlistTotal = data.length;
 		});
 
 		getMaxCompPlaylistSort.fetchMaxCompPlaylistSortOrder(id).success(function(data) {
@@ -3042,6 +3045,13 @@ angular.module('onAdmin.controllers', [])
 		selectedInfo.CompID = id;
 		selectedInfo.SongID = SongID;
 		selectedInfo.item_sort = $scope.newsort;
+
+		addToCompPlaylist.addToPlaylistCount(id).success(function(data) {
+			$scope.refresh();
+		}).
+		error(function(data, status, headers, config) {
+			$scope.noty.add({type: 'Error', title:'Comp playlist count: ' + status,body:'There was a problem.'});
+		});
 
 		addCompsPlaylistItem.addNewCompPlaylistItem(selectedInfo).success(function(data) {
 			$scope.refresh();
@@ -3110,6 +3120,14 @@ angular.module('onAdmin.controllers', [])
 		var deletePlaylistItem = confirm('Are you absolutely sure you want to remove this item?');
 		if (deletePlaylistItem) {
 			deleteCompsPlaylistItem.deleteCompPlaylistItemByID(song);
+
+			removeFromCompPlaylist.removeFromPlaylistCount(id).success(function(data) {
+				$scope.refresh();
+			}).
+			error(function(data, status, headers, config) {
+				$scope.noty.add({type: 'Error', title:'Comp playlist count: ' + status,body:'There was a problem.'});
+			});
+
 			$scope.refreshCounters();
 			$scope.refresh();
 		}
