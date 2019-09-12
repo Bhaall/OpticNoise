@@ -69,7 +69,7 @@
 														</div>
 													</div>
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INroster_desc.$valid, 'has-invalid': EditArtistForm.INroster_desc.$invalid && EditArtistForm.INroster_desc.$dirty, 'has-error': EditArtistForm.INroster_desc.$invalid && EditArtistForm.submitted}">
-														<label for="INroster_desc">description</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Used in Roster"></i>
+														<label for="INroster_desc">description</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="<i class='fas fa-comment-dots fa-fw text-green' aria-hidden='true'></i> Used in Roster."></i>
 														<div class="input-icon" ng-class="{true: 'error'}[EditArtistForm.submitted && EditArtistForm.INroster_desc.$invalid]">
 															<i class="fas fa-comment-dots fa-fw" aria-hidden="true"></i>
 															<input class="form-control" name="INroster_desc" type="text" ng-model="artist.INroster_desc" />
@@ -140,7 +140,7 @@
 													<div class="form-group" ng-class="{'has-success': EditArtistForm.INlabel.$valid, 'has-invalid': EditArtistForm.home_order.$invalid && EditArtistForm.home_order.$dirty, 'has-error': EditArtistForm.home_order.$invalid && EditArtistForm.submitted}">
 														<div class="row">
 															<div class="col-lg-5 col-sm-4">
-																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="Image must be 125x125 (name must not contain strange characters; end in '.jpg')."></i><br>
+																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-image text-yellow' aria-hidden='true'></i> Image must be 125x125 (name must not contain strange characters; end in '.jpg')."></i><br>
 																<div class="fileinput fileinput-{{albumClass}}" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/125-no-image.gif" class="img-responsive">
@@ -173,7 +173,7 @@
 																</div>
 															</div>
 															<div class="col-lg-3 col-sm-4">
-																<label for="home_order"> sort order</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="Only three artists are displayed in Signings section on home page."></i>
+																<label for="home_order"> sort order</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="<i class='fas fa-sort-numeric-down text-yellow' aria-hidden='true'></i> Only three artists are displayed in Signings section on home page."></i>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw"></i>
 																	<input type="text" touchspin name="home_order" id="home_order" class="form-control touchspin"  ng-model="artist.home_order" />
@@ -202,7 +202,7 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-lg-8 col-sm-8">
-																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="Image must be 573x282 (name must not contain strange characters; end in '.jpg')."></i>
+																<label>image</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-image fa-fw text-danger' aria-hidden='true'></i> Image must be 573x282 (name must not contain strange characters; end in '.jpg')."></i>
 																<div class="fileinput fileinput-{{sliderClass}}" data-provides="fileinput">
 																	<div class="fileinput-new thumbnail">
 																		<img ng-src="img/carousel-no-image.gif" alt="" />

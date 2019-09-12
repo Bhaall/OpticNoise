@@ -59,8 +59,8 @@
 												<tbody>
 													<tr ng-repeat="item in data">
 														<td class="col-xs-2"><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}">{{item.itemHeader}}</a></td>
-														<td class="col-xs-1"><span ng-bind-html="renderItemText(item.media)"></span></td>
-														<td class="col-xs-7"><span ng-bind-html="renderItemText(item.itemText)"></span></td>
+														<td class="col-lg-1 col-sm-2 col-xs-2"><span ng-bind-html="renderItemText(item.media)"></span></td>
+														<td class="col-lg-7 col-sm-6 col-xs-6"><span ng-bind-html="renderItemText(item.itemText)"></span></td>
 														<td class="center col-xs-1"><input type="text" touchspin name="itemOrderTbl" id="itemOrderTbl" class="form-control" ng-model="item.itemOrder" /></td>
 														<td class="col-xs-1">
 															<div class="tools btn-group">
