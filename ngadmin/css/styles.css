@@ -2618,6 +2618,12 @@ a.text-danger:visited {
 .text-light-purple:visited {
   color: #f2e6f7;
 }
+.text-blue,
+.text-blue:hover,
+.text-blue:focus,
+.text-blue:visited {
+  color: #1565c0;
+}
 .text-light-blue,
 .text-light-blue:hover,
 .text-light-blue:focus,
