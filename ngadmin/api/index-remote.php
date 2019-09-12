@@ -1748,7 +1748,7 @@ function getCompsActiveCount() {
 }
 
 function getMostRecentComp() {
-  $sql = "select comp_id, comp_name, date_added from comp_main where comp_id in (select comp_id from comp_main where date_added = (select MAX(date_added) from comp_main)) order by comp_id desc limit 1";
+  $sql = "select comp_id, comp_name, date_added, playlist_count, count, last_download from comp_main where comp_id in (select comp_id from comp_main where date_added = (select MAX(date_added) from comp_main)) order by comp_id desc limit 1";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);

@@ -2606,6 +2606,25 @@ angular.module('onAdmin.controllers', [])
 					$scope.data[i].itemOrder = parseFloat($scope.data[i].itemOrder);
 					$scope.sceneName = $scope.data[i].sceneName;
 					$scope.scene_order = $scope.data[i].scene_order;
+
+					$scope.item = data[i];
+					$scope.itemMedia = $scope.item.itemMedia;
+
+					if ($scope.item.itemMedia == 'TV') {
+						$scope.item.media = "<i class='fas fa-tv text-light-blue' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+					}
+					else if ($scope.item.itemMedia == 'PROMO') {
+						$scope.item.media = "<i class='fas fa-ad text-olive' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+					}
+					else if ($scope.item.itemMedia == 'MOVIE') {
+						$scope.item.media = "<i class='fas fa-film text-yellow-casablanca' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+					}
+					else if ($scope.item.itemMedia == 'GAME') {
+						$scope.item.media = "<i class='fas fa-gamepad text-green-steel' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+					}
+					else if ($scope.item.itemMedia == 'AUDIO') {
+						$scope.item.media = "<i class='fas fa-microphone text-light-purple' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+					}
 				}
 				$rootScope.setLoading(false);
 			}
@@ -2800,8 +2819,6 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.setFeatured = function(artist, AddSliderForm) {
 		updateFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
-			// var id = data.id;
-			// $scope.artist = data;
 			$scope.noty.add({title:'Featured data',body:'Artist was added.'});
 			$scope.refresh();
 		}).

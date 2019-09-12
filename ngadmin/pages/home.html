@@ -258,7 +258,16 @@
 													<a href="edit-comp/{{comp.comp_id}}" class="capitalize"><i class="fas fa-gift fa-fw text-purple" aria-hidden="true"></i> {{comp.comp_name}}</a>
 												</span>
 												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<i class="far fa-calendar-plus fa-fw" aria-hidden="true"></i> Added {{comp.date_added | timestampDateFormat}}
+													<i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{comp.date_added | timestampDateFormat}}
+												</span>
+												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
+													<i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> Number of Songs: {{comp.playlist_count}}
+												</span>
+												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
+													<i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Downloads: {{comp.count}}
+												</span>
+												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
+													<i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download: {{comp.last_download | timestampDateTimeFormat}}
 												</span>
 											</div>
 										</div>
