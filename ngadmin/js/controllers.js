@@ -2810,7 +2810,7 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.remove = function(artist, SliderForm) {
 		removeFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
-			$scope.noty.add({title:'Featured Artist',body:artist.marker + artist.INartistName + ' was removed.'});
+			$scope.noty.add({title:'Featured Artist',body:artist.marker + ' ' + artist.INartistName + ' was removed.'});
 			$scope.artist = {};
 			$scope.refresh();
 			$scope.refreshCounters();
