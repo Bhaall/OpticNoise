@@ -2790,7 +2790,7 @@ angular.module('onAdmin.controllers', [])
 		}).
 		error(function(data, status, headers, config) {
 			$rootScope.setLoading(false);
-			$scope.noty.add({type: 'Error', title:'Featured data status: ' + status,body:'There was a problem.'});
+			$scope.noty.add({type: 'Error', title:'Featured Artist status: ' + status,body:'There was a problem.'});
 		});
 
 		getArtistsForFeatured.fetchArtistsFeatured().success(function(data) {
@@ -2810,24 +2810,24 @@ angular.module('onAdmin.controllers', [])
 
 	$scope.remove = function(artist, SliderForm) {
 		removeFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
+			$scope.noty.add({title:'Featured Artist',body:artist.marker + artist.INartistName + ' was removed.'});
 			$scope.artist = {};
-			$scope.noty.add({title:'Featured data',body:'Artist was removed.'});
 			$scope.refresh();
 			$scope.refreshCounters();
 		}).
 		error(function(data, status, headers, config) {
-			$scope.noty.add({type: 'Error', title:'Featured data status: ' + status,body:'There was a problem.'});
+			$scope.noty.add({type: 'Error', title:'Featured Artist status: ' + status,body:'There was a problem.'});
 		});
 	};
 
 	$scope.setFeatured = function(artist, AddSliderForm) {
 		updateFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
-			$scope.noty.add({title:'Featured data',body:'Artist was added.'});
+			$scope.noty.add({title:'Featured artist',body:'Artist was added.'});
 			$scope.refresh();
 			$scope.refreshCounters();
 		}).
 		error(function(data, status, headers, config) {
-			$scope.noty.add({type: 'Error', title:'Featured data status: ' + status,body:'There was a problem.'});
+			$scope.noty.add({type: 'Error', title:'Featured Artist status: ' + status,body:'There was a problem.'});
 		});
 	};
 
