@@ -58,8 +58,30 @@
 	<li data-ng-class="{active: isActive('/sah')}">
 		<a href="#/sah"><i class="fas fa-video menu-icon fa-fw" aria-hidden="true"></i> <span>Scene &amp; Heard &nbsp;&nbsp;<span class="label label-green">{{sahItemTotal}}</span></span></a>
 	</li>
-	<li data-ng-class="{active: isActive('/fon')}"><a href="#/fon"><i class="fas fa-book menu-icon fa-fw" aria-hidden="true"></i> <span>New signings</span></a></li>
-	<li data-ng-class="{active: isActive('/slider')}"><a href="#/slider"><i class="fas fa-heart menu-icon fa-fw" aria-hidden="true"></i> <span>Featured artists</span></a></li>
+	<li data-ng-class="{active: isActive('/fon')}">
+		<a href="#/fon" ng-init="collapseFon=true" ng-click="collapseFon=!collapseFon"><i class="fas fa-book menu-icon fa-fw" aria-hidden="true"></i> <span>New Signings &nbsp;&nbsp;<span class="label label-yellow">{{allFon}}</span> <i class="text-muted pull-right fas fa-plus-square-o"></i></span></a>
+		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseFon}" id="fonMenu">
+			<li><a href="javascript:;" ng-init="collapseFonList=true" ng-click="collapseFonList=!collapseFonList">New Signings List <i class="fas fa-caret-down fa-fw" aria-hidden="true"></i></a>
+				<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseFonList}" id="FonListMenu">
+					<li ng-repeat="artist in signing_artists" data-ng-class="{active: isActive('/edit-artist/{{ artist.INartistID }}')}">
+						<a href='#/edit-artist/{{artist.INartistID }}'>{{artist.marker}} {{artist.INartistName}}</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li data-ng-class="{active: isActive('/slider')}">
+		<a href="#/slider" ng-init="collapseSlider=true" ng-click="collapseSlider=!collapseSlider"><i class="fas fa-heart menu-icon fa-fw" aria-hidden="true"></i> <span>Featured Artists &nbsp;&nbsp;<span class="label label-danger">{{AllFeaturedTotal}}</span> <i class="text-muted pull-right fas fa-plus-square-o"></i></span></a>
+		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseSlider}" id="sliderMenu">
+			<li><a href="javascript:;" ng-init="collapseSliderList=true" ng-click="collapseSliderList=!collapseSliderList">Featured List <i class="fas fa-caret-down fa-fw" aria-hidden="true"></i></a>
+				<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseSliderList}" id="SliderListMenu">
+					<li ng-repeat="artist in featured" data-ng-class="{active: isActive('/edit-artist/{{ artist.INartistID }}')}">
+						<a href='#/edit-artist/{{artist.INartistID }}'>{{artist.marker}} {{artist.INartistName}}</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
 	<li ng-repeat="about in abouts" data-ng-class="{active: isActive('/edit-about/{{ about.about_id }}')}">
 		<a href='#/edit-about/{{ about.about_id }}'><i class="fas fa-smile menu-icon fa-fw" aria-hidden="true"></i> <span>About Page</span></a>
 	</li>

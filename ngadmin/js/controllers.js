@@ -24,6 +24,7 @@ angular.module('onAdmin.controllers', [])
 
 		getNewSignings.fetchFon().success(function(data) {
 			$scope.signing_artists = data;
+			$scope.allFon = data.length;
 		});
 
 		profileRepo.fetchProfile().success(function(data) {
@@ -125,7 +126,8 @@ angular.module('onAdmin.controllers', [])
 		});
 
 		featuredRepo.fetchFeatured().success(function(data) {
-			$scope.fon = data;
+			$scope.featured = data;
+			$scope.AllFeaturedTotal = data.length;
 		});
 
 		compsCount.fetchCompsCount().success(function(data) {
