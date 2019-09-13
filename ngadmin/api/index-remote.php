@@ -131,6 +131,10 @@ $app->put('/update_comps_sort/:id', 'updateCompsSort');
 $app->put('/comp_count/:id', 'updateCompCount');
 $app->delete('/comps/:id', 'deleteComp');
 $app->get('/comps/:id', 'getComp');
+$app->get('/comp_items/:id', 'getCompItems');
+$app->get('/song_item_links/:id/:sort', function ($id, $sort) {
+  getSongItemLinks($id, $sort);
+});
 $app->put('/comps/:id', 'updateComp');
 $app->get('/songs_select', 'getSongsForSelector');
 $app->get('/comp_playlist/:id', 'getCompPlaylist');
@@ -1853,6 +1857,33 @@ function getComp($id) {
 		$comp = $stmt->fetchAll(PDO::FETCH_OBJ);
 		$db = null;
 		echo json_encode($comp);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getCompItems($id) {
+	$sql = "select * from comp_items where songID=".$id." order by comp_items_id";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$comp_items = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($comp_items);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getSongItemLinks($id, $sort) {
+	$sql = "select ( select songID from comp_items where compID = :id and item_sort > :sort order by item_sort asc limit 1 ) as nextValue, ( select songID from comp_items where compID = :id and item_sort < :sort order by item_sort desc limit 1 ) as prevValue from comp_items";
+	try {
+		$db = getConnection();
+		$stmt = $db->prepare($sql);
+		$stmt->execute([':id' => $id, ':sort' => $sort]);
+		$links = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($links);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}

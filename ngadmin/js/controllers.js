@@ -2173,7 +2173,7 @@ angular.module('onAdmin.controllers', [])
 		}
 	};
 }])
-.controller('editSongFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getSong', 'getComp', 'updateSong', 'updateSongCount', 'updateSongDownloads', 'deleteSongs', 'removeSongFile', '$filter', 'asyncScript', 'getCompInfoSong', '$timeout', function($scope, $rootScope, noty, $location, $stateParams, getSong, getComp, updateSong, updateSongCount, updateSongDownloads, deleteSongs, removeSongFile, $filter, asyncScript, getCompInfoSong, $timeout) {
+.controller('editSongFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getSong', 'getComp', 'getCompItems', 'getSongItemLinks', 'updateSong', 'updateSongCount', 'updateSongDownloads', 'deleteSongs', 'removeSongFile', '$filter', 'asyncScript', 'getCompInfoSong', '$timeout', function($scope, $rootScope, noty, $location, $stateParams, getSong, getComp, getCompItems, getSongItemLinks, updateSong, updateSongCount, updateSongDownloads, deleteSongs, removeSongFile, $filter, asyncScript, getCompInfoSong, $timeout) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -2185,6 +2185,7 @@ angular.module('onAdmin.controllers', [])
 	var id = $stateParams.id;
 	var comp_id = $stateParams.comp_id;
 	$scope.comp_id = $stateParams.comp_id;
+	var songID = $stateParams.id;
 
 	$scope.refresh = function() {
 
@@ -2205,6 +2206,34 @@ angular.module('onAdmin.controllers', [])
 			$scope.noty.add({type: 'Error', title:'Comp data status: ' + status,body:'There was a problem.'});
 		});
 
+		getCompItems.fetchCompItemsByID(songID).success(function(data) {
+		  if(data.length){
+		    for (var i = 0; i < data.length; i++) {
+		      $scope.comp_items = data[i];
+
+					getSongItemLinks.fetchSongItemNavLinks($scope.comp_items.compID, $scope.comp_items.item_sort).success(function(data) {
+		        $scope.linksdata = data;
+		        for (var j = 0; j < $scope.linksdata.length; j++) {
+		          $scope.links = $scope.linksdata[j];
+		        }
+		      }).
+		      error(function(data, status, headers, config) {
+		        $scope.noty.add({type: 'Error', title:'Song links data status: ' + status,body:status,body:'There was a problem.'});
+		      });
+
+		    }
+		    $rootScope.setLoading(false);
+		  }
+		  else {
+		    $rootScope.setLoading(false);
+		    $location.path("/edit-comp/"+comp_id).replace();
+		  }
+		}).
+		error(function(data, status, headers, config) {
+		  $rootScope.setLoading(false);
+		  $scope.noty.add({type: 'Error', title:'Comp Item data status: ' + status,body:'There was a problem.'});
+		});
+
 		getSong.fetchSongByID(id).success(function(data) {
 			if(data.length){
 				for (var i = 0; i < data.length; i++) {
@@ -2215,7 +2244,6 @@ angular.module('onAdmin.controllers', [])
 					$scope.song.dateAdded = $filter('timestampDateFormat')($scope.song.date_added);
 					$scope.song.lastDownload = $filter('timestampDateTimeFormat')($scope.song.last_download);
 					$scope.song.lastPlayed = $filter('timestampDateTimeFormat')($scope.song.last_played);
-					// clear song_files from scope
 					$scope.song_files = '';
 				}
 

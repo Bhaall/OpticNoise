@@ -351,6 +351,12 @@ factory('deleteComps', ['$http', function($http) {
 factory('getComp', ['$http', function($http) {
 	return new getCompByID($http);
 }]).
+factory('getCompItems', ['$http', function($http) {
+	return new getCompItemsByID($http);
+}]).
+factory('getSongItemLinks', ['$http', function($http) {
+	return new getSongItemNavLinks($http);
+}]).
 factory('updateComp', ['$http', function($http) {
   return new updateCompByID($http);
 }]).
@@ -1388,7 +1394,31 @@ window.getCompByID = function($http) {
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
-      //alert('dropbox data error!');
+      //alert('comp data error!');
+    });
+	};
+};
+window.getCompItemsByID = function($http) {
+	this.$http = $http;
+	this.fetchCompItemsByID = function(id) {
+		var url = 'api/comp_items/';
+		return this.$http.get(url+id)
+		.success(function(data) {
+			return data;
+		}).error(function(data, status) {
+      //alert('comp items data error!');
+    });
+	};
+};
+window.getSongItemNavLinks = function($http) {
+	this.$http = $http;
+	this.fetchSongItemNavLinks = function(id, sort) {
+		var url = 'api/song_item_links/'+id +'/'+sort;
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		}).error(function(data, status) {
+      //alert('song data error!');
     });
 	};
 };
