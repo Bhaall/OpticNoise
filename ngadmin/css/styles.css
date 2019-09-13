@@ -1075,8 +1075,13 @@ hr {
   background-color: #039be5;
   color: #fff;
 }
-.ona--portlet__purple .ona-widget__items.ona-ribbon--ver .ona-ribbon__target {
+/* .ona--portlet__purple .ona-widget__items.ona-ribbon--ver .ona-ribbon__target {
   background-color: #8e44ad;
+  color: #fff;
+} */
+
+.ona-widget__items.ona-ribbon--ver .ona-ribbon__target.ona-ribbon__orange {
+  background-color: #ef6c00;
   color: #fff;
 }
 /* buttons -----------*/
@@ -1426,6 +1431,16 @@ td > .mt-checkbox.mt-checkbox-single {
 .dropdown-menu > li > a {
   padding: 10px 20px;
 }
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus {
+  background-color: #1565c0;
+}
+.dropdown-menu>.active>a [class*=" fa-"]:not(.fa-stack),
+.dropdown-menu>.active>a:hover [class*=" fa-"]:not(.fa-stack),
+.dropdown-menu>.active>a:focus [class*=" fa-"]:not(.fa-stack) {
+  color: #fff;
+}
 .dropdown-menu>li>a:hover,
 .dropdown-menu>li>a:focus {
   background-color: inherit;
@@ -1438,7 +1453,7 @@ td > .mt-checkbox.mt-checkbox-single {
   -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
-.dropdown-menu > li > a [class*=" fa-"]:not(.fa-stack) {
+.dropdown-menu>li>a [class*=" fa-"]:not(.fa-stack) {
   line-height: 1.7;
 }
 .img-thumbnail {
@@ -2597,6 +2612,9 @@ a.text-danger:focus,
 a.text-danger:visited {
   color: #d32f2f;
 }
+.label-danger {
+  background-color: #d32f2f;
+}
 .text-success,
 .text-success:hover,
 .text-success:focus,
@@ -2612,11 +2630,17 @@ a.text-danger:visited {
 .text-purple:visited {
   color: #8e44ad;
 }
+.label-purple {
+  background-color: #8e44ad;
+}
 .text-light-purple,
 .text-light-purple:hover,
 .text-light-purple:focus,
 .text-light-purple:visited {
   color: #f2e6f7;
+}
+.label-light-purple {
+  background-color: #f2e6f7;
 }
 .text-blue,
 .text-blue:hover,
@@ -2624,11 +2648,17 @@ a.text-danger:visited {
 .text-blue:visited {
   color: #1565c0;
 }
+.label-blue {
+  background-color: #1565c0;
+}
 .text-light-blue,
 .text-light-blue:hover,
 .text-light-blue:focus,
 .text-light-blue:visited {
   color: #29b6f6;
+}
+.label-light-blue {
+  background-color: #29b6f6;
 }
 .text-aqua,
 .text-aqua:hover,
@@ -2636,14 +2666,23 @@ a.text-danger:visited {
 .text-aqua:visited {
   color: #32c5d2;
 }
+.label-aqua {
+  background-color: #32c5d2;
+}
 .text-olive,
 .text-olive:hover,
 .text-olive:focus,
 .text-olive:visited {
   color: #95a5a6;
 }
+.label-olive {
+  background-color: #95a5a6;
+}
 .text-yellow-lemon {
   color: #f7ca18;
+}
+.label-yellow-lemon {
+  background-color: #f7ca18;
 }
 .text-yellow-casablanca,
 .text-yellow-casablanca:hover,
@@ -2651,11 +2690,17 @@ a.text-danger:visited {
 .text-yellow-casablanca:visited {
   color: #f2784b;
 }
+.label-yellow-casablanca {
+  background-color: #f2784b;
+}
 .text-orange,
 .text-orange:hover,
 .text-orange:focus,
 .text-orange:visited {
   color: #ef6c00;
+}
+.label-orange {
+  background-color: #ef6c00;
 }
 .text-yellow,
 .text-yellow:hover,
@@ -2663,11 +2708,17 @@ a.text-danger:visited {
 .text-yellow:visited {
   color: #c49f47;
 }
+.label-yellow {
+  background-color: #c49f47;
+}
 .text-green,
 .text-green:hover,
 .text-green:focus,
 .text-green:visited {
   color: #388e3c;
+}
+.label-green {
+  background-color: #388e3c;
 }
 .text-green-meadow,
 .text-green-meadow:hover,
@@ -2675,11 +2726,17 @@ a.text-danger:visited {
 .text-green-meadow:visited {
   color: #1bbc9b;
 }
+.label-green-meadow {
+  background-color: #1bbc9b;
+}
 .text-green-steel,
 .text-green-steel:hover,
 .text-green-steel:focus,
 .text-green-steel:visited {
   color: #29b4b6;
+}
+.label-green-steel {
+  background-color: #29b4b6;
 }
 .text-pink,
 .text-pink:hover,
@@ -2687,8 +2744,8 @@ a.text-danger:visited {
 .text-pink:visited {
   color: #fd27eb;
 }
-.ta-scroll-window.form-control {
-	margin-top:5px;
+.label-pink {
+  background-color: #fd27eb;
 }
 /* textAngular */
 .ta-editor {
@@ -2698,10 +2755,14 @@ a.text-danger:visited {
   min-height: 100px !important;
   overflow: auto;
 }
+.ta-scroll-window.form-control {
+	margin-top:5px;
+}
 .ta-scroll-window > .ta-bind:focus,
 .ta-scroll-window > .ta-bind:active {
   outline: none;
 }
+/* tables */
 .breadcrumb,
 .pagination > li > a,
 .pagination > li > span,
@@ -2714,7 +2775,6 @@ a.text-danger:visited {
   border-color: #f7f7f7;
   color: #363636;
 }
-/* tables */
 .table-bordered,
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,

@@ -25,9 +25,9 @@
 					</a>
 					<ul class="dropdown-menu pull-right">
             <li class="dropdown-header">{{current_user.firstname}} {{current_user.lastname}}</li>
-						<li><a href="#/user-profile/{{current_user.AdminID}}"><i class="pull-right glyphicon glyphicon-cog" aria-hidden="true"></i> Settings</a></li>
+						<li data-ng-class="{active: isActive('/user-profile/{{current_user.AdminID}}')}"><a href="#/user-profile/{{current_user.AdminID}}"><i class="pull-right fas fa-id-badge fa-fw text-blue" aria-hidden="true"></i> Profile</a></li>
             <li class="divider"></li>
-						<li><a href="" data-toggle="modal" data-target="#modalLogout"><i class="pull-right glyphicon glyphicon-lock" aria-hidden="true"></i> Log Out</a></li>
+						<li><a href="" data-toggle="modal" data-target="#modalLogout"><i class="pull-right fas fa-sign-out-alt text-danger" aria-hidden="true"></i> Log Out</a></li>
 					</ul>
 				</li>
 			</ul>
