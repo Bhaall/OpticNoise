@@ -2813,6 +2813,7 @@ angular.module('onAdmin.controllers', [])
 			$scope.artist = {};
 			$scope.noty.add({title:'Featured data',body:'Artist was removed.'});
 			$scope.refresh();
+			$scope.refreshCounters();
 		}).
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'Featured data status: ' + status,body:'There was a problem.'});
@@ -2823,6 +2824,7 @@ angular.module('onAdmin.controllers', [])
 		updateFeatured.putFeaturedByID(artist.INartistID).success(function(data) {
 			$scope.noty.add({title:'Featured data',body:'Artist was added.'});
 			$scope.refresh();
+			$scope.refreshCounters();
 		}).
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'Featured data status: ' + status,body:'There was a problem.'});
