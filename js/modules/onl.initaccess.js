@@ -22,8 +22,8 @@ onl.mod.initaccess={init:function(){
         return false;
       }
       else{
-        var COOKIE_NAME='cookieopticnoisesession';
-        var options={path:'/',expires:1};
+        var COOKIE_NAME='onsession';
+        var options={path:'/'};
         $.cookie(COOKIE_NAME,'comps',options);
         callback();
       }
@@ -37,7 +37,7 @@ onl.mod.initaccess={init:function(){
     });
   }
   $('.access').click(function(e){
-    if (!$.cookie('cookieopticnoisesession')) {
+    if (!$.cookie('onsession')) {
       loc=$(this).attr("href");
       $('#comps-access').modal('show');
       $('#comps-access').on('shown.bs.modal', function () {

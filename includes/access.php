@@ -1,7 +1,7 @@
 <?php
 //session_start();
 $root_path = $_SERVER['DOCUMENT_ROOT'] . "/optic";
-if (!isset($_COOKIE["cookieopticnoisesession"]))
+if (!isset($_COOKIE["onsession"]))
 {
 	header("location:index.php");
 	exit();

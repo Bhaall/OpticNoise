@@ -24,8 +24,8 @@ onl.mod.initdownload={init:function(){
         return false;
       }
       else{
-        var COOKIE_NAME='cookieopticnoisesession';
-        var options={path:'/',expires:1};
+        var COOKIE_NAME='onsession';
+        var options={path:'/'};
         $.cookie(COOKIE_NAME,'comps',options);
         callback();
       }
@@ -49,7 +49,7 @@ onl.mod.initdownload={init:function(){
     else if (type="song") {
       loc="download_song.php?id=" + itemId;
     }
-    if (!$.cookie('cookieopticnoisesession')) {
+    if (!$.cookie('onsession')) {
       $('#comps-login').modal('show');
       $('#comps-login').on('shown.bs.modal', function () {
         $('#password').focus()
