@@ -1043,7 +1043,7 @@ angular.module('onAdmin.controllers', [])
 		}
 	};
 }])
-.controller('editArtistCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'updateArtist', 'getArtistLinks', 'getMaxHomeSort', 'deleteArtists', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, updateArtist, getArtistLinks, getMaxHomeSort, deleteArtists, getCompInfoArtist, $filter, $sce, asyncScript) {
+.controller('editArtistCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'updateArtist', 'getArtistLinks', 'getMaxHomeSort', 'deleteArtists', 'deleteSongs', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, updateArtist, getArtistLinks, getMaxHomeSort, deleteArtists, deleteSongs, getCompInfoArtist, $filter, $sce, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -1195,6 +1195,15 @@ angular.module('onAdmin.controllers', [])
 			$scope.refreshCounters();
 			$location.path("/artists");
 		}
+	};
+
+	$scope.deleteSong = function(song) {
+	  var deleteSong = confirm('Are you absolutely sure you want to delete ' + song.song_title + '?');
+	  if (deleteSong) {
+	    deleteSongs.deleteSongByID(song.song_id);
+			$scope.refresh();
+	    $scope.refreshCounters();
+	  }
 	};
 
 	$scope.renderItemText = function(html){
@@ -2484,6 +2493,7 @@ angular.module('onAdmin.controllers', [])
 		updateFon.putFonByID(artist.INartistID).success(function(data) {
 			$scope.noty.add({title:'FON data',body:'Fon has been updated.'});
 			$scope.refresh();
+			$scope.refreshCounters();
 		}).
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'FON data status: ' + status,body:'There was a problem.'});
@@ -2495,6 +2505,7 @@ angular.module('onAdmin.controllers', [])
 			$scope.artist = {};
 			$scope.noty.add({title:'FON data',body:'Fon has been updated.'});
 			$scope.refresh();
+			$scope.refreshCounters();
 		}).
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'FON data status: ' + status,body:'There was a problem.'});

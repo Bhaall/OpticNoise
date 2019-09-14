@@ -2614,7 +2614,7 @@ a.text-danger:hover,
 a.text-danger:focus,
 .text-danger:visited,
 a.text-danger:visited {
-  color: #d32f2f;
+  color: #d32f2f !important;
 }
 .label-danger {
   background-color: #d32f2f;
@@ -3208,16 +3208,15 @@ select.ng-valid.ng-valid-required {
 	border-right-width: 0;
 	border-color: #dee5e7;
 	position: absolute;
-	left: -50px;
+	left: -54px;
   padding: 8px 15px 9px;
 	top: -1px;
 }
 .playerpanel>.btn>i {
-	color: #039be5 !important;
   margin-top: 5px;
 }
 .playerpanel.active>.btn {
-  border-color: #039be5;
+  border-color: #1565c0;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }

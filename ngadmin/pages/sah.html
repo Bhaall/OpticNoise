@@ -52,8 +52,8 @@
 														<td class="center col-xs-2">
 															<form name="rowform" method="post" class="form-buttons form-inline">
 																<div class="btn-group">
-																	<a ng-if="!sah.$edit" href="" class="btn btn-clean btn-xs margin-right-5" ng-click="sah.$edit = true"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a>
-																	<a ng-if="!sah.$edit" href="" ng-click="delete(sah)" class="btn btn-clean btn-xs"><i class="fas fa-trash fa-fw" aria-hidden="true"></i></a>
+																	<a ng-if="!sah.$edit" href="" class="btn btn-clean btn-xs margin-right-5" ng-click="sah.$edit = true"><i class="fas fa-edit fa-fw text-green" aria-hidden="true"></i></a>
+																	<a ng-if="!sah.$edit" href="" ng-click="delete(sah)" class="btn btn-clean btn-xs"><i class="fas fa-trash-alt fa-fw text-danger" aria-hidden="true"></i></a>
 																	<button ng-if="sah.$edit" type="button" data-ng-click="saveSah(sah.sceneID, sah.sceneName); sah.$edit = false" class="btn btn-clean btn-xs margin-right-5"><i class="fas fa-save fa-fw" aria-hidden="true"></i></button>
 																	<a ng-if="sah.$edit" href="" class="btn btn-clean btn-xs" ng-click="sah.$edit = false"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a>
 																</div>
