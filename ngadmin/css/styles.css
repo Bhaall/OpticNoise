@@ -3458,12 +3458,6 @@ input[type=file]:hover,
 .nav-item.dropdown.open .nav-link.dropdown-toggle:after {
   content: "\e113";
 }
-@media(max-width: 786px) {
-  .nav-link.dropdown-toggle:after,
-  .nav-item.dropdown.open .nav-link.dropdown-toggle:after {
-    display: none;
-  }
-}
 .chevron-toggle>div:after,
 .chevron-toggle>h3:after,
 .chevron-toggle>h4:after {
