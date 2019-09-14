@@ -991,6 +991,9 @@ hr {
   position: relative;
 }
 @media(max-width: 768px) {
+  #edit-song-from-comp .ona-portlet__space-x {
+    padding-right: 75px !important;
+  }
   .ona-portlet__body .nav-btns {
     margin-right: 10px;
     margin-top: 15px;
