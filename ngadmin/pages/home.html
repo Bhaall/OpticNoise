@@ -307,13 +307,42 @@
 										<div class="ona-widget__items">
 											<div class="ona-widget__item">
 												<ul id="tabsJustified" class="nav nav-tabs nav-justified">
-													<li class="active"><a href="javascript:;" data-target="#top-songs" data-toggle="tab"><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Top  Songs</a></li>
-													<li><a href="javascript:;" data-target="#top-song-download" data-toggle="tab"><i class="far fa-calendar-check fa-fw" aria-hidden="true"></i> Top DL Songs</a></li>
-													<li><a href="javascript:;" data-target="#top-comps" data-toggle="tab"><i class="fas fa-gift fa-fw" aria-hidden="true"></i> Top DL Comps</a></li>
-													<li><a href="javascript:;" data-target="#top-dropboxes" data-toggle="tab"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> Top DL Dropboxes</a></li>
+													<li class="nav-item dropdown">
+														<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Top Songs</a>
+														<ul class="dropdown-menu" x-placement="bottom-start">
+															<li class="dropdown-header">Sort</li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-songs">Plays</a></li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-songs-sort">Last Played</a></li>
+														</ul>
+													</li>
+													<li class="nav-item dropdown">
+														<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"><i class="far fa-calendar-check fa-fw" aria-hidden="true"></i> Top DL Songs</a>
+														<ul class="dropdown-menu" x-placement="bottom-start">
+															<li class="dropdown-header">Sort</li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-song-download">Downloads</a></li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-song-download-sort">Last Download</a></li>
+														</ul>
+													</li>
+													<li class="nav-item dropdown">
+														<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"><i class="fas fa-gift fa-fw" aria-hidden="true"></i> Top DL Comps</a>
+														<ul class="dropdown-menu" x-placement="bottom-start">
+															<li class="dropdown-header">Sort</li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-comps">Downloads</a></li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-comps-sort">Last Download</a></li>
+														</ul>
+													</li>
+													<li class="nav-item dropdown">
+														<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"><i class="fab fa-dropbox fa-fw" aria-hidden="true"></i> Top DL Dropboxes</a>
+														<ul class="dropdown-menu" x-placement="bottom-start">
+															<li class="dropdown-header">Sort</li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-dropboxes">Downloads</a></li>
+															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-dropboxes-sort">Last Download</a></li>
+														</ul>
+													</li>
 												</ul>
 												<br>
 												<div id="tabsJustifiedContent" class="tab-content margin-top-minus-20">
+													<!-- top played songs -->
 													<div class="tab-pane fade-in active in" id="top-songs">
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongs" class="list-group-item">
@@ -324,6 +353,18 @@
 															</li>
 														</ul>
 													</div>
+													<div class="tab-pane fade-in in" id="top-songs-sort">
+														<ul class="list-group">
+															<li ng-repeat="songs in topSongs | orderBy: 'last_played':true" class="list-group-item">
+																<span class="badge badge-pink">{{songs.song_count}}</span>
+																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
+																<p class="no-margin"><i class="fas fa-clock fa-fw text-pink" aria-hidden="true"></i><em>Last played:</em> {{songs.last_played | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+													<!-- end top played songs -->
+													<!-- top downloaded songs -->
 													<div class="tab-pane fade-in in" id="top-song-download">
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongsDownload" class="list-group-item">
@@ -334,6 +375,18 @@
 															</li>
 														</ul>
 													</div>
+													<div class="tab-pane fade-in in" id="top-song-download-sort">
+														<ul class="list-group">
+															<li ng-repeat="songs in topSongsDownload | orderBy: 'last_download':true" class="list-group-item">
+																<span class="badge badge-pink">{{songs.song_downloads}}</span>
+																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
+																<p class="no-margin"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{songs.last_download | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+													<!-- end top downloaded songs -->
+													<!-- top downloaded comps -->
 													<div class="tab-pane fade-in" id="top-comps">
 														<ul class="list-group">
 															<li ng-repeat="comps in topComps" class="list-group-item">
@@ -345,6 +398,19 @@
 															</li>
 														</ul>
 													</div>
+													<div class="tab-pane fade-in" id="top-comps-sort">
+														<ul class="list-group">
+															<li ng-repeat="comps in topComps | orderBy: 'last_download':true" class="list-group-item">
+																<span class="badge badge-pink">{{comps.count}}</span>
+																<p class="capitalize"><i class="fas fa-gift fa-fw text-purple" aria-hidden="true"></i> <strong><a href="#/edit-comp/{{comps.comp_id}}">{{comps.comp_name}}</a></strong></p>
+																<p class="no-margin pull-right" ng-show="comps.active=='n'"><span class="label label-warning">inactive</span></p>
+																<p class="no-margin pull-right" ng-show="comps.active=='y'"><span class="label label-success">active</span></p>
+																<p class="no-margin capitalize"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{comps.last_download | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+													<!-- end top downloaded comps -->
+													<!-- top downloaded dropboxes -->
 													<div class="tab-pane fade-in" id="top-dropboxes">
 														<ul class="list-group">
 															<li ng-repeat="dropboxes in topDropboxes" class="list-group-item">
@@ -356,6 +422,18 @@
 															</li>
 														</ul>
 													</div>
+													<div class="tab-pane fade-in" id="top-dropboxes-sort">
+														<ul class="list-group">
+															<li ng-repeat="dropboxes in topDropboxes | orderBy: 'last_download':true" class="list-group-item">
+																<span class="badge badge-pink">{{dropboxes.count}}</span>
+																<p class="capitalize"><i class="fab fa-dropbox fa-fw text-light-blue" aria-hidden="true"></i> <strong><a href="#/edit-dropbox/{{dropboxes.dropbox_id}}">{{dropboxes.dropbox_name}}</a></strong></p>
+																<p class="no-margin pull-right" ng-show="dropboxes.active=='n'"><span class="label label-warning">inactive</span></p>
+																<p class="no-margin pull-right" ng-show="dropboxes.active=='y'"><span class="label label-success">active</span></p>
+																<p class="no-margin capitalize"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{dropboxes.last_download | timestampDateTimeFormat}}</p>
+															</li>
+														</ul>
+													</div>
+													<!-- end top downloaded dropboxes -->
 												</div>
 											</div>
 										</div>
@@ -367,7 +445,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="col-lg-6">
 			<div class="panel panel-pink tablet-margin-bottom-40">
 				<div class="row">

@@ -2550,6 +2550,7 @@ fieldset[disabled] .btn-blue.active {
   background-color: rgba(253, 39, 235, 0.1);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  border-bottom-width: 0;
   border-color: #ddd;
 }
 .panel-pink .nav-tabs > li > a:hover,
@@ -3432,6 +3433,31 @@ input[type=file]:hover,
 	margin: 0 auto;
 }
 /* glyphicon toggle arrows */
+.nav-link.dropdown-toggle:after {
+  border: 0;
+  content: "\e114";
+  display: inline;
+  float: right;
+  font-size: 10px;
+  font-family: 'Glyphicons Halflings';
+  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 2.5;
+  opacity: 0.7;
+  position: relative;
+  text-align: center;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  vertical-align: middle;
+}
+.nav-item.dropdown.open .nav-link.dropdown-toggle:after {
+  content: "\e113";
+}
 .chevron-toggle>div:after,
 .chevron-toggle>h3:after,
 .chevron-toggle>h4:after {
