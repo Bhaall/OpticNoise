@@ -95,7 +95,7 @@
 														<div class="row">
 															<div class="col-xs-8">
 																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddCompForm.comp_file.$valid, 'has-invalid': AddCompForm.comp_file.$invalid && AddCompForm.comp_file.$dirty, 'has-error': AddCompForm.comp_file.$invalid && AddCompForm.submitted}">
-																	<label for="comp_file">zip file</label> <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="<i class='fas fa-file-archive fa-fw text-purple' aria-hidden='true'></i> Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
+																	<label for="comp_file">zip file</label> <i class="fas fa-info-circle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="<i class='fas fa-file-archive fa-fw text-purple' aria-hidden='true'></i> Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
 																	<div class="input-icon">
 																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
 																		<input class="form-control" name="comp_file" type="text" ng-model="comp.comp_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
@@ -147,7 +147,7 @@
 												</span>
 												<span class="ona-widget__desc">
 													<div class="form-group">
-														<label>Image <i class="fas fa-exclamation-triangle fa-fw text-danger" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-image fa-fw text-purple' aria-hidden='true'></i> Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')."></i></label><br>
+														<label>Image <i class="fas fa-info-circle fa-fw text-danger" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-image fa-fw text-purple' aria-hidden='true'></i> Image must be 200x200 (name must not contain strange characters or spaces; no dashes; end in '.jpg')."></i></label><br>
 														<div class="fileinput fileinput-new" data-provides="fileinput">
 															<div class="fileinput-new thumbnail">
 																<img src="img/200-no-image.gif" class="img-responsive">
