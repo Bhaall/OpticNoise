@@ -906,7 +906,7 @@ angular.module('onAdmin.controllers', [])
 	};
 
 }])
-.controller('artistsCtrl', ['$scope', '$rootScope', '$filter', 'artistsRepo', 'deleteArtists', 'ngTableParams',  function($scope, $rootScope, $filter, artistsRepo, deleteArtists, ngTableParams) {
+.controller('artistsCtrl', ['$scope', '$rootScope', '$filter', 'artistsRepo', 'deleteArtists', 'updateArtistActive', 'updateArtistInActive', 'ngTableParams',  function($scope, $rootScope, $filter, artistsRepo, deleteArtists, updateArtistActive, updateArtistInActive, ngTableParams) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -972,7 +972,30 @@ angular.module('onAdmin.controllers', [])
 		}
 	};
 
+	$scope.setActive = function(artist) {
+	  updateArtistActive.putArtistActive(artist.id).success(function(data) {
+	    $scope.artist = data;
+	    $scope.noty.add({title:artist.INartistName,body:artist.INartistName + ' has been set to Active.'});
+	    $scope.refresh();
+	  }).
+	  error(function(data, status, headers, config) {
+	    $scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
+	  });
+	};
+
+	$scope.setInActive = function(artist) {
+	  updateArtistInActive.putArtistInActive(artist.id).success(function(data) {
+	    $scope.artist = data;
+	    $scope.noty.add({title:artist.INartistName,body:artist.INartistName + ' has been set to Inactive.'});
+	    $scope.refresh();
+	  }).
+	  error(function(data, status, headers, config) {
+	    $scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
+	  });
+	};
+
 	$scope.refresh();
+
 }])
 .controller('artistsNoSongsCtrl', ['$scope', '$rootScope', '$filter', 'artistsNoSongsRepo', 'deleteArtists', 'ngTableParams',  function($scope, $rootScope, $filter, artistsNoSongsRepo, deleteArtists, ngTableParams) {
 

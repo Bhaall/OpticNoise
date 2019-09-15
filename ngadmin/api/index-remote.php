@@ -54,6 +54,8 @@ $app->get('/artists_select', 'getArtistsForSelector');
 $app->post('/add_artist', 'addArtist');
 $app->put('/artists/:id', 'updateArtist');
 $app->delete('/artists/:id', 'deleteArtist');
+$app->put('/artist_active/:id', 'updateArtistSetActive');
+$app->put('/artist_inactive/:id', 'updateArtistSetInActive');
 $app->post('/upload_album', 'uploadAlbumPic');
 $app->post('/upload_slider', 'uploadSliderPic');
 $app->post('/update_album/:id', 'updateAlbumPic');
@@ -872,6 +874,42 @@ function updateSliderPic($id) {
 		} catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
 		}
+	}
+}
+
+function updateArtistSetActive($id) {
+    $app = \Slim\Slim::getInstance();
+    $request = $app->request();
+    $body = $request->getBody();
+    $artist = json_decode($body);
+	try {
+		$db = getConnection();
+		$active = 'y';
+		$sql = "update indies set active=? where INartistID=?";
+		$q = $db->prepare($sql);
+		$q->execute(array($active,$id));
+		$db = null;
+		echo json_encode($artist);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function updateArtistSetInActive($id) {
+    $app = \Slim\Slim::getInstance();
+    $request = $app->request();
+    $body = $request->getBody();
+    $artist = json_decode($body);
+	try {
+		$db = getConnection();
+		$active = 'n';
+		$sql = "update indies set active=? where INartistID=?";
+		$q = $db->prepare($sql);
+		$q->execute(array($active,$id));
+		$db = null;
+		echo json_encode($artist);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
 

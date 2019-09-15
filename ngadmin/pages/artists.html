@@ -52,8 +52,13 @@
 															<div class="tools btn-group">
 																<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
 																<ul class="dropdown-menu pull-right" role="menu">
+																	<li class="dropdown-header pad-top-0">Review</li>
 																	<li><a href="#/edit-artist/{{artist.id}}"><i class="pull-right fas fa-edit fa-fw text-green" aria-hidden="true"></i> Edit details</a></li>
 																	<li><a href="javascript:;" ng-click="delete(artist)"><i class="pull-right fas fa-trash-alt fa-fw text-danger" aria-hidden="true"></i> Delete</a></li>
+																	<li class="divider"></li>
+																	<li class="dropdown-header pad-top-0">Status</li>
+																	<li ng-show="artist.active=='y'"><a href="javascript:;" ng-click="setInActive(artist)"><i class="pull-right fas fa-eye-slash fa-fw text-warning" aria-hidden="true"></i> Set Inactive</a></li>
+																	<li ng-show="artist.active=='n'"><a href="javascript:;" ng-click="setActive(artist)"><i class="pull-right fas fa-eye fa-fw text-green" aria-hidden="true"></i> Set Active</a></li>
 																</ul>
 															</div>
 														</td>

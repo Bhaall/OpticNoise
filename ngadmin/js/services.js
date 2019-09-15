@@ -147,6 +147,12 @@ factory('getArtistsForSelector', ['$http', function($http) {
 factory('deleteArtists', ['$http', function($http) {
 	return new deleteArtist($http);
 }]).
+factory('updateArtistActive', ['$http', function($http) {
+  return new updateArtistActiveByID($http);
+}]).
+factory('updateArtistInActive', ['$http', function($http) {
+  return new updateArtistInActiveByID($http);
+}]).
 factory('addArtists', ['$http', function($http) {
 	return new addArtist($http);
 }]).
@@ -860,6 +866,28 @@ window.deleteArtist = function($http) {
 		return this.$http.delete('api/artists/'+id);
 	};
 };
+window.updateArtistActiveByID = function($http) {
+	this.$http = $http;
+	this.putArtistActive = function(id) {
+		return this.$http.put('api/artist_active/'+id)
+		.success(function(data) {
+			return data;
+		}).error(function(data, status) {
+      //alert('artist data error!');
+    });
+	};
+};
+window.updateArtistInActiveByID = function($http) {
+	this.$http = $http;
+	this.putArtistInActive = function(id) {
+		return this.$http.put('api/artist_inactive/'+id)
+		.success(function(data) {
+			return data;
+		}).error(function(data, status) {
+      //alert('artist data error!');
+    });
+	};
+};
 window.addArtist = function($http) {
 	this.$http = $http;
 	this.addNewArtist = function(artist) {
@@ -1489,7 +1517,7 @@ window.addToCompPlaylistCountByID = function($http) {
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
-      //alert('fon data error!');
+      //alert('playlist data error!');
     });
 	};
 };
@@ -1500,7 +1528,7 @@ window.removeFromCompPlaylistCountByID = function($http) {
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
-      //alert('fon data error!');
+      //alert('comp data error!');
     });
 	};
 };
@@ -1511,7 +1539,7 @@ window.updateCompActiveByID = function($http) {
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
-      //alert('fon data error!');
+      //alert('comp data error!');
     });
 	};
 };
@@ -1522,7 +1550,7 @@ window.updateCompInActiveByID = function($http) {
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
-      //alert('fon data error!');
+      //alert('comp data error!');
     });
 	};
 };
@@ -1533,7 +1561,7 @@ window.updateCompInCarouselByID = function($http) {
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
-      //alert('fon data error!');
+      //alert('comp data error!');
     });
 	};
 };
@@ -1544,7 +1572,7 @@ window.updateCompOutCarouselByID = function($http) {
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
-      //alert('fon data error!');
+      //alert('comp data error!');
     });
 	};
 };
