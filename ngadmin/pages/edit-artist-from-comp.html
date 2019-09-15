@@ -21,10 +21,6 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
-							<div class="nav-btns">
-								<!-- <a ng-show="links.prevValue!=null" href="#/edit-artist/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
-								<a ng-show="links.nextValue!=null" href="#/edit-artist/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a> -->
-							</div>
 							<div class="ona-widget">
 								<div class="ona-widget__visual ona-widget__purple">
 								</div>
@@ -273,7 +269,7 @@
 														</thead>
 														<tbody>
 															<tr ng-repeat="song in songs">
-																<td class="col-xs-3"><a href="#/edit-song/{{song.song_id}}">{{song.song_title | lowercase}}</a></td>
+																<td class="col-xs-3"><a href="#/edit-song-from-comp/{{comp.comp_id}}/song/{{song.song_id}}">{{song.song_title | lowercase}}</a></td>
 																<td class="col-xs-4">{{song.song_file}}</td>
 																<td class="center col-xs-2">{{song.song_count}}</td>
 																<td class="center col-xs-2"><span class="label {{song.rosterClass}}">{{song.rosterTxt}}</span></td>
@@ -282,7 +278,8 @@
 																		<button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button>
 																		<ul class="dropdown-menu pull-right" role="menu">
 																			<li><a ng-show="song.song_file" play-mp3 data-songtitle="{{song.song_title}}" href="{{song.song_file}}"><i class="pull-right fas fa-headphones-alt fa-fw text-orange" aria-hidden="true"></i> Play</a></li>
-																			<li><a href="#/edit-song/{{song.song_id}}"><i class="pull-right fas fa-edit fa-fw text-green" aria-hidden="true"></i> Edit details</a></li>
+																			<li><a href="#/edit-song-from-comp/{{comp.comp_id}}/song/{{song.song_id}}"><i class="pull-right fas fa-edit fa-fw text-green" aria-hidden="true"></i> Edit details</a></li>
+																			<li><a data-song="{{song}}" href="" ng-click="deleteSong(song)"><i class="pull-right fas fa-trash-alt fa-fw text-danger" aria-hidden="true"></i> Delete</a></li>
 																		</ul>
 																	</div>
 																</td>
@@ -315,20 +312,20 @@
 												<span class="ona-widget__desc">
 													<h5 ng-show="emptyCompInfo" class="pull-down"><strong>{{showname}}</strong> is currently in zero comps.</h5>
 													<div class="comp-list pull-down" ng-repeat="(key,value) in compinfo">
-														<h5><a href="edit-comp/{{key}}">{{value[0].comp_name}}</a></h5>
-														<ol>
-															<li ng-show="value[0].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[0].song_id}}">{{value[0].song_title}}</a> | <span ng-bind-html="renderItemText(value[0].song_comments)"></span></li>
-															<li ng-show="value[1].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[1].song_id}}">{{value[1].song_title}}</a> | <span ng-bind-html="renderItemText(value[1].song_comments)"></span></li>
-															<li ng-show="value[2].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[2].song_id}}">{{value[2].song_title}}</a> | <span ng-bind-html="renderItemText(value[2].song_comments)"></span></li>
-															<li ng-show="value[3].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[3].song_id}}">{{value[3].song_title}}</a> | <span ng-bind-html="renderItemText(value[3].song_comments)"></span></li>
-															<li ng-show="value[4].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[4].song_id}}">{{value[4].song_title}}</a> | <span ng-bind-html="renderItemText(value[4].song_comments)"></span></li>
-															<li ng-show="value[5].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[5].song_id}}">{{value[5].song_title}}</a> | <span ng-bind-html="renderItemText(value[5].song_comments)"></span></li>
-															<li ng-show="value[6].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[6].song_id}}">{{value[6].song_title}}</a> | <span ng-bind-html="renderItemText(value[6].song_comments)"></span></li>
-															<li ng-show="value[7].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[7].song_id}}">{{value[7].song_title}}</a> | <span ng-bind-html="renderItemText(value[7].song_comments)"></span></li>
-															<li ng-show="value[8].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[8].song_id}}">{{value[8].song_title}}</a> | <span ng-bind-html="renderItemText(value[8].song_comments)"></span></li>
-															<li ng-show="value[9].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[9].song_id}}">{{value[9].song_title}}</a> | <span ng-bind-html="renderItemText(value[9].song_comments)"></span></li>
-															<li ng-show="value[10].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[10].song_id}}">{{value[10].song_title}}</a> | <span ng-bind-html="renderItemText(value[10].song_comments)"></span></li>
-														</ol>
+														<h5><i class="fas fa-gift fa-fw text-purple" aria-hidden="true"></i> <a href="edit-comp/{{key}}">{{value[0].comp_name}} <i class="fas fa-external-link-alt fa-fw fa-xs text-purple" aria-hidden="true"></i></a></h5>
+														<ul>
+															<li ng-show="value[0].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[0].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[0].song_title}}</a> | <span ng-bind-html="renderItemText(value[0].song_comments)"></span></li>
+															<li ng-show="value[1].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[1].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[1].song_title}}</a> | <span ng-bind-html="renderItemText(value[1].song_comments)"></span></li>
+															<li ng-show="value[2].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[2].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[2].song_title}}</a> | <span ng-bind-html="renderItemText(value[2].song_comments)"></span></li>
+															<li ng-show="value[3].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[3].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[3].song_title}}</a> | <span ng-bind-html="renderItemText(value[3].song_comments)"></span></li>
+															<li ng-show="value[4].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[4].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[4].song_title}}</a> | <span ng-bind-html="renderItemText(value[4].song_comments)"></span></li>
+															<li ng-show="value[5].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[5].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[5].song_title}}</a> | <span ng-bind-html="renderItemText(value[5].song_comments)"></span></li>
+															<li ng-show="value[6].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[6].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[6].song_title}}</a> | <span ng-bind-html="renderItemText(value[6].song_comments)"></span></li>
+															<li ng-show="value[7].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[7].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[7].song_title}}</a> | <span ng-bind-html="renderItemText(value[7].song_comments)"></span></li>
+															<li ng-show="value[8].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[8].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[8].song_title}}</a> | <span ng-bind-html="renderItemText(value[8].song_comments)"></span></li>
+															<li ng-show="value[9].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[9].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[9].song_title}}</a> | <span ng-bind-html="renderItemText(value[9].song_comments)"></span></li>
+															<li ng-show="value[10].song_id"><a href="edit-song-from-comp/{{comp_id}}/song/{{value[10].song_id}}"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> {{value[10].song_title}}</a> | <span ng-bind-html="renderItemText(value[10].song_comments)"></span></li>
+														</ul>
 													</div>
 												</span>
 											</div>

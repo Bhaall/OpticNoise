@@ -1180,6 +1180,7 @@ angular.module('onAdmin.controllers', [])
 
 		updateArtist.putArtistByID(id, artist).success(function(data) {
 			$scope.artist = data;
+			$scope.refresh();
 			$scope.refreshCounters();
 			$scope.noty.add({title:'Artist data',body:'Artist has been updated.'});
 		}).
@@ -1192,6 +1193,7 @@ angular.module('onAdmin.controllers', [])
 		var deleteArtist = confirm('Are you absolutely sure you want to delete ' + artist.INartistName + '?');
 		if (deleteArtist) {
 			deleteArtists.deleteArtistByID(artist.INartistID);
+			$scope.refresh();
 			$scope.refreshCounters();
 			$location.path("/artists");
 		}
@@ -1285,7 +1287,7 @@ angular.module('onAdmin.controllers', [])
 		$scope.reset();
 	};
 }])
-.controller('editArtistFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'getComp', 'updateArtist', 'getMaxHomeSort', 'deleteArtists', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, getComp, updateArtist, getMaxHomeSort, deleteArtists, getCompInfoArtist, $filter, $sce, asyncScript) {
+.controller('editArtistFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'getComp', 'updateArtist', 'getMaxHomeSort', 'deleteArtists', 'deleteSongs', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, getComp, updateArtist, getMaxHomeSort, deleteArtists, deleteSongs, getCompInfoArtist, $filter, $sce, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -1433,6 +1435,7 @@ angular.module('onAdmin.controllers', [])
 
 		updateArtist.putArtistByID(id, artist).success(function(data) {
 			$scope.artist = data;
+			$scope.refresh();
 			$scope.refreshCounters();
 			$scope.noty.add({title:'Artist data',body:'Artist has been updated.'});
 		}).
@@ -1445,9 +1448,19 @@ angular.module('onAdmin.controllers', [])
 		var deleteArtist = confirm('Are you absolutely sure you want to delete ' + artist.INartistName + '?');
 		if (deleteArtist) {
 			deleteArtists.deleteArtistByID(artist.INartistID);
+			$scope.refresh();
 			$scope.refreshCounters();
 			$location.path("/artists");
 		}
+	};
+
+	$scope.deleteSong = function(song) {
+	  var deleteSong = confirm('Are you absolutely sure you want to delete ' + song.song_title + '?');
+	  if (deleteSong) {
+	    deleteSongs.deleteSongByID(song.song_id);
+	    $scope.refresh();
+	    $scope.refreshCounters();
+	  }
 	};
 
 	$scope.renderItemText = function(html){
