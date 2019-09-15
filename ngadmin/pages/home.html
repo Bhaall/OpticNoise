@@ -347,7 +347,7 @@
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongs" class="list-group-item">
 																<span class="badge badge-pink">{{songs.song_count}}</span>
-																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
 																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
 																<p class="no-margin"><i class="fas fa-clock fa-fw text-pink" aria-hidden="true"></i><em>Last played:</em> {{songs.last_played | timestampDateTimeFormat}}</p>
 															</li>
@@ -357,7 +357,7 @@
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongs | orderBy: 'last_played':true" class="list-group-item">
 																<span class="badge badge-pink">{{songs.song_count}}</span>
-																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
 																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
 																<p class="no-margin"><i class="fas fa-clock fa-fw text-pink" aria-hidden="true"></i><em>Last played:</em> {{songs.last_played | timestampDateTimeFormat}}</p>
 															</li>
@@ -369,7 +369,7 @@
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongsDownload" class="list-group-item">
 																<span class="badge badge-pink">{{songs.song_downloads}}</span>
-																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
 																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
 																<p class="no-margin"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{songs.last_download | timestampDateTimeFormat}}</p>
 															</li>
@@ -379,7 +379,7 @@
 														<ul class="list-group">
 															<li ng-repeat="songs in topSongsDownload | orderBy: 'last_download':true" class="list-group-item">
 																<span class="badge badge-pink">{{songs.song_downloads}}</span>
-																<p><i class="fas fa-music fa-fw text-yellow-casablanca" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
+																<p><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> <strong>Song:</strong> <a href="#/edit-song/{{songs.song_id}}"> {{songs.song_title}}</a></p>
 																<p><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> <strong>Artist:</strong> <a href="#/edit-artist/{{songs.INartistID}}" class="capitalize"> {{songs.INartistName}}</a></p>
 																<p class="no-margin"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i><em>Last download:</em> {{songs.last_download | timestampDateTimeFormat}}</p>
 															</li>
