@@ -7,7 +7,7 @@ $db_name = "on_prod";
 $connection = mysqli_connect($db_host, $db_username, $db_password) or die(mysqli_error());
 $db = mysqli_select_db($connection, $db_name);
 
-if($db_name == "db322156033"){
+if($db_name == "on_prod"){
 	$db_name_alias = "PRODUCTION";
 }
 else {

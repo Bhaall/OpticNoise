@@ -763,32 +763,37 @@ angular.module('onAdmin.controllers', [])
 	};
 	$rootScope.setLoading(true);
 	$rootScope.showPlayer=false;
-	getProfile.fetchProfileByID(id).success(function(data) {
-		if(data.length){
-			for (var i = 0; i < data.length; i++) {
-				$scope.profile = data[i];
 
-				if ($scope.profile.portrait === '') {
-					$scope.profile.portraitExists = false;
-					$scope.portraitClass = 'new';
+	$scope.refresh = function() {
+		getProfile.fetchProfileByID(id).success(function(data) {
+			if(data.length){
+				for (var i = 0; i < data.length; i++) {
+					$scope.profile = data[i];
+
+					if ($scope.profile.portrait === '') {
+						$scope.profile.portraitExists = false;
+						$scope.portraitClass = 'new';
+					}
+					else {
+						$scope.profile.portraitExists = true;
+						$scope.portraitClass = 'exists';
+						$scope.path = "img/people/";
+					}
 				}
-				else {
-					$scope.profile.portraitExists = true;
-					$scope.portraitClass = 'exists';
-					$scope.path = "img/people/";
-				}
+				$rootScope.setLoading(false);
 			}
+			else {
+				$rootScope.setLoading(false);
+				$scope.noty.add({type: 'Error', title:'Profile data',body:'There was a problem fetching the profile data. Please try again...?'});
+			}
+		}).
+		error(function(data, status, headers, config) {
 			$rootScope.setLoading(false);
-		}
-		else {
-			$rootScope.setLoading(false);
-			$scope.noty.add({type: 'Error', title:'Profile data',body:'There was a problem fetching the profile data. Please try again...?'});
-		}
-	}).
-	error(function(data, status, headers, config) {
-		$rootScope.setLoading(false);
-		$scope.noty.add({type: 'Error', title:'Profile data status: ' + status,body:'There was a problem.'});
-	});
+			$scope.noty.add({type: 'Error', title:'Profile data status: ' + status,body:'There was a problem.'});
+		});
+	};
+
+	$scope.refresh();
 
 	$scope.submitted = false;
 	$scope.update = function(profile){
@@ -903,6 +908,8 @@ angular.module('onAdmin.controllers', [])
 			$rootScope.setLoading(false);
 			$scope.registrationForm.submitted = true;
 		}
+
+		$scope.refresh();
 	};
 
 }])
