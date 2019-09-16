@@ -2718,19 +2718,19 @@ angular.module('onAdmin.controllers', [])
 					$scope.itemMedia = $scope.item.itemMedia;
 
 					if ($scope.item.itemMedia == 'TV') {
-						$scope.item.media = "<i class='fas fa-tv text-light-blue' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+						$scope.item.media = "<i class='fas fa-tv text-blue' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
 					}
 					else if ($scope.item.itemMedia == 'PROMO') {
-						$scope.item.media = "<i class='fas fa-ad text-olive' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+						$scope.item.media = "<i class='fas fa-ad text-pink' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
 					}
 					else if ($scope.item.itemMedia == 'MOVIE') {
-						$scope.item.media = "<i class='fas fa-film text-yellow-casablanca' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+						$scope.item.media = "<i class='fas fa-film text-aqua' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
 					}
 					else if ($scope.item.itemMedia == 'GAME') {
-						$scope.item.media = "<i class='fas fa-gamepad text-green-steel' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+						$scope.item.media = "<i class='fas fa-gamepad text-green' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
 					}
 					else if ($scope.item.itemMedia == 'AUDIO') {
-						$scope.item.media = "<i class='fas fa-microphone text-light-purple' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
+						$scope.item.media = "<i class='fas fa-microphone text-orange' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
 					}
 				}
 				$rootScope.setLoading(false);
