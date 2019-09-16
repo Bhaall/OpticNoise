@@ -1497,6 +1497,8 @@ angular.module('onAdmin.controllers', [])
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
 		});
+		$scope.refresh();
+		$scope.refreshCounters();
 	};
 
 	$scope.delete = function(artist) {
@@ -1507,6 +1509,8 @@ angular.module('onAdmin.controllers', [])
 			$scope.refreshCounters();
 			$location.path("/artists");
 		}
+		$scope.refresh();
+		$scope.refreshCounters();
 	};
 
 	$scope.deleteSong = function(song) {
@@ -1516,6 +1520,8 @@ angular.module('onAdmin.controllers', [])
 	    $scope.refresh();
 	    $scope.refreshCounters();
 	  }
+		$scope.refresh();
+		$scope.refreshCounters();
 	};
 
 	$scope.renderItemText = function(html){
