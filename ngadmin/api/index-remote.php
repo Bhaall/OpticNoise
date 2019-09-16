@@ -2048,7 +2048,7 @@ function updateCompSetOutCarousel($id) {
 }
 
 function getSongsForSelector() {
-	$sql = "select songs.*, indies.* from songs left join indies on songs.artistID = indies.INartistID order by song_title";
+	$sql = "select songs.*, indies.* from songs left join indies on songs.artistID = indies.INartistID where songs.song_file != '' order by song_title";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
