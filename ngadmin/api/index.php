@@ -696,7 +696,7 @@ function updateArtist($id) {
     $request = $app->request();
     $body = $request->getBody();
     $artist = json_decode($body);
-	$sql = "update indies set INartistName=:INartistName, marker=:marker, INroster_desc=:INroster_desc, INlabel=:INlabel, INsync=:INsync, home_status=:home_status, home_order=:home_order, active=:active where INartistID=:id";
+	$sql = "update indies set INartistName=:INartistName, marker=:marker, INroster_desc=:INroster_desc, INlabel=:INlabel, INsync=:INsync, album_pic=:album_pic, slider_pic=:slider_pic, home_status=:home_status, home_order=:home_order, active=:active where INartistID=:id";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);
@@ -705,6 +705,8 @@ function updateArtist($id) {
 		$stmt->bindParam("INroster_desc", $artist->INroster_desc);
 		$stmt->bindParam("INlabel", $artist->INlabel);
 		$stmt->bindParam("INsync", $artist->INsync);
+    $stmt->bindParam("album_pic", $artist->album_pic);
+    $stmt->bindParam("slider_pic", $artist->slider_pic);
 		$stmt->bindParam("home_status", $artist->home_status);
 		$stmt->bindParam("home_order", $artist->home_order);
 		$stmt->bindParam("active", $artist->active);

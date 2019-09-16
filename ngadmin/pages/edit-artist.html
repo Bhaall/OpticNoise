@@ -165,20 +165,20 @@
 																</ul>
 															</div>
 															<div class="col-lg-4 col-sm-4">
-																<label for="home_status"> display in signings</label>
+																<label for="home_status">display in signings</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="bottom" popover-trigger="mouseenter" popover="<i class='fas fa-book text-yellow' aria-hidden='true'></i> Disabled if there are already 3 artists displayed in Signings section on home page or if artist has no FON image."></i>
 																<div class="mt-radio-inline">
 																	<label class="mt-radio">
-																		<input type="radio" class="form-control" name="home_status" ng-model="artist.home_status" value="y" >yes
+																		<input type="radio" ng-disabled="allFon==3 || albumClass=='new'" class="form-control" name="home_status" ng-model="artist.home_status" value="y" >yes
 																		<span></span>
 																	</label>
 																	<label class="mt-radio">
-																		<input type="radio" class="form-control" name="home_status" ng-model="artist.home_status" value="n">no
+																		<input type="radio" ng-disabled="allFon==3 || albumClass=='new'" class="form-control" name="home_status" ng-model="artist.home_status" value="n">no
 																		<span></span>
 																	</label>
 																</div>
 															</div>
 															<div class="col-lg-3 col-sm-4">
-																<label for="home_order"> sort order</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="<i class='fas fa-sort-numeric-down text-yellow' aria-hidden='true'></i> Only three artists are displayed in Signings section on home page."></i>
+																<label for="home_order">sort order</label> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="bottom" popover-trigger="mouseenter" popover="<i class='fas fa-sort-numeric-down text-yellow' aria-hidden='true'></i> Only 3 artists are displayed in Signings section on home page."></i>
 																<div class="input-icon">
 																	<i class="fas fa-sort-numeric-down fa-fw"></i>
 																	<input type="text" touchspin name="home_order" id="home_order" class="form-control touchspin"  ng-model="artist.home_order" />

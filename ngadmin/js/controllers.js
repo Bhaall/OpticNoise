@@ -1240,6 +1240,8 @@ angular.module('onAdmin.controllers', [])
 		error(function(data, status, headers, config) {
 			$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
 		});
+		$scope.refresh();
+		$scope.refreshCounters();
 	};
 
 	$scope.delete = function(artist) {
