@@ -260,7 +260,7 @@
 													<i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{comp.date_added | timestampDateFormat}}
 												</span>
 												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> Number of Songs: {{comp.playlist_count}}
+													<i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> Number of Songs: {{recentplaylistTotal}}
 												</span>
 												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
 													<i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Downloads: {{comp.count}}

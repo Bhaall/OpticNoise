@@ -1,5 +1,5 @@
 angular.module('onAdmin.controllers', [])
-.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'getNewSignings', 'artistsActiveCount', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsActiveCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'compsCount', 'compsActiveCount', 'dropboxesCount', 'dropboxesActiveCount', 'artistsRepo', 'songsRepo', 'featuredRepo', 'compsRepo', 'compsRecent', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, getNewSignings, artistsActiveCount, artistsCount, artistsNoSongsCount, songsCount, songsActiveCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, compsCount, compsActiveCount, dropboxesCount, dropboxesActiveCount, artistsRepo, songsRepo, featuredRepo, compsRepo, compsRecent, dropboxesRepo){
+.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'getNewSignings', 'artistsActiveCount', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsActiveCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'compsCount', 'compsActiveCount', 'dropboxesCount', 'dropboxesActiveCount', 'artistsRepo', 'songsRepo', 'featuredRepo', 'compsRepo', 'compsRecent', 'getCompsPlaylist', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, getNewSignings, artistsActiveCount, artistsCount, artistsNoSongsCount, songsCount, songsActiveCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, compsCount, compsActiveCount, dropboxesCount, dropboxesActiveCount, artistsRepo, songsRepo, featuredRepo, compsRepo, compsRecent, getCompsPlaylist, dropboxesRepo){
 
 	$scope.noty = noty;
 	$scope.date = Date.now();
@@ -71,6 +71,10 @@ angular.module('onAdmin.controllers', [])
 
 		compsRecent.fetchMostRecentComps().success(function(data) {
 			$scope.recentComps = data;
+			$scope.recentID = $scope.recentComps[0].comp_id;
+			getCompsPlaylist.fetchCompPlaylist($scope.recentID).success(function(data) {
+				$scope.recentplaylistTotal = data.length;
+			});
 		});
 
 		dropboxesRepo.fetchDropboxes().success(function(data) {
@@ -2969,7 +2973,7 @@ angular.module('onAdmin.controllers', [])
 		});
 	};
 
-}]).controller('compsCtrl', ['$scope', '$rootScope', '$filter', 'compsRepo', 'updateCompsSortOrder', 'updateCompCount', 'deleteComps', 'updateCompActive', 'updateCompInActive', 'updateCompInCarousel', 'updateCompOutCarousel', function($scope, $rootScope, $filter, compsRepo, updateCompsSortOrder, updateCompCount, deleteComps, updateCompActive, updateCompInActive, updateCompInCarousel, updateCompOutCarousel) {
+}]).controller('compsCtrl', ['$scope', '$rootScope', '$filter', 'compsRepo', 'getCompsPlaylist', 'updateCompsSortOrder', 'updateCompCount', 'deleteComps', 'updateCompActive', 'updateCompInActive', 'updateCompInCarousel', 'updateCompOutCarousel', function($scope, $rootScope, $filter, compsRepo, getCompsPlaylist, updateCompsSortOrder, updateCompCount, deleteComps, updateCompActive, updateCompInActive, updateCompInCarousel, updateCompOutCarousel) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -2992,8 +2996,16 @@ angular.module('onAdmin.controllers', [])
 					else if($scope.comps[i].comp_flag==='n') {
 						$scope.comps[i].statusTxt = "Not in Carousel";
 					}
+
 					$scope.comps[i].copy2 = "http://www.optic-noise.com/download_comp.php?id="+$scope.comps[i].comp_id;
 					$scope.comps[i].copy3 = "http://www.optic-noise.com/comp.php?id="+$scope.comps[i].comp_id;
+
+					(function(i) {
+						getCompsPlaylist.fetchCompPlaylist($scope.comps[i].comp_id).success(function(data) {
+							const playlist = data;
+							$scope.comps[i].playlistTotal = playlist.length;
+						});
+			    })(i);
 				}
 
 				$rootScope.setLoading(false);
@@ -3092,7 +3104,7 @@ angular.module('onAdmin.controllers', [])
 		});
 	};
 
-}]).controller('editCompCtrl', ['$scope', '$rootScope', '$location', '$filter', '$sce', '$stateParams', 'getComp', 'updateComp', 'getCompLinks', 'deleteComps', '$filter', 'updateCompCount', 'getSongsForSelector', 'getCompsPlaylist', 'deleteCompsPlaylistItem', 'getMaxCompPlaylistSort', 'addCompsPlaylistItem', 'addToCompPlaylist', 'removeFromCompPlaylist', 'updateCompActive', 'updateCompInActive', 'updateCompInCarousel', 'updateCompOutCarousel', 'updatePlaylistSortOrder', 'asyncScript', function($scope, $rootScope, $location, $filter, $sce, $stateParams, getComp, updateComp, getCompLinks, deleteComps, $filter, updateCompCount, getSongsForSelector, getCompsPlaylist, deleteCompsPlaylistItem, getMaxCompPlaylistSort, addCompsPlaylistItem, addToCompPlaylist, removeFromCompPlaylist, updateCompActive, updateCompInActive, updateCompInCarousel, updateCompOutCarousel, updatePlaylistSortOrder, asyncScript) {
+}]).controller('editCompCtrl', ['$scope', '$rootScope', '$location', '$filter', '$sce', '$stateParams', 'getComp', 'updateComp', 'getCompLinks', 'deleteComps', 'updateCompCount', 'getSongsForSelector', 'getCompsPlaylist', 'deleteCompsPlaylistItem', 'getMaxCompPlaylistSort', 'addCompsPlaylistItem', 'updateCompActive', 'updateCompInActive', 'updateCompInCarousel', 'updateCompOutCarousel', 'updatePlaylistSortOrder', 'asyncScript', function($scope, $rootScope, $location, $filter, $sce, $stateParams, getComp, updateComp, getCompLinks, deleteComps, updateCompCount, getSongsForSelector, getCompsPlaylist, deleteCompsPlaylistItem, getMaxCompPlaylistSort, addCompsPlaylistItem, updateCompActive, updateCompInActive, updateCompInCarousel, updateCompOutCarousel, updatePlaylistSortOrder, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -3205,13 +3217,6 @@ angular.module('onAdmin.controllers', [])
 		selectedInfo.SongID = SongID;
 		selectedInfo.item_sort = $scope.newsort;
 
-		addToCompPlaylist.addToPlaylistCount(id).success(function(data) {
-			$scope.refresh();
-		}).
-		error(function(data, status, headers, config) {
-			$scope.noty.add({type: 'Error', title:'Comp playlist count: ' + status,body:'There was a problem.'});
-		});
-
 		addCompsPlaylistItem.addNewCompPlaylistItem(selectedInfo).success(function(data) {
 			$scope.refresh();
 		}).
@@ -3279,14 +3284,6 @@ angular.module('onAdmin.controllers', [])
 		var deletePlaylistItem = confirm('Are you absolutely sure you want to remove this item?');
 		if (deletePlaylistItem) {
 			deleteCompsPlaylistItem.deleteCompPlaylistItemByID(song);
-
-			removeFromCompPlaylist.removeFromPlaylistCount(id).success(function(data) {
-				$scope.refresh();
-			}).
-			error(function(data, status, headers, config) {
-				$scope.noty.add({type: 'Error', title:'Comp playlist count: ' + status,body:'There was a problem.'});
-			});
-
 			$scope.refreshCounters();
 			$scope.refresh();
 		}
@@ -3336,7 +3333,7 @@ angular.module('onAdmin.controllers', [])
 		});
 	};
 
-}]).controller('addSongToCompCtrl', ['$scope', '$rootScope', '$filter', '$stateParams', '$location', '$timeout', 'asyncScript', 'getArtistsForSelector', 'getComp', 'addToCompPlaylist', 'getMaxCompPlaylistSort', 'addSongsToComp', function($scope, $rootScope, $filter, $stateParams, $location, $timeout, asyncScript, getArtistsForSelector, getComp, addToCompPlaylist, getMaxCompPlaylistSort, addSongsToComp) {
+}]).controller('addSongToCompCtrl', ['$scope', '$rootScope', '$filter', '$stateParams', '$location', '$timeout', 'asyncScript', 'getArtistsForSelector', 'getComp', 'getMaxCompPlaylistSort', 'addSongsToComp', function($scope, $rootScope, $filter, $stateParams, $location, $timeout, asyncScript, getArtistsForSelector, getComp, getMaxCompPlaylistSort, addSongsToComp) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -3513,13 +3510,6 @@ angular.module('onAdmin.controllers', [])
 			}
 		});
 
-		addToCompPlaylist.addToPlaylistCount(comp_id).success(function(data) {
-			$scope.refresh();
-		}).
-		error(function(data, status, headers, config) {
-			$scope.noty.add({type: 'Error', title:'Comp playlist count: ' + status,body:'There was a problem.'});
-		});
-
 		$scope.reset = function() {
 			$scope.song = angular.copy($scope.master);
 		};
@@ -3579,7 +3569,7 @@ angular.module('onAdmin.controllers', [])
 		};
 	};
 
-}]).controller('addSongArtistToCompCtrl', ['$scope', '$rootScope', '$filter', '$stateParams', '$location', '$timeout', 'asyncScript', 'getArtist', 'getComp', 'addToCompPlaylist', 'getMaxCompPlaylistSort', 'addSongsToComp', function($scope, $rootScope, $filter, $stateParams, $location, $timeout, asyncScript, getArtist, getComp, addToCompPlaylist, getMaxCompPlaylistSort, addSongsToComp) {
+}]).controller('addSongArtistToCompCtrl', ['$scope', '$rootScope', '$filter', '$stateParams', '$location', '$timeout', 'asyncScript', 'getArtist', 'getComp', 'getMaxCompPlaylistSort', 'addSongsToComp', function($scope, $rootScope, $filter, $stateParams, $location, $timeout, asyncScript, getArtist, getComp, getMaxCompPlaylistSort, addSongsToComp) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -3767,13 +3757,6 @@ angular.module('onAdmin.controllers', [])
 				$location.path("/edit-comp/"+comp_id).replace();
 				$scope.reset();
 			}
-		});
-
-		addToCompPlaylist.addToPlaylistCount(comp_id).success(function(data) {
-			$scope.refresh();
-		}).
-		error(function(data, status, headers, config) {
-			$scope.noty.add({type: 'Error', title:'Comp playlist count: ' + status,body:'There was a problem.'});
 		});
 
 		$scope.reset = function() {

@@ -140,8 +140,6 @@ $app->get('/song_item_links/:id/:sort', function ($id, $sort) {
 $app->put('/comps/:id', 'updateComp');
 $app->get('/songs_select', 'getSongsForSelector');
 $app->get('/comp_playlist/:id', 'getCompPlaylist');
-$app->put('/comp_playlist_count/:id', 'addToCompPlaylistCount');
-$app->put('/comp_playlist_count_remove/:id', 'removeFromCompPlaylistCount');
 $app->delete('/comp_playlist_item/:id', 'deleteCompPlaylistItem');
 $app->get('/max_comp_playlist_sortorder/:id', 'getMaxCompPlaylistSortOrder');
 $app->post('/comp_playlist', 'updateCompPlaylist');
@@ -2120,46 +2118,6 @@ function updateCompPlaylist() {
 		$stmt->execute();
 		$db = null;
 		echo json_encode($playlist);
-	} catch(PDOException $e) {
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}
-}
-
-function addToCompPlaylistCount($id) {
-    $app = \Slim\Slim::getInstance();
-    $request = $app->request();
-    $body = $request->getBody();
-    $comp = json_decode($body);
-	$sql = "update comp_main
-    set playlist_count = playlist_count + 1
-      where comp_id=:id";
-	try {
-		$db = getConnection();
-		$stmt = $db->prepare($sql);
-		$stmt->bindParam("id", $id);
-		$stmt->execute();
-		$db = null;
-		echo json_encode($comp);
-	} catch(PDOException $e) {
-		echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}
-}
-
-function removeFromCompPlaylistCount($id) {
-    $app = \Slim\Slim::getInstance();
-    $request = $app->request();
-    $body = $request->getBody();
-    $comp = json_decode($body);
-	$sql = "update comp_main
-    set playlist_count = (playlist_count - 1)
-      where comp_id=:id";
-	try {
-		$db = getConnection();
-		$stmt = $db->prepare($sql);
-		$stmt->bindParam("id", $id);
-		$stmt->execute();
-		$db = null;
-		echo json_encode($comp);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}

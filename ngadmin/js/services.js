@@ -384,12 +384,6 @@ factory('deleteCompsPlaylistItem', ['$http', function($http) {
 factory('addCompsPlaylistItem', ['$http', function($http) {
 	return new addCompPlaylistItem($http);
 }]).
-factory('addToCompPlaylist', ['$http', function($http) {
-  return new addToCompPlaylistCountByID($http);
-}]).
-factory('removeFromCompPlaylist', ['$http', function($http) {
-  return new removeFromCompPlaylistCountByID($http);
-}]).
 factory('updateCompActive', ['$http', function($http) {
   return new updateCompActiveByID($http);
 }]).
@@ -1503,28 +1497,6 @@ window.addCompPlaylistItem = function($http) {
 	this.$http = $http;
 	this.addNewCompPlaylistItem = function(playlist) {
 		return this.$http.post('api/comp_playlist', playlist)
-		.success(function(data) {
-			return data;
-		}).error(function(data, status) {
-      //alert('comp data error!');
-    });
-	};
-};
-window.addToCompPlaylistCountByID = function($http) {
-	this.$http = $http;
-	this.addToPlaylistCount = function(id) {
-		return this.$http.put('api/comp_playlist_count/'+id)
-		.success(function(data) {
-			return data;
-		}).error(function(data, status) {
-      //alert('playlist data error!');
-    });
-	};
-};
-window.removeFromCompPlaylistCountByID = function($http) {
-	this.$http = $http;
-	this.removeFromPlaylistCount = function(id) {
-		return this.$http.put('api/comp_playlist_count_remove/'+id)
 		.success(function(data) {
 			return data;
 		}).error(function(data, status) {
