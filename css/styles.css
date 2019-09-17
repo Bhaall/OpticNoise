@@ -75,6 +75,9 @@ p {
 ul {
   list-style:none;
 }
+.redfont {
+  color: #990000;
+}
 .margin-top-10 {
   margin-top: 10px !important;
 }
@@ -242,7 +245,6 @@ section.content .article.detail {
 /* nav styles
 --------------------------------------------- */
 #nav {
-
   background-color: rgba(0,0,0,.5);
   border-bottom: 2px dotted #333;
   border-top: 2px dotted #333;

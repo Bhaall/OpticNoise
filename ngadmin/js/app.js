@@ -49,7 +49,7 @@ angular.module('onAdmin', [
 		templateUrl : 'pages/artists-no-songs.html',
 		controller  : 'artistsNoSongsCtrl',
 		data : {
-			title: 'artists with no zero songs',
+			title: 'artists with no songs',
 			breadcrumb  : [{label:"Home",link:"#/"},{label:"Artists with no songs",link:"#/artists-no-songs"}]
 		}
 	})

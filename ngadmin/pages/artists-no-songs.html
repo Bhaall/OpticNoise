@@ -44,9 +44,9 @@
 											<table class="table table-condensed table-striped table-hover pull-down" show-filter="true" ng-table="tableParams">
 												<tbody>
 													<tr ng-repeat="artist in $data">
-														<td class="col-xs-3" data-title="'name'" sortable="'INartistName'" filter="{ 'INartistName': 'text' }"><a href="#/edit-artist/{{artist.id}}">{{artist.marker | lowercase}} {{artist.INartistName | lowercase}}</a></td>
-														<td class="col-xs-4" data-title="'description'">{{artist.INroster_desc}}</td>
-														<td class="center col-xs-2" data-title="'added'" sortable="'date_added'">{{artist.date_added | timestampDateFormat}}</td>
+														<td class="col-xs-3" data-title="'name'" sortable="'INartistName'" filter="{ 'INartistName': 'text' }"><a href="#/edit-artist/{{artist.id}}"><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker | lowercase}} {{artist.INartistName | lowercase}}</a></td>
+														<td class="col-xs-4" data-title="'description'"><i class="fas fa-comment-dots fa-fw text-green" aria-hidden="true"></i> {{artist.INroster_desc}}</td>
+														<td class="center col-xs-2" data-title="'added'" sortable="'date_added'"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> {{artist.date_added | timestampDateFormat}}</td>
 														<td class="center col-xs-1" data-title="'active'" sortable="'activeTxt'"><span class="label" ng-class="{'label-warning': artist.active=='n','label-success': artist.active=='y'}">{{artist.activeTxt}}</span></td>
 														<td class="col-xs-1" data-title="''">
 															<div class="tools btn-group">

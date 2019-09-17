@@ -200,11 +200,11 @@ angular.module('onAdmin.directives', [])
 							currentFile = file;
 						}
 						oAudio.play();
-						angular.element(elm).html('<i class="pull-right fas fa-pause fa-fw" aria-hidden="true"></i> Pause')
+						angular.element(elm).html('<i class="pull-right fas fa-pause fa-fw text-orange" aria-hidden="true"></i> Pause')
 					}
 					else {
 						oAudio.pause();
-						angular.element(elm).html('<i class="pull-right fas fa-headphones-alt fa-fw" aria-hidden="true"></i> Play');
+						angular.element(elm).html('<i class="pull-right fas fa-headphones-alt fa-fw text-orange" aria-hidden="true"></i> Play');
 					}
 				})
 			}
