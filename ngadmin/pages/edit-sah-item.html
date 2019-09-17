@@ -16,7 +16,7 @@
 									    </g>
 										</svg>
 									</span>
-									<a href="#/sah-items/{{item.sceneID}}">{{item.sceneName}}</a> | {{item.itemHeader}}
+									<a href="#/sah-items/{{item.sceneID}}">{{item.sceneName}}</a> | <span ng-bind-html="renderItemText(item.itemHeader)"></span>
 								</h3>
 							</div>
 						</div>

@@ -2902,6 +2902,11 @@ angular.module('onAdmin.controllers', [])
 			$location.path("/sah-items/"+$scope.sceneID).replace();
 		}
 	};
+
+	$scope.renderItemText = function(html){
+	  return $sce.trustAsHtml(html);
+	};
+
 }])
 .controller('sliderCtrl', ['$scope', '$rootScope', 'featuredRepo', 'removeFeatured', 'getArtistsForFeatured', 'updateFeatured', function($scope, $rootScope, featuredRepo, removeFeatured, getArtistsForFeatured, updateFeatured) {
 	$rootScope.setLoading = function(loading) {
