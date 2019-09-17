@@ -2505,12 +2505,12 @@ select.ng-valid.ng-valid-required {
 #EditSettingsForm .form-control-feedback,
 #EditSupeForm .form-control-feedback,
 #EditAboutForm .form-control-feedback,
-#EditContactForm .form-control-feedback {
+#EditContactForm .form-control-feedback,
+#registrationForm .has-success .form-control-feedback,
+#registrationForm .has-error .form-control-feedback,
+#registrationForm .has-invalid .form-control-feedback {
 	right: 0;
 	top: 28px;
-}
-#EditSAHItemForm .text-angular .form-control-feedback {
-  top: 40px;
 }
 #AddSongForm .form-control-feedback {
 	right: 15px;
@@ -2521,18 +2521,11 @@ select.ng-valid.ng-valid-required {
 #AddCompForm .form-control-feedback {
 	top: 28px;
 }
-#registrationForm .has-success .form-control-feedback,
-#registrationForm .has-error .form-control-feedback,
-#registrationForm .has-invalid .form-control-feedback {
-	right: 0;
-	top: 28px;
-}
 #EditContactForm .text-angular .form-control-feedback,
-#EditAboutForm .text-angular .form-control-feedback {
-  top: 65px;
-}
+#EditAboutForm .text-angular .form-control-feedback,
+#EditSAHItemForm .text-angular .form-control-feedback,
 #AddSAHItemForm .text-angular .form-control-feedback {
-  top: 40px;
+  top: 65px;
 }
 @media(max-width: 480px) {
   #EditContactForm .text-angular .form-control-feedback,
@@ -2547,19 +2540,12 @@ select.ng-valid.ng-valid-required {
 .ta-root.focussed .ta-scroll-window.form-control {
   box-shadow: none;
 }
-#EditContactForm .has-success .ta-scroll-window.form-control,
-#EditContactForm .has-invalid .ta-scroll-window.form-control,
-#EditAboutForm .has-success .ta-scroll-window.form-control,
-#EditAboutForm .has-invalid .ta-scroll-window.form-control {
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-}
-#EditContactForm .has-success .ta-scroll-window.form-control,
-#EditAboutForm .has-success .ta-scroll-window.form-control {
+.has-success .ta-scroll-window.form-control,
+.has-success .ta-scroll-window.form-control {
   border-color: #388e3c;
 }
-#EditContactForm .has-invalid .ta-scroll-window.form-control,
-#EditAboutForm .has-invalid .ta-scroll-window.form-control {
+.has-invalid .ta-scroll-window.form-control,
+.has-invalid .ta-scroll-window.form-control {
   border-color: #b94a48 !important;
 }
 .form-control-feedback {
