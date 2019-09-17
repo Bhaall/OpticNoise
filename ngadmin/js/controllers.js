@@ -1191,11 +1191,14 @@ angular.module('onAdmin.controllers', [])
 
 		getCompInfoArtist.fetchCompByArtist(id).success(function(data) {
 			$scope.compinfo = data;
+			const propOwn = Object.getOwnPropertyNames(data);
 			if ($scope.compinfo.length==0) {
 				$scope.emptyCompInfo=true;
+				$scope.compCount = 0;
 			}
 			else {
 				$scope.emptyCompInfo=false;
+				$scope.compCount = propOwn.length;
 			}
 		}).
 		error(function(data, status, headers, config) {
@@ -1448,11 +1451,14 @@ angular.module('onAdmin.controllers', [])
 
 		getCompInfoArtist.fetchCompByArtist(id).success(function(data) {
 			$scope.compinfo = data;
+			const propOwn = Object.getOwnPropertyNames(data);
 			if ($scope.compinfo.length==0) {
 				$scope.emptyCompInfo=true;
+				$scope.compCount = 0;
 			}
 			else {
 				$scope.emptyCompInfo=false;
+				$scope.compCount = propOwn.length;
 			}
 		}).
 		error(function(data, status, headers, config) {
@@ -1548,6 +1554,13 @@ angular.module('onAdmin.controllers', [])
 					else if($scope.data[i].roster_flag==='n') {
 						$scope.data[i].rosterTxt = "no";
 					}
+
+					if($scope.data[i].song_file=='') {
+						$scope.data[i].mp3Txt = "no";
+					}
+					else {
+						$scope.data[i].mp3Txt = "yes";
+					}
 				}
 
 				$scope.songsTableParams.reload();
@@ -1568,10 +1581,10 @@ angular.module('onAdmin.controllers', [])
 		page: 1,
 		count: 10,
 		filter: {
-		    song_title: ''
+			song_title: ''
 		},
 		sorting: {
-		    song_title: 'asc'
+			song_title: 'asc'
 		}
 	}, {
 		total: function () { return getData().length; },
@@ -1637,10 +1650,10 @@ angular.module('onAdmin.controllers', [])
 		page: 1,
 		count: 10,
 		filter: {
-		    song_title: ''
+			song_title: ''
 		},
 		sorting: {
-		    song_title: 'asc'
+			song_title: 'asc'
 		}
 	}, {
 		total: function () { return getData().length; },
@@ -1687,6 +1700,13 @@ angular.module('onAdmin.controllers', [])
 					else if($scope.data[i].roster_flag==='n') {
 						$scope.data[i].rosterTxt = "no";
 					}
+
+					if($scope.data[i].song_file=='') {
+						$scope.data[i].mp3Txt = "no";
+					}
+					else {
+						$scope.data[i].mp3Txt = "yes";
+					}
 				}
 
 				$scope.tableParams.reload();
@@ -1707,10 +1727,10 @@ angular.module('onAdmin.controllers', [])
 		page: 1,
 		count: 10,
 		filter: {
-		    song_title: ''
+			song_title: ''
 		},
 		sorting: {
-		    song_title: 'asc'
+			song_title: 'asc'
 		}
 	}, {
 		total: function () { return getData().length; },

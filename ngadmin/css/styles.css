@@ -2792,18 +2792,20 @@ div.comp-list ul {
 	padding: 0;
 }
 div.comp-list ul li {
-	margin: 0 0 0 10px;
-  padding: 0 0 3px;
+	margin: 0;
+  padding: 5px 10px 5px 0;
 }
 div.comp-list ol {
 	margin: 0;
 	padding: 0 0 10px 20px;
 }
 div.comp-list {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
 }
 div.comp-list:last-child {
 	border-bottom: none;
+  padding-bottom: 0;
 }
 div.comp-list ol li {
 	padding: 1px 0;
