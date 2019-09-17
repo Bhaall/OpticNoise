@@ -35,6 +35,10 @@ body {
   #wrapper:not(.active) #sidebar-wrapper {
     width:50px;
   }
+  #wrapper:not(.active) #sidebar-wrapper .toggle-icon,
+  #wrapper.collapsed #sidebar-wrapper .toggle-icon {
+    display:none;
+  }
   #wrapper:not(.active) #main-wrapper {
     padding-left: 48px;
   }

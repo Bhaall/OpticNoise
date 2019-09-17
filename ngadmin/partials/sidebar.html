@@ -1,17 +1,19 @@
-        <script>
-        $('.sidebar-toggle').click(function(){
-			$('#wrapper').addClass("active");
-			$('#wrapper').toggleClass("collapsed");
-			$('#sidebar-wrapper').toggleClass("stretch-right");
-			$(this).find('.toggle-icon').toggleClass('fa-caret-left');
-		});
+    <script>
+      $('.sidebar-toggle').click(function(){
+  			$('#wrapper').addClass("active");
+  			$('#wrapper').toggleClass("collapsed");
+  			$('#sidebar-wrapper').toggleClass("stretch-right");
+        if ($(window).width()>768) {
+  			  $(this).find('.toggle-icon').toggleClass('fa-caret-left');
+        }
+		  });
 
-		$(window).resize(function(e){
-			if ($(this).width()>768 && !$('#wrapper').hasClass("collapsed")) {
-				$('#wrapper').removeClass("active");
-			}
-		});
-        </script>
+  		$(window).resize(function(e){
+  			if ($(this).width()>768 && !$('#wrapper').hasClass("collapsed")) {
+  				$('#wrapper').removeClass("active");
+  			}
+  		});
+      </script>
 
         <!--sidebar toggle arrow-->
         <ul class="nav">
