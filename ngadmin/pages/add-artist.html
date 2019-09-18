@@ -142,13 +142,13 @@
 																	<div class="fileinput-preview fileinput-exists thumbnail"></div>
 																	<div>
 																		<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span>
-																		<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" id="album_pic" name="album_pic" portrait-input="album_pics"></span>
+																		<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" id="album_pic" name="album_pic" accept="image/jpeg" portrait-input="album_pics"></span>
 																		<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
 																	</div>
 																</div>
 																<ul class="list-group file-info" ng-repeat="album_pic in album_pics">
 																	 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-light-blue" aria-hidden="true"></i> name: {{album_pic.name}}</li>
-																	 <li class="list-group-item"><i class="far fa-file-image fa-fw text-yellow" aria-hidden="true"></i>> type: {{album_pic.type}}</li>
+																	 <li class="list-group-item"><i class="far fa-file-image fa-fw text-yellow" aria-hidden="true"></i> type: {{album_pic.type}}</li>
 																	 <li class="list-group-item"><i class="fas fa-file-image fa-fw text-pink" aria-hidden="true"></i> size: {{album_pic.size}}kb</li>
 																</ul>
 															</div>
@@ -205,7 +205,7 @@
 																	<div class="fileinput-preview fileinput-exists thumbnail"></div>
 																	<div>
 																		<span class="btn btn-success btn-file"><span class="fileinput-new"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Select image...</span>
-																		<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" name="slider_pic" portrait-input="slider_pics"></span>
+																		<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span><input type="file" accept="image/jpeg" name="slider_pic" portrait-input="slider_pics"></span>
 																		<a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
 																	</div>
 																</div>
