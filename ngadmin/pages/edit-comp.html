@@ -23,7 +23,7 @@
 						<div class="ona-portlet__body ona-portlet__body--fit">
 							<div class="nav-btns">
 								<a ng-show="links.prevValue!=null" href="#/edit-comp/{{links.prevValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i> </a>
-								<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-clean"> <i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+								<a ng-show="links.nextValue!=null" href="#/edit-comp/{{links.nextValue}}" class="btn btn-xs btn-clean"><i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
 							</div>
 							<div class="ona-widget">
 								<div class="ona-widget__visual ona-widget__purple">
@@ -75,7 +75,7 @@
 														<label for="comp_desc">description</label>
 														<div class="input-icon" ng-class="{true: 'error'}[EditCompForm.submitted && EditCompForm.comp_desc.$invalid]">
 															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-															<text-angular name="comp_desc" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="comp.comp_desc" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+															<text-angular name="comp_desc" ta-default-wrap="span" placeholder="something pithy goes here..." ng-model="comp.comp_desc" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear'],['html']]"></text-angular>
 														</div>
 													</div>
 													<div class="form-group">
@@ -140,6 +140,7 @@
 																	<li class="list-group-item"><i class="fas fa-link fa-fw text-orange" aria-hidden="true"></i> Page Link <strong><span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></strong></li>
 																	<li class="list-group-item"><i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Number of Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span> <span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download <span class="pull-right">{{comp.lastDownload}}</span></li>
+																	<li class="list-group-item"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> Number of Songs <span class="pull-right label label-orange">{{playlistTotal}}</span></li>
 																	<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added <span class="pull-right">{{comp.dateAdded}}</span></li>
 																	<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-images fa-fw text-yellow' aria-hidden='true'></i> Comps In Carousel are displayed on the Home page."></i></li>
 																	<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-thermometer-three-quarters fa-fw text-green-meadow' aria-hidden='true'></i> Only Active Comps are displayed on the Comps page."></i></li>
@@ -227,8 +228,8 @@
 																		</select>
 																		<span class="ng-hide">{{comp.songID}}</span>
 																	</li>
-																	<li class="list-group-item pull-down table" ng-show="comp.songID">
-																		<span class="table-cell v-align-middle"><i class="fas fa-sort-numeric-down text-danger" aria-hidden="true"></i> Sort Order <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="bottom" popover-trigger="mouseenter" popover="The order order of this song in '{{comp.comp_name}}' Playlist."></i></span>
+																	<li class="list-group-item pull-down display-table" ng-show="comp.songID">
+																		<span class="display-table-cell v-align-middle"><i class="fas fa-sort-numeric-down text-danger" aria-hidden="true"></i> Sort Order <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="bottom" popover-trigger="mouseenter" popover="The order order of this song in '{{comp.comp_name}}' Playlist."></i></span>
 																		<div class="pull-right">
 																			<input type="text" touchspin name="item_sort_new" id="item_sort_new" class="form-control sortorder" ng-model="newsort">
 																			<h6 class="help-block margin-auto center">highest: {{max}}</h6>
@@ -264,8 +265,8 @@
 													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
 												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 											        <rect x="0" y="0" width="24" height="24"/>
-											        <path d="M8.97852058,18.8007059 C8.80029331,20.0396328 7.53473012,21 6,21 C4.34314575,21 3,19.8807119 3,18.5 C3,17.1192881 4.34314575,16 6,16 C6.35063542,16 6.68722107,16.0501285 7,16.1422548 L7,5.93171093 C7,5.41893942 7.31978104,4.96566617 7.78944063,4.81271925 L13.5394406,3.05418311 C14.2638626,2.81827161 15,3.38225531 15,4.1731748 C15,4.95474642 15,5.54092513 15,5.93171093 C15,6.51788965 14.4511634,6.89225606 14,7 C13.3508668,7.15502181 11.6842001,7.48835515 9,8 L9,18.5512168 C9,18.6409956 8.9927193,18.7241187 8.97852058,18.8007059 Z" fill="#000000" fill-rule="nonzero"/>
-											        <path d="M16,9 L20,9 C20.5522847,9 21,9.44771525 21,10 C21,10.5522847 20.5522847,11 20,11 L16,11 C15.4477153,11 15,10.5522847 15,10 C15,9.44771525 15.4477153,9 16,9 Z M14,13 L20,13 C20.5522847,13 21,13.4477153 21,14 C21,14.5522847 20.5522847,15 20,15 L14,15 C13.4477153,15 13,14.5522847 13,14 C13,13.4477153 13.4477153,13 14,13 Z M14,17 L20,17 C20.5522847,17 21,17.4477153 21,18 C21,18.5522847 20.5522847,19 20,19 L14,19 C13.4477153,19 13,18.5522847 13,18 C13,17.4477153 13.4477153,17 14,17 Z" fill="#000000" opacity="0.3"/>
+											        <path d="M11.5,5 L18.5,5 C19.3284271,5 20,5.67157288 20,6.5 C20,7.32842712 19.3284271,8 18.5,8 L11.5,8 C10.6715729,8 10,7.32842712 10,6.5 C10,5.67157288 10.6715729,5 11.5,5 Z M5.5,17 L18.5,17 C19.3284271,17 20,17.6715729 20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 C4,17.6715729 4.67157288,17 5.5,17 Z M5.5,11 L18.5,11 C19.3284271,11 20,11.6715729 20,12.5 C20,13.3284271 19.3284271,14 18.5,14 L5.5,14 C4.67157288,14 4,13.3284271 4,12.5 C4,11.6715729 4.67157288,11 5.5,11 Z" fill="#000000" opacity="0.3"/>
+											        <path d="M4.82866499,9.40751652 L7.70335558,6.90006821 C7.91145727,6.71855155 7.9330087,6.40270347 7.75149204,6.19460178 C7.73690043,6.17787308 7.72121098,6.16213467 7.70452782,6.14749103 L4.82983723,3.6242308 C4.62230202,3.44206673 4.30638833,3.4626341 4.12422426,3.67016931 C4.04415337,3.76139218 4,3.87862714 4,4.00000654 L4,9.03071508 C4,9.30685745 4.22385763,9.53071508 4.5,9.53071508 C4.62084305,9.53071508 4.73759731,9.48695028 4.82866499,9.40751652 Z" fill="#000000"/>
 												    </g>
 													</svg>
 												</span>

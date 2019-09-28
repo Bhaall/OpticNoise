@@ -15,7 +15,7 @@
 												<path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
 											</g>
 										</svg>
-									New Item  | <a href="#/sah/{{item.sceneID}}">{{item.sceneName}}</a>
+									New Item  | <a href="#/sah-items/{{id}}">{{item.sceneName}}</a>
 								</h3>
 							</div>
 						</div>
@@ -80,7 +80,7 @@
 														<label for="itemText">description</label>
 														<div class="input-icon" ng-class="{true: 'error'}[AddSAHItemForm.submitted && AddSAHItemForm.itemText.$invalid]">
 															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-															<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." data-ng-required="true" ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+															<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." data-ng-required="true" ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear'],['html']]"></text-angular>
 														</div>
 														<div ng-show="AddSAHItemForm.itemText.$valid">
 															<span ng-show="AddSAHItemForm.itemText.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>

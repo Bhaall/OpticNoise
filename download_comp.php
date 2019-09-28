@@ -100,7 +100,7 @@ $q1 = "select * from comp_main where comp_id = '$_GET[id]' ";
 $r1 = mysqli_query($connection, $q1) or die(mysqli_error());
 $a1 = mysqli_fetch_array($r1);
 
-$fname = $a1[comp_file];
+$fname = $a1['comp_file'];
 $pst = new DateTimeZone('America/Los_Angeles');
 $date = new DateTime("NOW", $pst);
 //update

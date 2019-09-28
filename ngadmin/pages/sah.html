@@ -46,7 +46,7 @@
 												<tbody>
 													<tr ng-repeat="sah in $data">
 														<td class="col-xs-3" data-title="'name'" sortable="'sceneName'" filter="{ 'sceneName': 'text' }">
-															<a href="#/sah-items/{{sah.sceneID}}"><span ng-if="!sah.$edit"><i class="fas fa-video fa-fw text-green" aria-hidden="true"></i> {{sah.sceneName | lowercase}}</span></a>
+															<a href="#/sah-items/{{sah.sceneID}}"><span ng-if="!sah.$edit">{{sah.sceneName | lowercase}}</span></a>
 															<div ng-if="sah.$edit"><input class="form-control" type="text" ng-model="sah.sceneName" /></div>
 														</td>
 														<td class="center col-xs-2">
@@ -59,7 +59,7 @@
 																</div>
 															</form>
 														</td>
-														<td data-title="'added'" sortable="'sceneDate'" class="center col-xs-2"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> {{sah.sceneDate | timestampDateFormat}}</td>
+														<td data-title="'added'" sortable="'sceneDate'" class="center col-xs-2">{{sah.sceneDate | timestampDateFormat}}</td>
 														<td data-title="'sort'" sortable="'scene_order'" class="center col-xs-1"><input type="number" name="itemOrderTbl" id="itemOrderTbl" touchspin class="form-control" ng-model="sah.scene_order" /></td>
 														<td data-title="'items'" class="center col-xs-2"><a class="btn btn-clean btn-xs" href="#/sah-items/{{sah.sceneID}}"><i class="fas fa-edit fa-fw" aria-hidden="true"></i></a></td>
 														<td data-title="'active'" class="center col-xs-1">

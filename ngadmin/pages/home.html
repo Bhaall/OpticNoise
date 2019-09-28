@@ -79,10 +79,10 @@
 											</div>
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--orange">
-												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24"/>
-															<path d="M11.9785206,18.8007059 C11.8002933,20.0396328 10.5347301,21 9,21 C7.34314575,21 6,19.8807119 6,18.5 C6,17.1192881 7.34314575,16 9,16 C9.35063542,16 9.68722107,16.0501285 10,16.1422548 L10,5.93171093 C10,5.41893942 10.319781,4.96566617 10.7894406,4.81271925 L16.5394406,3.05418311 C17.2638626,2.81827161 18,3.38225531 18,4.1731748 C18,4.95474642 18,5.54092513 18,5.93171093 C18,6.51788965 17.4511634,6.89225606 17,7 C16.3508668,7.15502181 14.6842001,7.48835515 12,8 L12,18.5512168 C12,18.6409956 11.9927193,18.7241187 11.9785206,18.8007059 Z" fill="#000000" fill-rule="nonzero"/>
+													<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="ona-svg-icon ona-svg-icon--orange">
+												    <g id="Stockholm-icons-/-Media-/-Music" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+											        <path d="M8,17.0400072 L8,8 C8,7.56261503 8.28424981,7.17598102 8.70172501,7.04552002 L17.701725,4.54552002 C18.3456556,4.34429171 19,4.82535976 19,5.5 L19,17 C19,17.0001911 18.9999999,17.0003822 18.9999998,17.0005733 C18.9996127,18.1048793 17.880473,19 16.5,19 C15.1192881,19 14,18.1045695 14,17 C14,15.8954305 15.1192881,15 16.5,15 C16.6712329,15 16.838445,15.0137721 17,15.0400072 L17,8 L10,9.875 L10,19 C10,19.0001911 9.99999995,19.0003822 9.99999984,19.0005733 C9.99961272,20.1048793 8.88047301,21 7.5,21 C6.11928813,21 5,20.1045695 5,19 C5,17.8954305 6.11928813,17 7.5,17 C7.67123292,17 7.83844503,17.0137721 8,17.0400072 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero"></path>
 												    </g>
 													</svg>
 												</span>
@@ -145,6 +145,212 @@
 												</span>
 											</div>
 										</div>
+										<div class="ona-widget__items">
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z" fill="#000000"/>
+															<path d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Most Recent Comp
+												</span>
+												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
+													<div class="ona-notification">
+														<a href="edit-comp/{{comp.comp_id}}" class="ona-notification__item">
+															<div class="ona-notification__item-icon align-top">
+																<img class="ona-widget__img" ng-src="{{comp.compImage}}" />
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	{{comp.comp_name}}
+																</div>
+																<div class="ona-notification__item-text margin-bottom-5 margin-top-5">
+																	<strong>Added:</strong> {{comp.date_added | timestampDateFormat}}
+																</div>
+																<div class="ona-notification__item-text">
+																	<strong>Status:</strong> <span class="label" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span>
+																</div>
+															</div>
+														</a>
+													</div>
+												</span>
+												<hr class="ona-widget__hr">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--light-blue">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" fill="#000000"/>
+															<path d="M4.21611835,7.74669402 C4.30015839,7.64056877 4.40623188,7.55087574 4.5299008,7.48500698 L11.5299008,3.75665466 C11.8237589,3.60013944 12.1762411,3.60013944 12.4700992,3.75665466 L19.4700992,7.48500698 C19.5654307,7.53578262 19.6503066,7.60071528 19.7226939,7.67641889 L12.0479413,12.1074394 C11.9974761,12.1365754 11.9509488,12.1699127 11.9085461,12.2067543 C11.8661433,12.1699127 11.819616,12.1365754 11.7691509,12.1074394 L4.21611835,7.74669402 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Most Recent Dropbox
+												</span>
+												<span ng-repeat="dropbox in recentDropbox" class="ona-widget__desc">
+													<div class="ona-notification">
+														<a href="edit-dropbox/{{dropbox.dropbox_id}}" class="ona-notification__item">
+															<div class="ona-notification__item-icon align-top">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--light-blue">
+															    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														        <rect x="0" y="0" width="24" height="24"/>
+														        <path d="M4,7 L20,7 L20,19.5 C20,20.3284271 19.3284271,21 18.5,21 L5.5,21 C4.67157288,21 4,20.3284271 4,19.5 L4,7 Z M10,10 C9.44771525,10 9,10.4477153 9,11 C9,11.5522847 9.44771525,12 10,12 L14,12 C14.5522847,12 15,11.5522847 15,11 C15,10.4477153 14.5522847,10 14,10 L10,10 Z" fill="#000000"/>
+														        <rect fill="#000000" opacity="0.3" x="2" y="3" width="20" height="4" rx="1"/>
+															    </g>
+																</svg>
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	{{dropbox.dropbox_name}}
+																</div>
+																<div class="ona-notification__item-text margin-bottom-5 margin-top-5">
+																	<strong>Added:</strong> {{dropbox.date_added | timestampDateFormat}}
+																</div>
+																<div class="ona-notification__item-text">
+																	<strong>Status:</strong> <span class="label" ng-class="{'label-warning': dropbox.active=='n','label-success': dropbox.active=='y'}">{{dropbox.activeTxt}}</span>
+																</div>
+															</div>
+														</a>
+													</div>
+												</span>
+											</div>
+											<div class="ona-widget__item">
+												<span class="ona-widget__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<rect x="0" y="0" width="24" height="24"/>
+															<rect fill="#000000" x="2" y="6" width="13" height="12" rx="2"/>
+															<path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
+														</g>
+													</svg>
+												</span>
+												<span class="ona-widget__subtitle">
+													Scene &amp; Heard
+												</span>
+												<span class="ona-widget__desc">
+													<strong>Total Items:</strong> {{sahItemTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													<strong>Total Holders:</strong> {{sahTotal}}
+												</span>
+												<span class="ona-widget__desc">
+													<div class="ona-notification">
+														<div class="ona-notification__item no-link">
+															<div class="ona-notification__item-icon">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+															    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														        <rect x="0" y="0" width="24" height="24"/>
+														        <path d="M4.5,6 L19.5,6 C20.8807119,6 22,6.97004971 22,8.16666667 L22,16.8333333 C22,18.0299503 20.8807119,19 19.5,19 L4.5,19 C3.11928813,19 2,18.0299503 2,16.8333333 L2,8.16666667 C2,6.97004971 3.11928813,6 4.5,6 Z M4,8 L4,17 L20,17 L20,8 L4,8 Z" fill="#000000" fill-rule="nonzero"/>
+														        <polygon fill="#000000" opacity="0.3" points="4 8 4 17 20 17 20 8"/>
+														        <rect fill="#000000" opacity="0.3" x="7" y="20" width="10" height="1" rx="0.5"/>
+															    </g>
+																</svg>
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	Media: TV
+																</div>
+																<div class="ona-notification__item-text">
+																	Number of Items: {{sahTVTotal}}
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="ona-notification">
+														<div class="ona-notification__item no-link">
+															<div class="ona-notification__item-icon">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+															    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														        <rect x="0" y="0" width="24" height="24"/>
+														        <path d="M15.4508979,17.4029496 L14.1784978,15.8599014 C15.324501,14.9149052 16,13.5137472 16,12 C16,10.4912085 15.3289582,9.09418404 14.1893841,8.14910121 L15.466112,6.60963188 C17.0590936,7.93073905 18,9.88958759 18,12 C18,14.1173586 17.0528606,16.0819686 15.4508979,17.4029496 Z M18.0211112,20.4681628 L16.7438102,18.929169 C18.7927036,17.2286725 20,14.7140097 20,12 C20,9.28974232 18.7960666,6.77820732 16.7520315,5.07766256 L18.031149,3.54017812 C20.5271817,5.61676443 22,8.68922234 22,12 C22,15.3153667 20.523074,18.3916375 18.0211112,20.4681628 Z M8.54910207,17.4029496 C6.94713944,16.0819686 6,14.1173586 6,12 C6,9.88958759 6.94090645,7.93073905 8.53388797,6.60963188 L9.81061588,8.14910121 C8.67104182,9.09418404 8,10.4912085 8,12 C8,13.5137472 8.67549895,14.9149052 9.82150222,15.8599014 L8.54910207,17.4029496 Z M5.9788888,20.4681628 C3.47692603,18.3916375 2,15.3153667 2,12 C2,8.68922234 3.47281829,5.61676443 5.96885102,3.54017812 L7.24796852,5.07766256 C5.20393339,6.77820732 4,9.28974232 4,12 C4,14.7140097 5.20729644,17.2286725 7.25618985,18.929169 L5.9788888,20.4681628 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+														        <circle fill="#000000" cx="12" cy="12" r="2"/>
+															    </g>
+																</svg>
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	Media: Promo
+																</div>
+																<div class="ona-notification__item-text">
+																	Number of Items: {{sahPromoTotal}}
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="ona-notification">
+														<div class="ona-notification__item no-link">
+															<div class="ona-notification__item-icon">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+															    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														        <rect x="0" y="0" width="24" height="24"/>
+														        <path d="M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z M11.7752551,13.2928932 C12.3275399,13.2928932 12.7752551,12.845178 12.7752551,12.2928932 C12.7752551,11.7406085 12.3275399,11.2928932 11.7752551,11.2928932 C11.2229704,11.2928932 10.7752551,11.7406085 10.7752551,12.2928932 C10.7752551,12.845178 11.2229704,13.2928932 11.7752551,13.2928932 Z M11.2235429,9.10222252 C12.2904751,8.8163389 12.9236401,7.71966498 12.6377564,6.65273278 C12.3518728,5.58580057 11.2551989,4.95263559 10.1882667,5.23851922 C9.12133448,5.52440284 8.4881695,6.62107675 8.77405312,7.68800896 C9.05993675,8.75494117 10.1566107,9.38810614 11.2235429,9.10222252 Z M13.8117333,18.7614808 C14.8786655,18.4755972 15.5118305,17.3789232 15.2259469,16.311991 C14.9400633,15.2450588 13.8433893,14.6118939 12.7764571,14.8977775 C11.7095249,15.1836611 11.0763599,16.280335 11.3622436,17.3472672 C11.6481272,18.4141994 12.7448011,19.0473644 13.8117333,18.7614808 Z M7.68800896,15.2259469 C8.75494117,14.9400633 9.38810614,13.8433893 9.10222252,12.7764571 C8.8163389,11.7095249 7.71966498,11.0763599 6.65273278,11.3622436 C5.58580057,11.6481272 4.95263559,12.7448011 5.23851922,13.8117333 C5.52440284,14.8786655 6.62107675,15.5118305 7.68800896,15.2259469 Z M17.3472672,12.6377564 C18.4141994,12.3518728 19.0473644,11.2551989 18.7614808,10.1882667 C18.4755972,9.12133448 17.3789232,8.4881695 16.311991,8.77405312 C15.2450588,9.05993675 14.6118939,10.1566107 14.8977775,11.2235429 C15.1836611,12.2904751 16.280335,12.9236401 17.3472672,12.6377564 Z" fill="#000000" opacity="0.3"/>
+														        <path d="M17.6573343,19 L21,19 C21.5522847,19 22,19.4477153 22,20 C22,20.5522847 21.5522847,21 21,21 L12,21 C14.1432966,21 16.1116082,20.2507999 17.6573343,19 Z" fill="#000000"/>
+															    </g>
+																</svg>
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	Media: Movie
+																</div>
+																<div class="ona-notification__item-text">
+																	Number of Items: {{sahMovieTotal}}
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="ona-notification">
+														<div class="ona-notification__item no-link">
+															<div class="ona-notification__item-icon">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+															    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														        <rect x="0" y="0" width="24" height="24"/>
+														        <path d="M4,7 L20,7 C21.1045695,7 22,7.8954305 22,9 L22,19 C22,20.1045695 21.1045695,21 20,21 L4,21 C2.8954305,21 2,20.1045695 2,19 L2,9 C2,7.8954305 2.8954305,7 4,7 Z M16,18 C18.209139,18 20,16.209139 20,14 C20,11.790861 18.209139,10 16,10 C13.790861,10 12,11.790861 12,14 C12,16.209139 13.790861,18 16,18 Z" fill="#000000" opacity="0.3"/>
+														        <path d="M20.6185961,7.09750181 C20.4238038,7.03420884 20.2158968,7 20,7 L17.2014013,7 L8.01276516,1.87327098 C7.53047091,1.60417861 7.35763664,0.995059403 7.62672902,0.512765158 C7.89582139,0.0304709116 8.5049406,-0.142363355 8.98723484,0.126729018 L20.1117466,6.33356496 C20.4052818,6.49734071 20.5841864,6.78706979 20.6185961,7.09750181 Z" fill="#000000"/>
+														        <path d="M16,16 C17.1045695,16 18,15.1045695 18,14 C18,12.8954305 17.1045695,12 16,12 C14.8954305,12 14,12.8954305 14,14 C14,15.1045695 14.8954305,16 16,16 Z" fill="#000000"/>
+														        <rect fill="#000000" opacity="0.3" x="4" y="11" width="5" height="2" rx="1"/>
+														        <rect fill="#000000" opacity="0.3" x="4" y="15" width="5" height="2" rx="1"/>
+															    </g>
+																</svg>
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	Media: Audio
+																</div>
+																<div class="ona-notification__item-text">
+																	Number of Items: {{sahAudioTotal}}
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="ona-notification">
+														<div class="ona-notification__item no-link">
+															<div class="ona-notification__item-icon">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+															    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														        <rect x="0" y="0" width="24" height="24"/>
+														        <path d="M12.9486833,9.31622777 L11.0513167,8.68377223 C11.8160243,6.38964935 13.0426772,4.95855428 14.7574644,4.5298575 C15.650287,4.30665184 17,2.86951059 17,2 L19,2 C19,3.79715607 17.0163797,6.02668149 15.2425356,6.4701425 C14.2906561,6.70811238 13.517309,7.61035065 12.9486833,9.31622777 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+														        <path d="M7.05661608,8.02781729 C7.20182559,8.00946022 7.34980802,8 7.5,8 L16.5,8 C16.650192,8 16.7981744,8.00946022 16.9433839,8.02781729 C17.1264244,8.00942131 17.312112,8 17.5,8 C20.5375661,8 23,10.4624339 23,13.5 C23,16.5375661 20.5375661,19 17.5,19 C15.7920631,19 14.2659538,18.2215033 13.2571621,17 L10.7428379,17 C9.73404624,18.2215033 8.20793694,19 6.5,19 C3.46243388,19 1,16.5375661 1,13.5 C1,10.4624339 3.46243388,8 6.5,8 C6.68788804,8 6.87357561,8.00942131 7.05661608,8.02781729 Z M5.5,10 C5.22385763,10 5,10.2238576 5,10.5 L5,11.5 C5,11.7761424 5.22385763,12 5.5,12 L6.5,12 C6.77614237,12 7,11.7761424 7,11.5 L7,10.5 C7,10.2238576 6.77614237,10 6.5,10 L5.5,10 Z M7.5,12 C7.22385763,12 7,12.2238576 7,12.5 L7,13.5 C7,13.7761424 7.22385763,14 7.5,14 L8.5,14 C8.77614237,14 9,13.7761424 9,13.5 L9,12.5 C9,12.2238576 8.77614237,12 8.5,12 L7.5,12 Z M19,12 C19.5522847,12 20,11.5522847 20,11 C20,10.4477153 19.5522847,10 19,10 C18.4477153,10 18,10.4477153 18,11 C18,11.5522847 18.4477153,12 19,12 Z M18,15 C18.5522847,15 19,14.5522847 19,14 C19,13.4477153 18.5522847,13 18,13 C17.4477153,13 17,13.4477153 17,14 C17,14.5522847 17.4477153,15 18,15 Z M5.5,14 C5.22385763,14 5,14.2238576 5,14.5 L5,15.5 C5,15.7761424 5.22385763,16 5.5,16 L6.5,16 C6.77614237,16 7,15.7761424 7,15.5 L7,14.5 C7,14.2238576 6.77614237,14 6.5,14 L5.5,14 Z M3.5,12 C3.22385763,12 3,12.2238576 3,12.5 L3,13.5 C3,13.7761424 3.22385763,14 3.5,14 L4.5,14 C4.77614237,14 5,13.7761424 5,13.5 L5,12.5 C5,12.2238576 4.77614237,12 4.5,12 L3.5,12 Z" fill="#000000"/>
+															    </g>
+																</svg>
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	Media: Game
+																</div>
+																<div class="ona-notification__item-text">
+																	Number of Items: {{sahGameTotal}}
+																</div>
+															</div>
+														</div>
+													</div>
+												</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -182,22 +388,32 @@
 										<div class="ona-widget__items">
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--success">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--danger">
 												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-											        <rect x="0" y="0" width="24" height="24"/>
-											        <rect fill="#000000" x="2" y="6" width="13" height="12" rx="2"/>
-											        <path d="M22,8.4142119 L22,15.5857848 C22,16.1380695 21.5522847,16.5857848 21,16.5857848 C20.7347833,16.5857848 20.4804293,16.4804278 20.2928929,16.2928912 L16.7071064,12.7071013 C16.3165823,12.3165768 16.3165826,11.6834118 16.7071071,11.2928877 L20.2928936,7.70710477 C20.683418,7.31658067 21.316583,7.31658098 21.7071071,7.70710546 C21.8946433,7.89464181 22,8.14899558 22,8.4142119 Z" fill="#000000" opacity="0.3"/>
+											        <polygon points="0 0 24 0 24 24 0 24"/>
+											        <path d="M16.5,4.5 C14.8905,4.5 13.00825,6.32463215 12,7.5 C10.99175,6.32463215 9.1095,4.5 7.5,4.5 C4.651,4.5 3,6.72217984 3,9.55040872 C3,12.6834696 6,16 12,19.5 C18,16 21,12.75 21,9.75 C21,6.92177112 19.349,4.5 16.5,4.5 Z" fill="#000000" fill-rule="nonzero"/>
 												    </g>
 													</svg>
 												</span>
 												<span class="ona-widget__subtitle">
-													Scene &amp; Heard
+													Featured Artists
 												</span>
-												<span class="ona-widget__desc">
-													<strong>Total Items:</strong> {{sahItemTotal}}
-												</span>
-												<span class="ona-widget__desc">
-													<strong>Total Holders:</strong> {{sahTotal}}
+												<span class="ona-widget__desc" >
+													<div class="ona-notification" ng-repeat="artist in featured">
+														<a href="edit-artist/{{artist.INartistID}}" class="ona-notification__item">
+															<div class="ona-notification__item-icon">
+																<img class="ona-widget__img" ng-src="{{artist.sliderImage}}" />
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	{{artist.marker}} {{artist.INartistName}}
+																</div>
+																<div class="ona-notification__item-text">
+																	{{artist.INroster_desc}}
+																</div>
+															</div>
+														</a>
+													</div>
 												</span>
 											</div>
 											<div class="ona-widget__item">
@@ -216,57 +432,24 @@
 													</svg>
 												</span>
 												<span class="ona-widget__subtitle">
-													Current New Signings
+													New Signings
 												</span>
-												<span ng-repeat="artist in signing_artists" class="ona-widget__desc">
-													<a href="edit-artist/{{artist.INartistID}}" class="capitalize"><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
-												</span>
-											</div>
-										</div>
-										<div class="ona-widget__items">
-											<div class="ona-widget__item">
-												<span class="ona-widget__icon">
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--danger">
-												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-											        <polygon points="0 0 24 0 24 24 0 24"/>
-											        <path d="M16.5,4.5 C14.8905,4.5 13.00825,6.32463215 12,7.5 C10.99175,6.32463215 9.1095,4.5 7.5,4.5 C4.651,4.5 3,6.72217984 3,9.55040872 C3,12.6834696 6,16 12,19.5 C18,16 21,12.75 21,9.75 C21,6.92177112 19.349,4.5 16.5,4.5 Z" fill="#000000" fill-rule="nonzero"/>
-												    </g>
-													</svg>
-												</span>
-												<span class="ona-widget__subtitle">
-													Featured Artists
-												</span>
-												<span ng-repeat="artist in featured" class="ona-widget__desc">
-													<a href="edit-artist/{{artist.INartistID}}" class="capitalize"><i class="fas fa-star fa-fw text-aqua" aria-hidden="true"></i> {{artist.marker}} {{artist.INartistName}}</a>
-												</span>
-											</div>
-											<div class="ona-widget__item">
-												<span class="ona-widget__icon">
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="ona-svg-icon ona-svg-icon--purple">
-												    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24"/>
-															<path d="M4,6 L20,6 C20.5522847,6 21,6.44771525 21,7 L21,8 C21,8.55228475 20.5522847,9 20,9 L4,9 C3.44771525,9 3,8.55228475 3,8 L3,7 C3,6.44771525 3.44771525,6 4,6 Z M5,11 L10,11 C10.5522847,11 11,11.4477153 11,12 L11,19 C11,19.5522847 10.5522847,20 10,20 L5,20 C4.44771525,20 4,19.5522847 4,19 L4,12 C4,11.4477153 4.44771525,11 5,11 Z M14,11 L19,11 C19.5522847,11 20,11.4477153 20,12 L20,19 C20,19.5522847 19.5522847,20 19,20 L14,20 C13.4477153,20 13,19.5522847 13,19 L13,12 C13,11.4477153 13.4477153,11 14,11 Z" fill="#000000"/>
-															<path d="M14.4452998,2.16794971 C14.9048285,1.86159725 15.5256978,1.98577112 15.8320503,2.4452998 C16.1384028,2.90482849 16.0142289,3.52569784 15.5547002,3.83205029 L12,6.20185043 L8.4452998,3.83205029 C7.98577112,3.52569784 7.86159725,2.90482849 8.16794971,2.4452998 C8.47430216,1.98577112 9.09517151,1.86159725 9.5547002,2.16794971 L12,3.79814957 L14.4452998,2.16794971 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-												    </g>
-													</svg>
-												</span>
-												<span class="ona-widget__subtitle">
-													Most Recent Comp
-												</span>
-												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<a href="edit-comp/{{comp.comp_id}}" class="capitalize"><i class="fas fa-gift fa-fw text-purple" aria-hidden="true"></i> {{comp.comp_name}}</a>
-												</span>
-												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added: {{comp.date_added | timestampDateFormat}}
-												</span>
-												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> Number of Songs: {{recentplaylistTotal}}
-												</span>
-												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Downloads: {{comp.count}}
-												</span>
-												<span ng-repeat="comp in recentComps" class="ona-widget__desc">
-													<i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download: {{comp.last_download | timestampDateTimeFormat}}
+												<span class="ona-widget__desc">
+													<div class="ona-notification" ng-repeat="artist in signing_artists">
+														<a href="edit-artist/{{artist.INartistID}}" class="ona-notification__item">
+															<div class="ona-notification__item-icon">
+																<img class="ona-widget__img" ng-src="{{artist.albumImage}}" />
+															</div>
+															<div class="ona-notification__item-details">
+																<div class="ona-notification__item-title">
+																	{{artist.marker}} {{artist.INartistName}}
+																</div>
+																<div class="ona-notification__item-text">
+																	{{artist.INroster_desc}}
+																</div>
+															</div>
+														</a>
+													</div>
 												</span>
 											</div>
 										</div>
@@ -278,6 +461,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-lg-6">
 			<div class="panel panel-pink tablet-margin-bottom-40">
 				<div class="row">
@@ -316,7 +501,7 @@
 														</ul>
 													</li>
 													<li class="nav-item dropdown">
-														<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"><i class="far fa-calendar-check fa-fw" aria-hidden="true"></i> Songs</a>
+														<a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"><i class="fas fa-download fa-fw" aria-hidden="true"></i> Songs</a>
 														<ul class="dropdown-menu" x-placement="bottom-start">
 															<li class="dropdown-header">Sort</li>
 															<li><a class="dropdown-item" data-toggle="tab" href="javascript:;" data-target="#top-song-download">Downloads <i class="fas fa-download fa-fw text-green pull-right" aria-hidden="true"></i></a></li>

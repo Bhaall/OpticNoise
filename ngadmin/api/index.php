@@ -114,6 +114,11 @@ $app->post('/add_sah_item/:id', 'addSahItem');
 $app->get('/sah_item/:id', 'getSahItem');
 $app->put('/sah_item/:id', 'updateSahItem');
 $app->get('/sah_item_count', 'getSahItemCount');
+$app->get('/sah_tv_count', 'getSahTVCount');
+$app->get('/sah_promo_count', 'getSahPromoCount');
+$app->get('/sah_movie_count', 'getSahMovieCount');
+$app->get('/sah_audio_count', 'getSahAudioCount');
+$app->get('/sah_game_count', 'getSahGameCount');
 $app->get('/sah_item_links/:id/:sort', function ($id, $sort) {
   getSahItemLinks($id, $sort);
 });
@@ -161,10 +166,14 @@ $app->get('/comp_links/:sort', function ($sort) {
 // DROPBOXES
 $app->get('/dropboxes_count', 'getDropboxesCount');
 $app->get('/dropboxes_active_count', 'getDropboxesActiveCount');
+$app->get('/recent_dropbox', 'getMostRecentDropbox');
 $app->get('/dropboxes', 'getDropboxes');
 $app->put('/update_dropboxes_sort/:id', 'updateDropboxesSort');
 $app->delete('/dropboxes/:id', 'deleteDropbox');
 $app->post('/add_dropbox', 'addDropbox');
+$app->post('/update_dropbox_zip/:id', 'updateDropboxZIP');
+$app->post('/upload_dropbox_zip', 'uploadDropboxZIP');
+$app->put('/dropbox_file/:id', 'removeDropboxFile');
 $app->get('/max_dropboxsortorder', 'getMaxDropboxSortOrder');
 $app->put('/dropboxes/:id', 'updateDropbox');
 $app->get('/dropboxes/:id', 'getDropbox');
@@ -1318,7 +1327,7 @@ function deleteMP3($file) {
 }
 
 function getSongLinks($id, $name) {
-	$sql = "select ( select song_id from songs where artistID = :id and song_title > :name order by song_title asc limit 1 ) as nextValue, ( select song_id from songs where artistID = :id and song_title < :name order by song_title desc limit 1 ) as prevValue from songs";
+	$sql = "select ( select song_id from songs where artistID = :id and replace(song_title, '/', '') > :name order by song_title asc limit 1 ) as nextValue, ( select song_id from songs where artistID = :id and replace(song_title, '/', '') < :name order by song_title desc limit 1 ) as prevValue from songs";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);
@@ -1331,7 +1340,7 @@ function getSongLinks($id, $name) {
 	}
 }
 
-// NEW SIGNINGS FUNCTIONS"
+// NEW SIGNINGS FUNCTIONS
 function getNewSignings() {
 	$sql = "select * from indies where home_status = 'y' order by home_order";
 	try {
@@ -1671,6 +1680,71 @@ function getSahItemCount() {
 	}
 }
 
+function getSahTVCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from sceneitems where itemMedia = 'TV'");
+		$sql->execute();
+		$num_sah_tv_items = $sql->fetchColumn();
+		$db = null;
+		echo $num_sah_tv_items;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getSahPromoCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from sceneitems where itemMedia = 'PROMO'");
+		$sql->execute();
+		$num_sah_promo_items = $sql->fetchColumn();
+		$db = null;
+		echo $num_sah_promo_items;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getSahMovieCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from sceneitems where itemMedia = 'MOVIE'");
+		$sql->execute();
+		$num_sah_movie_items = $sql->fetchColumn();
+		$db = null;
+		echo $num_sah_movie_items;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getSahAudioCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from sceneitems where itemMedia = 'AUDIO'");
+		$sql->execute();
+		$num_sah_audio_items = $sql->fetchColumn();
+		$db = null;
+		echo $num_sah_audio_items;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getSahGameCount() {
+	try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from sceneitems where itemMedia = 'GAME'");
+		$sql->execute();
+		$num_sah_game_items = $sql->fetchColumn();
+		$db = null;
+		echo $num_sah_game_items;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
 function getSahItemLinks($id, $sort) {
 	$sql = "select ( select itemID from sceneitems where sceneID = :id and itemOrder > :sort order by itemOrder asc limit 1 ) as nextValue, ( select itemID from sceneitems where sceneID = :id and itemOrder < :sort order by itemOrder desc limit 1 ) as prevValue from sceneitems";
 	try {
@@ -1790,7 +1864,7 @@ function getComps() {
 }
 
 function getMostRecentComp() {
-  $sql = "select comp_id, comp_name, date_added, playlist_count, count, last_download from comp_main where comp_id in (select comp_id from comp_main where date_added = (select MAX(date_added) from comp_main)) order by comp_id desc limit 1";
+  $sql = "select comp_id, comp_name, date_added, comp_pic, active from comp_main where comp_id in (select comp_id from comp_main where date_added = (select MAX(date_added) from comp_main)) order by comp_id desc limit 1";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
@@ -2079,8 +2153,6 @@ function getCompPlaylist($id) {
 	}
 }
 
-
-
 function deleteCompPlaylistItem($id) {
 	$sql = "delete from comp_items where comp_items_id=".$id;
 	try {
@@ -2217,7 +2289,6 @@ function addSongToComp($id) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 
-
 	$q2 = "insert into comp_items set SongID = '$last_song_id', compID = '$id', item_sort = :item_sort";
 	try {
 		$db = getConnection();
@@ -2313,6 +2384,19 @@ function getDropboxesActiveCount() {
 	}
 }
 
+function getMostRecentDropbox() {
+  $sql = "select dropbox_id, dropbox_name, date_added, active from dropbox where dropbox_id in (select dropbox_id from dropbox where date_added = (select MAX(date_added) from dropbox)) order by dropbox_id desc limit 1";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$dropbox = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($dropbox);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
 function getDropboxes() {
 	$sql = "select * from dropbox order by sort desc";
 	try {
@@ -2344,6 +2428,18 @@ function updateDropboxesSort($id) {
 }
 
 function deleteDropbox($id) {
+  $q1 = "select dropbox_file as dropbox_file from dropbox where dropbox_id=".$id;
+	try {
+		$db = getConnection();
+		$stmt = $db->prepare($q1);
+		$stmt->execute();
+		$dropbox_file = $stmt->fetchObject();
+		$db = null;
+		deleteDropboxZip($dropbox_file);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+
 	$sql = "delete from dropbox where dropbox_id=".$id;
 	try {
 		$db = getConnection();
@@ -2351,6 +2447,54 @@ function deleteDropbox($id) {
 		$db = null;
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function removeDropboxFile($id) {
+	$q1 = "select dropbox_file as dropbox_file from dropbox where dropbox_id=".$id;
+	try {
+		$db = getConnection();
+		$stmt = $db->prepare($q1);
+		$stmt->execute();
+		$dropbox_file = $stmt->fetchObject();
+		$db = null;
+		deleteDropboxZip($dropbox_file);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+
+    $app = \Slim\Slim::getInstance();
+    $request = $app->request();
+    $body = $request->getBody();
+    $dropbox = json_decode($body);
+	try {
+		$db = getConnection();
+		$newfile = '';
+		$sql = "update dropbox set dropbox_file=? where dropbox_id=?";
+		$q = $db->prepare($sql);
+		$q->execute(array($newfile,$id));
+		$db = null;
+		echo json_encode($dropbox);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function deleteDropboxZip($file) {
+	if(!empty($file)) {
+		foreach ($file as $value) {
+			if(!empty($value)) {
+				$path = "../../compfiles/";
+				if( file_exists( $path . $value )) {
+					if(unlink($path . $value)) {
+						echo "file deleted.";
+					}
+					else {
+						echo "there was a problem deleting file.";
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -2367,10 +2511,66 @@ function addDropbox() {
 		$stmt->bindParam("dropbox_file", $dropbox->dropbox_file);
 		$stmt->bindParam("sort", $dropbox->sort);
 		$stmt->execute();
+    $dropbox->id = $db->lastInsertId();
+    $last_dropbox_id = $db->lastInsertId();
 		$db = null;
+    $_SESSION['lastDropboxID']=$last_dropbox_id;
 		echo json_encode($dropbox);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function updateDropboxZIP($id) {
+	if (isset($_FILES['dropbox_file'])) {
+		$ZIPFile = $_FILES['dropbox_file']['name'];
+
+    $path = "../../compfiles/";
+
+    $name = $_FILES['dropbox_file']['name'];
+    copy($_FILES['dropbox_file']['tmp_name'], $path . $name);
+
+		// update dropbox_file field in dropbox table
+		$app = \Slim\Slim::getInstance();
+		$sql = "update dropbox set dropbox_file=:dropbox_file where dropbox_id=:id";
+		try {
+			$db = getConnection();
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam("dropbox_file", $name);
+			$stmt->bindParam("id", $id);
+			$stmt->execute();
+			$db = null;
+		} catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+	}
+}
+
+function uploadDropboxZIP() {
+	if (isset($_FILES['dropbox_file'])) {
+		$MP3File = $_FILES['dropbox_file']['name'];
+		$id = $_SESSION['lastDropboxID'];
+
+		echo $id;
+
+		$path = "../../compfiles/";
+
+    $name = $_FILES['dropbox_file']['name'];
+		copy($_FILES['dropbox_file']['tmp_name'], $path . $name);
+
+		// update dropbox_file field in dropbox table
+		$app = \Slim\Slim::getInstance();
+		$sql = "update dropbox set dropbox_file=:dropbox_file where dropbox_id=:id";
+		try {
+			$db = getConnection();
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam("dropbox_file", $name);
+			$stmt->bindParam("id", $id);
+			$stmt->execute();
+			$db = null;
+		} catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
 	}
 }
 

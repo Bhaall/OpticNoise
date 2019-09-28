@@ -81,6 +81,14 @@ ul {
 .margin-top-10 {
   margin-top: 10px !important;
 }
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
 .btn {
   background-color: #5781c1;
   background-image: none;
@@ -1635,6 +1643,7 @@ ul.playlist li .controls .statusbar .loading {
 }
 ul.playlist li.sm2_playing a.sm2_link,
 ul.playlist li.sm2_paused a.sm2_link {
+  color: #fff;
   margin-right:4.5em;
 }
 ul.playlist li .timing {
@@ -1650,12 +1659,12 @@ ul.playlist li .timing {
   position:absolute;
   right:1em;
   text-align:right;
-  top:0.4em;
+  top:0.7em;
   vertical-align:middle;
   width:auto;
 }
 ul.playlist.use-peak li .timing {
-  right:4.25em;
+  right:0.25em;
 }
 ul.playlist li:hover .timing {
   z-index:2;
@@ -1816,7 +1825,7 @@ ul.paginate li.disabled span {
     margin: 20px 0px 20px;
   }
 }
-@media(max-width: 768px) {
+@media(min-width: 768px) {
 	#artistroster .row .col-sm-6:nth-child(2n+1){
 		clear:both;
 		margin-left:0;

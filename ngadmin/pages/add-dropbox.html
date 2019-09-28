@@ -58,16 +58,37 @@
 														<div class="row">
 															<div class="col-xs-8">
 																<div class="form-group has-feedback clearfix" ng-class="{'has-success': AddDropboxForm.dropbox_file.$valid, 'has-invalid': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty, 'has-error': AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.submitted}">
-																	<label for="dropbox_file">zip file</label> <i class="fas fa-info-circle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="<i class='fas fa-file-archive fa-fw text-light-blue' aria-hidden='true'></i> Zip file name must not contain strange characters or spaces; must end in '.zip'. Ex: file_name.zip"></i>
-																	<div class="input-icon">
-																		<i class="fas fa-file-archive fa-fw" aria-hidden="true"></i>
-																		<input class="form-control" name="dropbox_file" type="text" ng-model="dropbox.dropbox_file" placeholder="zip file name (required)" required ng-pattern="/^([a-zA-Z0-9_]*)\.(((z|Z)(i|I)(p|P)))$/" />
+																	<label>select a new zip file</label> <i class="fas fa-info-circle fa-fw text-danger" aria-hidden="true" popover-placement="top" popover-trigger="mouseenter" popover="<i class='fas fa-file-archive text-light-blue' aria-hidden='true'></i> <strong>REQUIRED FIELD!</strong> Zip file name must not contain strange characters; no dashes; end in '.zip'."></i>
+																	<div id="dropbox-input" class="fileinput fileinput-new input-group" data-provides="fileinput">
+																		<div class="form-control" data-trigger="fileinput">
+																			<i class="glyphicon glyphicon-file fileinput-exists text-light-blue" aria-hidden="true"></i>
+																			<span class="fileinput-filename"></span>
+																		</div>
+																		<span class="input-group-addon btn btn-success btn-file">
+																			<span class="fileinput-new"><i class="fas fa-file-archive fa-fw" aria-hidden="true"></i> Select...</span>
+																			<span class="fileinput-exists"><i class="fas fa-edit fa-fw" aria-hidden="true"></i> Change</span>
+																			<input type="file" required name="dropbox_file" id="dropbox_file" accept=".zip" portrait-input="dropbox_files" />
+																		</span>
+																		<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><i class="fas fa-times fa-fw" aria-hidden="true"></i> Remove</a>
 																	</div>
-																	<div ng-show="AddDropboxForm.dropbox_file.$valid">
-																		<span ng-show="AddDropboxForm.dropbox_file.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-																	</div>
-																	<div ng-show="AddDropboxForm.dropbox_file.$invalid && AddDropboxForm.dropbox_file.$dirty">
-																		<span ng-show="AddDropboxForm.dropbox_file.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+																	<ul class="list-group file-info" ng-repeat="dropbox_file in dropbox_files">
+																		 <li class="list-group-item"><i class="fas fa-file-signature fa-fw text-orange" aria-hidden="true"></i> File name: {{dropbox_file.name}}</li>
+																		 <li class="list-group-item"><i class="far fa-file-audio fa-fw text-yellow" aria-hidden="true"></i> Type: {{dropbox_file.type}}</li>
+																		 <li class="list-group-item"><i class="fas fa-file-audio fa-fw text-pink" aria-hidden="true"></i> Size: {{dropbox_file.size}}kb</li>
+																	</ul>
+																	<div id="progress_info">
+																		<div class="progress">
+																			<div id="progress" class="progress-bar progress-bar-info bar">
+																				<span id="progress_percent" class="percent"></span>
+																			</div>
+																		</div>
+																		<div class="clear_both"></div>
+																		<div>
+																			<div id="remaining">&nbsp;</div>
+																			<div id="b_transfered">&nbsp;</div>
+																			<div class="clearfix"></div>
+																		</div>
+																		<div id="upload_response"></div>
 																	</div>
 																</div>
 															</div>

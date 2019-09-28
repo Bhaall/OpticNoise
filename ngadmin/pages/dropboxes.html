@@ -8,7 +8,13 @@
 		          <div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__light-blue">
 		            <div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x ona-ribbon ona-ribbon--ver ona-ribbon--shadow ona-ribbon--round">
 									<div class="ona-ribbon__target">
-										{{allDropboxesTotal}}
+										{{totalFound}}
+									</div>
+									<div id="search">
+										<div class="input-icon">
+											<i class="fas fa-search fa-fw" aria-hidden="true"></i>
+											<input class="form-control input-filter" type="text" ng-model="query" ng-change="search()">
+										</div>
 									</div>
 		              <div class="ona-portlet__head-label">
 		                <h3 class="ona-portlet__head-title">
@@ -28,6 +34,12 @@
 		            <div class="ona-portlet__body ona-portlet__body--fit">
 		              <div class="ona-widget">
 		                <div class="ona-widget__visual ona-widget__light-blue">
+											<div class="top-pager v-center">
+												<ul class="nav-btns">
+													<a ng-class="{disabled: currentPage == 0}" class="btn btn-xs btn-clean" href="javascript:;" ng-click="prevPage()"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i></a>
+													<a ng-class="{disabled: currentPage == pagedItems.length - 1}" class="btn btn-xs btn-clean" href="javascript:;" ng-click="nextPage()"><i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+												</ul>
+											</div>
 		                </div>
 		                <div class="ona-widget__stats">
 											<div class="col-xs-12" ng-show="!dropboxes.length">
@@ -51,7 +63,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" ng-repeat="dropbox in dropboxes">
+											<div class="col-lg-4 col-md-12 col-sm-6 col-xs-12 fade-in" ng-repeat="dropbox in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
 			                  <div class="ona-widget__items">
 			                    <div class="ona-widget__item">
 			                      <span class="ona-widget__icon">
@@ -116,6 +128,19 @@
 		                </div>
 		              </div>
 		            </div>
+								<div class="text-center margin-top-10">
+									<ul class="pagination">
+										<li ng-class="{disabled: currentPage == 0}">
+											<a class="" href="javascript:;" ng-click="prevPage()">&#171;</a>
+										</li>
+										<li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()">
+											<a href ng-bind="n + 1">1</a>
+										</li>
+										<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+											<a class="" href="javascript:;" ng-click="nextPage()">&#187;</a>
+										</li>
+									</ul>
+								</div>
 								<div class="ona-portlet__foot">
 									<div class="ona-form__actions">
 										<button type="button" name="updateSort" ng-click="updateSortOrder()" class="btn btn-clean btn-outline-clean"><i class="fas fa-sort-numeric-down fa-fw" aria-hidden="true"></i> Update sort order</button>

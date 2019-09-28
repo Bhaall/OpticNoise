@@ -648,8 +648,8 @@ angular.module('onAdmin.directives', [])
 										top: (position.top - ttHeight) + 'px',
 										left: (position.left + position.width / 2 - ttWidth / 2) + 'px'
 									};
-	                						break;
-	            					}
+										break;
+	            		}
 
 								tooltip.css( ttPosition );
 								scope.tt_isOpen = true;

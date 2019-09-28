@@ -574,7 +574,6 @@ angular.module('onAdmin', [
 			var connected=loginService.islogged();
 
 			connected.then(function(msg){
-				console.log(msg.data);
 				if(!msg.data) $location.path('/login');
 			});
 		}

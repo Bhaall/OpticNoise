@@ -280,10 +280,10 @@ factory('sahRepo', ['$http', function($http) {
 	return new sahRepository($http);
 }]).
 factory('updateSAHSortOrder', ['$http', function($http) {
-    return new updateSahSort($http);
+  return new updateSahSort($http);
 }]).
 factory('updateSAHActive', ['$http', function($http) {
-    return new updateSAHActiveByID($http);
+  return new updateSAHActiveByID($http);
 }]).
 factory('addSahHolder', ['$http', function($http) {
 	return new addSah($http);
@@ -317,6 +317,21 @@ factory('updateSahItem', ['$http', function($http) {
 }]).
 factory('sahItemCount', ['$http', function($http) {
 	return new getSahItemCount($http);
+}]).
+factory('sahTVCount', ['$http', function($http) {
+	return new getSahTVCount($http);
+}]).
+factory('sahPromoCount', ['$http', function($http) {
+	return new getSahPromoCount($http);
+}]).
+factory('sahMovieCount', ['$http', function($http) {
+	return new getSahMovieCount($http);
+}]).
+factory('sahAudioCount', ['$http', function($http) {
+	return new getSahAudioCount($http);
+}]).
+factory('sahGameCount', ['$http', function($http) {
+	return new getSahGameCount($http);
 }]).
 factory('getSahItemLinks', ['$http', function($http) {
 	return new getSahItemNavLinks($http);
@@ -417,6 +432,9 @@ factory('dropboxesCount', ['$http', function($http) {
 factory('dropboxesActiveCount', ['$http', function($http) {
 	return new getDropboxesActiveCount($http);
 }]).
+factory('dropboxRecent', ['$http', function($http) {
+	return new dropboxMostRecent($http);
+}]).
 factory('dropboxesRepo', ['$http', function($http) {
 	return new dropboxesRepository($http);
 }]).
@@ -425,6 +443,9 @@ factory('updateDropboxesSortOrder', ['$http', function($http) {
 }]).
 factory('deleteDropboxes', ['$http', function($http) {
 	return new deleteDropbox($http);
+}]).
+factory('removeDropboxFile', ['$http', function($http) {
+  return new removeDropboxFileByID($http);
 }]).
 factory('addDropboxes', ['$http', function($http) {
 	return new addDropbox($http);
@@ -472,7 +493,7 @@ service('asyncScript', ['$window', function($window) {
     var libs = {
       moment:				'//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js',
       jasny:				'//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js',
-			touchspin:		'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.min.js'
+			touchspin:		'//cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.min.js'
     };
     return {
       load: function(name,cb) {
@@ -1286,6 +1307,56 @@ window.getSahItemCount = function($http) {
 		});
 	};
 };
+window.getSahTVCount = function($http) {
+	this.$http = $http;
+	this.fetchSahTVCount = function() {
+		var url = 'api/sah_tv_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.getSahPromoCount = function($http) {
+	this.$http = $http;
+	this.fetchSahPromoCount = function() {
+		var url = 'api/sah_promo_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.getSahMovieCount = function($http) {
+	this.$http = $http;
+	this.fetchSahMovieCount = function() {
+		var url = 'api/sah_movie_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.getSahAudioCount = function($http) {
+	this.$http = $http;
+	this.fetchSahAudioCount = function() {
+		var url = 'api/sah_audio_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
+window.getSahGameCount = function($http) {
+	this.$http = $http;
+	this.fetchSahGameCount = function() {
+		var url = 'api/sah_game_count';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
 window.getSahItemNavLinks = function($http) {
 	this.$http = $http;
 	this.fetchSahItemNavLinks = function(itemID, sort) {
@@ -1636,6 +1707,16 @@ window.getDropboxesActiveCount = function($http) {
 		});
 	};
 };
+window.dropboxMostRecent = function($http) {
+	this.$http = $http;
+	this.fetchMostRecentDropbox = function() {
+		var url = 'api/recent_dropbox';
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
+	};
+};
 window.dropboxesRepository = function($http) {
 	this.$http = $http;
 	this.fetchDropboxes = function() {
@@ -1661,6 +1742,17 @@ window.deleteDropbox = function($http) {
 	this.$http = $http;
 	this.deleteDropboxByID = function(id) {
 		return this.$http.delete('api/dropboxes/'+id);
+	};
+};
+window.removeDropboxFileByID = function($http) {
+	this.$http = $http;
+	this.removeDropboxFileByID = function(id, dropbox) {
+		return this.$http.put('api/dropbox_file/'+id, dropbox)
+		.success(function(data) {
+			return data;
+		}).error(function(data, status) {
+      //alert('dropbox data error!');
+    });
 	};
 };
 window.addDropbox = function($http) {

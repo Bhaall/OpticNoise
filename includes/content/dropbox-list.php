@@ -10,7 +10,7 @@ if ($dropbox_count < 1){
 }
 else{
 
-	$result = mysqli_query($connection, "select * from dropbox where active = 'y' order by sort ASC");
+	$result = mysqli_query($connection, "select * from dropbox where active = 'y' order by sort desc");
 
 	print "<ul>\n";
 	while ( $row = mysqli_fetch_array($result) ) :

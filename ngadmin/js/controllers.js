@@ -1,5 +1,5 @@
 angular.module('onAdmin.controllers', [])
-.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'getNewSignings', 'artistsActiveCount', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsActiveCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'compsCount', 'compsActiveCount', 'dropboxesCount', 'dropboxesActiveCount', 'artistsRepo', 'songsRepo', 'featuredRepo', 'compsRepo', 'compsRecent', 'getCompsPlaylist', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, getNewSignings, artistsActiveCount, artistsCount, artistsNoSongsCount, songsCount, songsActiveCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, compsCount, compsActiveCount, dropboxesCount, dropboxesActiveCount, artistsRepo, songsRepo, featuredRepo, compsRepo, compsRecent, getCompsPlaylist, dropboxesRepo){
+.controller('appCtrl', ['$scope', '$window', '$http', '$filter', '$location', '$sce', 'settingsRepo', 'userRepo', 'supeRepo', 'aboutRepo', 'contactRepo', 'getNewSignings', 'artistsActiveCount', 'artistsCount', 'artistsNoSongsCount', 'songsCount', 'songsActiveCount', 'songsNoFileCount', 'songsNoCompCount', 'getTopPlayedSongs', 'getTopDownloadedSongs', 'getTopCompsList', 'getTopDropboxesList', 'noty', 'loginService', 'profileRepo', 'sahCount', 'sahItemCount', 'sahTVCount', 'sahPromoCount', 'sahMovieCount', 'sahAudioCount', 'sahGameCount', 'compsCount', 'compsActiveCount', 'dropboxesCount', 'dropboxesActiveCount', 'dropboxRecent', 'artistsRepo', 'songsRepo', 'featuredRepo', 'compsRepo', 'compsRecent', 'dropboxesRepo', function($scope, $window, $http, $filter, $location, $sce, settingsRepo, userRepo, supeRepo, aboutRepo, contactRepo, getNewSignings, artistsActiveCount, artistsCount, artistsNoSongsCount, songsCount, songsActiveCount, songsNoFileCount, songsNoCompCount, getTopPlayedSongs, getTopDownloadedSongs, getTopCompsList, getTopDropboxesList, noty, loginService, profileRepo, sahCount, sahItemCount, sahTVCount, sahPromoCount, sahMovieCount, sahAudioCount, sahGameCount, compsCount, compsActiveCount, dropboxesCount, dropboxesActiveCount, dropboxRecent, artistsRepo, songsRepo, featuredRepo, compsRepo, compsRecent, dropboxesRepo){
 
 	$scope.noty = noty;
 	$scope.date = Date.now();
@@ -24,6 +24,9 @@ angular.module('onAdmin.controllers', [])
 
 		getNewSignings.fetchFon().success(function(data) {
 			$scope.signing_artists = data;
+			for (var i = 0; i < $scope.signing_artists.length; i++) {
+				$scope.signing_artists[i].albumImage = '../images/artists/'+$scope.signing_artists[i].album_pic;
+			}
 			$scope.allFon = data.length;
 		});
 
@@ -72,9 +75,15 @@ angular.module('onAdmin.controllers', [])
 		compsRecent.fetchMostRecentComps().success(function(data) {
 			$scope.recentComps = data;
 			$scope.recentID = $scope.recentComps[0].comp_id;
-			getCompsPlaylist.fetchCompPlaylist($scope.recentID).success(function(data) {
-				$scope.recentplaylistTotal = data.length;
-			});
+			for (var i = 0; i < $scope.recentComps.length; i++) {
+				$scope.recentComps[i].compImage = '../images/comps/'+$scope.recentComps[i].comp_pic;
+				if($scope.recentComps[i].active==='y') {
+					$scope.recentComps[i].activeTxt = "active";
+				}
+				else if($scope.recentComps[i].active==='n') {
+					$scope.recentComps[i].activeTxt = "inactive";
+				}
+			}
 		});
 
 		dropboxesRepo.fetchDropboxes().success(function(data) {
@@ -121,6 +130,18 @@ angular.module('onAdmin.controllers', [])
 			$scope.topDropboxes = data;
 		});
 
+		dropboxRecent.fetchMostRecentDropbox().success(function(data) {
+		  $scope.recentDropbox = data;
+			for (var i = 0; i < $scope.recentDropbox.length; i++) {
+				if($scope.recentDropbox[i].active==='y') {
+					$scope.recentDropbox[i].activeTxt = "active";
+				}
+				else if($scope.recentDropbox[i].active==='n') {
+					$scope.recentDropbox[i].activeTxt = "inactive";
+				}
+			}
+		});
+
 		sahCount.fetchSahCount().success(function(data) {
 			$scope.sahTotal = data;
 		});
@@ -129,8 +150,31 @@ angular.module('onAdmin.controllers', [])
 			$scope.sahItemTotal = data;
 		});
 
+		sahTVCount.fetchSahTVCount().success(function(data) {
+		  $scope.sahTVTotal = data;
+		});
+
+		sahPromoCount.fetchSahPromoCount().success(function(data) {
+		  $scope.sahPromoTotal = data;
+		});
+
+		sahMovieCount.fetchSahMovieCount().success(function(data) {
+		  $scope.sahMovieTotal = data;
+		});
+
+		sahAudioCount.fetchSahAudioCount().success(function(data) {
+		  $scope.sahAudioTotal = data;
+		});
+
+		sahGameCount.fetchSahGameCount().success(function(data) {
+		  $scope.sahGameTotal = data;
+		});
+
 		featuredRepo.fetchFeatured().success(function(data) {
 			$scope.featured = data;
+			for (var i = 0; i < $scope.featured.length; i++) {
+				$scope.featured[i].sliderImage = '../images/artists/'+$scope.featured[i].slider_pic;
+			}
 			$scope.AllFeaturedTotal = data.length;
 		});
 
@@ -2091,13 +2135,12 @@ angular.module('onAdmin.controllers', [])
 			if(data.length){
 				for (var i = 0; i < data.length; i++) {
 					$scope.song = data[i];
-					$scope.name = $scope.song.song_title;
+					$scope.name = $scope.song.song_title.replace(/\//g, '');
 					$scope.artistID = $scope.song.artistID;
 					$rootScope.songid = $scope.song.song_id;
 					$scope.song.dateAdded = $filter('timestampDateFormat')($scope.song.date_added);
 					$scope.song.lastDownload = $filter('timestampDateTimeFormat')($scope.song.last_download);
 					$scope.song.lastPlayed = $filter('timestampDateTimeFormat')($scope.song.last_played);
-					// clear song_files from model
 					$scope.song_files = '';
 				}
 
@@ -2231,7 +2274,7 @@ angular.module('onAdmin.controllers', [])
 					oXHR.send(vFD);
 				}
 				else {
-					$scope.artist.album_pic = '';
+					$scope.song.song_file = '';
 				}
 			}
 			else {
@@ -2745,25 +2788,7 @@ angular.module('onAdmin.controllers', [])
 					$scope.data[i].itemOrder = parseFloat($scope.data[i].itemOrder);
 					$scope.sceneName = $scope.data[i].sceneName;
 					$scope.scene_order = $scope.data[i].scene_order;
-
 					$scope.item = data[i];
-					$scope.itemMedia = $scope.item.itemMedia;
-
-					if ($scope.item.itemMedia == 'TV') {
-						$scope.item.media = "<i class='fas fa-tv text-blue' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
-					}
-					else if ($scope.item.itemMedia == 'PROMO') {
-						$scope.item.media = "<i class='fas fa-ad text-pink' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
-					}
-					else if ($scope.item.itemMedia == 'MOVIE') {
-						$scope.item.media = "<i class='fas fa-film text-aqua' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
-					}
-					else if ($scope.item.itemMedia == 'GAME') {
-						$scope.item.media = "<i class='fas fa-gamepad text-green' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
-					}
-					else if ($scope.item.itemMedia == 'AUDIO') {
-						$scope.item.media = "<i class='fas fa-microphone text-orange' aria-hidden='true'></i>" + ' ' + $scope.item.itemMedia;
-					}
 				}
 				$rootScope.setLoading(false);
 			}
@@ -2979,16 +3004,26 @@ angular.module('onAdmin.controllers', [])
 	};
 	$rootScope.showPlayer=false;
 
+	$scope.sortingOrder = 'comp.sort';
+	$scope.pageSizes = [6,12,24,48];
+	$scope.reverse = false;
+	$scope.filteredItems = [];
+	$scope.groupedItems = [];
+	$scope.itemsPerPage = 6;
+	$scope.pagedItems = [];
+	$scope.currentPage = 0;
+
 	$scope.refresh = function() {
 		compsRepo.fetchComps().success(function(data) {
 			if(data.length){
 				$scope.comps = data;
+				$scope.search();
 				for (var i = 0; i < $scope.comps.length; i++) {
 					if($scope.comps[i].active==='y') {
 						$scope.comps[i].activeTxt = "active";
 					}
 					else if($scope.comps[i].active==='n') {
-						$scope.comps[i].activeTxt = "Inactive";
+						$scope.comps[i].activeTxt = "inactive";
 					}
 					if($scope.comps[i].comp_flag==='y') {
 						$scope.comps[i].statusTxt = "In Carousel";
@@ -3020,6 +3055,72 @@ angular.module('onAdmin.controllers', [])
 			$scope.noty.add({type: 'Error', title:'Comps data status: ' + status,body:'There was a problem.'});
 		});
 
+	};
+
+	$scope.search = function () {
+		$scope.filteredItems = $filter('filter')($scope.comps, function (comp) {
+			for(var attr in comp) {
+				if (searchMatch(comp[attr], $scope.query))
+					return true;
+			}
+			return false;
+		});
+		$scope.currentPage = 0;
+		$scope.groupToPages();
+		$scope.totalFound = $scope.filteredItems.length;
+	};
+
+	var searchMatch = function (haystack, needle) {
+		if (!needle) {
+			return true;
+		}
+		return haystack.toString().toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+	};
+
+	$scope.perPage = function () {
+		$scope.groupToPages();
+	};
+
+	$scope.groupToPages = function () {
+		$scope.pagedItems = [];
+
+		for (var i = 0; i < $scope.filteredItems.length; i++) {
+			if (i % $scope.itemsPerPage === 0) {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
+			} else {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+			}
+		}
+	};
+
+	$scope.range = function (start, end) {
+		var ret = [];
+		if (!end) {
+			end = start;
+			start = 0;
+		}
+		for (var i = start; i < end; i++) {
+			ret.push(i);
+		}
+		return ret;
+	};
+
+	$scope.prevPage = function () {
+		if ($scope.currentPage > 0) {
+			$scope.currentPage--;
+		}
+		return false;
+	};
+
+	$scope.nextPage = function () {
+		if ($scope.currentPage < $scope.pagedItems.length - 1) {
+			$scope.currentPage++;
+		}
+		return false;
+	};
+
+	$scope.setPage = function () {
+		$scope.currentPage = this.n;
 	};
 
 	$scope.refresh();
@@ -3128,7 +3229,7 @@ angular.module('onAdmin.controllers', [])
 						$scope.comp.activeTxt = "active";
 					}
 					else if($scope.comp.active==='n') {
-						$scope.comp.activeTxt = "Inactive";
+						$scope.comp.activeTxt = "inactive";
 					}
 					if($scope.comp.comp_flag==='y') {
 						$scope.comp.statusTxt = "In Carousel";
@@ -3829,19 +3930,30 @@ angular.module('onAdmin.controllers', [])
 	};
 	$rootScope.showPlayer=false;
 
+	$scope.sortingOrder = 'dropbox.sort';
+	$scope.pageSizes = [6,12,24,48];
+	$scope.reverse = false;
+	$scope.filteredItems = [];
+	$scope.groupedItems = [];
+	$scope.itemsPerPage = 6;
+	$scope.pagedItems = [];
+	$scope.currentPage = 0;
+
 	$scope.refresh = function() {
 		dropboxesRepo.fetchDropboxes().success(function(data) {
 			if(data.length){
 				$scope.dropboxes = data;
+				$scope.search();
 				for (var i = 0; i < $scope.dropboxes.length; i++) {
 					if($scope.dropboxes[i].active==='y') {
 						$scope.dropboxes[i].activeTxt = "active";
 					}
 					else if($scope.dropboxes[i].active==='n') {
-						$scope.dropboxes[i].activeTxt = "Inactive";
+						$scope.dropboxes[i].activeTxt = "inactive";
 					}
 					$scope.dropboxes[i].copy2 = "http://www.optic-noise.com/download_dropbox.php?id="+$scope.dropboxes[i].dropbox_id;
 				}
+
 				$rootScope.setLoading(false);
 			}
 			else {
@@ -3853,6 +3965,72 @@ angular.module('onAdmin.controllers', [])
 			$rootScope.setLoading(false);
 			$scope.noty.add({type: 'Error', title:'Dropboxes data status: ' + status,body:'There was a problem.'});
 		});
+	};
+
+	$scope.search = function () {
+		$scope.filteredItems = $filter('filter')($scope.dropboxes, function (dropbox) {
+			for(var attr in dropbox) {
+				if (searchMatch(dropbox[attr], $scope.query))
+					return true;
+			}
+			return false;
+		});
+		$scope.currentPage = 0;
+		$scope.groupToPages();
+		$scope.totalFound = $scope.filteredItems.length;
+	};
+
+	var searchMatch = function (haystack, needle) {
+		if (!needle) {
+			return true;
+		}
+		return haystack.toString().toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+	};
+
+	$scope.perPage = function () {
+		$scope.groupToPages();
+	};
+
+	$scope.groupToPages = function () {
+		$scope.pagedItems = [];
+
+		for (var i = 0; i < $scope.filteredItems.length; i++) {
+			if (i % $scope.itemsPerPage === 0) {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
+			} else {
+				$scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+			}
+		}
+	};
+
+	$scope.range = function (start, end) {
+		var ret = [];
+		if (!end) {
+			end = start;
+			start = 0;
+		}
+		for (var i = start; i < end; i++) {
+			ret.push(i);
+		}
+		return ret;
+	};
+
+	$scope.prevPage = function () {
+		if ($scope.currentPage > 0) {
+			$scope.currentPage--;
+		}
+		return false;
+	};
+
+	$scope.nextPage = function () {
+		if ($scope.currentPage < $scope.pagedItems.length - 1) {
+			$scope.currentPage++;
+		}
+		return false;
+	};
+
+	$scope.setPage = function () {
+		$scope.currentPage = this.n;
 	};
 
 	$scope.refresh();
@@ -3914,14 +4092,16 @@ angular.module('onAdmin.controllers', [])
 		}
 	};
 
-}]).controller('addDropboxCtrl', ['$scope', '$rootScope', 'getMaxDropboxSort', 'addDropboxes', '$location',  function($scope, $rootScope, getMaxDropboxSort, addDropboxes, $location) {
+
+}]).controller('addDropboxCtrl', ['$scope', '$rootScope', 'getMaxDropboxSort', 'addDropboxes', '$location', 'asyncScript', '$timeout',  function($scope, $rootScope, getMaxDropboxSort, addDropboxes, $location, asyncScript, $timeout) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
 	$rootScope.showPlayer=false;
+	asyncScript.load('jasny',function(){});
 
-	getMaxDropboxSort.fetchMaxDropboxSort().success(function(data) {
-		$scope.max = data;
+	getMaxDropboxSort.fetchMaxDropboxSort().success(function(maxdata) {
+		$scope.max = maxdata;
 
 		$scope.master = {};
 		$scope.dropbox = {};
@@ -3934,10 +4114,117 @@ angular.module('onAdmin.controllers', [])
 
 			addDropboxes.addNewDropbox(dropbox).success(function(data) {
 				var id = data.id;
+
+				if($scope.dropbox_files){
+					if($scope.dropbox_files.length > 0){
+						var iBytesUploaded = 0;
+						var iBytesTotal = 0;
+						var iPreviousBytesLoaded = 0;
+						var iMaxFilesize = 100000000;
+						var oTimer = 0;
+						var sResultFileSize = '';
+
+						var oProgress = document.getElementById('progress');
+						oProgress.style.display = 'block';
+						oProgress.style.width = '0px';
+
+						function secondsToTime(secs) {
+					    var hr = Math.floor(secs / 3600);
+					    var min = Math.floor((secs - (hr * 3600))/60);
+					    var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
+
+					    if (hr < 10) {hr = "0" + hr; }
+					    if (min < 10) {min = "0" + min;}
+					    if (sec < 10) {sec = "0" + sec;}
+					    if (hr) {hr = "00";}
+					    return hr + ':' + min + ':' + sec;
+						};
+
+						function bytesToSize(bytes) {
+					    var sizes = ['Bytes', 'KB', 'MB'];
+					    if (bytes == 0) return 'n/a';
+					    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+					    return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
+						};
+
+						function uploadProgress(e) {
+							if (e.lengthComputable) {
+								iBytesUploaded = e.loaded;
+								iBytesTotal = e.total;
+								var iPercentComplete = Math.round(e.loaded * 100 / e.total);
+								var iBytesTransfered = bytesToSize(iBytesUploaded);
+
+								document.getElementById('progress_percent').innerHTML = iPercentComplete.toString() + '%';
+								document.getElementById('progress').style.width = (iPercentComplete * 4).toString() + 'px';
+								document.getElementById('b_transfered').innerHTML = iBytesTransfered;
+								if (iPercentComplete == 100) {
+									var oUploadResponse = document.getElementById('upload_response');
+									oUploadResponse.innerHTML = '<span>Please wait...processing</span>';
+									oUploadResponse.style.display = 'block';
+								}
+							} else {
+								document.getElementById('progress').innerHTML = 'unable to compute';
+							}
+						}
+
+						function uploadFinish(e) {
+							var oUploadResponse = document.getElementById('upload_response');
+							oUploadResponse.innerHTML = e.target.responseText;
+							oUploadResponse.style.display = 'block';
+
+							document.getElementById('progress_percent').innerHTML = '100%';
+							document.getElementById('progress').style.width = '100%';
+							document.getElementById('remaining').innerHTML = '00:00:00';
+
+							clearInterval(oTimer);
+
+							$timeout(function() {
+								$rootScope.setLoading(false);
+								$scope.refreshCounters();
+								$location.path("/edit-dropbox/"+id).replace();
+								$scope.reset();
+							}, 1000);
+						}
+
+						function uploadError(e) {
+							document.getElementById('error2').style.display = 'block';
+							clearInterval(oTimer);
+						}
+
+						function uploadAbort(e) {
+							document.getElementById('abort').style.display = 'block';
+							clearInterval(oTimer);
+						}
+
+						var vFD = new FormData(document.getElementById('AddDropboxForm'));
+						var oXHR = new XMLHttpRequest();
+						oXHR.upload.addEventListener('progress', uploadProgress, false);
+						oXHR.addEventListener('load', uploadFinish, false);
+						oXHR.addEventListener('error', uploadError, false);
+						oXHR.addEventListener('abort', uploadAbort, false);
+						oXHR.open('POST', 'api/update_dropbox_zip/'+id);
+						oXHR.send(vFD);
+					}
+					// else {
+					// 	$scope.dropbox.dropbox_file = '';
+					// 	$rootScope.setLoading(false);
+					// 	$scope.refreshCounters();
+					// 	$location.path("/edit-dropbox/"+id).replace();
+					// 	$scope.reset();
+					// }
+				}
+				// else {
+				// 	$scope.dropbox.dropbox_file = '';
+				// 	$rootScope.setLoading(false);
+				// 	$scope.refreshCounters();
+				// 	$location.path("/edit-dropbox/"+id).replace();
+				// 	$scope.reset();
+				// }
+
 				$scope.reset();
 				$rootScope.setLoading(false);
 				$scope.refreshCounters();
-				$location.path("/dropboxes").replace();
+				// $location.path("/dropboxes").replace();
 			});
 
 			$scope.reset = function() {
@@ -3950,11 +4237,12 @@ angular.module('onAdmin.controllers', [])
 	error(function(data, status, headers, config) {
 		$scope.noty.add({type: 'Error', title:'Max sort status: '  + status,body:status,body:'There was a problem.'});
 	});
-}]).controller('editDropboxCtrl', ['$scope', '$rootScope', '$location', '$filter', '$stateParams', 'getDropbox', 'updateDropbox', 'getDropboxLinks', 'deleteDropboxes', '$filter', 'updateDropboxActive', 'updateDropboxInActive', 'updateDropboxCount', function($scope, $rootScope, $location, $filter, $stateParams, getDropbox, updateDropbox, getDropboxLinks, deleteDropboxes, $filter, updateDropboxActive, updateDropboxInActive, updateDropboxCount) {
+}]).controller('editDropboxCtrl', ['$scope', '$rootScope', '$location', '$filter', '$stateParams', 'getDropbox', 'updateDropbox', 'getDropboxLinks', 'deleteDropboxes', 'removeDropboxFile', '$filter', 'updateDropboxActive', 'updateDropboxInActive', 'updateDropboxCount', 'asyncScript', '$timeout', function($scope, $rootScope, $location, $filter, $stateParams, getDropbox, updateDropbox, getDropboxLinks, deleteDropboxes, removeDropboxFile, $filter, updateDropboxActive, updateDropboxInActive, updateDropboxCount, asyncScript, $timeout) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
 	$rootScope.showPlayer=false;
+	asyncScript.load('jasny',function(){});
 	$rootScope.setLoading(true);
 
 	var id = $stateParams.id;
@@ -3968,14 +4256,16 @@ angular.module('onAdmin.controllers', [])
 					$scope.dropbox.dateAdded = $filter('timestampDateFormat')($scope.dropbox.date_added);
 					$scope.dropbox.lastDownload = $filter('timestampDateTimeFormat')($scope.dropbox.last_download);
 					$scope.dropbox.sort = parseInt($scope.dropbox.sort);
+					$scope.dropbox_files = '';
 					if($scope.dropbox.active==='y') {
 						$scope.dropbox.activeTxt = "active";
 					}
 					else if($scope.dropbox.active==='n') {
-						$scope.dropbox.activeTxt = "Inactive";
+						$scope.dropbox.activeTxt = "inactive";
 					}
 					$scope.dropbox.copy2 = "http://www.optic-noise.com/download_dropbox.php?id="+$scope.dropbox.dropbox_id;
 				}
+
 				getDropboxLinks.fetchDropboxNavLinks($scope.sorting).success(function(data) {
 					$scope.linksdata = data;
 					for (var i = 0; i < $scope.linksdata.length; i++) {
@@ -4010,10 +4300,105 @@ angular.module('onAdmin.controllers', [])
 	};
 
 	$scope.update = function(dropbox){
+
+		var iBytesUploaded = 0;
+		var iBytesTotal = 0;
+		var iPreviousBytesLoaded = 0;
+		var iMaxFilesize = 1048576;
+		var oTimer = 0;
+		var sResultFileSize = '';
+
+		var oProgress = document.getElementById('progress');
+		oProgress.style.display = 'block';
+		oProgress.style.width = '0px';
+
+		function secondsToTime(secs) {
+	    var hr = Math.floor(secs / 3600);
+	    var min = Math.floor((secs - (hr * 3600))/60);
+	    var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
+
+	    if (hr < 10) {hr = "0" + hr; }
+	    if (min < 10) {min = "0" + min;}
+	    if (sec < 10) {sec = "0" + sec;}
+	    if (hr) {hr = "00";}
+	    return hr + ':' + min + ':' + sec;
+		};
+
+		function bytesToSize(bytes) {
+	    var sizes = ['Bytes', 'KB', 'MB'];
+	    if (bytes == 0) return 'n/a';
+	    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+	    return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
+		};
+
+		function uploadProgress(e) {
+			if (e.lengthComputable) {
+				iBytesUploaded = e.loaded;
+				iBytesTotal = e.total;
+				var iPercentComplete = Math.round(e.loaded * 100 / e.total);
+				var iBytesTransfered = bytesToSize(iBytesUploaded);
+
+				document.getElementById('progress_percent').innerHTML = iPercentComplete.toString() + '%';
+				document.getElementById('progress').style.width = (iPercentComplete * 4).toString() + 'px';
+				document.getElementById('b_transfered').innerHTML = iBytesTransfered;
+				if (iPercentComplete == 100) {
+					var oUploadResponse = document.getElementById('upload_response');
+					oUploadResponse.innerHTML = '<span>Please wait...processing</span>';
+					oUploadResponse.style.display = 'block';
+				}
+			} else {
+				document.getElementById('progress').innerHTML = 'unable to compute';
+			}
+		}
+
+		function uploadFinish(e) {
+			var oUploadResponse = document.getElementById('upload_response');
+			oUploadResponse.innerHTML = e.target.responseText;
+			oUploadResponse.style.display = 'block';
+
+			document.getElementById('progress_percent').innerHTML = '100%';
+			document.getElementById('progress').style.width = '100%';
+			document.getElementById('remaining').innerHTML = '00:00:00';
+
+			clearInterval(oTimer);
+
+			$timeout(function() {
+				$scope.refresh();
+			}, 1000);
+		}
+
+		function uploadError(e) {
+			document.getElementById('error2').style.display = 'block';
+			clearInterval(oTimer);
+		}
+
+		function uploadAbort(e) {
+			document.getElementById('abort').style.display = 'block';
+			clearInterval(oTimer);
+		}
+
 		updateDropbox.putDropboxByID(id, dropbox).success(function(data) {
 			$scope.dropbox = data;
-			$scope.refresh();
-			$scope.refreshCounters();
+
+			if($scope.dropbox_files){
+				if($scope.dropbox_files.length > 0){
+					var vFD = new FormData(document.getElementById('EditDropboxForm'));
+					var oXHR = new XMLHttpRequest();
+					oXHR.upload.addEventListener('progress', uploadProgress, false);
+					oXHR.addEventListener('load', uploadFinish, false);
+					oXHR.addEventListener('error', uploadError, false);
+					oXHR.addEventListener('abort', uploadAbort, false);
+					oXHR.open('POST', 'api/update_dropbox_zip/'+id);
+					oXHR.send(vFD);
+				}
+				else {
+					$scope.dropbox_file = '';
+				}
+			}
+			else {
+				$scope.refresh();
+				$scope.refreshCounters();
+			}
 			$scope.noty.add({title:'Dropbox data',body:'Dropbox has been updated.'});
 		}).
 		error(function(data, status, headers, config) {
@@ -4036,6 +4421,14 @@ angular.module('onAdmin.controllers', [])
 			deleteDropboxes.deleteDropboxByID(dropbox.dropbox_id);
 			$scope.refreshCounters();
 			$location.path("/dropboxes");
+		}
+	};
+
+	$scope.deleteFile = function(dropbox) {
+		var deleteZip = confirm('Are you absolutely sure you want to delete the zip file for ' + dropbox.dropbox_name + '?');
+		if (deleteZip) {
+			removeDropboxFile.removeDropboxFileByID(dropbox.dropbox_id);
+			$scope.refresh();
 		}
 	};
 

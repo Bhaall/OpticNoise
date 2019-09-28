@@ -49,18 +49,18 @@
 											<table class="table table-condensed table-striped table-hover pull-down">
 												<thead>
 													<tr>
-														<th>name</th>
-														<th>media</th>
-														<th>description</th>
+														<th><i class="fas fa-tag fa-fw text-green" aria-hidden="true"></i>  name</th>
+														<th><i class="fas fa-bullhorn text-green" aria-hidden="true"></i> media</th>
+														<th><i class="fas fa-comment-dots fa-fw text-green" aria-hidden="true"></i> description</th>
 														<th class="center">sort</th>
 														<th></th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr ng-repeat="item in data">
-														<td class="col-xs-2"><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}"><i class="fas fa-video fa-fw text-green" aria-hidden="true"></i> <span ng-bind-html="renderItemText(item.itemHeader)"></span></a></td>
-														<td class="col-lg-1 col-sm-2 col-xs-2"><span ng-bind-html="renderItemText(item.media)"></span></td>
-														<td class="col-lg-7 col-sm-6 col-xs-6"><i class="fas fa-paragraph fa-fw text-green" aria-hidden="true"></i> <span ng-bind-html="renderItemText(item.itemText)"></span></td>
+														<td class="col-xs-2"><a href="#/edit-sah-item/{{id}}/item/{{item.itemID}}"><span ng-bind-html="renderItemText(item.itemHeader)"></span></a></td>
+														<td class="col-lg-1 col-sm-2 col-xs-2">{{item.itemMedia}}</td>
+														<td class="col-lg-7 col-sm-6 col-xs-6"> <span ng-bind-html="renderItemText(item.itemText)"></span></td>
 														<td class="center col-xs-1"><input type="text" touchspin name="itemOrderTbl" id="itemOrderTbl" class="form-control" ng-model="item.itemOrder" /></td>
 														<td class="col-xs-1">
 															<div class="tools btn-group">

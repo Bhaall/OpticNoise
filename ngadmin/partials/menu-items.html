@@ -1,7 +1,7 @@
 	<li data-ng-class="{active: isActive('/')}"><a href="#/"><i class="fas fa-home menu-icon fa-fw" aria-hidden="true"></i> <span >Dashboard</span></a></li>
 	<li data-ng-class="{active: isActive('/users')}"><a href="#/users"><i class="fas fa-street-view menu-icon fa-fw" aria-hidden="true"></i> <span>Users &nbsp;&nbsp;<span class="label label-info">{{users.length}}</span> </a></li>
 	<li data-ng-class="{active: isActive('/artists')}">
-		<a href="#/artists" ng-init="collapseArtist=true" ng-click="collapseArtist=!collapseArtist"><i class="fas fa-star menu-icon fa-fw" aria-hidden="true"></i> <span>Artists &nbsp;&nbsp;<span class="label label-aqua">{{allArtistsTotal}}</span> <i class="text-muted pull-right fas fa-plus-square-o fa-fw" aria-hidden="true"></i></span></a>
+		<a href="#/artists" ng-init="collapseArtist=true" ng-click="collapseArtist=!collapseArtist"><i class="fas fa-star menu-icon fa-fw" aria-hidden="true"></i> <span>Artists &nbsp;&nbsp;<span class="label label-aqua">{{allArtistsTotal}}</span> <i class="text-muted pull-right far fa-plus-square fa-fw" aria-hidden="true"></i></span></a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseArtist}" id="artistMenu">
 			<li data-ng-class="{active: isActive('/add-artist')}"><a href="#/add-artist">New Artist</a></li>
 			<li data-ng-class="{active: isActive('/artists-no-songs')}"><a href="#/artists-no-songs">w/o Songs &nbsp;&nbsp;<span class="label label-aqua">{{artistNoSongsTotal}}</span></a></li>
@@ -15,7 +15,7 @@
 		</ul>
 	</li>
 	<li data-ng-class="{active: isActive('/songs')}">
-		<a href="#/songs" ng-init="collapseSongs=true" ng-click="collapseSongs=!collapseSongs"><i class="fas fa-music menu-icon fa-fw" aria-hidden="true"></i> <span>Songs &nbsp;&nbsp;<span class="label label-orange">{{allSongsTotal}}</span><i class="text-muted pull-right fas fa-plus-square-o fa-fw" aria-hidden="true"></i></span> </a>
+		<a href="#/songs" ng-init="collapseSongs=true" ng-click="collapseSongs=!collapseSongs"><i class="fas fa-music menu-icon fa-fw" aria-hidden="true"></i> <span>Songs &nbsp;&nbsp;<span class="label label-orange">{{allSongsTotal}}</span><i class="text-muted pull-right far fa-plus-square fa-fw" aria-hidden="true"></i></span> </a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseSongs}" id="aongsMenu">
 			<li data-ng-class="{active: isActive('/add-song')}"><a href="#/add-song">New Song</a></li>
 			<li data-ng-class="{active: isActive('/songs-no-file')}"><a href="#/songs-no-file">w/o MP3s &nbsp;&nbsp;<span class="label label-orange">{{songsNoFileTotal}}</span></a></li>
@@ -30,7 +30,7 @@
 		</ul>
 	</li>
 	<li data-ng-class="{active: isActive('/comps')}">
-		<a href="#/comps" ng-init="collapseComps=true" ng-click="collapseComps=!collapseComps"><i class="fas fa-gift menu-icon fa-fw" aria-hidden="true"></i> <span>Comps &nbsp;&nbsp;<span class="label label-purple">{{allCompsTotal}}</span> <i class="text-muted pull-right fas fa-plus-square-o fa-fw" aria-hidden="true"></i></span></a>
+		<a href="#/comps" ng-init="collapseComps=true" ng-click="collapseComps=!collapseComps"><i class="fas fa-gift menu-icon fa-fw" aria-hidden="true"></i> <span>Comps &nbsp;&nbsp;<span class="label label-purple">{{allCompsTotal}}</span> <i class="text-muted pull-right far fa-plus-square fa-fw" aria-hidden="true"></i></span></a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseComps}" id="compsMenu">
 			<li data-ng-class="{active: isActive('/add-comp')}"><a href="#/add-comp">New Comp</a></li>
 			<li><a href="javascript:;" ng-init="collapseCompList=true" ng-click="collapseCompList=!collapseCompList">Comp List <i class="fas fa-caret-down fa-fw" aria-hidden="true"></i></a>
@@ -43,7 +43,7 @@
 		</ul>
 	</li>
 	<li data-ng-class="{active: isActive('/dropboxes')}">
-		<a href="#/dropboxes" ng-init="collapseDropboxes=true" ng-click="collapseDropboxes=!collapseDropboxes"><i class="fab fa-dropbox menu-icon fa-fw" aria-hidden="true"></i> <span>Dropboxes &nbsp;&nbsp;<span class="label label-light-blue">{{allDropboxesTotal}}</span> <i class="text-muted pull-right fas fa-plus-square-o"></i></span></a>
+		<a href="#/dropboxes" ng-init="collapseDropboxes=true" ng-click="collapseDropboxes=!collapseDropboxes"><i class="fab fa-dropbox menu-icon fa-fw" aria-hidden="true"></i> <span>Dropboxes &nbsp;&nbsp;<span class="label label-light-blue">{{allDropboxesTotal}}</span> <i class="text-muted pull-right far fa-plus-square"></i></span></a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseDropboxes}" id="dropboxesMenu">
 			<li data-ng-class="{active: isActive('/add-dropbox')}"><a href="#/add-dropbox">New Dropbox</a></li>
 			<li><a href="javascript:;" ng-init="collapseDropboxList=true" ng-click="collapseDropboxList=!collapseDropboxList">Dropbox List <i class="fas fa-caret-down fa-fw" aria-hidden="true"></i></a>
@@ -59,7 +59,7 @@
 		<a href="#/sah"><i class="fas fa-video menu-icon fa-fw" aria-hidden="true"></i> <span>Scene &amp; Heard &nbsp;&nbsp;<span class="label label-green">{{sahItemTotal}}</span></span></a>
 	</li>
 	<li data-ng-class="{active: isActive('/fon')}">
-		<a href="#/fon" ng-init="collapseFon=true" ng-click="collapseFon=!collapseFon"><i class="fas fa-book menu-icon fa-fw" aria-hidden="true"></i> <span>New Signings &nbsp;&nbsp;<span class="label label-yellow">{{allFon}}</span> <i class="text-muted pull-right fas fa-plus-square-o"></i></span></a>
+		<a href="#/fon" ng-init="collapseFon=true" ng-click="collapseFon=!collapseFon"><i class="fas fa-book menu-icon fa-fw" aria-hidden="true"></i> <span>New Signings &nbsp;&nbsp;<span class="label label-yellow">{{allFon}}</span> <i class="text-muted pull-right far fa-plus-square"></i></span></a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseFon}" id="fonMenu">
 			<li><a href="javascript:;" ng-init="collapseFonList=true" ng-click="collapseFonList=!collapseFonList">New Signings List <i class="fas fa-caret-down fa-fw" aria-hidden="true"></i></a>
 				<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseFonList}" id="FonListMenu">
@@ -71,7 +71,7 @@
 		</ul>
 	</li>
 	<li data-ng-class="{active: isActive('/slider')}">
-		<a href="#/slider" ng-init="collapseSlider=true" ng-click="collapseSlider=!collapseSlider"><i class="fas fa-heart menu-icon fa-fw" aria-hidden="true"></i> <span>Featured Artists &nbsp;&nbsp;<span class="label label-danger">{{AllFeaturedTotal}}</span> <i class="text-muted pull-right fas fa-plus-square-o"></i></span></a>
+		<a href="#/slider" ng-init="collapseSlider=true" ng-click="collapseSlider=!collapseSlider"><i class="fas fa-heart menu-icon fa-fw" aria-hidden="true"></i> <span>Featured Artists &nbsp;&nbsp;<span class="label label-danger">{{AllFeaturedTotal}}</span> <i class="text-muted pull-right far fa-plus-square"></i></span></a>
 		<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseSlider}" id="sliderMenu">
 			<li><a href="javascript:;" ng-init="collapseSliderList=true" ng-click="collapseSliderList=!collapseSliderList">Featured List <i class="fas fa-caret-down fa-fw" aria-hidden="true"></i></a>
 				<ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseSliderList}" id="SliderListMenu">

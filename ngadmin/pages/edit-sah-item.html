@@ -85,7 +85,7 @@
 														<label for="itemText">description</label>
 														<div class="input-icon" ng-class="{true: 'error'}[EditSAHItemForm.submitted && EditSAHItemForm.itemText.$invalid]">
 															<i class="fas fa-paragraph fa-fw" aria-hidden="true"></i>
-															<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." ng-required="true" ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear']]"></text-angular>
+															<text-angular ng-model="item.itemText" name="itemText" placeholder="something pithy goes here..." ng-required="true" ta-default-wrap="span" ta-toolbar="[['bold','italics','underline','colorRed'],['ul','ol'],['undo','redo','clear'],['html']]"></text-angular>
 														</div>
 														<div ng-show="EditSAHItemForm.itemText.$valid">
 															<span ng-show="EditSAHItemForm.itemText.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>

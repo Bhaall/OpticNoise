@@ -8,7 +8,7 @@ $q1 = "select * from dropbox where dropbox_id = '$_GET[id]' ";
 $r1 = mysqli_query($connection, $q1) or die(mysqli_error());
 $a1 = mysqli_fetch_array($r1);
 
-$file = $a1[dropbox_file];
+$file = $a1['dropbox_file'];
 $pst = new DateTimeZone('America/Los_Angeles');
 $date = new DateTime("NOW", $pst);
 

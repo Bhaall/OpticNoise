@@ -6,7 +6,13 @@
 					<div class="ona-portlet ona-portlet--height-fluid ona-portlet--head-lg ona--portlet__purple">
 						<div class="ona-portlet__head ona-portlet__head--noborder ona-portlet__space-x ona-ribbon ona-ribbon--ver ona-ribbon--shadow ona-ribbon--round">
 							<div class="ona-ribbon__target">
-								{{allCompsTotal}}
+								{{totalFound}}
+							</div>
+							<div id="search">
+								<div class="input-icon">
+									<i class="fas fa-search fa-fw" aria-hidden="true"></i>
+									<input class="form-control input-filter" type="text" ng-model="query" ng-change="search()">
+								</div>
 							</div>
 							<div class="ona-portlet__head-label">
 								<h3 class="ona-portlet__head-title">
@@ -24,9 +30,14 @@
 							</div>
 						</div>
 						<div class="ona-portlet__body ona-portlet__body--fit">
-
 							<div class="ona-widget">
 								<div class="ona-widget__visual ona-widget__purple">
+									<div class="top-pager v-center">
+										<ul class="nav-btns">
+											<a ng-class="{disabled: currentPage == 0}" class="btn btn-xs btn-clean" href="javascript:;" ng-click="prevPage()"><i class="fas fa-arrow-circle-left fa-fw" aria-hidden="true"></i></a>
+											<a ng-class="{disabled: currentPage == pagedItems.length - 1}" class="btn btn-xs btn-clean" href="javascript:;" ng-click="nextPage()"><i class="fas fa-arrow-circle-right fa-fw" aria-hidden="true"></i></a>
+										</ul>
+									</div>
 								</div>
 								<div class="ona-widget__stats">
 									<div class="col-xs-12" ng-show="!comps.length">
@@ -50,7 +61,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" ng-repeat="comp in comps">
+									<div class="col-lg-4 col-md-12 col-sm-6 col-xs-12 fade-in" ng-repeat="comp in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
 										<div class="ona-widget__items">
 											<div class="ona-widget__item">
 												<span class="ona-widget__icon">
@@ -112,7 +123,7 @@
 																<li class="list-group-item"><i class="fas fa-link fa-fw text-orange" aria-hidden="true"></i> Page Link<span class="pull-right"><a href="http://www.optic-noise.com/comp.php?id={{comp.comp_id}}" target="_blank" rel="noopener">{{comp.comp_name}}</a></span></li>
 																<li class="list-group-item"><i class="fas fa-download fa-fw text-green" aria-hidden="true"></i> Downloads <span class="pull-right pad-left-5"><a class="btn btn-warning btn-xs" href="" ng-click="resetCount(comp)"><i class="fas fa-times fa-fw" aria-hidden="true"></i></a></span><span class="badge bg-blue margin-top-2">{{comp.count}}</span></li>
 																<li class="list-group-item"><i class="far fa-calendar-check fa-fw text-pink" aria-hidden="true"></i> Last Download <span class="pull-right">{{comp.last_download | timestampDateTimeFormat}}</span></li>
-																<li class="list-group-item"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> Number of Songs <span class="pull-right">{{comp.playlistTotal}}</span></li>
+																<li class="list-group-item"><i class="fas fa-music fa-fw text-orange" aria-hidden="true"></i> Number of Songs <span class="pull-right label label-orange">{{comp.playlistTotal}}</span></li>
 																<li class="list-group-item"><i class="far fa-calendar-plus fa-fw text-light-blue" aria-hidden="true"></i> Added <span class="pull-right">{{comp.date_added | timestampDateFormat}}</span></li>
 																<li class="list-group-item"><i class="fas fa-images fa-fw text-yellow" aria-hidden="true"></i> Carousel <span class="label pull-right" ng-class="{'label-warning': comp.comp_flag=='n','label-success': comp.comp_flag=='y'}">{{comp.statusTxt}}</span> <i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-images fa-fw text-yellow' aria-hidden='true'></i> Comps In Carousel are displayed on the Home page."></i></li>
 																<li class="list-group-item"><i class="fas fa-thermometer-three-quarters fa-fw text-green-meadow" aria-hidden="true"></i> Status <span class="label pull-right" ng-class="{'label-warning': comp.active=='n','label-success': comp.active=='y'}">{{comp.activeTxt}}</span><i class="fas fa-info-circle fa-fw text-green" aria-hidden="true" popover-placement="right" popover-trigger="mouseenter" popover="<i class='fas fa-thermometer-three-quarters fa-fw text-green-meadow' aria-hidden='true'></i> Only Active Comps are displayed on the Comps page."></i></li>
@@ -136,6 +147,19 @@
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="text-center margin-top-10">
+							<ul class="pagination">
+								<li ng-class="{disabled: currentPage == 0}">
+									<a class="" href="javascript:;" ng-click="prevPage()">&#171;</a>
+								</li>
+								<li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()">
+									<a href ng-bind="n + 1">1</a>
+								</li>
+								<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+									<a class="" href="javascript:;" ng-click="nextPage()">&#187;</a>
+								</li>
+							</ul>
 						</div>
 						<div class="ona-portlet__foot">
 							<div class="ona-form__actions">

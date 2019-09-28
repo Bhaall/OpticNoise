@@ -100,7 +100,7 @@ $q1 = "select * from songs where song_id = '$_GET[id]' ";
 $r1 = mysqli_query($connection, $q1) or die(mysqli_error());
 $a1 = mysqli_fetch_array($r1);
 
-$fname = $a1[song_file];
+$fname = $a1['song_file'];
 $pst = new DateTimeZone('America/Los_Angeles');
 $date = new DateTime("NOW", $pst);
 
