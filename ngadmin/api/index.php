@@ -50,6 +50,7 @@ $app->get('/artists_nosongs_count', 'getArtistsNoSongsCount');
 $app->get('/artists/:id', 'getArtist');
 $app->get('/max_homesortorder', 'getMaxHomeSortOrder');
 $app->get('/artist_songs/:id', 'getArtistSongs');
+$app->get('/unique_artist/:name', 'getUniqueArtist');
 $app->get('/artists_select', 'getArtistsForSelector');
 $app->post('/add_artist', 'addArtist');
 $app->put('/artists/:id', 'updateArtist');
@@ -63,6 +64,9 @@ $app->post('/update_slider/:id', 'updateSliderPic');
 $app->get('/comp_info_artist/:id', 'getCompByArtist');
 $app->get('/artist_links/:name', function ($name) {
   getArtistLinks($name);
+});
+$app->get('/artist_playlist/:compID/:ArtistID', function ($compID, $ArtistID) {
+  getArtistPlaylist($compID, $ArtistID);
 });
 
 // SONGS
@@ -85,6 +89,9 @@ $app->delete('/songs/:id', 'deleteSong');
 $app->get('/comp_info_song/:id', 'getCompBySong');
 $app->get('/song_links/:id/:name', function ($id, $name) {
   getSongLinks($id, $name);
+});
+$app->get('/unique_song/:name/:artistID', function ($name, $artistID) {
+  getUniqueSong($name, $artistID);
 });
 
 // NEW SIGNINGS
@@ -654,6 +661,24 @@ function getArtistSongs($id) {
 	}
 }
 
+function getUniqueArtist($name) {
+  $uText = '';
+  try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from indies where INartistName='$name'");
+		$sql->execute();
+		$num_artists = $sql->fetchColumn();
+		$db = null;
+    $uText = 'true';
+    if($num_artists > 0){
+      $uText = 'false';
+    }
+    echo $uText;
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
 function getArtistsForSelector() {
 	$sql = "select INartistName as INartistName, marker as marker, INartistID as artist_id from indies order by INartistName";
 	try {
@@ -980,6 +1005,25 @@ function getArtistLinks($name) {
 		$links = $stmt->fetchAll(PDO::FETCH_OBJ);
 		$db = null;
 		echo json_encode($links);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getArtistPlaylist($compID, $ArtistID) {
+	$sql = "select a.*,b.*,c.*
+		from comp_items a
+				join songs b
+					on a.songID = b.song_id
+				left join indies c
+					on b.artistID = c.INartistID
+		where	a.compID=".$compID." and b.song_file!='' and c.INartistID=".$ArtistID." order by a.item_sort";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$db = null;
+		echo json_encode($items);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
@@ -1335,6 +1379,24 @@ function getSongLinks($id, $name) {
 		$links = $stmt->fetchAll(PDO::FETCH_OBJ);
 		$db = null;
 		echo json_encode($links);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getUniqueSong($name, $artistID) {
+  $uText = '';
+  try {
+		$db = getConnection();
+		$sql = $db->prepare("select count(*) from songs where song_title='$name' and artistID='$artistID'");
+		$sql->execute();
+		$num_songs = $sql->fetchColumn();
+		$db = null;
+    $uText = 'true';
+    if($num_songs > 0){
+      $uText = 'false';
+    }
+    echo $uText;
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
@@ -2693,7 +2755,6 @@ function getDropboxLinks($sort) {
 function getConnection() {
 	if($_SESSION['username']=='opticl') {
 		$dbname="on_production";
-
 	}
 	elseif($_SESSION['username']=='tester') {
 		$dbname="on_prod";

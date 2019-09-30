@@ -23,7 +23,7 @@ else{
 			print "<li class=\"article first ui-dropbox\">\n";
 			print "<a href=\"download_dropbox.php?id=$row[dropbox_id]\">\n";
 			print "<h2>$row[dropbox_name]</h2>\n";
-			print "<p>Date added: $date_added</p>\n";
+			print "<p>Date of publication: $date_added</p>\n";
 			print "</a>\n";
 			print "</li>\n";
 			$count++;
@@ -33,7 +33,7 @@ else{
 			print "<li class=\"article ui-dropbox\">\n";
 			print "<a href=\"download_dropbox.php?id=$row[dropbox_id]\">\n";
 			print "<h2>$row[dropbox_name]</h2>\n";
-			print "<p>Date added: $date_added</p>\n";
+			print "<p>Date of publication: $date_added</p>\n";
 			print "</a>\n";
 			print "</li>\n";
 

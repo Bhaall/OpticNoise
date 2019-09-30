@@ -1318,7 +1318,7 @@ angular.module('onAdmin.controllers', [])
 		return $sce.trustAsHtml(html);
 	};
 }])
-.controller('addArtistCtrl', ['$scope', '$rootScope', 'addArtists', '$location', 'getMaxHomeSort', 'asyncScript',  function($scope, $rootScope, addArtists, $location, getMaxHomeSort, asyncScript) {
+.controller('addArtistCtrl', ['$scope', '$rootScope', 'uniqueArtistName', 'addArtists', '$location', 'getMaxHomeSort', 'asyncScript',  function($scope, $rootScope, uniqueArtistName, addArtists, $location, getMaxHomeSort, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -1332,6 +1332,19 @@ angular.module('onAdmin.controllers', [])
 
 	asyncScript.load('jasny',function(){
 	});
+
+	$scope.checkArtistname = function(){
+		$scope.name = $scope.artist.INartistName;
+		uniqueArtistName.fetchUniqueArtistName($scope.name).success(function(data) {
+		  $scope.uniqueArtist = data;
+			if ($scope.uniqueArtist === 'false') {
+				$scope.AddArtistForm.INartistName.$setValidity("unique", false);
+			}
+			else {
+				$scope.AddArtistForm.INartistName.$setValidity("unique", true);
+			}
+		});
+	}
 
 	$scope.master = {};
 	$scope.artist = {};
@@ -1393,7 +1406,7 @@ angular.module('onAdmin.controllers', [])
 		$scope.reset();
 	};
 }])
-.controller('editArtistFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getArtistSongs', 'getComp', 'updateArtist', 'getMaxHomeSort', 'deleteArtists', 'deleteSongs', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getArtistSongs, getComp, updateArtist, getMaxHomeSort, deleteArtists, deleteSongs, getCompInfoArtist, $filter, $sce, asyncScript) {
+.controller('editArtistFromCompCtrl', ['$scope', '$rootScope', 'noty', '$location', '$stateParams', 'getArtist', 'getComp', 'getArtistsPlaylist', 'updateArtist', 'getMaxHomeSort', 'deleteArtists', 'deleteSongs', 'getCompInfoArtist', '$filter', '$sce', 'asyncScript', function($scope, $rootScope, noty, $location, $stateParams, getArtist, getComp, getArtistsPlaylist, updateArtist, getMaxHomeSort, deleteArtists, deleteSongs, getCompInfoArtist, $filter, $sce, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -1477,24 +1490,24 @@ angular.module('onAdmin.controllers', [])
 			$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
 		});
 
-		getArtistSongs.fetchSongsByArtist(id).success(function(data) {
+		getArtistsPlaylist.fetchArtistPlaylist($scope.comp_id, id).success(function(data) {
 			if(data){
-				$scope.songs = data;
-				$scope.songCount = $scope.songs.length;
-				for (var i = 0; i < $scope.songs.length; i++) {
-					if($scope.songs[i].roster_flag==='y') {
-						$scope.songs[i].rosterClass = "label-success";
-						$scope.songs[i].rosterTxt = "yes";
+			  $scope.playlist = data;
+			  $scope.playlistTotal = data.length;
+				for (var i = 0; i < $scope.playlist.length; i++) {
+					if($scope.playlist[i].roster_flag==='y') {
+						$scope.playlist[i].rosterClass = "label-success";
+						$scope.playlist[i].rosterTxt = "yes";
 					}
-					else if($scope.songs[i].roster_flag==='n') {
-						$scope.songs[i].rosterClass = "label-warning";
-						$scope.songs[i].rosterTxt = "no";
+					else if($scope.playlist[i].roster_flag==='n') {
+						$scope.playlist[i].rosterClass = "label-warning";
+						$scope.playlist[i].rosterTxt = "no";
 					}
 				}
 			}
 		}).
 		error(function(data, status, headers, config) {
-			$scope.noty.add({type: 'Error', title:'Song data status: '  + status,body:status,body:'There was a problem.'});
+			$scope.noty.add({type: 'Error', title:'Artist Playlist status: '  + status,body:status,body:'There was a problem.'});
 		});
 
 		getCompInfoArtist.fetchCompByArtist(id).success(function(data) {
@@ -1805,7 +1818,7 @@ angular.module('onAdmin.controllers', [])
 	$scope.refresh();
 
 }])
-.controller('addSongCtrl', ['$scope', '$rootScope', 'addSongs', 'getArtistsForSelector', '$location', 'asyncScript', '$timeout',  function($scope, $rootScope, addSongs, getArtistsForSelector, $location, asyncScript, $timeout) {
+.controller('addSongCtrl', ['$scope', '$rootScope', 'addSongs', 'getArtistsForSelector', 'uniqueSongName', '$location', 'asyncScript', '$timeout',  function($scope, $rootScope, addSongs, getArtistsForSelector, uniqueSongName, $location, asyncScript, $timeout) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -1823,6 +1836,20 @@ angular.module('onAdmin.controllers', [])
 		}
 		$scope.artists = data;
 	});
+
+	$scope.checkSongName = function(){
+	  $scope.name = $scope.song.song_title;
+		$scope.artistid = $scope.song.artistID;
+	  uniqueSongName.fetchUniqueSongName($scope.name, $scope.artistid).success(function(data) {
+	    $scope.uniqueSong = data;
+	    if ($scope.uniqueSong === 'false') {
+	      $scope.AddSongForm.song_title.$setValidity("unique", false);
+	    }
+	    else {
+	      $scope.AddSongForm.song_title.$setValidity("unique", true);
+	    }
+	  });
+	}
 
 	$scope.master = {};
 	$scope.song = {};
@@ -1952,7 +1979,7 @@ angular.module('onAdmin.controllers', [])
 		//$scope.reset();
 	};
 }])
-.controller('addSongToArtist', ['$scope', '$rootScope', '$location', '$stateParams', 'getArtist', 'addSongs', '$timeout', 'asyncScript', function($scope, $rootScope, $location, $stateParams, getArtist, addSongs, $timeout, asyncScript) {
+.controller('addSongToArtist', ['$scope', '$rootScope', '$location', '$stateParams', 'getArtist', 'addSongs', 'uniqueSongName', '$timeout', 'asyncScript', function($scope, $rootScope, $location, $stateParams, getArtist, addSongs, uniqueSongName, $timeout, asyncScript) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -1990,6 +2017,19 @@ angular.module('onAdmin.controllers', [])
 			$scope.noty.add({type: 'Error', title:'Artist data status: ' + status,body:'There was a problem.'});
 		});
 	};
+
+	$scope.checkSongName = function(){
+	  $scope.name = $scope.song.song_title;
+	  uniqueSongName.fetchUniqueSongName($scope.name, $scope.artistid).success(function(data) {
+	    $scope.uniqueSong = data;
+	    if ($scope.uniqueSong === 'false') {
+	      $scope.AddSongToArtistForm.song_title.$setValidity("unique", false);
+	    }
+	    else {
+	      $scope.AddSongToArtistForm.song_title.$setValidity("unique", true);
+	    }
+	  });
+	}
 
 	$scope.refresh();
 
@@ -3434,11 +3474,12 @@ angular.module('onAdmin.controllers', [])
 		});
 	};
 
-}]).controller('addSongToCompCtrl', ['$scope', '$rootScope', '$filter', '$stateParams', '$location', '$timeout', 'asyncScript', 'getArtistsForSelector', 'getComp', 'getMaxCompPlaylistSort', 'addSongsToComp', function($scope, $rootScope, $filter, $stateParams, $location, $timeout, asyncScript, getArtistsForSelector, getComp, getMaxCompPlaylistSort, addSongsToComp) {
+}]).controller('addSongToCompCtrl', ['$scope', '$rootScope', '$filter', '$stateParams', '$location', '$timeout', 'asyncScript', 'getArtistsForSelector', 'getComp', 'uniqueSongName', 'getMaxCompPlaylistSort', 'addSongsToComp', function($scope, $rootScope, $filter, $stateParams, $location, $timeout, asyncScript, getArtistsForSelector, getComp, uniqueSongName, getMaxCompPlaylistSort, addSongsToComp) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
 	$rootScope.showPlayer=true;
+	$rootScope.setLoading(true);
 	var comp_id = $stateParams.comp_id;
 	$scope.comp_id = $stateParams.comp_id;
 
@@ -3456,7 +3497,19 @@ angular.module('onAdmin.controllers', [])
 		$scope.artists = data;
 	});
 
-	$rootScope.setLoading(true);
+	$scope.checkSongName = function(){
+	  $scope.name = $scope.song.song_title;
+		$scope.artistid = $scope.song.artistID;
+	  uniqueSongName.fetchUniqueSongName($scope.name, $scope.artistid).success(function(data) {
+	    $scope.uniqueSong = data;
+	    if ($scope.uniqueSong === 'false') {
+	      $scope.AddSongToCompForm.song_title.$setValidity("unique", false);
+	    }
+	    else {
+	      $scope.AddSongToCompForm.song_title.$setValidity("unique", true);
+	    }
+	  });
+	}
 
 	$scope.refresh = function() {
 		getComp.fetchCompByID(comp_id).success(function(data) {
@@ -3616,7 +3669,7 @@ angular.module('onAdmin.controllers', [])
 		};
 	};
 
-}]).controller('addArtistToCompCtrl', ['$scope', '$rootScope', '$filter', '$stateParams', '$location', '$timeout', 'getComp', 'addArtistsToComp', function($scope, $rootScope, $filter, $stateParams, $location, $timeout, getComp, addArtistsToComp) {
+}]).controller('addArtistToCompCtrl', ['$scope', '$rootScope', '$http', '$filter', '$stateParams', '$location', '$timeout', 'uniqueArtistName', 'getComp', 'addArtistsToComp', function($scope, $rootScope, $http, $filter, $stateParams, $location, $timeout, uniqueArtistName, getComp, addArtistsToComp) {
 	$rootScope.setLoading = function(loading) {
 		$rootScope.isLoading = loading;
 	};
@@ -3625,6 +3678,19 @@ angular.module('onAdmin.controllers', [])
 	$scope.comp_id = $stateParams.comp_id;
 
 	$rootScope.setLoading(true);
+
+	$scope.checkArtistname = function(){
+	  $scope.name = $scope.artist.INartistName;
+	  uniqueArtistName.fetchUniqueArtistName($scope.name).success(function(data) {
+	    $scope.uniqueArtist = data;
+	    if ($scope.uniqueArtist === 'false') {
+	      $scope.AddArtistForm.INartistName.$setValidity("unique", false);
+	    }
+	    else {
+	      $scope.AddArtistForm.INartistName.$setValidity("unique", true);
+	    }
+	  });
+	}
 
 	$scope.refresh = function() {
 		getComp.fetchCompByID(comp_id).success(function(data) {

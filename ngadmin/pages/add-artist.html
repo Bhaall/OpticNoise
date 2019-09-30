@@ -52,7 +52,8 @@
 															<div class="col-lg-10 col-sm-9">
 																<div class="input-icon">
 																	<i class="fas fa-id-badge fa-fw" aria-hidden="true"></i>
-																	<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" required />
+																	<input class="form-control" name="INartistName" placeholder="artist name (required)" type="text" ng-model="artist.INartistName" ng-keyup="checkArtistname()" required />
+																	<h6 class="help-block" ng-show="AddArtistForm.INartistName.$error.unique"><i class="fas fa-info-circle fa-fw text-danger" aria-hidden="true"></i> Artist name already exists!</h6>
 																</div>
 																<div ng-show="AddArtistForm.INartistName.$valid">
 																	<span ng-show="AddArtistForm.INartistName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>

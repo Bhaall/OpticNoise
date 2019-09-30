@@ -135,6 +135,9 @@ factory('getArtist', ['$http', function($http) {
 factory('getArtistSongs', ['$http', function($http) {
 	return new getSongsByArtist($http);
 }]).
+factory('uniqueArtistName', ['$http', function($http) {
+	return new getUniqueArtistName($http);
+}]).
 factory('getArtistLinks', ['$http', function($http) {
 	return new getArtistNavLinks($http);
 }]).
@@ -155,6 +158,9 @@ factory('updateArtistInActive', ['$http', function($http) {
 }]).
 factory('addArtists', ['$http', function($http) {
 	return new addArtist($http);
+}]).
+factory('getArtistsPlaylist', ['$http', function($http) {
+	return new getArtistPlaylist($http);
 }]).
 factory('userRepo', ['$http', function($http) {
   return new userRepository($http);
@@ -233,6 +239,9 @@ factory('getSong', ['$http', function($http) {
 }]).
 factory('addSongs', ['$http', function($http) {
 	return new addSong($http);
+}]).
+factory('uniqueSongName', ['$http', function($http) {
+	return new getUniqueSongName($http);
 }]).
 factory('updateSong', ['$http', function($http) {
   return new updateSongByID($http);
@@ -840,6 +849,17 @@ window.getSongsByArtist = function($http) {
     });
 	};
 };
+window.getUniqueArtistName = function($http) {
+	this.$http = $http;
+	this.fetchUniqueArtistName = function(name) {
+		return this.$http.get('api/unique_artist/'+name)
+		.success(function(data) {
+			return data;
+		}).error(function(data, status) {
+      //alert('data error!');
+    });
+	};
+};
 window.getArtistNavLinks = function($http) {
 	this.$http = $http;
 	this.fetchArtistNavLinks = function(name) {
@@ -912,6 +932,16 @@ window.addArtist = function($http) {
 		}).error(function(data, status) {
       //alert('artist data error!');
     });
+	};
+};
+window.getArtistPlaylist = function($http) {
+	this.$http = $http;
+	this.fetchArtistPlaylist = function(compID, ArtistID) {
+    var url = 'api/artist_playlist/'+compID +'/'+ArtistID;
+		return this.$http.get(url)
+		.success(function(data) {
+			return data;
+		});
 	};
 };
 window.songsRepository = function($http) {
@@ -1004,6 +1034,17 @@ window.addSong = function($http) {
 			return data;
 		}).error(function(data, status) {
       //alert('song data error!');
+    });
+	};
+};
+window.getUniqueSongName = function($http) {
+	this.$http = $http;
+	this.fetchUniqueSongName = function(name, artistID) {
+		return this.$http.get('api/unique_song/'+name +'/'+artistID)
+		.success(function(data) {
+			return data;
+		}).error(function(data, status) {
+      //alert('data error!');
     });
 	};
 };

@@ -47,7 +47,8 @@
 																<label for="song_title">name</label>
 																<div class="input-icon">
 																	<i class="fas fa-tag fa-fw" aria-hidden="true"></i>
-																	<input class="form-control" name="song_title" placeholder="song name/title (required)" type="text" ng-model="song.song_title" required />
+																	<input class="form-control" name="song_title" placeholder="song name/title (required)" type="text" ng-model="song.song_title" ng-keyup="checkSongName()" required />
+																	<h6 class="help-block" ng-show="AddSongToArtistForm.song_title.$error.unique"><i class="fas fa-info-circle fa-fw text-danger" aria-hidden="true"></i> Song name already exists for this artist!</h6>
 																</div>
 																<div ng-show="AddSongToArtistForm.song_title.$valid">
 																	<span ng-show="AddSongToArtistForm.song_title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>

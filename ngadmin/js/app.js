@@ -202,7 +202,7 @@ angular.module('onAdmin', [
 		templateUrl : 'pages/add-song-to-artist.html',
 		controller  : 'addSongToArtist',
 		data : {
-			title: 'new song',
+			title: 'add song to artist',
 			breadcrumb  : [{label:"Home",link:"#/"},{label:"Artists","link":"#/artists"},{label:"Add song to artist"}]
 		}
 	})

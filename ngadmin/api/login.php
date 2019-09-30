@@ -15,7 +15,7 @@
 	$q1 = "select AdminID, email, username, firstname, lastname, portrait, sitename, site, db_alias, current_login from admin where username = '$MyUsername' and password = '$MyPassword' ";
 	$r1 = mysqli_query($connection, $q1);
 
-	if(mysqli_error()) {
+	if(mysqli_error($connection)) {
 		exit();
 	}
 	else {
